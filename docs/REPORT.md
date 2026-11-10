@@ -314,3 +314,22 @@ The longer runs are reproduced with the commands of [INDEX.md](INDEX.md). Expect
 A6 and A7 with engine A, minutes for the four-axis case with CaDiCaL and about half an hour with
 Glucose, and several hours of solver time for the 81 cubes (the paper gives about 6 hours summed over
 the cubes for Glucose and about 3 hours for CaDiCaL). The proof checks take additional time.
+
+## 8. Release and archiving
+
+Done on 10 November 2026 (times UTC), after the CI run 42808925275 (workflow `ci`) had passed on
+commit `06e4c13`. The full record, with every request and answer, is
+[results/release_archiving.json](../results/release_archiving.json).
+
+| step | outcome |
+|---|---|
+| repository | made public: https://github.com/0thernes/kochen-specker-extremal-lab |
+| release v1.0.0 | published 11:41:03, tag at commit `06e4c13`; assets `ks-minimum.pdf` (119 381 bytes, SHA-256 `8063949e478c41b9...f5ae967`) and `arxiv-source.zip` (17 802 bytes, SHA-256 `1e6d40ab2533ef8a...0d90907`), the files of `publication/ks-minimum/` at that commit |
+| GitHub Pages | built from `main`, folder `/docs`: https://0thernes.github.io/kochen-specker-extremal-lab/ ; all 19 files the site serves were fetched and are byte-identical to the repository's `docs/` |
+| Software Heritage | save request 2636249, visit 11:41:55, status full; snapshot `swh:1:snp:fdc362b2aca1a4a3c32cda671d8033bcaea0901f`, whose branches `main` and `v1.0.0` both point to `06e4c13` |
+| Internet Archive | captures 11:44:45 (site), 11:45:13 (`paper.html`), 11:45:39 (`ks-minimum.pdf`), 11:51:35 and 11:52:07 (the register and the paper source at the tag, as raw files from `raw.githubusercontent.com`); each capture was downloaded again and is byte-identical to the file at the tag. The save service answered HTTP 523 twice for the four github.com pages (repository, release, register and paper source); those pages have no capture, and the repository itself is preserved by Software Heritage |
+
+Not done by the release process, and left to the author: arXiv, Journal of Physics A and ORCID, and
+Zenodo only after its ruling (see `publication/README.md`); Google Scholar and OpenAIRE index on their
+own. The search of register section G (B(3, 5) with CaDiCaL) was still running when the release was
+made; the register reports it as not answered, and a later answer would be recorded in a new version.

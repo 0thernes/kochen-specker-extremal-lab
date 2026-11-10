@@ -1,5 +1,12 @@
 # Changelog
 
+## After 1.0.0 (not released)
+
+* The release and its archiving are recorded: `docs/REPORT.md`, section 8, and
+  `results/release_archiving.json` (CI run, release assets, GitHub Pages, Software Heritage snapshot,
+  Internet Archive captures, each compared byte for byte with the files at the tag v1.0.0);
+  `publication/README.md` says which venues are done. No result, proof or paper text changed.
+
 ## 1.0.0 (10 November 2026)
 
 First public release.

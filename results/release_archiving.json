@@ -1,0 +1,258 @@
+{
+ "date": "2026-11-10",
+ "ci_run": {
+  "conclusion": "success",
+  "databaseId": 42808925275,
+  "headSha": "06e4c131b4c8ebb64896bc24e02d4c3092836b2f",
+  "updatedAt": "2026-11-10T11:38:01Z",
+  "url": "https://github.com/0thernes/kochen-specker-extremal-lab/actions/runs/42808925275",
+  "workflowName": "ci"
+ },
+ "release": {
+  "tag": "v1.0.0",
+  "url": "https://github.com/0thernes/kochen-specker-extremal-lab/releases/tag/v1.0.0",
+  "published_at": "2026-11-10T11:41:03Z",
+  "commit": "06e4c131b4c8ebb64896bc24e02d4c3092836b2f",
+  "assets": [
+   {
+    "name": "arxiv-source.zip",
+    "size": 17802,
+    "digest": "sha256:1e6d40ab2533ef8a07a3b0c1655d3352e11ec1f15d17ae6e9049efbc30d90907"
+   },
+   {
+    "name": "ks-minimum.pdf",
+    "size": 119381,
+    "digest": "sha256:8063949e478c41b93913bfd9ff39b2d598c07ed7f0e539af300aa7375f5ae967"
+   }
+  ]
+ },
+ "pages": {
+  "url": "https://0thernes.github.io/kochen-specker-extremal-lab/",
+  "source": "main /docs",
+  "build_status": "built",
+  "build_commit": "06e4c131b4c8ebb64896bc24e02d4c3092836b2f",
+  "served_files_identical": 19,
+  "served_files_checked": 19,
+  "different_or_missing": []
+ },
+ "software_heritage": {
+  "first_request": {
+   "status": 200,
+   "origin_url": "https://github.com/0thernes/kochen-specker-extremal-lab",
+   "save_request_status": "accepted",
+   "save_task_status": "pending",
+   "request_date": null,
+   "id": 2636249
+  },
+  "requests_listed_later": [
+   {
+    "id": 2636249,
+    "save_request_status": "accepted",
+    "save_task_status": "succeeded",
+    "request_date": null,
+    "visit_date": "2026-11-10T11:41:55.183000+00:00",
+    "visit_status": "full",
+    "snapshot_swhid": "swh:1:snp:fdc362b2aca1a4a3c32cda671d8033bcaea0901f"
+   }
+  ]
+ },
+ "internet_archive": {
+  "first_requests": [
+   {
+    "url": "https://github.com/0thernes/kochen-specker-extremal-lab",
+    "status": 523,
+    "content_location": ""
+   },
+   {
+    "url": "https://github.com/0thernes/kochen-specker-extremal-lab/releases/tag/v1.0.0",
+    "status": 523,
+    "content_location": ""
+   },
+   {
+    "url": "https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/results/RESULTS.md",
+    "status": 523,
+    "content_location": ""
+   },
+   {
+    "url": "https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/paper/ks-minimum.md",
+    "status": 523,
+    "content_location": ""
+   },
+   {
+    "url": "https://0thernes.github.io/kochen-specker-extremal-lab/",
+    "status": 200,
+    "content_location": ""
+   },
+   {
+    "url": "https://0thernes.github.io/kochen-specker-extremal-lab/paper.html",
+    "status": 200,
+    "content_location": ""
+   },
+   {
+    "url": "https://0thernes.github.io/kochen-specker-extremal-lab/ks-minimum.pdf",
+    "status": 200,
+    "content_location": ""
+   }
+  ],
+  "retries": [
+   {
+    "url": "https://github.com/0thernes/kochen-specker-extremal-lab",
+    "status": 523,
+    "content_location": ""
+   },
+   {
+    "url": "https://github.com/0thernes/kochen-specker-extremal-lab/releases/tag/v1.0.0",
+    "status": 523,
+    "content_location": ""
+   },
+   {
+    "url": "https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/results/RESULTS.md",
+    "status": 523,
+    "content_location": ""
+   },
+   {
+    "url": "https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/paper/ks-minimum.md",
+    "status": 523,
+    "content_location": ""
+   }
+  ],
+  "captures_cdx": {
+   "https://github.com/0thernes/kochen-specker-extremal-lab": {
+    "status": 200,
+    "captures": []
+   },
+   "https://github.com/0thernes/kochen-specker-extremal-lab/releases/tag/v1.0.0": {
+    "status": 200,
+    "captures": []
+   },
+   "https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/results/RESULTS.md": {
+    "status": 200,
+    "captures": []
+   },
+   "https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/paper/ks-minimum.md": {
+    "status": 200,
+    "captures": []
+   },
+   "https://0thernes.github.io/kochen-specker-extremal-lab/": {
+    "status": 200,
+    "captures": [
+     [
+      "20261110114445",
+      "200",
+      "text/html",
+      "XGJVXUUM22QBDNJLGS77YZOYQAC6WYCU"
+     ]
+    ]
+   },
+   "https://0thernes.github.io/kochen-specker-extremal-lab/paper.html": {
+    "status": 200,
+    "captures": [
+     [
+      "20261110114513",
+      "200",
+      "text/html",
+      "XKDGHMLHYIQ5C6JJJDG4ALJSS224BMBR"
+     ]
+    ]
+   },
+   "https://0thernes.github.io/kochen-specker-extremal-lab/ks-minimum.pdf": {
+    "status": 200,
+    "captures": [
+     [
+      "20261110114539",
+      "200",
+      "application/pdf",
+      "2TQDLCROR2OCXDH6KLAIZJJQFNRUXIVO"
+     ]
+    ]
+   }
+  },
+  "raw_file_saves": [
+   {
+    "url": "https://raw.githubusercontent.com/0thernes/kochen-specker-extremal-lab/v1.0.0/results/RESULTS.md",
+    "save_status": 200,
+    "captures": [
+     [
+      "20261110115135",
+      "200",
+      "text/plain",
+      "TE6S4YGD2DSWDLHZZ3LUUCCJZQ5JQAWA"
+     ]
+    ]
+   },
+   {
+    "url": "https://raw.githubusercontent.com/0thernes/kochen-specker-extremal-lab/v1.0.0/paper/ks-minimum.md",
+    "save_status": 200,
+    "captures": [
+     [
+      "20261110115207",
+      "200",
+      "text/plain",
+      "YPBSFL2Y5KI6AIQAHROWLGFQKVRSIANV"
+     ]
+    ]
+   }
+  ]
+ },
+ "checks": {
+  "software_heritage_snapshot_branches": {
+   "snapshot": "swh:1:snp:fdc362b2aca1a4a3c32cda671d8033bcaea0901f",
+   "branches": {
+    "HEAD": "refs/heads/main",
+    "refs/heads/main": "06e4c131b4c8ebb64896bc24e02d4c3092836b2f",
+    "refs/tags/v1.0.0": "06e4c131b4c8ebb64896bc24e02d4c3092836b2f"
+   }
+  },
+  "internet_archive_pdf_digest_equals_sha1_of_docs_ks_minimum_pdf": {
+   "local_sha1_base32": "2TQDLCROR2OCXDH6KLAIZJJQFNRUXIVO",
+   "capture_digests": [
+    "2TQDLCROR2OCXDH6KLAIZJJQFNRUXIVO"
+   ],
+   "equal": true
+  },
+  "archived_copies_vs_repository": [
+   {
+    "capture": "20261110114445",
+    "url": "https://0thernes.github.io/kochen-specker-extremal-lab/",
+    "file_at_tag": "docs/index.html",
+    "sha256_archived": "3ffcecc47d7af723331aaa50f24a8fd392900a9569f1790a8d6903b66cf7a99c",
+    "sha256_at_tag": "3ffcecc47d7af723331aaa50f24a8fd392900a9569f1790a8d6903b66cf7a99c",
+    "identical": true
+   },
+   {
+    "capture": "20261110114513",
+    "url": "https://0thernes.github.io/kochen-specker-extremal-lab/paper.html",
+    "file_at_tag": "docs/paper.html",
+    "sha256_archived": "5b3b57e7ce463d88f2782dfd3dd9b6f6f737f73edc27cbade4851be363a04c94",
+    "sha256_at_tag": "5b3b57e7ce463d88f2782dfd3dd9b6f6f737f73edc27cbade4851be363a04c94",
+    "identical": true
+   },
+   {
+    "capture": "20261110114539",
+    "url": "https://0thernes.github.io/kochen-specker-extremal-lab/ks-minimum.pdf",
+    "file_at_tag": "docs/ks-minimum.pdf",
+    "sha256_archived": "8063949e478c41b93913bfd9ff39b2d598c07ed7f0e539af300aa7375f5ae967",
+    "sha256_at_tag": "8063949e478c41b93913bfd9ff39b2d598c07ed7f0e539af300aa7375f5ae967",
+    "identical": true
+   },
+   {
+    "capture": "20261110115135",
+    "url": "https://raw.githubusercontent.com/0thernes/kochen-specker-extremal-lab/v1.0.0/results/RESULTS.md",
+    "file_at_tag": "results/RESULTS.md",
+    "sha256_archived": "fe0e8a21c55ecba0f90d811d66f1891f8f0c5d089b7cc9d7c65bcfaa865a7ccb",
+    "sha256_at_tag": "fe0e8a21c55ecba0f90d811d66f1891f8f0c5d089b7cc9d7c65bcfaa865a7ccb",
+    "identical": true
+   },
+   {
+    "capture": "20261110115207",
+    "url": "https://raw.githubusercontent.com/0thernes/kochen-specker-extremal-lab/v1.0.0/paper/ks-minimum.md",
+    "file_at_tag": "paper/ks-minimum.md",
+    "sha256_archived": "487b9d603c7ee77ea586c6af02b83726aad5f3f56ed337e670cafae9c3c2f89e",
+    "sha256_at_tag": "487b9d603c7ee77ea586c6af02b83726aad5f3f56ed337e670cafae9c3c2f89e",
+    "identical": true
+   }
+  ],
+  "note_on_cdx_digests": "the CDX digest of a capture is the SHA-1 of the payload as stored; the text files were stored gzip-encoded, so their CDX digests differ from the SHA-1 of the files; the comparison above downloads each capture in its original form (id_), decodes gzip, and compares SHA-256 with the file at the release tag"
+ },
+ "note": "Requests were made without an account and without personal data (generic User-Agent)."
+}
