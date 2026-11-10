@@ -1,6 +1,6 @@
 {
   "title": "Stack demonstration of the 31-ray Kochen-Specker set",
-  "generated_utc": "2026-11-10T07:47:23Z",
+  "generated_utc": "2026-11-10T08:06:14Z",
   "overall": "PASS",
   "state_independent_gap": "quantum 17 for every state versus classical at most 16",
   "key_numbers": {
@@ -33,7 +33,7 @@
       "stage": "vendor",
       "status": "PASS",
       "detail": "14 vendored files fingerprinted; mixer block identical to upstream lines; ks31.esk rays equal the JSON rays",
-      "seconds": 0.14,
+      "seconds": 0.06,
       "data": {
         "sha256_third_party": {
           "moonlab/LICENSE": "9954a6f797d6e6c5754ad75304fcafea0bee67ffaaeab78351e2c11e9eb5398c",
@@ -66,7 +66,7 @@
       "stage": "reference",
       "status": "PASS",
       "detail": "exact integers: 71 orthogonal pairs, 17 bases, classical maximum M = 16 (153566 admissible assignments, 66 attain M), KS assignments = 0",
-      "seconds": 0.93,
+      "seconds": 0.69,
       "data": {
         "rays": 31,
         "orthogonal_pairs": 71,
@@ -172,7 +172,7 @@
       "stage": "moonlab",
       "status": "PASS",
       "detail": "classical simulator: 71 orthogonal pairs, 17 bases; 2000 states: every basis sums to 1 (max dev 1.8e-15), pair sums <= 1; quantum 17 for every state versus classical at most 16",
-      "seconds": 0.56,
+      "seconds": 0.62,
       "data": {
         "stage": "moonlab",
         "ok": true,
@@ -342,7 +342,7 @@
       "stage": "qgtl",
       "status": "PASS",
       "detail": "Fubini-Study distance for 465 pairs: pi/2 within 1e-12 exactly for 71 orthogonal pairs, non-orthogonal distances in [0.321750554397, 1.403348247575]",
-      "seconds": 8.94,
+      "seconds": 3.19,
       "data": {
         "pairs_total": 465,
         "orthogonal_pairs": 71,
@@ -356,7 +356,7 @@
       "stage": "qrng",
       "status": "PASS",
       "detail": "deterministic integer mixers (not quantum randomness): seed-1 known answers reproduced, stream[0..7] = 5df9ef9ba7cdcca2 ddb5674ec90579d9 e350bb351fce2beb 20275c35a4eaee84 2f7cdc01c2c0ba7d 9c8e41616b8765d2 bb513969a806c10e 46d8abb5b7a0e256",
-      "seconds": 22.62,
+      "seconds": 1.02,
       "data": {
         "splitmix64_1": "6b6a95bfe299a90e",
         "hadamard_mix_1": "7590e4342b418e25",
@@ -379,7 +379,7 @@
       "stage": "eshkol",
       "status": "PASS",
       "detail": "ESHKOL-PASS: 71 orthogonal pairs, 17 bases, 0 assignments satisfy the KS rules (exhaustive backtracking, 7380 nodes); positive control finds 66 assignments",
-      "seconds": 1.35,
+      "seconds": 1.4,
       "data": {
         "orthogonal-pairs": 71,
         "bases": 17,

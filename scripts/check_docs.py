@@ -16,7 +16,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {".git", ".lake", "node_modules", "__pycache__", "third_party", "logs", "results", "data"}
-DOC_EXT = {".md", ".cff", ".txt", ".html", ".bib"}
+DOC_EXT = {".md", ".cff", ".txt", ".html", ".bib", ".tex"}
 
 # phrases that must not appear any more (lower case); extend when a statement is withdrawn
 STALE = [
@@ -61,9 +61,7 @@ def register_rows():
 def main():
     problems = []
     reg = register_rows()
-    reg_text = open(os.path.join(ROOT, "results", "RESULTS.md"), encoding="utf-8").read()
-    for marker in re.findall(r"\b[A-Z0-9]{3,}(?:LEMMAS|VERDICT)\b|\bFOURAXISGLUCOSE\b", reg_text):
-        problems.append(f"results/RESULTS.md: unfilled marker {marker}")
+    marker_re = re.compile(r"\b[A-Z0-9]{3,}(?:LEMMAS|VERDICT)\b|\bFOURAXISGLUCOSE\b|\bFIVEAXIS30\b")
     readme = re.sub(r"[ \t]+", " ", open(os.path.join(ROOT, "README.md"), encoding="utf-8").read())
     for row in reg:
         if row not in readme:
@@ -72,6 +70,9 @@ def main():
         rel = os.path.relpath(path, ROOT).replace("\\", "/")
         text = open(path, encoding="utf-8", errors="replace").read()
         low = text.lower()
+        if rel != "scripts/check_docs.py":
+            for marker in sorted(set(marker_re.findall(text))):
+                problems.append(f"{rel}: unfilled marker {marker}")
         for phrase in STALE:
             # docs/REVIEW.md quotes the withdrawn statements on purpose
             if phrase in low and rel not in ("scripts/check_docs.py", "docs/REVIEW.md"):

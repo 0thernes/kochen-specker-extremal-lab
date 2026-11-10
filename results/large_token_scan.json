@@ -1,0 +1,186 @@
+{
+ "checker_build_sha256": "e67f07b095c7781115462c57c1703ad894eeb2ae4f9e1ffa6874df847574755d",
+ "files": [
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0000_cuts.cnf",
+   "bytes": 2598555,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0000_cuts.drat",
+   "bytes": 148503097,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0001_cuts.cnf",
+   "bytes": 2598554,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0001_cuts.drat",
+   "bytes": 217973120,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0002_cuts.cnf",
+   "bytes": 2598553,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0002_cuts.drat",
+   "bytes": 162422666,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0010_cuts.cnf",
+   "bytes": 2598554,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0010_cuts.drat",
+   "bytes": 134757435,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0011_cuts.cnf",
+   "bytes": 2598553,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0011_cuts.drat",
+   "bytes": 125673998,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0012_cuts.cnf",
+   "bytes": 2598552,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0012_cuts.drat",
+   "bytes": 175235934,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0020_cuts.cnf",
+   "bytes": 2598553,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0020_cuts.drat",
+   "bytes": 147272746,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0021_cuts.cnf",
+   "bytes": 2598552,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0021_cuts.drat",
+   "bytes": 76500332,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0022_cuts.cnf",
+   "bytes": 2598551,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0022_cuts.drat",
+   "bytes": 143968933,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0100_cuts.cnf",
+   "bytes": 2598554,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0100_cuts.drat",
+   "bytes": 98209471,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0101_cuts.cnf",
+   "bytes": 2598553,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0101_cuts.drat",
+   "bytes": 119517602,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0102_cuts.cnf",
+   "bytes": 2598552,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0102_cuts.drat",
+   "bytes": 79162708,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0110_cuts.cnf",
+   "bytes": 2731993,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0110_cuts.drat",
+   "bytes": 73794098,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0111_cuts.cnf",
+   "bytes": 2598552,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0111_cuts.drat",
+   "bytes": 99156155,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0112_cuts.cnf",
+   "bytes": 2598551,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0112_cuts.drat",
+   "bytes": 42160829,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0120_cuts.cnf",
+   "bytes": 2598552,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0120_cuts.drat",
+   "bytes": 48318527,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0121_cuts.cnf",
+   "bytes": 2598551,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0121_cuts.drat",
+   "bytes": 75927749,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0122_cuts.cnf",
+   "bytes": 2731990,
+   "largest_integer": 33790
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0122_cuts.drat",
+   "bytes": 34395209,
+   "largest_integer": 33733
+  }
+ ],
+ "largest_integer": 33790
+}

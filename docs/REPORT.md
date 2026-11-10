@@ -34,24 +34,26 @@ is claimed on its basis.
 
 ## 2. The one-command run
 
-`python scripts/run_all.py --lean`, started 2026-11-10 10:53:14 UTC, 78.5 seconds in total, 8 stages
-passed, none failed, exit code 0. The optional stage `stack` was not part of this run.
+`python scripts/run_all.py --lean`, started 2026-11-10 11:34:09 UTC, after all 81 cube proofs had
+been checked, 52.1 seconds in total, 8 stages passed, none failed, exit code 0. The optional stage
+`stack` was not part of this run.
 
 | stage | result | seconds | detail |
 |---|---|---|---|
-| `unit` | PASS | 48.2 | 115 tests, 1 skipped |
-| `js` | PASS | 12.0 | 59 of 59 checks of `verify/test_verify.mjs` |
-| `lemma7` | PASS | 0.8 | 121 rays, 136 bases, both facts hold; same facts and same coloring as the committed file |
-| `cert-gen` | PASS | 2.6 | certificates for B(3, 2) (255 nodes) and B(4, 1) (509 nodes) regenerated; same content as the committed files |
-| `cert-verify` | PASS | 0.4 | both regenerated certificates accepted by `verify_cert.mjs`; a copy with k raised by one rejected |
-| `drup-49` | PASS | 7.4 | B(3, 2), k = 30: engine A infeasible after 4 iterations, 51 cuts; formula of 5 254 variables and 20 223 clauses unsatisfiable; proof VERIFIED, 191 lemmas; empty proof rejected |
-| `drup-40` | PASS | 4.7 | B(4, 1), k = 17: engine A infeasible after 3 iterations, 84 cuts; 4 427 variables, 16 847 clauses; proof VERIFIED, 307 lemmas; empty proof rejected |
-| `lean` | PASS | 2.3 | sources scanned for `sorry` and `native_decide` (none); `lake build` (all modules); axiom audit of the 26 theorems named in `lean/KS/Audit.lean`: only `propext`, `Classical.choice`, `Quot.sound` |
+| `unit` | PASS | 21.9 | 115 tests, 1 skipped |
+| `js` | PASS | 5.2 | 59 of 59 checks of `verify/test_verify.mjs` |
+| `lemma7` | PASS | 0.2 | 121 rays, 136 bases, both facts hold; same facts and same coloring as the committed file |
+| `cert-gen` | PASS | 0.6 | certificates for B(3, 2) (255 nodes) and B(4, 1) (509 nodes) regenerated; same content as the committed files |
+| `cert-verify` | PASS | 0.1 | both regenerated certificates accepted by `verify_cert.mjs`; a copy with k raised by one rejected |
+| `drup-49` | PASS | 2.2 | B(3, 2), k = 30: engine A infeasible after 5 iterations, 63 cuts; formula of 5 254 variables and 20 235 clauses unsatisfiable; proof VERIFIED, 183 lemmas; empty proof rejected |
+| `drup-40` | PASS | 1.5 | B(4, 1), k = 17: engine A infeasible after 3 iterations, 84 cuts; 4 427 variables, 16 847 clauses; proof VERIFIED, 307 lemmas; empty proof rejected |
+| `lean` | PASS | 20.3 | sources scanned for `sorry` and `native_decide` (none); `lake build` (all modules); axiom audit of the 26 theorems named in `lean/KS/Audit.lean`: only `propext`, `Classical.choice`, `Quot.sound` |
 
-Three remarks. The `drup-49` stage finds its cuts afresh; in this run they happened to give the same
-formula as the register's run for row A1 (20 223 clauses, 191 lemmas), while an earlier run gave
-20 235 clauses and 183 lemmas, also accepted. The 2.3 seconds of the `lean` stage were measured with
-the build products of an earlier build present; the paper states that building everything from
+Three remarks. The `drup-49` stage finds its cuts afresh; in this run they gave 63 cuts, a formula of
+20 235 clauses and a proof of 183 lemmas, while the register's run for row A1 gave 20 223 clauses and
+191 lemmas; both proofs were accepted. The 20.3 seconds of the `lean` stage were measured with the
+build products of an earlier build present (`lake build` itself took 0.2 seconds; the rest is the
+axiom audit); the paper states that building everything from
 scratch takes about one minute (53 seconds measured, `lean/README.md`). The same command in a fresh
 clone of the repository, with an empty Lean build directory and none of the large proof files,
 passed every stage as well (115 tests, 2 skipped; the `lean` stage took 49.4 seconds there).
@@ -90,7 +92,7 @@ clause was reached.
 | A9, exactly three axes (k = 28) | 29 500 / 114 428 | Glucose, 40 s | 94 680 | VERIFIED |
 | A9, exactly four axes (k = 28) | 29 500 / 115 388 | CaDiCaL, 214 s | 1 614 075 | VERIFIED |
 | the same formula | | Glucose, 1 446 s | 1 748 269 | VERIFIED |
-| A9, five axes, 81 cubes (k = 28) | 33 790 / 132 361 to 133 321 | Glucose, 84 to 751 s per cube | CUBELEMMAS | CUBEVERDICT |
+| A9, five axes, 81 cubes (k = 28) | 33 790 / 132 361 to 133 321 | Glucose, 76 to 661 s per cube for the runs that wrote the proofs on file (first runs 84 to 751 s) | 101 525 to 1 064 942 per cube, 27 320 489 in total | VERIFIED (all 81; 18 of them with the earlier build of the checker, see register, section C.2) |
 
 The logs are `logs/certify_*.log`, `logs/prove_*.log`, `logs/drup_H4.out` (row A3) and
 `logs/check_cubes.out`. Since the review, the proof checks of rows A1 and A8 and of the three-axis
@@ -132,7 +134,8 @@ Other runs:
   unsatisfiable in 24 minutes, CaDiCaL in 4 minutes. Five axes: engine A was stopped by hand without
   an answer; Glucose closed all 81 cubes, each in 84 to 751 seconds, median 222 seconds; CaDiCaL
   closed the same 81 formulas, median 112 seconds. For 21 of the 81 cubes the formula and proof on
-  file come from a second run of the cube, made to write the proof.
+  file come from a later run of the cube, made to write the proof (the second run for 20 cubes, the
+  third for cube 0110).
 * Controls for dimension five. With bound 29 the three-axis case and the four-axis case each find a
   29-ray Kochen-Specker set; with bound 31 the five-axis case, run in cube 2211, finds a 31-ray
   Kochen-Specker set with all five axes (`logs/satcegar_box_5_1_k31_in01234_cube2211.log`). Plain
@@ -184,7 +187,9 @@ From section G of the register, from the logs and from the review before release
   sets. An earlier table left this row out.
 * **A3, first checker call.** In `logs/certify_master_box3_4_k30_cuts.log` the solver step ended with
   "unsatisfiable" and the checker step ended with exit status 127 without checking anything. The
-  proof was checked in a separate call (`logs/drup_H4.out`: 443 604 lemmas, VERIFIED).
+  proof was checked in a separate call (`logs/drup_H4.out`: 443 604 lemmas, VERIFIED), and checked
+  again on 10 November with the release build of the checker, with the same counts and exit status 0
+  (end of `logs/certify_master_box3_4_k30_cuts.log`).
 * **A wrong remark about dimension five, withdrawn.** Earlier versions of the register and the paper
   said that no critical Kochen-Specker set with all five coordinate axes had been met in a large
   number of random samples and that the case might be empty. Two reviewers found such sets within

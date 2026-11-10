@@ -2,8 +2,8 @@
  "k": 28,
  "case": "all five axes",
  "cubes": 81,
- "verified": 47,
- "lemmas_checked_total": 16223451,
+ "verified": 81,
+ "lemmas_checked_total": 27320489,
  "records": [
   {
    "cube": "0000",
@@ -184,6 +184,17 @@
    "status": "VERIFIED",
    "checker_binary_sha256": "e67f07b095c7781115462c57c1703ad894eeb2ae4f9e1ffa6874df847574755d",
    "note": "checked on 10 November 2026 between 00:22 and 01:52 with the build of verify/drup_check made before its input checks were tightened"
+  },
+  {
+   "cube": "0200",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 771893,
+   "status": "VERIFIED"
   },
   {
    "cube": "0201",
@@ -472,6 +483,28 @@
    "status": "VERIFIED"
   },
   {
+   "cube": "1200",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 283687,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "1201",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 239553,
+   "status": "VERIFIED"
+  },
+  {
    "cube": "1202",
    "cuts": 1520,
    "clauses": 132361,
@@ -502,6 +535,347 @@
    "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
    "attempts": 1,
    "lemmas": 178649,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "1212",
+   "cuts": 2480,
+   "clauses": 133321,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 223221,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "1220",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 202970,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "1221",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 201666,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "1222",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 137710,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2000",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 487444,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2001",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 414627,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2002",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 190561,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2010",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 307690,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2011",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 368617,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2012",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 262198,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2020",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 370151,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2021",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 386197,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2022",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 277079,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2100",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 265495,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2101",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 273969,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2102",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 274802,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2110",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 282396,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2111",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 249177,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2112",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 267600,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2120",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 335943,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2121",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 284818,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2122",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 227198,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2200",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 355102,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2201",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 433505,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2202",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 503746,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2210",
+   "cuts": 2480,
+   "clauses": 133321,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 500644,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2211",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 368383,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2212",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 364014,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2220",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 249918,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2221",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 397283,
+   "status": "VERIFIED"
+  },
+  {
+   "cube": "2222",
+   "cuts": 1520,
+   "clauses": 132361,
+   "drup_check": "s VERIFIED",
+   "exit_status": 0,
+   "checker_binary_sha256": "616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4",
+   "attempts": 1,
+   "lemmas": 337781,
    "status": "VERIFIED"
   }
  ]

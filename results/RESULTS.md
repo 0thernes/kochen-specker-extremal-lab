@@ -81,7 +81,7 @@ verified by reverse unit propagation before the empty clause was reached.
 | A9, exactly three axes (k = 28) | 29 500 / 114 428 | Glucose, 40 s | 94 680 | VERIFIED |
 | A9, exactly four axes (k = 28) | 29 500 / 115 388 | CaDiCaL, 214 s | 1 614 075 | VERIFIED |
 | the same formula | | Glucose, 1 446 s | 1 748 269 | VERIFIED |
-| A9, five axes, 81 cubes (k = 28) | 33 790 / 132 361 to 133 321 | Glucose, 84 to 751 s per cube | CUBELEMMAS | CUBEVERDICT |
+| A9, five axes, 81 cubes (k = 28) | 33 790 / 132 361 to 133 321 | Glucose, 76 to 661 s per cube for the runs that wrote the proofs on file (first runs 84 to 751 s) | 101 525 to 1 064 942 per cube, 27 320 489 in total | VERIFIED (all 81; 18 of them with the earlier build of the checker, see section C.2) |
 | cube 0001 of the same case, the same formula | 33 790 / 132 361 | CaDiCaL, 168 s | 1 726 879 | VERIFIED |
 
 Second solver, answers without a proof (`results/second_solver_d5_k28.json`,
@@ -117,6 +117,25 @@ The figures are those of the last run in each log. The cuts are found afresh in 
 repeated run gives a formula of a different size and a different proof; the verdict is what has to
 agree. The same holds for the runs of section C.
 
+### C.2 The builds of the proof checker
+
+`verify/drup_check.c` changed twice during the work: deletion lines were first ignored and later
+applied, and on 10 November 2026, after the review (`docs/REVIEW.md`, item 10), its reader was made
+strict (the old reader used `scanf`, so a number of 2^31 or more could wrap around). The release
+build checked 63 of the 81 cubes of section D and rechecked row A3 with the same counts; the other
+checks of sections C and C.1 were made with the earlier builds, and their logs show their output
+(a log line "deletion lines ignored" comes from the first build). `results/d5_cubes_certification.json`
+records the build for every cube; 18 cubes were checked with the build of SHA-256
+`e67f07b095c7781115462c57c1703ad894eeb2ae4f9e1ffa6874df847574755d`.
+
+The defect of the old reader cannot have affected any recorded verdict. A misread number in a proof
+file only changes which clauses the checker verifies, and every clause it accepts is verified against
+the formula it read, so only a misread formula could matter. The largest number in a clause of any
+formula file of the project is 76 220 (`python scripts/scan_large_tokens.py results/*.cnf`; for the
+18 cubes also their proof files, `results/large_token_scan.json`), and the formula files are equal,
+clause for clause, to a fresh encoding (`scripts/check_cubes.py` for the cubes; the review for the
+others). All builds print the same output on every real proof compared.
+
 ## D. Dimension 5, pool B(5, 1): no KS set with 28 or fewer rays
 
 Every basis of the pool contains a coordinate axis and every KS set contains at least three axes
@@ -127,11 +146,12 @@ contains exactly the axes {e0,e1,e2}, or {e0,e1,e2,e3}, or all five.
 |---|---|---|---|---|
 | exactly three axes | infeasible (two runs, 57 s and 9 s) | unsatisfiable (40 s; 58 s incremental) | unsatisfiable (28 s) | Glucose proof VERIFIED |
 | exactly four axes | stopped by hand without an answer | unsatisfiable (24 min) | unsatisfiable (4 min) | CaDiCaL proof VERIFIED; Glucose proof VERIFIED |
-| all five axes | stopped by hand without an answer | 81 cubes, all unsatisfiable (median 222 s) | 81 cubes, all unsatisfiable (median 112 s) | 81 Glucose proofs: CUBEVERDICT |
+| all five axes | stopped by hand without an answer | 81 cubes, all unsatisfiable (median 222 s) | 81 cubes, all unsatisfiable (median 112 s) | 81 Glucose proofs, all VERIFIED |
 
 The two engine-A runs without an answer were stopped after roughly 50 and 60 minutes; their logs do
-not record the stop. For 21 of the 81 cubes the formula and proof on file come from a second run of
-the cube, made to write the proof; all 81 cube logs end with "none".
+not record the stop. For 21 of the 81 cubes the formula and proof on file come from a later run of
+the cube, made to write the proof (the second run for 20 cubes, the third for cube 0110); all 81
+cube logs end with "none".
 
 Sanity checks of the case machinery: with bound 29 the three-axis case finds a 29-ray KS set
 (16 bases, 151 orthogonal pairs) and the four-axis case finds a 29-ray KS set (16 bases, 150
@@ -142,12 +162,14 @@ of the three searches is vacuous.
 Critical KS sets by number of axes, plain random deletion with the axes deleted last
 (`scripts/axes_sanity.py`, `results/d5_axes_sanity.json`): 3828 samples, of which 4 with three axes
 (smallest 29 rays), 90 with four (smallest 29) and 3734 with five (smallest 31). Whether a critical
-KS set with 29 or 30 rays and five axes exists is not decided. With bound 30 the five-axis case is unsatisfiable
-for CaDiCaL in 80 of the 81 cubes (answers only, no proof check; `logs/cubes_d5_k30_cadical.out`);
+KS set with 29 or 30 rays and five axes exists is not decided. With bound 30 the five-axis case, run
+with CaDiCaL (`KS_SOLVER=cadical195`; the solver is not named in the logs), is unsatisfiable in 80 of
+the 81 cubes (answers only, no proof check; `logs/cubes_d5_k30_cadical.out`);
 in cube 2222 it finds a 30-ray KS set with five axes, 159 orthogonal pairs and 17 bases that is not
 critical (without e0 it is a 29-ray KS set with four axes;
-`logs/satcegar_box_5_1_k30_in01234_cube2222.log`). So a critical five-axis KS set with at most 30
-rays, if one exists, lies in cube 2222. *Correction:* an earlier version of the register
+`logs/satcegar_box_5_1_k30_in01234_cube2222.log`). So, if these answers are right, every critical
+five-axis KS set with at most 30 rays has an image under a signed coordinate permutation in cube
+2222. *Correction:* an earlier version of the register
 said that no critical KS set with five axes had been met in 58 684 samples and that the case might be
 empty. That sampler replaced the set by the solver's unsatisfiable core after every deletion and was
 biased; two reviewers found five-axis sets within seconds by plain deletion (`docs/REVIEW.md`).
@@ -201,8 +223,9 @@ exist: 105-136 for B(5, 1), 1185-3596 for B(5, 2), 332-1408 for B(6, 1), 805-993
 * No KS set smaller than a published record was found in any dimension.
 * B(3, 5): the exact search with engine A did not finish; it was stopped by hand after more than an
   hour (the log `logs/master_box3_5_k30.log` ends at round 10 and does not record the stop). A second
-  attempt with the incremental SAT version and CaDiCaL (`logs/satcegar_box3_5_k30.log`) had not
-  answered when this version was released.
+  attempt with the incremental SAT version, run with the solver argument `cadical195`
+  (`logs/satcegar_box3_5_k30.log`, which does not name the solver), had not answered when this
+  version was released.
   U(3, 30): stopped unfinished.
 * U(6, 3) (is 21 optimal there?) and the E8 pool (is 34 optimal there?): not decided.
 * The general problems (any rays: dimension 3 between 24 and 31; dimensions 5 and above between 18

@@ -51,7 +51,7 @@
     "proof-checked"
    ],
    "final": true,
-   "note": "Lean theorem KS.Box3H2.minimum_ks_size; tree certificate of 255 nodes, replayable below.",
+   "note": "Lean theorem KS.Box3H2.minimum_ks_size_vectors, stated for the integer vectors; tree certificate of 255 nodes, replayable below. Exactly six sets of 31 rays, one orbit.",
    "in_browser": true
   },
   {
@@ -68,7 +68,7 @@
     "proof-checked"
    ],
    "final": true,
-   "note": "Tree certificate of 11 247 nodes on the 97-ray core. A Lean statement for this pool (KS.Box3H3.minimum_ks_size) has been generated; it is not counted here until its check by the Lean kernel is recorded.",
+   "note": "Tree certificate of 11 330 nodes for the whole 145-ray pool. Exactly six sets of 31 rays, one orbit.",
    "in_browser": false
   },
   {
@@ -80,10 +80,11 @@
    "bases": 110,
    "minimum": "31",
    "status": [
-    "two engines"
+    "two engines",
+    "proof-checked"
    ],
-   "final": false,
-   "note": "CP-SAT and Glucose (736 s) agree; the proof check of the Glucose run is pending.",
+   "final": true,
+   "note": "CP-SAT and Glucose agree; the Glucose proof (443 604 lemmas) was checked. Exactly six sets of 31 rays, one orbit.",
    "in_browser": false
   },
   {
@@ -95,10 +96,11 @@
    "bases": 22,
    "minimum": "33",
    "status": [
-    "one engine"
+    "two engines",
+    "proof-checked"
    ],
    "final": true,
-   "note": "Exhaustive tree search in Python (1 456 nodes); not replayed by the independent verifier.",
+   "note": "Exhaustive tree search in Python (1 456 nodes), CP-SAT, and a checked Glucose proof that the three sets of 33 rays (one orbit) are the only KS sets with at most 33 rays.",
    "in_browser": false
   },
   {
@@ -114,7 +116,7 @@
     "proof-checked"
    ],
    "final": true,
-   "note": "",
+   "note": "Exactly twelve sets of 33 rays, one orbit.",
    "in_browser": false
   },
   {
@@ -122,14 +124,15 @@
    "d": 3,
    "pool": "entries 0 or 18th roots of unity",
    "rays": 381,
-   "core": null,
+   "core": 381,
    "bases": 136,
    "minimum": "33",
    "status": [
-    "one engine"
+    "two engines",
+    "proof-checked"
    ],
-   "final": false,
-   "note": "CP-SAT only; proof check pending.",
+   "final": true,
+   "note": "The Glucose proof (367 001 lemmas) was checked.",
    "in_browser": false
   },
   {
@@ -137,14 +140,15 @@
    "d": 3,
    "pool": "entries 0 or 24th roots of unity",
    "rays": 651,
-   "core": null,
+   "core": 651,
    "bases": 229,
    "minimum": "33",
    "status": [
-    "one engine"
+    "two engines",
+    "proof-checked"
    ],
-   "final": false,
-   "note": "CP-SAT only; proof check pending.",
+   "final": true,
+   "note": "CP-SAT, and CaDiCaL on the Boolean formula (Glucose ran out of memory on this pool); the CaDiCaL proof (1 464 683 lemmas) was checked.",
    "in_browser": false
   },
   {
@@ -162,7 +166,7 @@
     "proof-checked"
    ],
    "final": true,
-   "note": "Lean theorem KS.Box4H1.minimum_ks_size; tree certificate of 509 nodes, replayable below.",
+   "note": "Lean theorem KS.Box4H1.minimum_ks_size_vectors, stated for the integer vectors; tree certificate of 509 nodes, replayable below. The 16 minimum sets are the 16 known sets inside the 24 rays of Peres.",
    "in_browser": true
   },
   {
@@ -172,19 +176,22 @@
    "rays": 121,
    "core": 105,
    "bases": 136,
-   "minimum": "29 if the open cases close",
+   "minimum": "29",
    "status": [
-    "in progress"
+    "two engines",
+    "proof-checked"
    ],
-   "final": false,
-   "note": "A 29-ray KS set exists in the pool. That no set of 28 or fewer rays is a KS set is established for one of three cases (exactly three coordinate axes: two engines, proof-checked); the four-axis and five-axis cases are not yet closed.",
+   "final": true,
+   "note": "Three cases by the number of coordinate axes in the set. All three are closed by Glucose and, on the same formulas, by CaDiCaL; the proofs of the three-axis and four-axis cases were checked, and the five-axis case is split into 81 sub-cases with one proof each (all 81 proofs verified). Engine A (CP-SAT) closed only the three-axis case; 'two engines' here means the SAT solvers Glucose and CaDiCaL. The value 29 was reported before as the smallest set generated from these coordinates, without proof.",
    "in_browser": false
   }
  ],
  "not_achieved": [
-  "No Kochen-Specker set smaller than a published record was found in any dimension.",
-  "Integer coordinates up to 5 in dimension 3: the search did not finish (stopped after 78 minutes).",
+  "No Kochen-Specker set smaller than a published one was found in any dimension.",
+  "Integer coordinates up to 5 in dimension 3: the exact search did not finish; no claim.",
+  "Coordinates 0 or 30th roots of unity in dimension 3: stopped unfinished; no claim.",
+  "Lean proof for integer coordinates up to 3: the kernel check was stopped after 49 minutes; nothing claimed.",
   "Dimension 6 with cube roots of unity (is 21 optimal there?) and the E8 pool in dimension 8 (is 34 optimal there?): not decided.",
-  "The general problem (any rays in dimension 3: between 24 and 31) is untouched by results about pools."
+  "The general problem (any rays in dimension 3: between 24 and 31; dimensions 5 and above: between 18 and the smallest known sets) is untouched by results about pools."
  ]
 }

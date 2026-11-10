@@ -109,7 +109,7 @@ five. Bound 28 in each case:
 |---|---|---|---|---|
 | exactly three axes | infeasible (two runs, 57 s and 9 s) | unsatisfiable (40 s; 58 s incremental) | unsatisfiable (28 s) | Glucose proof VERIFIED |
 | exactly four axes | stopped by hand without an answer | unsatisfiable (24 min) | unsatisfiable (4 min) | CaDiCaL proof VERIFIED; Glucose proof VERIFIED |
-| all five axes | stopped by hand without an answer | 81 cubes, all unsatisfiable (median 222 s) | 81 cubes, all unsatisfiable (median 112 s) | 81 Glucose proofs: CUBEVERDICT |
+| all five axes | stopped by hand without an answer | 81 cubes, all unsatisfiable (median 222 s) | 81 cubes, all unsatisfiable (median 112 s) | 81 Glucose proofs, all VERIFIED |
 
 Engine A closed only the three-axis case; its two other runs were stopped by hand without an answer,
 and their logs do not record the stop. Both SAT solvers were given the same formula files (83 in all:
@@ -159,14 +159,14 @@ checks the unsatisfiability proofs for the same two pools. It prints one line pe
 The run recorded in [results/run_all.json](results/run_all.json) printed:
 
 ```
-PASS  unit            48.2s  115 tests, 1 skipped
-PASS  js              12.0s  59/59 checks passed
-PASS  lemma7           0.8s  121 rays, 136 bases, both facts hold; matches results/lemma7_d5_axes.json
-PASS  cert-gen         2.6s  cert_box3_H2_k30.json: 255 nodes, same as committed; cert_box4_H1_k17.json: 509 nodes, same as committed
-PASS  cert-verify      0.4s  2 certificates PASS; corrupted copy rejected
-PASS  drup-49          7.4s  51 cuts, CNF 5254 vars / 20223 clauses, UNSAT, proof VERIFIED (191 lemmas)
-PASS  drup-40          4.7s  84 cuts, CNF 4427 vars / 16847 clauses, UNSAT, proof VERIFIED (307 lemmas)
-PASS  lean             2.3s  26 theorems audited, axioms used: Classical.choice, Quot.sound, propext; no sorry
+PASS  unit            21.9s  115 tests, 1 skipped
+PASS  js               5.2s  59/59 checks passed
+PASS  lemma7           0.2s  121 rays, 136 bases, both facts hold; matches results/lemma7_d5_axes.json
+PASS  cert-gen         0.6s  cert_box3_H2_k30.json: 255 nodes, same as committed; cert_box4_H1_k17.json: 509 nodes, same as committed
+PASS  cert-verify      0.1s  2 certificates PASS; corrupted copy rejected
+PASS  drup-49          2.2s  63 cuts, CNF 5254 vars / 20235 clauses, UNSAT, proof VERIFIED (183 lemmas)
+PASS  drup-40          1.5s  84 cuts, CNF 4427 vars / 16847 clauses, UNSAT, proof VERIFIED (307 lemmas)
+PASS  lean            20.3s  26 theorems audited, axioms used: Classical.choice, Quot.sound, propext; no sorry
 ```
 
 followed by a `SUMMARY:` line and `exit code 0` (this run used `--lean`; the `lean` stage is

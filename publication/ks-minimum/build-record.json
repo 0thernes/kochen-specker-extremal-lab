@@ -1,12 +1,12 @@
 {
  "source": "paper/ks-minimum.md",
- "source_sha256": "ebd1669ef41854a8ad6d4fb94aa235da063d7ea2cb1727aef01600c709f7fa71",
- "tex_sha256": "a8483d045e7379c988f1462d8ab0f214104ec0aed0659c558168d6539a3dc5f0",
+ "source_sha256": "487b9d603c7ee77ea586c6af02b83726aad5f3f56ed337e670cafae9c3c2f89e",
+ "tex_sha256": "113a0ea32f3b75ff849d1411c7efabc14bc47c3512b8e6bd0af06a071e8841d7",
  "engine": "XeLaTeX (compiled here with Tectonic)",
  "pandoc": "pandoc 3.13",
  "tectonic": "Tectonic 0.17.0",
- "pdf_sha256": "344353a4985c17759a70479e03c4fe8c66da561a15071349d88819707f352e51",
- "pdf_bytes": 118554,
+ "pdf_sha256": "8063949e478c41b93913bfd9ff39b2d598c07ed7f0e539af300aa7375f5ae967",
+ "pdf_bytes": 119381,
  "overfull_boxes_pt": [
   "3.73282"
  ],
@@ -16,7 +16,7 @@
    "00README.json",
    "ks-minimum.tex"
   ],
-  "bytes": 17553,
-  "sha256": "35498c864fc7dc0e18e55b1cd15d9428f333387beb2fac03b9cd7519b2b8261c"
+  "bytes": 17802,
+  "sha256": "1e6d40ab2533ef8a07a3b0c1655d3352e11ec1f15d17ae6e9049efbc30d90907"
  }
 }

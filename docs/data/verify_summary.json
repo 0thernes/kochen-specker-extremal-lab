@@ -70,6 +70,29 @@
       "claim": "every set of at most 30 rays of this 97-ray pool (d=3) is colorable",
       "verdict": "PASS",
       "error": null
+    },
+    {
+      "file": "cert_box3_H3full_k30.json",
+      "sha256": "2bb824dab2d8045fdd02c949ce6088944d505f4e59c256fbdca8e686e8d2a88a",
+      "bytes": 1430770,
+      "d": 3,
+      "k": 30,
+      "rays": 145,
+      "orthogonal_pairs": 546,
+      "bases": 50,
+      "nodes": 11330,
+      "nodes_visited": 11330,
+      "nodes_accepted_by_rule0": 0,
+      "max_depth": 16,
+      "checks": {
+        "rays": true,
+        "adj": true,
+        "bases": true,
+        "tree": true
+      },
+      "claim": "every set of at most 30 rays of this 145-ray pool (d=3) is colorable",
+      "verdict": "PASS",
+      "error": null
     }
   ],
   "ks": {
@@ -251,7 +274,7 @@
       "accepted_examples": [],
       "reference_checked": 254,
       "reference_disagreements": 0,
-      "ms": 718
+      "ms": 486
     },
     {
       "sweep": "remove all children of one internal node, every internal node (49-ray cert)",
@@ -262,7 +285,7 @@
       "accepted_examples": [],
       "reference_checked": 176,
       "reference_disagreements": 0,
-      "ms": 409
+      "ms": 333
     },
     {
       "sweep": "swap two adjacent children, every position (49-ray cert)",
@@ -279,7 +302,7 @@
       ],
       "reference_checked": 78,
       "reference_disagreements": 0,
-      "ms": 314
+      "ms": 171
     },
     {
       "sweep": "change one ray index in an I to a ray outside that I, every position x 3 replacements (49-ray cert; --full = all replacements)",
@@ -296,7 +319,7 @@
       ],
       "reference_checked": 1062,
       "reference_disagreements": 0,
-      "ms": 6509
+      "ms": 4416
     },
     {
       "sweep": "drop one basis from the list, every basis (49-ray cert)",
@@ -307,7 +330,7 @@
       "accepted_examples": [],
       "reference_checked": 0,
       "reference_disagreements": 0,
-      "ms": 6
+      "ms": 4
     },
     {
       "sweep": "flip one adj entry, every ordered pair (49-ray cert)",
@@ -318,7 +341,7 @@
       "accepted_examples": [],
       "reference_checked": 0,
       "reference_disagreements": 0,
-      "ms": 366
+      "ms": 174
     },
     {
       "sweep": "delete one child, every position (40-ray d=4 cert)",
@@ -329,7 +352,7 @@
       "accepted_examples": [],
       "reference_checked": 508,
       "reference_disagreements": 0,
-      "ms": 2537
+      "ms": 2350
     },
     {
       "sweep": "drop one basis from the list, every basis (40-ray d=4 cert)",
@@ -340,7 +363,7 @@
       "accepted_examples": [],
       "reference_checked": 0,
       "reference_disagreements": 0,
-      "ms": 13
+      "ms": 10
     }
   ],
   "cross_checks": [
@@ -383,10 +406,15 @@
       "check": "random 30-ray subsets of the pool of cert_box3_H3_k30.json are colorable",
       "ok": true,
       "detail": "300/300"
+    },
+    {
+      "check": "random 30-ray subsets of the pool of cert_box3_H3full_k30.json are colorable",
+      "ok": true,
+      "detail": "300/300"
     }
   ],
   "failures": [],
   "verdict": "PASS",
-  "checks": 56,
+  "checks": 59,
   "mode": "default"
 }

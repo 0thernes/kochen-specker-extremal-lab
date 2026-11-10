@@ -348,7 +348,7 @@ most 28 rays. Table 3 lists how each was closed.
 |---|---|---|---|---|
 | exactly three axes | infeasible, two runs | unsatisfiable, 40 s | unsatisfiable, 28 s | Glucose proof VERIFIED, 94 680 lemmas |
 | exactly four axes | stopped without an answer | unsatisfiable, 24 minutes | unsatisfiable, 4 minutes | CaDiCaL proof VERIFIED, 1 614 075 lemmas; Glucose proof VERIFIED, 1 748 269 lemmas |
-| all five axes | stopped without an answer | 81 cubes, all unsatisfiable, 84 to 751 s each | 81 cubes, all unsatisfiable, 57 to 449 s each | 81 Glucose proofs: CUBEVERDICT |
+| all five axes | stopped without an answer | 81 cubes, all unsatisfiable, 84 to 751 s each | 81 cubes, all unsatisfiable, 57 to 449 s each | 81 Glucose proofs, all VERIFIED, 27 320 489 lemmas in total |
 
 The times are elapsed times of single runs on a loaded machine and vary from run to run; summed over
 the 81 cubes they come to about 6 hours for Glucose and 3 hours for CaDiCaL. Both solvers were given
@@ -367,10 +367,11 @@ with four in 90 and with three in 4 (`results/d5_axes_sanity.json`). The smalles
 found have 31 rays, 165 orthogonal pairs and 18 bases; the one recorded in `results/ks_sets.json`
 contains a KS set of 20 rays and 11 bases in a coordinate hyperplane. As a third control, the search
 in one cube of the five-axis case with the bound raised to 31 finds such a set. With the bound 30,
-the five-axis search is unsatisfiable for CaDiCaL in 80 of the 81 cubes (solver answers without a
-proof check, `logs/cubes_d5_k30_cadical.out`); in the remaining cube it finds a 30-ray KS set with
-all five axes that is not critical: without the axis e0 it is a 29-ray KS set with four axes. A
-critical KS set with five axes and at most 30 rays, if one exists, therefore lies in that one cube.
+the five-axis search, run with CaDiCaL (command in `docs/INDEX.md`), is unsatisfiable in 80 of the 81
+cubes (solver answers without a proof check, `logs/cubes_d5_k30_cadical.out`); in the remaining cube
+it finds a 30-ray KS set with all five axes that is not critical: without the axis e0 it is a 29-ray
+KS set with four axes. If these 80 unchecked answers are right, every critical KS set with five axes
+and at most 30 rays has an image under a signed coordinate permutation in that one cube.
 
 Engine A closed only the three-axis case. All three cases were closed by engine B with Glucose and,
 on the same formulas, by a second SAT solver, CaDiCaL [40]; the proof checks are recorded in Table 3

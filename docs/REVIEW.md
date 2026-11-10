@@ -102,7 +102,7 @@ the evidence column changed for B(3, 3) and U(3, 24).
     manual run on one of them verified it, and the machine's memory commit charge was near its limit
     at the time, so the likely cause is that the checker ran out of memory (the old build did not
     report this). These were not rejections. The 63 cubes were checked again with the release build (outcome:
-    CUBEVERDICT); `results/d5_cubes_certification.json` records, for every cube, the verdict and the
+    all 63 VERIFIED); `results/d5_cubes_certification.json` records, for every cube, the verdict and the
     SHA-256 of the checker build that produced it.
 14. **Smaller corrections.** The structure "18-ray KS set in a hyperplane plus 11 rays" was attributed
     to the wrong one of the two 29-ray sets; 33 was called a "record" number of rays although the

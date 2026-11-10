@@ -22,18 +22,18 @@
    "source": "results/ks31_box3_H2.json"
   },
   "results.json": {
-   "sha256": "0f7af5ffa09731489728c8c75311d6776700d91b82cc72d6777eb6c205c6e367",
-   "bytes": 4562,
+   "sha256": "e2166aae153fb42c8ca775eb562edd6140ba00252abb970bb4e7084dcf0a11a6",
+   "bytes": 5519,
    "source": "scripts/build_site_data.py (hand-maintained list)"
   },
   "stack_demo.json": {
-   "sha256": "54e3c05d5431c0afcec7fc1b489b80922ea514c783dffe651965f09813e7196c",
-   "bytes": 14003,
+   "sha256": "b33e6080106be6406eebc870942df8fa8b812c7c372b558e36ed3f902ec5db33",
+   "bytes": 14001,
    "source": "results/stack_demo.json"
   },
   "verify_summary.json": {
-   "sha256": "716f46d8b676cde8edf12a1c05cef9d782b38e986f462298f87137f65f01d4c2",
-   "bytes": 12738,
+   "sha256": "52641787ca6c873e3d24ced0313754d36d06f451d59a6493d064f1aa8fa1ac45",
+   "bytes": 13509,
    "source": "results/verify_summary.json"
   }
  }

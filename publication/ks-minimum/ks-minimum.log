@@ -576,17 +576,17 @@ LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/m/n' will be
 
 ] [2] [3]
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/m/n' will be
-(Font)              scaled to size 8.97906pt on input line 258.
+(Font)              scaled to size 8.97906pt on input line 259.
  [4] [5]
-Overfull \hbox (3.73282pt too wide) in paragraph at lines 364--364
+Overfull \hbox (3.73282pt too wide) in paragraph at lines 367--367
 []|\TU/lmr/m/n/9 minimum|  
  []
 
 [6] [7] [8] [9]
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/m/n' will be
-(Font)              scaled to size 7.38007pt on input line 553.
+(Font)              scaled to size 7.38007pt on input line 561.
  [10] [11] [12] [13] (ks-minimum.aux)
 Package rerunfilecheck Info: File `ks-minimum.out' has not changed.
 (rerunfilecheck)             Checksum: A59597E56DCD8B2AE0CCACA5E27543BE;4908.
  )
-Output written on ks-minimum.xdv (13 pages, 397188 bytes).
+Output written on ks-minimum.xdv (13 pages, 404780 bytes).

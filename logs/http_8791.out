@@ -12,3 +12,17 @@
 ::1 - - [10/Nov/2026 00:32:22] "GET /data/results.json HTTP/1.1" 200 -
 ::1 - - [10/Nov/2026 00:32:22] "GET /data/stack_demo.json HTTP/1.1" 200 -
 ::1 - - [10/Nov/2026 00:32:22] "GET /data/verify_summary.json HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:47] "GET / HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:47] "GET /assets/style.css HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:47] "GET /assets/app.js HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:47] "GET /assets/verify.js HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:47] "GET /assets/viewer.js HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:47] "GET /data/manifest.json HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:48] "GET /assets/icon.svg HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:48] "GET /data/cert_box3_H2_k30.json HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:48] "GET /data/cert_box4_H1_k17.json HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:48] "GET /data/ks18_box4_H1.json HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:48] "GET /data/results.json HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:48] "GET /data/ks31_box3_H2.json HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:48] "GET /data/stack_demo.json HTTP/1.1" 200 -
+::1 - - [10/Nov/2026 03:00:48] "GET /data/verify_summary.json HTTP/1.1" 200 -

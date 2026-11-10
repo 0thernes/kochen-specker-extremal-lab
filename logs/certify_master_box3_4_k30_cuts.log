@@ -6,3 +6,7 @@ DRAT proof: 915465 lines -> results/master_box3_4_k30_cuts.drat
 drup_check exit=127
 === 23:55:06 done
 === 02:14:58 recheck of the stored formula and proof of row A3 with the release build of verify/drup_check (sha256 616a34ad69b3d32bed1ee6b32ca58bfe36e823c436d3e54d29adc7eb727722e4)
+c 300463 original clauses, 443604 lemmas checked, 471860 deletion lines (471860 applied)
+s VERIFIED
+drup_check exit=0
+=== 03:03:18 done

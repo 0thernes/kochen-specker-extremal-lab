@@ -1,7 +1,7 @@
 {
  "tool": "scripts/run_all.py",
- "started_utc": "2026-11-10T10:53:14Z",
- "seconds": 78.5,
+ "started_utc": "2026-11-10T11:34:09Z",
+ "seconds": 52.1,
  "argv": [
   "--lean"
  ],
@@ -23,7 +23,7 @@
    "name": "unit",
    "title": "unit tests (tests/test_*.py)",
    "status": "PASS",
-   "seconds": 48.2,
+   "seconds": 21.9,
    "detail": "115 tests, 1 skipped",
    "commands": [
     {
@@ -39,8 +39,8 @@
      ],
      "cwd": "<repo>",
      "exit_code": 0,
-     "seconds": 48.16,
-     "output_tail": "..............................................................................................................s....\n----------------------------------------------------------------------\nRan 115 tests in 43.320s\n\nOK (skipped=1)"
+     "seconds": 21.87,
+     "output_tail": "..............................................................................................................s....\n----------------------------------------------------------------------\nRan 115 tests in 20.501s\n\nOK (skipped=1)"
     }
    ],
    "data": {
@@ -52,7 +52,7 @@
    "name": "js",
    "title": "JavaScript verifier tests (verify/test_verify.mjs)",
    "status": "PASS",
-   "seconds": 12.0,
+   "seconds": 5.2,
    "detail": "59/59 checks passed",
    "commands": [
     {
@@ -62,7 +62,7 @@
      ],
      "cwd": "<work>/js",
      "exit_code": 0,
-     "seconds": 11.66,
+     "seconds": 5.16,
      "output_tail": "ok   sweep: remove all children of one internal node, every internal node (49-ray cert) -- 176 mutants, 176 rejected, 0 accepted; reference replay agrees on 176/176 checked\nok   sweep: swap two adjacent children, every position (49-ray cert) -- 78 mutants, 42 rejected, 36 accepted; reference replay agrees on 78/78 checked (accepted e.g. node 13 children 0<->1; node 20 children 0<->1)\nok   sweep: change one ray index in an I to a ray outside that I, every position x 3 replacements (49-ray cert; --full = all replacements) -- 10245 mutants, 10203 rejected, 42 accepted; reference replay agrees on 1062/1062 checked (accepted e.g. node 14 I[8] 28->47; node 16 I[9] 34->12)\nok   sweep: drop one basis from the list, every basis (49-ray cert) -- 26 mutants, 26 rejected, 0 accepted\nok   sweep: flip one adj entry, every ordered pair (49-ray cert) -- 2352 mutants, 2352 rejected, 0 accepted\nok   sweep: delete one child, every position (40-ray d=4 cert) -- 508 mutants, 508 rejected, 0 accepted; reference replay agrees on 508/508 checked\nok   sweep: drop one basis from the list, every basis (40-ray d=4 cert) -- 32 mutants, 32 rejected, 0 accepted\n== (b) command line exit status ==\nok   CLI: valid certificate -> exit 0 and JSON verdict PASS\nok   CLI: corrupted certificate (k+1) -> exit 1 and JSON verdict FAIL\nok   CLI: truncated JSON -> exit 1\nok   CLI: missing file -> exit 1\nok   CLI --ks: KS set -> exit 0\nok   CLI --ks: colorable set (KS-31 minus one ray) -> exit 1\n== (c) cross-checks ==\nok   known KS-18 (d=4) is not colorable and is critical; brute force over 2^18 assignments agrees -- pairs=63 bases=9 colorable=false critical=true brute=false\nok   ks31_box3_H2.json is a 31-ray subset of the pool of cert_box3_H2_k30.json and is not colorable there (so k=30 is the largest certifiable k) -- embedded=true colorable=false\nok   ks31_box3_H2.json is a 31-ray subset of the pool of cert_box3_H3_k30.json and is not colorable there (so k=30 is the largest certifiable k) -- embedded=true colorable=false\nok   known KS-18 is an 18-ray subset of the pool of cert_box4_H1_k17.json and is not colorable there (so k=17 is the largest certifiable k) -- embedded=true colorable=false\nok   backtracking = ray-order search = brute force on random subsets (12..21 rays) -- 140/140 agree, 20 of them non-colorable\nok   random 30-ray subsets of the pool of cert_box3_H2_k30.json are colorable -- 300/300\nok   random 17-ray subsets of the pool of cert_box4_H1_k17.json are colorable -- 300/300\nok   random 30-ray subsets of the pool of cert_box3_H3_k30.json are colorable -- 300/300\nok   random 30-ray subsets of the pool of cert_box3_H3full_k30.json are colorable -- 300/300\n== PASS: 59/59 checks passed; summary written to results/verify_summary.json =="
     }
    ],
@@ -77,7 +77,7 @@
    "name": "lemma7",
    "title": "Lemma 7 facts (scripts/lemma7.py)",
    "status": "PASS",
-   "seconds": 0.8,
+   "seconds": 0.2,
    "detail": "121 rays, 136 bases, both facts hold; matches results/lemma7_d5_axes.json",
    "commands": [
     {
@@ -87,7 +87,7 @@
      ],
      "cwd": "<work>",
      "exit_code": 0,
-     "seconds": 0.85,
+     "seconds": 0.2,
      "output_tail": "pool: 121 rays, 136 bases; every basis contains an axis: True; pool minus e0,e1,e2 colorable: True (14 rays of value 1, 50 bases to hit)"
     }
    ],
@@ -102,7 +102,7 @@
    "name": "cert-gen",
    "title": "search-tree certificates regenerated (src/gen_cert.py)",
    "status": "PASS",
-   "seconds": 2.6,
+   "seconds": 0.6,
    "detail": "cert_box3_H2_k30.json: 255 nodes, same as committed; cert_box4_H1_k17.json: 509 nodes, same as committed",
    "commands": [
     {
@@ -116,8 +116,8 @@
      ],
      "cwd": "<work>",
      "exit_code": 0,
-     "seconds": 1.76,
-     "output_tail": "box3(H=2)/core: k=30: tree with 255 nodes in 0.1s; re-check: tree ok=True (255 nodes), pool ok=True; file 18222 bytes"
+     "seconds": 0.33,
+     "output_tail": "box3(H=2)/core: k=30: tree with 255 nodes in 0.0s; re-check: tree ok=True (255 nodes), pool ok=True; file 18222 bytes"
     },
     {
      "argv": [
@@ -131,8 +131,8 @@
      ],
      "cwd": "<work>",
      "exit_code": 0,
-     "seconds": 0.84,
-     "output_tail": "box(d=4,H=1): k=17: tree with 509 nodes in 0.2s; re-check: tree ok=True (509 nodes), pool ok=True; file 22776 bytes"
+     "seconds": 0.26,
+     "output_tail": "box(d=4,H=1): k=17: tree with 509 nodes in 0.1s; re-check: tree ok=True (509 nodes), pool ok=True; file 22776 bytes"
     }
    ],
    "data": {
@@ -160,7 +160,7 @@
    "name": "cert-verify",
    "title": "regenerated certificates checked by verify/verify_cert.mjs",
    "status": "PASS",
-   "seconds": 0.4,
+   "seconds": 0.1,
    "detail": "2 certificates PASS; corrupted copy rejected",
    "commands": [
     {
@@ -174,7 +174,7 @@
      ],
      "cwd": "<repo>",
      "exit_code": 0,
-     "seconds": 0.18,
+     "seconds": 0.06,
      "output_tail": "{\n  \"mode\": \"certificate\",\n  \"verifier\": \"verify_cert.mjs 1.0.0\",\n  \"file\": \"cert_box4_H1_k17.json\",\n  \"sha256\": \"6b955e6cbefaf4cea9878d942cb3629c2f80f7a1504860ad6cd147f1ebe3e0a4\",\n  \"bytes\": 22776,\n  \"d\": 4,\n  \"k\": 17,\n  \"rays\": 40,\n  \"orthogonal_pairs\": 220,\n  \"bases\": 32,\n  \"nodes\": 509,\n  \"nodes_visited\": 509,\n  \"nodes_accepted_by_rule0\": 22,\n  \"max_depth\": 6,\n  \"checks\": {\n    \"rays\": true,\n    \"adj\": true,\n    \"bases\": true,\n    \"tree\": true\n  },\n  \"claim\": \"every set of at most 17 rays of this 40-ray pool (d=4) is colorable\",\n  \"verdict\": \"PASS\",\n  \"error\": null\n}"
     },
     {
@@ -185,7 +185,7 @@
      ],
      "cwd": "<repo>",
      "exit_code": 1,
-     "seconds": 0.16,
+     "seconds": 0.06,
      "output_tail": "{\n  \"mode\": \"certificate\",\n  \"verifier\": \"verify_cert.mjs 1.0.0\",\n  \"file\": \"corrupted_k_plus_1.json\",\n  \"sha256\": \"89e0a30bec79c0636fb6bd1ebeb50b12aa29f82da0f8e7edc12c68a5d6c70631\",\n  \"bytes\": 18222,\n  \"d\": 3,\n  \"k\": 31,\n  \"rays\": 49,\n  \"orthogonal_pairs\": 138,\n  \"bases\": 26,\n  \"nodes\": 255,\n  \"nodes_visited\": null,\n  \"nodes_accepted_by_rule0\": null,\n  \"max_depth\": null,\n  \"checks\": {\n    \"rays\": true,\n    \"adj\": true,\n    \"bases\": true,\n    \"tree\": false\n  },\n  \"claim\": null,\n  \"verdict\": \"FAIL\",\n  \"error\": \"rule 2 fails at node at path [0,0,0,0,0,0,0,0,0,0,0,0,0] (|S|=28, |F|=0): basis #14 {8,39,47} contains no ray of I, |S u b| = 31 <= k = 31, no basis of F lies inside S u b, and it is not a child basis\"\n}"
     }
    ],
@@ -197,8 +197,8 @@
    "name": "drup-49",
    "title": "49-ray pool, k=30: ksmaster -> ks_cnf (g4) -> drup_check",
    "status": "PASS",
-   "seconds": 7.4,
-   "detail": "51 cuts, CNF 5254 vars / 20223 clauses, UNSAT, proof VERIFIED (191 lemmas)",
+   "seconds": 2.2,
+   "detail": "63 cuts, CNF 5254 vars / 20235 clauses, UNSAT, proof VERIFIED (183 lemmas)",
    "commands": [
     {
      "argv": [
@@ -210,7 +210,7 @@
      ],
      "cwd": "<repo>",
      "exit_code": 0,
-     "seconds": 1.61,
+     "seconds": 0.42,
      "output_tail": ""
     },
     {
@@ -227,8 +227,8 @@
      ],
      "cwd": "<work>",
      "exit_code": 0,
-     "seconds": 4.31,
-     "output_tail": "02:54:24 box3(H=2): 49 rays, 138 orthogonal pairs (0.0s)\n02:54:24 box3(H=2): 26 orthogonal triples (0.0s)\n02:54:24 box3(H=2): KS core keeps 49 of 49 rays\n02:54:24 box3(H=2)/core: 49 rays, 138 orthogonal pairs, 26 bases (d=3)\n02:54:24 === ksmaster k=30 case=- workers=2 fix_in=[] fix_out=[]\n02:54:24 symmetry breaking on coordinate groups [[0, 1, 2]]\n02:54:24 [     0.0s] a coloring of the whole pool misses 1 of 26 bases\n02:54:24 [     0.1s] it 1: candidate 18 rays (0.0s) colorable; cut misses 2 bases, +24 (total 27)\n02:54:24 [     0.1s] it 2: candidate 28 rays (0.0s) colorable; cut misses 2 bases, +12 (total 39)\n02:54:24 [     0.1s] it 3: candidate 30 rays (0.0s) colorable; cut misses 3 bases, +12 (total 51)\n02:54:24 [     0.2s] it 4: INFEASIBLE (0.0s) - no critical KS set with at most 30 rays in box3(H=2)/core under the case constraints (51 cuts)\n02:54:24 MASTER RESULT box3(H=2)/core k=30 case=-: none after 4 iterations, 51 cuts"
+     "seconds": 1.2,
+     "output_tail": "03:34:39 box3(H=2): 49 rays, 138 orthogonal pairs (0.0s)\n03:34:39 box3(H=2): 26 orthogonal triples (0.0s)\n03:34:39 box3(H=2): KS core keeps 49 of 49 rays\n03:34:39 box3(H=2)/core: 49 rays, 138 orthogonal pairs, 26 bases (d=3)\n03:34:39 === ksmaster k=30 case=- workers=2 fix_in=[] fix_out=[]\n03:34:39 symmetry breaking on coordinate groups [[0, 1, 2]]\n03:34:39 [     0.0s] a coloring of the whole pool misses 1 of 26 bases\n03:34:39 [     0.0s] it 1: candidate 18 rays (0.0s) colorable; cut misses 2 bases, +24 (total 27)\n03:34:39 [     0.0s] it 2: candidate 28 rays (0.0s) colorable; cut misses 2 bases, +12 (total 39)\n03:34:39 [     0.1s] it 3: candidate 30 rays (0.0s) colorable; cut misses 3 bases, +12 (total 51)\n03:34:39 [     0.1s] it 4: candidate 30 rays (0.0s) colorable; cut misses 3 bases, +12 (total 63)\n03:34:39 [     0.1s] it 5: INFEASIBLE (0.0s) - no critical KS set with at most 30 rays in box3(H=2)/core under the case constraints (63 cuts)\n03:34:39 MASTER RESULT box3(H=2)/core k=30 case=-: none after 5 iterations, 63 cuts"
     },
     {
      "argv": [
@@ -244,8 +244,8 @@
      ],
      "cwd": "<work>",
      "exit_code": 0,
-     "seconds": 1.18,
-     "output_tail": "51 cuts re-verified from their witnesses: True (0.0s)\ncase -: rays fixed in [], fixed out []; symmetry breaking on, groups [[0, 1, 2]]\nCNF: 5254 variables, 20223 clauses\ng4: UNSAT in 0.0s\nDRAT proof: 14662 lines -> <work>\\results\\master_box3_2_k30_cuts.drat"
+     "seconds": 0.42,
+     "output_tail": "63 cuts re-verified from their witnesses: True (0.0s)\ncase -: rays fixed in [], fixed out []; symmetry breaking on, groups [[0, 1, 2]]\nCNF: 5254 variables, 20235 clauses\ng4: UNSAT in 0.0s\nDRAT proof: 14757 lines -> <work>\\results\\master_box3_2_k30_cuts.drat"
     },
     {
      "argv": [
@@ -255,8 +255,8 @@
      ],
      "cwd": "<repo>",
      "exit_code": 0,
-     "seconds": 0.15,
-     "output_tail": "c 20223 original clauses, 191 lemmas checked, 14470 deletion lines (14470 applied)\ns VERIFIED"
+     "seconds": 0.09,
+     "output_tail": "c 20235 original clauses, 183 lemmas checked, 14573 deletion lines (14573 applied)\ns VERIFIED"
     },
     {
      "argv": [
@@ -266,28 +266,28 @@
      ],
      "cwd": "<repo>",
      "exit_code": 1,
-     "seconds": 0.05,
-     "output_tail": "c 20223 original clauses, 0 lemmas checked, 0 deletion lines (0 applied)\nc the empty clause was not derived\ns NOT VERIFIED"
+     "seconds": 0.03,
+     "output_tail": "c 20235 original clauses, 0 lemmas checked, 0 deletion lines (0 applied)\nc the empty clause was not derived\ns NOT VERIFIED"
     }
    ],
    "data": {
     "drup_check": "compiled from verify/drup_check.c for this run",
     "drup_check_c_sha256": "e57c668961a76b8038409e238cb8e241da7ab809d92082feb5a3546f77fad6ad",
     "engine_a": "CP-SAT: infeasible",
-    "iterations": 4,
-    "cuts": 51,
+    "iterations": 5,
+    "cuts": 63,
     "variables": 5254,
-    "clauses": 20223,
-    "lemmas_checked": 191,
+    "clauses": 20235,
+    "lemmas_checked": 183,
     "negative_control": "empty proof rejected",
-    "cnf_sha256": "4a2546a98c3ce34a58f15aa04dd357b3217be21d65ac819f0ae3822aef658cbb"
+    "cnf_sha256": "fe3e9cdc78ce176431ceff24a08a423c285450759b3a567959b8ededb3642c3d"
    }
   },
   {
    "name": "drup-40",
    "title": "40-ray pool, k=17: ksmaster -> ks_cnf (g4) -> drup_check",
    "status": "PASS",
-   "seconds": 4.7,
+   "seconds": 1.5,
    "detail": "84 cuts, CNF 4427 vars / 16847 clauses, UNSAT, proof VERIFIED (307 lemmas)",
    "commands": [
     {
@@ -305,8 +305,8 @@
      ],
      "cwd": "<work>",
      "exit_code": 0,
-     "seconds": 3.12,
-     "output_tail": "02:54:28 box(d=4,H=1): 40 rays, 220 orthogonal pairs, 32 bases (d=4)\n02:54:28 box(d=4,H=1): KS core keeps 40 of 40 rays\n02:54:28 === ksmaster k=17 case=- workers=2 fix_in=[] fix_out=[]\n02:54:28 symmetry breaking on coordinate groups [[0, 1, 2, 3]]\n02:54:28 [     0.0s] a coloring of the whole pool misses 4 of 32 bases\n02:54:28 [     0.1s] it 1: candidate 12 rays (0.0s) colorable; cut misses 6 bases, +48 (total 52)\n02:54:29 [     0.2s] it 2: candidate 16 rays (0.0s) colorable; cut misses 6 bases, +32 (total 84)\n02:54:29 [     0.2s] it 3: INFEASIBLE (0.0s) - no critical KS set with at most 17 rays in box(d=4,H=1) under the case constraints (84 cuts)\n02:54:29 MASTER RESULT box(d=4,H=1) k=17 case=-: none after 3 iterations, 84 cuts"
+     "seconds": 1.06,
+     "output_tail": "03:34:40 box(d=4,H=1): 40 rays, 220 orthogonal pairs, 32 bases (d=4)\n03:34:40 box(d=4,H=1): KS core keeps 40 of 40 rays\n03:34:40 === ksmaster k=17 case=- workers=2 fix_in=[] fix_out=[]\n03:34:40 symmetry breaking on coordinate groups [[0, 1, 2, 3]]\n03:34:40 [     0.0s] a coloring of the whole pool misses 4 of 32 bases\n03:34:40 [     0.1s] it 1: candidate 12 rays (0.0s) colorable; cut misses 6 bases, +48 (total 52)\n03:34:40 [     0.1s] it 2: candidate 16 rays (0.0s) colorable; cut misses 6 bases, +32 (total 84)\n03:34:40 [     0.1s] it 3: INFEASIBLE (0.0s) - no critical KS set with at most 17 rays in box(d=4,H=1) under the case constraints (84 cuts)\n03:34:40 MASTER RESULT box(d=4,H=1) k=17 case=-: none after 3 iterations, 84 cuts"
     },
     {
      "argv": [
@@ -323,7 +323,7 @@
      ],
      "cwd": "<work>",
      "exit_code": 0,
-     "seconds": 0.58,
+     "seconds": 0.31,
      "output_tail": "84 cuts re-verified from their witnesses: True (0.0s)\ncase -: rays fixed in [], fixed out []; symmetry breaking on, groups [[0, 1, 2, 3]]\nCNF: 4427 variables, 16847 clauses\ng4: UNSAT in 0.0s\nDRAT proof: 3700 lines -> <work>\\results\\master_box_4_1_k17_cuts.drat"
     },
     {
@@ -334,7 +334,7 @@
      ],
      "cwd": "<repo>",
      "exit_code": 0,
-     "seconds": 0.94,
+     "seconds": 0.06,
      "output_tail": "c 16847 original clauses, 307 lemmas checked, 3392 deletion lines (3392 applied)\ns VERIFIED"
     },
     {
@@ -345,7 +345,7 @@
      ],
      "cwd": "<repo>",
      "exit_code": 1,
-     "seconds": 0.05,
+     "seconds": 0.03,
      "output_tail": "c 16847 original clauses, 0 lemmas checked, 0 deletion lines (0 applied)\nc the empty clause was not derived\ns NOT VERIFIED"
     }
    ],
@@ -357,14 +357,14 @@
     "clauses": 16847,
     "lemmas_checked": 307,
     "negative_control": "empty proof rejected",
-    "cnf_sha256": "de777de853975681e56bbde1b222987209440d22e147bbfe1758c5bcd8f25837"
+    "cnf_sha256": "ebf845ac02585e1e7becc9b36cdec9493bf8bec1e74015cd28b4222379f0ff51"
    }
   },
   {
    "name": "lean",
    "title": "Lean 4: lake build, axiom audit, source scan",
    "status": "PASS",
-   "seconds": 2.3,
+   "seconds": 20.3,
    "detail": "26 theorems audited, axioms used: Classical.choice, Quot.sound, propext; no sorry",
    "commands": [
     {
@@ -374,7 +374,7 @@
      ],
      "cwd": "<repo>/lean",
      "exit_code": 0,
-     "seconds": 0.47,
+     "seconds": 0.23,
      "output_tail": "Build completed successfully (8 jobs)."
     },
     {
@@ -386,7 +386,7 @@
      ],
      "cwd": "<repo>/lean",
      "exit_code": 0,
-     "seconds": 1.85,
+     "seconds": 20.1,
      "output_tail": "'KS.small_sets_colorable_root' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.not_colorable_of_refute' depends on axioms: [propext, Quot.sound]\n'KS.not_colorable_of_refute_root' depends on axioms: [propext, Quot.sound]\n'KS.vcolorable_of_colorable' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.colorable_of_vcolorable' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.cliquesListed_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.mem_boxVectors' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.mem_boxRays' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.countP_parallel_of_boxExact' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box3H2.minimum_ks_size' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box3H2.minimum_ks_size_vectors' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box3H2.rays_eq' does not depend on any axioms\n'KS.Box3H2.rays_length' does not depend on any axioms\n'KS.Box3H2.boxRays_exact' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box3H2.adj_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box3H2.bases_sound' depends on axioms: [propext]\n'KS.Box3H2.bases_complete' depends on axioms: [propext]\n'KS.Box4H1.minimum_ks_size' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box4H1.minimum_ks_size_vectors' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box4H1.rays_eq' does not depend on any axioms\n'KS.Box4H1.rays_length' does not depend on any axioms\n'KS.Box4H1.boxRays_exact' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box4H1.adj_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box4H1.bases_sound' depends on axioms: [propext]\n'KS.Box4H1.bases_complete' depends on axioms: [propext]"
     }
    ],
@@ -551,11 +551,12 @@
   "scripts/build_paper.py": "d1a742f1ec7974256716a89d8f14e04bfdc94d11738c8cb6cdc2c9c54690e541",
   "scripts/build_site_data.py": "1fa4faca19cee4b02c9bad3c4fda0e090d1baba4467118bc139dae9dfd472cb5",
   "scripts/check_cubes.py": "b7b32b87accf6e07b01df77aeb8be51442a9b89821e3fb9b7df656f9fb7ffe43",
-  "scripts/check_docs.py": "90b086f11fa19c0cc0d6c63d078870c5e710f84cae7318e76a527b789aa564de",
+  "scripts/check_docs.py": "168efeb1042f9bcf1fef41221dc0b64a6b02709b4d01b5cb8e8f23665838758f",
   "scripts/check_references.py": "23519ce38c7685651a370d7400d076a80008a7c15ad4a08855996274065f5d38",
   "scripts/collect_sets.py": "5441b287b0c73deec1f5db3830cedae5a7ec3d5084c4b516b9c2c4810d09d788",
   "scripts/d5_sections.py": "c5b0be9d9ee26652480995d9d718abafb972cc0961db59f7f7cb81950929a8ce",
   "scripts/enumerate_min.py": "3843598dfe42121d274836539fbe72516fc9e7940cd073c951ebbd0567bfdac5",
+  "scripts/fill_cube_verdict.py": "cad148b4891b484688bf29c174c2890506024335ad44e504b41abcd78317017c",
   "scripts/fix_paper_math.py": "c73fc54c218b680f463893f84f6e4bd73bfebf8e79b6edbcb01682b2b2a165f8",
   "scripts/gen_lean.py": "f8a9196fc9efc6a628538048a554f2758e410da7171d70a8fd80ad7d98ca0382",
   "scripts/lemma7.py": "381d90b14e41ed99651e5baa792af3297380926a0612845bb0fb3c03f08b05af",
@@ -566,6 +567,7 @@
   "scripts/prove_cnf.py": "fdb8fefc54b05fc6ccbdd7b2b31267158a2637e2fcd5984b27957e20ea8baf40",
   "scripts/run_all.py": "9f8df68e028ab672cabd50e3818e4ecfd8857854b39cc1a8f39757698cf271cd",
   "scripts/run_stack.py": "5a443927f24a1f0c8bb97f5e395db607bb7e9d971a1a92a85af9670ec2093fe9",
+  "scripts/scan_large_tokens.py": "decdd921ff14945d6a0a8c7d2f27fbcf2c4ba0850220b0f457bdcfe3602a8716",
   "scripts/scrub_logs.py": "deb378f63c2bb2d23e9bfed84433247095d85d0ae65419a9faa9d9e1268e2fac",
   "scripts/second_solver.py": "83942739a122f26b98b337ce23ef591ea7d944c3e855a740e47027d56f6bcae7",
   "verify/test_verify.mjs": "0f67bb3b2d6f0ac4c845ec570be3b93b70c71925749ea39f6fa34f282f7152f2",
