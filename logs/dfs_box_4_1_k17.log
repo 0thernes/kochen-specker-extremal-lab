@@ -1,0 +1,6 @@
+21:17:43 box(d=4,H=1): 40 rays, 220 orthogonal pairs, 32 bases (d=4)
+21:17:43 box(d=4,H=1): KS core keeps 40 of 40 rays
+21:17:43 box(d=4,H=1): 32 bases in 6 orbits under the symmetry group
+21:17:43 [     0.0s] root branch 1/4: basis 0 (orbit 0), nodes so far 1
+21:17:43 [     0.0s] root branch 2/4: basis 2 (orbit 1), nodes so far 235
+21:17:43 [     0.1s] EXHAUSTED: no KS set with at most 17 rays in box(d=4,H=1) (339 nodes, 1931 SAT calls)

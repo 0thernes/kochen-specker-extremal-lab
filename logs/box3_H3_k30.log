@@ -1,0 +1,14 @@
+20:33:53 box3(H=3): 145 rays, 546 orthogonal pairs (0.0s)
+20:33:53 box3(H=3): 50 orthogonal triples (0.0s)
+20:33:53 box3(H=3): KS core keeps 97 of 145 rays
+20:33:53 box3(H=3)/core: 97 rays, 282 orthogonal pairs, 50 bases (d=3)
+20:33:55 [     1.9s] a coloring of the whole pool misses 2 of 50 bases
+20:33:55 [     1.9s] it 1: candidate 6 rays colorable; cut misses 2 bases, +4 (total 7)
+20:33:55 [     1.9s] it 2: candidate 7 rays colorable; cut misses 3 bases, +3 (total 10)
+20:33:55 [     1.9s] it 3: candidate 9 rays colorable; cut misses 3 bases, +12 (total 22)
+20:33:55 [     2.0s] it 4: candidate 17 rays colorable; cut misses 3 bases, +24 (total 46)
+20:33:55 [     2.0s] it 5: candidate 27 rays colorable; cut misses 3 bases, +12 (total 58)
+20:33:55 [     2.0s] it 6: candidate 29 rays colorable; cut misses 3 bases, +12 (total 70)
+20:33:55 [     2.0s] it 7: candidate 30 rays colorable; cut misses 4 bases, +24 (total 94)
+20:33:55 [     2.1s] it 8: UNSAT - no KS set with at most 30 rays in box3(H=3)/core (94 cuts)
+20:33:55 RESULT {"H": 3, "k": 30, "status": "none", "iterations": 8, "cuts": 94, "core_rays": 97, "triples": 50, "seconds": 2.1}

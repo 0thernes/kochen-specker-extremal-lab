@@ -1,0 +1,6 @@
+box3(H=2)/core: 49 rays, 26 bases; an independent set misses at least 1 bases (optimum, RC2, 0.4s)
+box3(H=3)/core: 97 rays, 50 bases; an independent set misses at least 2 bases (optimum, RC2, 0.0s)
+box3(H=4)/core: 205 rays, 110 bases; an independent set misses at least 7 bases (optimum, RC2, 0.4s)
+box3(H=5)/core: 421 rays, 266 bases; an independent set misses at least 14 bases (optimum, RC2, 24.9s)
+box(d=5,H=1)/core: 105 rays, 136 bases; an independent set misses at least 24 bases (optimum, RC2, 1.6s)
+wrote results/min_missed.json

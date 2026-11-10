@@ -1,0 +1,40 @@
+{
+ "pool": "box3(H=4)/core",
+ "k": 30,
+ "workers": 4,
+ "limit_seconds": 600.0,
+ "runs": [
+  {
+   "C1": true,
+   "C2": true,
+   "status": "none",
+   "rounds": 6,
+   "cuts": 123,
+   "seconds": 9.3
+  },
+  {
+   "C1": true,
+   "C2": false,
+   "status": "none",
+   "rounds": 15,
+   "cuts": 327,
+   "seconds": 7.4
+  },
+  {
+   "C1": false,
+   "C2": true,
+   "status": "none",
+   "rounds": 9,
+   "cuts": 183,
+   "seconds": 16.9
+  },
+  {
+   "C1": false,
+   "C2": false,
+   "status": "none",
+   "rounds": 15,
+   "cuts": 307,
+   "seconds": 9.2
+  }
+ ]
+}

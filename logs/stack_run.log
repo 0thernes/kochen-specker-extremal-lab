@@ -1,0 +1,14 @@
+[run_stack] 31-ray KS set, operational demonstration on the vendored Tsotchke stack
+[run_stack] note: all stages are classical computations (state-vector simulator, deterministic
+[run_stack]       integer mixers, double-precision geometry kernel); no quantum hardware is used
+[run_stack] PASS  vendor    14 vendored files fingerprinted; mixer block identical to upstream lines; ks31.esk rays equal the JSON rays
+[run_stack] PASS  reference exact integers: 71 orthogonal pairs, 17 bases, classical maximum M = 16 (153566 admissible assignments, 66 attain M), KS assignments = 0
+[run_stack] PASS  moonlab   classical simulator: 71 orthogonal pairs, 17 bases; 2000 states: every basis sums to 1 (max dev 1.8e-15), pair sums <= 1; quantum 17 for every state versus classical at most 16
+[run_stack] PASS  qgtl      Fubini-Study distance for 465 pairs: pi/2 within 1e-12 exactly for 71 orthogonal pairs, non-orthogonal distances in [0.321750554397, 1.403348247575]
+[run_stack] PASS  qrng      deterministic integer mixers (not quantum randomness): seed-1 known answers reproduced, stream[0..7] = 5df9ef9ba7cdcca2 ddb5674ec90579d9 e350bb351fce2beb 20275c35a4eaee84 2f7cdc01c2c0ba7d 9c8e41616b8765d2 bb513969a806c10e 46d8abb5b7a0e256
+[run_stack] ....  eshkol    running eshkol-run -r ks31.esk (this stage can take several minutes)
+[run_stack] PASS  eshkol    ESHKOL-PASS: 71 orthogonal pairs, 17 bases, 0 assignments satisfy the KS rules (exhaustive backtracking, 7380 nodes); positive control finds 66 assignments
+[run_stack] PASS  cross     14 cross-language comparisons agree: pairs 71, bases 17, M = 16, stream values, node counts
+[run_stack] state-independent gap: quantum 17 for every state versus classical at most 16
+[run_stack] PASS  overall   7/7 stages passed in 8 s
+[run_stack] wrote K:\results\stack_demo.json

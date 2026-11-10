@@ -1,0 +1,12 @@
+ENUMERATION box3(H=3)/core k=31: 6 KS sets, 1 orbits under the symmetry group (sizes [6]), 1 isomorphism classes of orthogonality graphs; 1.9s
+6 listed KS sets of size 31 excluded (each re-verified as a KS set)
+g4: UNSAT in 0.4s
+s VERIFIED
+ENUMERATION roots(d=3,N=12) k=33: 12 KS sets, 1 orbits under the symmetry group (sizes [12]), 1 isomorphism classes of orthogonality graphs; 11.2s
+12 listed KS sets of size 33 excluded (each re-verified as a KS set)
+g4: UNSAT in 4.6s
+s VERIFIED
+ENUMERATION box3(H=4)/core k=31: 6 KS sets, 1 orbits under the symmetry group (sizes [6]), 1 isomorphism classes of orthogonality graphs; 42.7s
+6 listed KS sets of size 31 excluded (each re-verified as a KS set)
+g4: UNSAT in 470.4s
+s VERIFIED

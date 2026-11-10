@@ -1,0 +1,658 @@
+[
+ {
+  "n": 1,
+  "reference": "S. Kochen, E. P. Specker, The problem of hidden variables in quantum mechanics, J. Math. Mech. 17 (1967) 59-87.",
+  "crossref": {
+   "title": "The Problem of Hidden Variables in Quantum Mechanics",
+   "authors": "Kochen, Specker",
+   "year": 1967,
+   "container": "Indiana University Mathematics Journal",
+   "volume": "17",
+   "page": "59-87",
+   "doi": "10.1512/iumj.1968.17.17004",
+   "score": 87.299164
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 2,
+  "reference": "J. S. Bell, On the problem of hidden variables in quantum mechanics, Rev. Mod. Phys. 38 (1966) 447-452.",
+  "crossref": {
+   "title": "On the Problem of Hidden Variables in Quantum Mechanics",
+   "authors": "BELL",
+   "year": 1966,
+   "container": "Reviews of Modern Physics",
+   "volume": "38",
+   "page": "447-452",
+   "doi": "10.1103/revmodphys.38.447",
+   "score": 86.68592
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 3,
+  "reference": "A. Peres, Quantum Theory: Concepts and Methods, Kluwer, Dordrecht, 1993 (source of the 31-ray set of J. H. Conway and S. Kochen).",
+  "crossref": {
+   "title": "Quantum Theory: Concepts and Methods",
+   "authors": "",
+   "year": 2002,
+   "container": "",
+   "volume": null,
+   "page": null,
+   "doi": "10.1007/0-306-47120-5",
+   "score": 41.63723
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 4,
+  "reference": "A. Peres, Two simple proofs of the Kochen-Specker theorem, J. Phys. A 24 (1991) L175-L178.",
+  "crossref": {
+   "title": "Two simple proofs of the Kochen-Specker theorem",
+   "authors": "Peres",
+   "year": 1991,
+   "container": "Journal of Physics A: Mathematical and General",
+   "volume": "24",
+   "page": "L175-L178",
+   "doi": "10.1088/0305-4470/24/4/003",
+   "score": 104.16503
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 5,
+  "reference": "A. Cabello, J. M. Estebaranz, G. García-Alcaine, Bell-Kochen-Specker theorem: a proof with 18 vectors, Phys. Lett. A 212 (1996) 183-187.",
+  "crossref": {
+   "title": "Bell-Kochen-Specker theorem: A proof with 18 vectors",
+   "authors": "Cabello, Estebaranz, García-Alcaine",
+   "year": 1996,
+   "container": "Physics Letters A",
+   "volume": "212",
+   "page": "183-187",
+   "doi": "10.1016/0375-9601(96)00134-x",
+   "score": 128.07628
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 6,
+  "reference": "A. Cabello, J. M. Estebaranz, G. García-Alcaine, Recursive proof of the Bell-Kochen-Specker theorem in any dimension n > 3, Phys. Lett. A 339 (2005) 425-429; arXiv:quant-ph/0504217.",
+  "arxiv": {
+   "title": "Recursive proof of the Bell-Kochen-Specker theorem in any dimension $n&gt;3$",
+   "authors": "Cabello, Estebaranz, Garcia-Alcaine"
+  },
+  "crossref": {
+   "title": "Recursive proof of the Bell–Kochen–Specker theorem in any dimension",
+   "authors": "Cabello, Estebaranz, García-Alcaine",
+   "year": 2005,
+   "container": "Physics Letters A",
+   "volume": "339",
+   "page": "425-429",
+   "doi": "10.1016/j.physleta.2005.03.067",
+   "score": 138.02557
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 7,
+  "reference": "M. Pavičić, J.-P. Merlet, B. McKay, N. D. Megill, Kochen-Specker vectors, J. Phys. A 38 (2005) 1577-1592; arXiv:quant-ph/0409014.",
+  "arxiv": {
+   "title": "Kochen-Specker Vectors",
+   "authors": "Pavicic, Merlet, McKay, Megill"
+  },
+  "crossref": {
+   "title": "Kochen–Specker vectors",
+   "authors": "Pavičić, Merlet, McKay, Megill",
+   "year": 2005,
+   "container": "Journal of Physics A: Mathematical and General",
+   "volume": "38",
+   "page": "1577-1592",
+   "doi": "10.1088/0305-4470/38/7/013",
+   "score": 104.47972
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 8,
+  "reference": "F. Arends, J. Ouaknine, C. W. Wampler, On searching for small Kochen-Specker vector systems (extended version), arXiv:1111.3301 (2011).",
+  "arxiv": {
+   "title": "On Searching for Small Kochen-Specker Vector Systems (extended version)",
+   "authors": "Arends, Ouaknine, Wampler"
+  },
+  "crossref": {
+   "title": "On Searching for Small Kochen-Specker Vector Systems",
+   "authors": "Arends, Ouaknine, Wampler",
+   "year": 2011,
+   "container": "Lecture Notes in Computer Science",
+   "volume": null,
+   "page": "23-34",
+   "doi": "10.1007/978-3-642-25870-1_4",
+   "score": 84.31944
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 9,
+  "reference": "S. Uijlen, B. Westerbaan, A Kochen-Specker system has at least 22 vectors, New Gener. Comput. 34 (2016) 3-23.",
+  "crossref": {
+   "title": "A Kochen-Specker System Has at Least 22 Vectors",
+   "authors": "Uijlen, Westerbaan",
+   "year": 2016,
+   "container": "New Generation Computing",
+   "volume": "34",
+   "page": "3-23",
+   "doi": "10.1007/s00354-016-0202-5",
+   "score": 123.87662
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 10,
+  "reference": "Z. Li, C. Bright, V. Ganesh, A SAT solver + computer algebra attack on the minimum Kochen-Specker problem, Proc. IJCAI 2024, 1898-1906; arXiv:2306.13319.",
+  "arxiv": {
+   "title": "A SAT Solver and Computer Algebra Attack on the Minimum Kochen-Specker Problem",
+   "authors": "Li, Bright, Ganesh"
+  },
+  "crossref": {
+   "title": "A SAT Solver + Computer Algebra Attack on the Minimum Kochen–Specker Problem",
+   "authors": "Li, Bright, Ganesh",
+   "year": 2024,
+   "container": "Proceedings of the Thirty-ThirdInternational Joint Conference on Artificial Intelligence",
+   "volume": null,
+   "page": "1898-1906",
+   "doi": "10.24963/ijcai.2024/210",
+   "score": 115.98934
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 11,
+  "reference": "M. Kirchweger, T. Peitl, S. Szeider, Co-certificate learning with SAT modulo symmetries, Proc. IJCAI 2023, 1944-1953; arXiv:2306.10427.",
+  "arxiv": {
+   "title": "Co-Certificate Learning with SAT Modulo Symmetries",
+   "authors": "Kirchweger, Peitl, Szeider"
+  },
+  "crossref": {
+   "title": "Co-Certificate Learning with SAT Modulo Symmetries",
+   "authors": "Kirchweger, Peitl, Szeider",
+   "year": 2023,
+   "container": "Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence",
+   "volume": null,
+   "page": "1944-1953",
+   "doi": "10.24963/ijcai.2023/216",
+   "score": 112.263016
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 12,
+  "reference": "Z.-P. Xu, J.-L. Chen, O. Gühne, Proof of the Peres conjecture for contextuality, Phys. Rev. Lett. 124 (2020) 230401; arXiv:2001.07656.",
+  "arxiv": {
+   "title": "Proof of the Peres conjecture for contextuality",
+   "authors": "Xu, Chen, Gühne"
+  },
+  "crossref": {
+   "title": "Proof of the Peres Conjecture for Contextuality",
+   "authors": "Xu, Chen, Gühne",
+   "year": 2020,
+   "container": "Physical Review Letters",
+   "volume": "124",
+   "page": "230401",
+   "doi": "10.1103/physrevlett.124.230401",
+   "score": 87.11802
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 13,
+  "reference": "P. Lisoněk, P. Badziąg, J. R. Portillo, A. Cabello, Kochen-Specker set with seven contexts, Phys. Rev. A 89 (2014) 042101; arXiv:1308.6012.",
+  "arxiv": {
+   "title": "Kochen-Specker set with seven contexts",
+   "authors": "Lisonek, Badziag, Portillo, Cabello"
+  },
+  "crossref": {
+   "title": "Kochen-Specker set with seven contexts",
+   "authors": "Lisoněk, Badzia̧g, Portillo, Cabello",
+   "year": 2014,
+   "container": "Physical Review A",
+   "volume": "89",
+   "page": "042101",
+   "doi": "10.1103/physreva.89.042101",
+   "score": 103.08648
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 14,
+  "reference": "M. Waegell, P. K. Aravind, Parity proofs of the Kochen-Specker theorem based on the Lie algebra E8, J. Phys. A 48 (2015) 225301; arXiv:1502.04350.",
+  "arxiv": {
+   "title": "Parity proofs of the Kochen-Specker theorem based on the Lie algebra E8",
+   "authors": "Waegell, Aravind"
+  },
+  "crossref": {
+   "title": "Parity proofs of the Kochen–Specker theorem based on the Lie algebra E8",
+   "authors": "Waegell, Aravind",
+   "year": 2015,
+   "container": "Journal of Physics A: Mathematical and Theoretical",
+   "volume": "48",
+   "page": "225301",
+   "doi": "10.1088/1751-8113/48/22/225301",
+   "score": 119.19969
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 15,
+  "reference": "M. Waegell, P. K. Aravind, Minimal complexity of Kochen-Specker sets does not scale with dimension, Phys. Rev. A 95 (2017) 050101; arXiv:1702.05215.",
+  "arxiv": {
+   "title": "The Minimum Complexity of Kochen-Specker Sets Does Not Scale with Dimension",
+   "authors": "Waegell, Aravind"
+  },
+  "crossref": {
+   "title": "Minimal complexity of Kochen-Specker sets does not scale with dimension",
+   "authors": "Waegell, Aravind",
+   "year": 2017,
+   "container": "Physical Review A",
+   "volume": "95",
+   "page": "050101",
+   "doi": "10.1103/physreva.95.050101",
+   "score": 110.30984
+  },
+  "title_overlap": 0.89,
+  "verdict": "match"
+ },
+ {
+  "n": 16,
+  "reference": "M. Pavičić, N. D. Megill, Automated generation of arbitrarily many Kochen-Specker and other contextual sets in odd-dimensional Hilbert spaces, Phys. Rev. A 106 (2022) L060203; arXiv:2202.08197.",
+  "arxiv": {
+   "title": "Automated Generation of Arbitrarily Many Kochen-Specker and Other Contextual Sets in Odd Dimensional Hilbert Spaces",
+   "authors": "Pavicic, Megill"
+  },
+  "crossref": {
+   "title": "Automated generation of arbitrarily many Kochen-Specker and other contextual sets in odd-dimensional Hilbert spaces",
+   "authors": "Pavičić, Megill",
+   "year": 2022,
+   "container": "Physical Review A",
+   "volume": "106",
+   "page": "L060203",
+   "doi": "10.1103/physreva.106.l060203",
+   "score": 145.39175
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 17,
+  "reference": "M. Pavičić, N. D. Megill, Vector generation of quantum contextual sets in even dimensional Hilbert spaces, Entropy 20 (2018) 928; arXiv:1905.01567.",
+  "arxiv": {
+   "title": "Vector Generation of Quantum Contextual Sets in Even Dimensional Hilbert Spaces",
+   "authors": "Pavicic, Megill"
+  },
+  "crossref": {
+   "title": "Vector Generation of Quantum Contextual Sets in Even Dimensional Hilbert Spaces",
+   "authors": "Pavičić, Megill",
+   "year": 2018,
+   "container": "Entropy",
+   "volume": "20",
+   "page": "928",
+   "doi": "10.3390/e20120928",
+   "score": 127.20192
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 18,
+  "reference": "S. Trandafir, A. Cabello, Two fundamental solutions to the rigid Kochen-Specker set problem and the solution to the minimal Kochen-Specker set problem under one assumption, Phys. Rev. A 111 (2025) 052204; arXiv:2501.11640.",
+  "arxiv": {
+   "title": "Two fundamental solutions to the rigid Kochen-Specker set problem and the solution to the minimal Kochen-Specker set problem under one assumption",
+   "authors": "Trandafir, Cabello"
+  },
+  "crossref": {
+   "title": "Two fundamental solutions to the rigid Kochen-Specker set problem and the solution to the minimal Kochen-Specker set problem under one assumption",
+   "authors": "Trandafir, Cabello",
+   "year": 2025,
+   "container": "Physical Review A",
+   "volume": "111",
+   "page": "052204",
+   "doi": "10.1103/physreva.111.052204",
+   "score": 181.051
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 19,
+  "reference": "Z. Li, C. Bright, S. Trandafir, A. Cabello, V. Ganesh, SAT + NAUTY: orderly generation of small Kochen-Specker sets containing the smallest state-independent contextuality set, arXiv:2604.19947 (2026).",
+  "arxiv": {
+   "title": "SAT + NAUTY: Orderly Generation of Small Kochen-Specker Sets Containing the Smallest State-independent Contextuality Set",
+   "authors": "Li, Bright, Trandafir, Cabello, Ganesh"
+  },
+  "crossref": {
+   "title": "A SAT Solver + Computer Algebra Attack on the Minimum Kochen-Specker Problem",
+   "authors": "Li, Bright, Ganesh",
+   "year": 2023,
+   "container": "",
+   "volume": null,
+   "page": null,
+   "doi": "10.21203/rs.3.rs-2279231/v2",
+   "score": 62.746834
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 20,
+  "reference": "A. Cabello, The simplest Kochen-Specker set, Phys. Rev. Lett. 135 (2025) 190203; arXiv:2508.07335.",
+  "arxiv": {
+   "title": "The simplest Kochen-Specker set",
+   "authors": "Cabello"
+  },
+  "crossref": {
+   "title": "Simplest Kochen-Specker Set",
+   "authors": "Cabello",
+   "year": 2025,
+   "container": "Physical Review Letters",
+   "volume": "135",
+   "page": "190203",
+   "doi": "10.1103/fx9d-488z",
+   "score": 87.70367
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 21,
+  "reference": "M. Pavičić, On simplest Kochen-Specker sets, arXiv:2512.10483 (2025).",
+  "arxiv": {
+   "title": "On Simplest Kochen-Specker Sets",
+   "authors": "Pavicic"
+  },
+  "crossref": {
+   "title": "Automated generation of Kochen-Specker sets",
+   "authors": "Pavičić, Waegell, Megill, Aravind",
+   "year": 2019,
+   "container": "Scientific Reports",
+   "volume": "9",
+   "page": "6765",
+   "doi": "10.1038/s41598-019-43009-9",
+   "score": 47.11221
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 22,
+  "reference": "M. Kernaghan, The algebraic landscape of Kochen-Specker sets in dimension three, arXiv:2603.16988v9 (2026).",
+  "arxiv": {
+   "title": "The Algebraic Landscape of Kochen-Specker Sets in Dimension Three",
+   "authors": "Kernaghan"
+  },
+  "crossref": {
+   "title": "Maximal non-Kochen-Specker sets and a lower bound on the size of Kochen-Specker sets",
+   "authors": "Williams, Constantin",
+   "year": 2025,
+   "container": "Physical Review A",
+   "volume": "111",
+   "page": "012223",
+   "doi": "10.1103/physreva.111.012223",
+   "score": 41.465298
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 23,
+  "reference": "I. Cortez, C. Morales, M. Reyes, Minimal ring extensions of the integers exhibiting Kochen-Specker contextuality, J. Algebra Appl. (2025), doi:10.1142/S0219498825420174; arXiv:2211.13216.",
+  "arxiv": {
+   "title": "Minimal ring extensions of the integers exhibiting Kochen-Specker contextuality",
+   "authors": "Cortez, Morales, Reyes"
+  },
+  "crossref": {
+   "title": "Minimal ring extensions of the integers exhibiting Kochen–Specker contextuality",
+   "authors": "Cortez, Morales, Reyes",
+   "year": 2025,
+   "container": "Journal of Algebra and Its Applications",
+   "volume": null,
+   "page": "2542017",
+   "doi": "10.1142/s0219498825420174",
+   "score": 123.0262
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 24,
+  "reference": "C. D. Godsil, J. Zaks, Colouring the sphere, arXiv:1201.0486 (2012).",
+  "arxiv": {
+   "title": "Colouring the Sphere",
+   "authors": "Godsil, Zaks"
+  },
+  "crossref": {
+   "title": "Colouring lines in projective space",
+   "authors": "Chowdhury, Godsil, Royle",
+   "year": 2006,
+   "container": "Journal of Combinatorial Theory, Series A",
+   "volume": "113",
+   "page": "39-52",
+   "doi": "10.1016/j.jcta.2005.01.010",
+   "score": 25.519432
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 25,
+  "reference": "D. A. Meyer, Finite precision measurement nullifies the Kochen-Specker theorem, Phys. Rev. Lett. 83 (1999) 3751-3754.",
+  "crossref": {
+   "title": "Finite Precision Measurement Nullifies the Kochen-Specker Theorem",
+   "authors": "Meyer",
+   "year": 1999,
+   "container": "Physical Review Letters",
+   "volume": "83",
+   "page": "3751-3754",
+   "doi": "10.1103/physrevlett.83.3751",
+   "score": 122.11424
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 26,
+  "reference": "S. Yu, C. H. Oh, State-independent proof of Kochen-Specker theorem with 13 rays, Phys. Rev. Lett. 108 (2012) 030402.",
+  "crossref": {
+   "title": "State-Independent Proof of Kochen-Specker Theorem with 13 Rays",
+   "authors": "Yu, Oh",
+   "year": 2012,
+   "container": "Physical Review Letters",
+   "volume": "108",
+   "page": "030402",
+   "doi": "10.1103/physrevlett.108.030402",
+   "score": 102.15469
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 27,
+  "reference": "A. Ignatiev, A. Morgado, J. Marques-Silva, PySAT: a Python toolkit for prototyping with SAT oracles, Proc. SAT 2018, LNCS 10929, 428-437.",
+  "crossref": {
+   "title": "PySAT: A Python Toolkit for Prototyping with SAT Oracles",
+   "authors": "Ignatiev, Morgado, Marques-Silva",
+   "year": 2018,
+   "container": "Lecture Notes in Computer Science",
+   "volume": null,
+   "page": "428-437",
+   "doi": "10.1007/978-3-319-94144-8_26",
+   "score": 106.43502
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 28,
+  "reference": "G. Audemard, L. Simon, Predicting learnt clauses quality in modern SAT solvers, Proc. IJCAI 2009, 399-404.",
+  "crossref": {
+   "title": "Lazy Clause Exchange Policy for Parallel SAT Solvers",
+   "authors": "Audemard, Simon",
+   "year": 2014,
+   "container": "Lecture Notes in Computer Science",
+   "volume": null,
+   "page": "197-205",
+   "doi": "10.1007/978-3-319-09284-3_15",
+   "score": 41.921173
+  },
+  "title_overlap": 0.17,
+  "verdict": "CHECK BY HAND"
+ },
+ {
+  "n": 29,
+  "reference": "L. Perron, F. Didier, CP-SAT, in Google OR-Tools, https://developers.google.com/optimization/cp/cp_solver .",
+  "verdict": "CHECK BY HAND"
+ },
+ {
+  "n": 30,
+  "reference": "N. Wetzler, M. J. H. Heule, W. A. Hunt Jr., DRAT-trim: efficient checking and trimming using expressive clausal proofs, Proc. SAT 2014, LNCS 8561, 422-429.",
+  "crossref": {
+   "title": "DRAT-trim: Efficient Checking and Trimming Using Expressive Clausal Proofs",
+   "authors": "Wetzler, Heule, Hunt",
+   "year": 2014,
+   "container": "Lecture Notes in Computer Science",
+   "volume": null,
+   "page": "422-429",
+   "doi": "10.1007/978-3-319-09284-3_31",
+   "score": 110.601265
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 31,
+  "reference": "M. Pavičić, Quantum contextuality, Quantum 7 (2023) 953; arXiv:2108.00967.",
+  "arxiv": {
+   "title": "Quantum Contextuality",
+   "authors": "Pavicic"
+  },
+  "crossref": {
+   "title": "Quantum Contextuality",
+   "authors": "Pavicic",
+   "year": 2023,
+   "container": "Quantum",
+   "volume": "7",
+   "page": "953",
+   "doi": "10.22331/q-2023-03-17-953",
+   "score": 51.893036
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 32,
+  "reference": "M. Pavičić, M. Waegell, Generation of Kochen-Specker contextual sets in higher dimensions by dimensional upscaling whose complexity does not scale with dimension and their applications, Phys. Rev. A 110 (2024) 012205; arXiv:2305.08267.",
+  "arxiv": {
+   "title": "Generation of Kochen-Specker contextual sets in higher dimensions by dimensional upscaling whose complexity does not scale with dimension and their applications",
+   "authors": "Pavicic, Waegell"
+  },
+  "crossref": {
+   "title": "Generation of Kochen-Specker contextual sets in higher dimensions by dimensional upscaling whose complexity does not scale with dimension and their applications",
+   "authors": "Pavičić, Waegell",
+   "year": 2024,
+   "container": "Physical Review A",
+   "volume": "110",
+   "page": "012205",
+   "doi": "10.1103/physreva.110.012205",
+   "score": 144.23387
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 33,
+  "reference": "ProblemHive, post p/xfkay by the account hive-admin, \"Smallest Kochen-Specker set in three dimensions: is there one with fewer than 31 vectors?\", with claim comments on integer coordinates, October 2026, https://problemhive.org/p/xfkay/thread (read 10 November 2026).",
+  "verdict": "CHECK BY HAND"
+ },
+ {
+  "n": 34,
+  "reference": "S. Siddique, I. Mian, Machine-checked certificates for the geometric half of the minimum Kochen-Specker bound, arXiv:2607.26413 (2026).",
+  "arxiv": {
+   "title": "Machine-Checked Certificates for the Geometric Half of the Minimum Kochen-Specker Bound",
+   "authors": "Siddique, Mian"
+  },
+  "crossref": {
+   "title": "Maximal non-Kochen-Specker sets and a lower bound on the size of Kochen-Specker sets",
+   "authors": "Williams, Constantin",
+   "year": 2025,
+   "container": "Physical Review A",
+   "volume": "111",
+   "page": "012223",
+   "doi": "10.1103/physreva.111.012223",
+   "score": 38.621685
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 35,
+  "reference": "S. Trandafir, A. Cabello, Optimal conversion of Kochen-Specker sets into bipartite perfect quantum strategies, Phys. Rev. A 111 (2025) 022408; arXiv:2410.17470.",
+  "arxiv": {
+   "title": "Optimal conversion of Kochen-Specker sets into bipartite perfect quantum strategies",
+   "authors": "Trandafir, Cabello"
+  },
+  "crossref": {
+   "title": "Optimal conversion of Kochen-Specker sets into bipartite perfect quantum strategies",
+   "authors": "Trandafir, Cabello",
+   "year": 2025,
+   "container": "Physical Review A",
+   "volume": "111",
+   "page": "022408",
+   "doi": "10.1103/physreva.111.022408",
+   "score": 117.60786
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 36,
+  "reference": "J. Harrison, HOL Light tutorial, file Tutorial/Custom_tactics.ml (theorems KOCHEN_SPECKER_LEMMA and KOCHEN_SPECKER_PARADOX), https://github.com/jrh13/hol-light .",
+  "verdict": "CHECK BY HAND"
+ },
+ {
+  "n": 37,
+  "reference": "V. Gupta, FreeWillLean: a formal proof of the Kochen-Specker paradox, https://github.com/guptbot/free_will_lean (2024).",
+  "verdict": "CHECK BY HAND"
+ },
+ {
+  "n": 38,
+  "reference": "Z. Li, A. Gupta, V. Ganesh, The four-qubit hyperbolic quadric has contextuality degree 315, arXiv:2610.26465 (2026).",
+  "arxiv": {
+   "title": "The Four-Qubit Hyperbolic Quadric Has Contextuality Degree 315",
+   "authors": "Li, Gupta, Ganesh"
+  },
+  "crossref": {
+   "title": "Charting the real four-qubit Pauli group via ovoids of a hyperbolic quadric of PG(7, 2)",
+   "authors": "Saniga, Lévay, Pracna",
+   "year": 2012,
+   "container": "Journal of Physics A: Mathematical and Theoretical",
+   "volume": "45",
+   "page": "295304",
+   "doi": "10.1088/1751-8113/45/29/295304",
+   "score": 32.10733
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ }
+]

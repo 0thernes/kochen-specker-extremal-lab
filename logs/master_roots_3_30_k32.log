@@ -1,0 +1,9 @@
+22:33:06 root pool d=3 N=30: 993 rays, 3738 orthogonal pairs (0.2s)
+22:33:06 roots(d=3,N=30): 993 rays, 3738 orthogonal pairs, 346 bases (d=3)
+22:33:06 roots(d=3,N=30): KS core keeps 993 of 993 rays
+22:33:06 === ksmaster k=32 case=- workers=4 fix_in=[] fix_out=[]
+22:33:08 [     2.2s] a coloring of the whole pool misses 10 of 346 bases
+22:33:24 [    18.4s] it 1: candidate 28 rays (0.5s) colorable; cut misses 19 bases, +5000 (total 6350)
+22:33:42 [    36.2s] it 2: candidate 31 rays (1.4s) colorable; cut misses 19 bases, +5000 (total 11350)
+22:33:57 [    51.2s] it 3: candidate 31 rays (2.6s) colorable; cut misses 19 bases, +5000 (total 16350)
+22:34:18 [    71.8s] it 4: candidate 30 rays (4.1s) colorable; cut misses 28 bases, +5000 (total 21350)

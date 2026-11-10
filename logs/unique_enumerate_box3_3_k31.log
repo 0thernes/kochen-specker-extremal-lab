@@ -1,0 +1,26 @@
+=== 00:31:53 uniqueness enumerate_box3_3_k31
+[   0.5s] KS set found; orbit of 6 sets; total 6
+ENUMERATION box3(H=3)/core k=31: 6 KS sets, 1 orbits under the symmetry group (sizes [6]), 1 isomorphism classes of orthogonality graphs; 1.9s
+115 cuts re-verified from their witnesses: True (0.0s)
+6 listed KS sets of size 31 excluded (each re-verified as a KS set)
+CNF: 17440 variables, 68220 clauses
+g4: UNSAT in 0.4s
+DRAT proof: 24918 lines -> results/enumerate_box3_3_k31_cuts.drat
+c 68220 original clauses, 2890 lemmas checked, 22027 deletion lines (22027 applied)
+s VERIFIED
+drup_check exit=0
+=== 00:32:01 done
+=== 01:35:58 uniqueness enumerate_box3_3_k31
+[   0.3s] KS set found; orbit of 6 sets; total 6
+ENUMERATION box3(H=3)/core k=31: 6 KS sets, 1 orbits under the symmetry group (sizes [6]), 1 isomorphism classes of orthogonality graphs; 1.9s
+99 cuts re-verified from their witnesses: True (0.0s)
+case -: rays fixed in [], fixed out []; symmetry breaking on, groups [[0, 1, 2]]
+6 listed KS sets of size 31 excluded (each re-verified as a KS set)
+the list is closed under the 5 generators of the signed coordinate permutations (checked)
+CNF: 17440 variables, 68204 clauses
+g4: UNSAT in 0.5s
+DRAT proof: 25265 lines -> results/enumerate_box3_3_k31_cuts.drat
+c 68204 original clauses, 4082 lemmas checked, 21182 deletion lines (21182 applied)
+s VERIFIED
+drup_check exit=0
+=== 01:36:05 done, status=0

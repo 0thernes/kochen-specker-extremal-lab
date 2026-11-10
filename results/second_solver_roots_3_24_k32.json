@@ -1,0 +1,18 @@
+{
+ "solver": "cadical195",
+ "formulas": 1,
+ "unsat": 1,
+ "sat": 0,
+ "other": 0,
+ "records": [
+  {
+   "file": "master_roots_3_24_k32_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 34372,
+   "clauses": 141027,
+   "result": "UNSAT",
+   "seconds": 356.8,
+   "sha256": "f934b8c318c50031ada5f71ba0822ac9705e1d76deb3697cf1bc9f2c8ecedd83"
+  }
+ ]
+}

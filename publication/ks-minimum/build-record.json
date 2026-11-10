@@ -1,0 +1,22 @@
+{
+ "source": "paper/ks-minimum.md",
+ "source_sha256": "ebd1669ef41854a8ad6d4fb94aa235da063d7ea2cb1727aef01600c709f7fa71",
+ "tex_sha256": "a8483d045e7379c988f1462d8ab0f214104ec0aed0659c558168d6539a3dc5f0",
+ "engine": "XeLaTeX (compiled here with Tectonic)",
+ "pandoc": "pandoc 3.13",
+ "tectonic": "Tectonic 0.17.0",
+ "pdf_sha256": "344353a4985c17759a70479e03c4fe8c66da561a15071349d88819707f352e51",
+ "pdf_bytes": 118554,
+ "overfull_boxes_pt": [
+  "3.73282"
+ ],
+ "missing_characters": [],
+ "arxiv_source_zip": {
+  "files": [
+   "00README.json",
+   "ks-minimum.tex"
+  ],
+  "bytes": 17553,
+  "sha256": "35498c864fc7dc0e18e55b1cd15d9428f333387beb2fac03b9cd7519b2b8261c"
+ }
+}

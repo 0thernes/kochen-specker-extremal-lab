@@ -1,0 +1,9 @@
+21:14:36 root pool d=3 N=24: 651 rays, 2415 orthogonal pairs (0.0s)
+21:14:36 roots(d=3,N=24): 651 rays, 2415 orthogonal pairs, 229 bases (d=3)
+21:14:36 roots(d=3,N=24): KS core keeps 651 of 651 rays
+21:14:36 pool ready in 0.3s
+21:14:36 [    0.0s] seed 1: start 43 rays
+21:14:36 [    0.0s] seed 1: new best 39 rays, 102 orthogonal pairs, 16 bases (step 1)
+21:14:36 [    0.1s] seed 1: new best 36 rays, 90 orthogonal pairs, 15 bases (step 12)
+21:24:36 [  600.0s] seed 1: done, 79894 steps, best 36, sizes seen [(36, 2), (39, 21), (42, 44641), (43, 601), (47, 12722), (49, 1), (51, 9), (52, 10)]
+21:24:36 HUNT RESULT roots(d=3,N=24) seed 1: 36 rays, 90 orthogonal pairs, 15 bases critical=True

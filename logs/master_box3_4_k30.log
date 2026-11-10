@@ -1,0 +1,14 @@
+21:46:56 box3(H=4): 289 rays, 1326 orthogonal pairs (0.0s)
+21:46:56 box3(H=4): 110 orthogonal triples (0.0s)
+21:46:56 box3(H=4): KS core keeps 205 of 289 rays
+21:46:56 box3(H=4)/core: 205 rays, 762 orthogonal pairs, 110 bases (d=3)
+21:46:56 === ksmaster k=30 case=- workers=8 fix_in=[] fix_out=[]
+21:46:56 [     0.8s] a coloring of the whole pool misses 7 of 110 bases
+21:46:57 [     1.2s] it 1: candidate 28 rays (0.1s) colorable; cut misses 7 bases, +24 (total 48)
+21:46:57 [     1.5s] it 2: candidate 30 rays (0.1s) colorable; cut misses 8 bases, +3 (total 51)
+21:46:58 [     2.0s] it 3: candidate 30 rays (0.2s) colorable; cut misses 7 bases, +24 (total 75)
+21:46:58 [     2.3s] it 4: candidate 30 rays (0.2s) colorable; cut misses 9 bases, +24 (total 99)
+21:46:58 [     2.5s] it 5: candidate 29 rays (0.1s) colorable; cut misses 8 bases, +24 (total 123)
+21:46:58 [     2.9s] it 6: candidate 30 rays (0.2s) colorable; cut misses 10 bases, +24 (total 147)
+21:48:16 [    80.6s] it 7: INFEASIBLE (77.8s) - no critical KS set with at most 30 rays in box3(H=4)/core under the case constraints (147 cuts)
+21:48:16 MASTER RESULT box3(H=4)/core k=30 case=-: none after 7 iterations, 147 cuts

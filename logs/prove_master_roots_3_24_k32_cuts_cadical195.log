@@ -1,0 +1,6 @@
+master_roots_3_24_k32_cuts.cnf: 34372 variables, 141027 clauses
+cadical195: UNSAT in 337.8s
+proof: 1464802 added clauses, 1560195 deletions, 407052130 bytes of text -> master_roots_3_24_k32_cuts.cadical195.drat (40.9s)
+c 141027 original clauses, 1464683 lemmas checked, 1560195 deletion lines (1560195 applied)
+s VERIFIED
+drup_check exit=0 (1495.4s)

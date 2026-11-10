@@ -1,0 +1,8 @@
+23:34:33 === satcegar_box3_2_k30_cubeselftest: CNF 5254 vars, 20172 clauses (before cuts)
+23:34:34 [     0.1s] it 1: candidate 19 rays (0.0s) colorable; +12 cuts (total 15)
+23:34:34 [     0.3s] it 2: candidate 30 rays (0.1s) colorable; +24 cuts (total 39)
+23:34:34 [     0.4s] it 3: candidate 30 rays (0.0s) colorable; +12 cuts (total 51)
+23:34:34 [     0.4s] it 4: candidate 30 rays (0.0s) colorable; +12 cuts (total 63)
+23:34:34 [     0.4s] it 5: UNSAT (0.0s) - no critical KS set with at most 30 rays (63 cuts)
+23:34:34 wrote final CNF (20235 clauses) and DRUP proof (9093 lines)
+23:34:34 SATCEGAR RESULT box3(H=2)/core k=30 case=-: none after 5 iterations, 63 cuts

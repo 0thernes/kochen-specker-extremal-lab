@@ -1,0 +1,8 @@
+01:10:23 box(d=3,H=2): 49 rays, 138 orthogonal pairs, 26 bases (d=3)
+01:10:23 box(d=3,H=2): KS core keeps 49 of 49 rays
+01:10:23 pool ready in 0.0s
+01:10:23 [    0.0s] seed 1: start 35 rays
+01:10:23 [    0.0s] seed 1: new best 33 rays, 78 orthogonal pairs, 17 bases (step 1)
+01:10:23 [    0.0s] seed 1: new best 31 rays, 71 orthogonal pairs, 17 bases (step 2)
+01:20:23 [  600.0s] seed 1: done, 371993 steps, best 31, sizes seen [(31, 75121), (33, 50447), (34, 9074), (35, 2809), (37, 1078), (39, 27717), (40, 5), (41, 4793)]
+01:20:23 HUNT RESULT box(d=3,H=2) seed 1: 31 rays, 71 orthogonal pairs, 17 bases critical=True

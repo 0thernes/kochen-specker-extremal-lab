@@ -1,0 +1,38 @@
+22:07:27 box(d=5,H=1): 121 rays, 1880 orthogonal pairs, 136 bases (d=5)
+22:07:27 box(d=5,H=1): KS core keeps 105 of 121 rays
+22:07:27 box(d=5,H=1)/core: 105 rays, 1480 orthogonal pairs, 136 bases (d=5)
+22:07:27 === ksmaster k=29 case=in:0,1,2;out:3,4 workers=6 fix_in=[72, 26, 8] fix_out=[2, 0]
+22:07:27 symmetry breaking on coordinate groups [[0, 1, 2], [3, 4]]
+22:07:32 [     4.6s] a coloring of the whole pool misses 24 of 136 bases
+22:07:33 [     5.2s] it 1: candidate 29 rays (0.2s) colorable; cut misses 34 bases, +480 (total 560)
+22:07:33 [     5.9s] it 2: FOUND a KS set: 29 rays, 151 orthogonal pairs, 16 bases
+22:07:33 MASTER RESULT box(d=5,H=1)/core k=29 case=in:0,1,2;out:3,4: found after 2 iterations, 560 cuts
+22:07:33    ray (0, 0, 0, 1, -1)
+22:07:33    ray (0, 0, 0, 1, 1)
+22:07:33    ray (0, 0, 1, -1, 0)
+22:07:33    ray (0, 0, 1, 0, 0)
+22:07:33    ray (0, 0, 1, 0, 1)
+22:07:33    ray (0, 0, 1, 1, 0)
+22:07:33    ray (0, 1, 0, 0, -1)
+22:07:33    ray (0, 1, 0, 0, 0)
+22:07:33    ray (0, 1, 0, 0, 1)
+22:07:33    ray (0, 1, 0, 1, 0)
+22:07:33    ray (1, -1, 0, -1, -1)
+22:07:33    ray (1, -1, 0, -1, 1)
+22:07:33    ray (1, -1, 0, 1, -1)
+22:07:33    ray (1, -1, 0, 1, 1)
+22:07:33    ray (1, 0, -1, -1, -1)
+22:07:33    ray (1, 0, -1, -1, 1)
+22:07:33    ray (1, 0, -1, 1, -1)
+22:07:33    ray (1, 0, -1, 1, 1)
+22:07:33    ray (1, 0, 0, -1, 0)
+22:07:33    ray (1, 0, 0, 0, -1)
+22:07:33    ray (1, 0, 0, 0, 0)
+22:07:33    ray (1, 0, 0, 0, 1)
+22:07:33    ray (1, 0, 0, 1, 0)
+22:07:33    ray (1, 0, 1, -1, -1)
+22:07:33    ray (1, 0, 1, 0, 0)
+22:07:33    ray (1, 0, 1, 1, -1)
+22:07:33    ray (1, 1, 0, -1, -1)
+22:07:33    ray (1, 1, 0, -1, 1)
+22:07:33    ray (1, 1, 0, 0, 0)

@@ -1,0 +1,10 @@
+{
+ "H": 3,
+ "k": 30,
+ "status": "none",
+ "iterations": 8,
+ "cuts": 94,
+ "core_rays": 97,
+ "triples": 50,
+ "seconds": 2.1
+}

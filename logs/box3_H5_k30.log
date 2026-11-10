@@ -1,0 +1,27 @@
+20:35:35 box3(H=5): 577 rays, 3234 orthogonal pairs (0.0s)
+20:35:35 box3(H=5): 266 orthogonal triples (0.0s)
+20:35:35 box3(H=5): KS core keeps 421 of 577 rays
+20:35:35 box3(H=5)/core: 421 rays, 1926 orthogonal pairs, 266 bases (d=3)
+20:35:41 [     6.0s] a coloring of the whole pool misses 14 of 266 bases
+20:35:47 [    11.9s] it 1: candidate 12 rays colorable; cut misses 15 bases, +24 (total 28)
+20:36:02 [    27.6s] it 2: candidate 17 rays colorable; cut misses 17 bases, +12 (total 40)
+20:36:22 [    47.7s] it 3: candidate 23 rays colorable; cut misses 23 bases, +24 (total 64)
+20:36:31 [    55.9s] it 4: candidate 29 rays colorable; cut misses 23 bases, +24 (total 88)
+20:36:34 [    59.6s] it 5: candidate 27 rays colorable; cut misses 23 bases, +24 (total 112)
+20:36:53 [    78.0s] it 6: candidate 28 rays colorable; cut misses 23 bases, +24 (total 136)
+20:37:18 [   102.8s] it 7: candidate 28 rays colorable; cut misses 23 bases, +24 (total 160)
+20:47:55 box3(H=5): 577 rays, 3234 orthogonal pairs (0.0s)
+20:47:55 box3(H=5): 266 orthogonal triples (0.0s)
+20:47:55 box3(H=5): KS core keeps 421 of 577 rays
+20:47:55 box3(H=5)/core: 421 rays, 1926 orthogonal pairs, 266 bases (d=3)
+20:47:55 [     0.0s] a coloring of the whole pool misses 45 of 266 bases
+20:47:55 [     0.0s] it 1: candidate 17 rays colorable; cut misses 44 bases, +24 (total 48)
+20:47:55 [     0.1s] it 2: candidate 26 rays colorable; cut misses 46 bases, +24 (total 72)
+20:47:55 [     0.1s] it 3: candidate 29 rays colorable; cut misses 50 bases, +24 (total 96)
+20:47:55 [     0.1s] it 4: candidate 28 rays colorable; cut misses 49 bases, +24 (total 120)
+20:47:55 [     0.2s] it 5: candidate 28 rays colorable; cut misses 43 bases, +24 (total 144)
+20:47:55 [     0.3s] it 6: candidate 28 rays colorable; cut misses 52 bases, +24 (total 168)
+20:47:56 [     0.5s] it 7: candidate 29 rays colorable; cut misses 54 bases, +24 (total 192)
+20:47:59 [     4.2s] it 8: candidate 29 rays colorable; cut misses 51 bases, +24 (total 216)
+20:48:09 [    14.1s] it 9: candidate 29 rays colorable; cut misses 42 bases, +24 (total 240)
+20:48:11 [    16.2s] it 10: candidate 30 rays colorable; cut misses 49 bases, +24 (total 264)

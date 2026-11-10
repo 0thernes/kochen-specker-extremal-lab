@@ -1,0 +1,17 @@
+22:08:05 box3(H=5): 577 rays, 3234 orthogonal pairs (0.0s)
+22:08:05 box3(H=5): 266 orthogonal triples (0.0s)
+22:08:05 box3(H=5): KS core keeps 421 of 577 rays
+22:08:05 box3(H=5)/core: 421 rays, 1926 orthogonal pairs, 266 bases (d=3)
+22:08:05 === ksmaster k=30 case=- workers=6 fix_in=[] fix_out=[]
+22:08:05 symmetry breaking on coordinate groups [[0, 1, 2]]
+22:08:20 [    15.1s] a coloring of the whole pool misses 14 of 266 bases
+22:08:36 [    30.7s] it 1: candidate 23 rays (0.3s) colorable; cut misses 23 bases, +24 (total 28)
+22:08:49 [    44.0s] it 2: candidate 29 rays (0.4s) colorable; cut misses 23 bases, +24 (total 52)
+22:09:01 [    56.2s] it 3: candidate 29 rays (0.4s) colorable; cut misses 23 bases, +24 (total 76)
+22:09:17 [    71.8s] it 4: candidate 30 rays (0.5s) colorable; cut misses 23 bases, +24 (total 100)
+22:09:22 [    77.3s] it 5: candidate 30 rays (0.5s) colorable; cut misses 23 bases, +24 (total 124)
+22:09:29 [    83.7s] it 6: candidate 27 rays (0.6s) colorable; cut misses 23 bases, +12 (total 136)
+22:09:30 [    85.2s] it 7: candidate 30 rays (0.4s) colorable; cut misses 23 bases, +24 (total 160)
+22:09:34 [    89.4s] it 8: candidate 30 rays (0.6s) colorable; cut misses 24 bases, +24 (total 184)
+22:09:36 [    90.9s] it 9: candidate 30 rays (0.5s) colorable; cut misses 28 bases, +24 (total 208)
+22:09:53 [   108.4s] it 10: candidate 29 rays (2.3s) colorable; cut misses 24 bases, +24 (total 232)

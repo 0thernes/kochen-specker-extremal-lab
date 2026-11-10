@@ -1,0 +1,9 @@
+=== 23:32:11 certify satcegar_box_5_1_k28_in0123_out4_cuts k=28 case=in:0,1,2,3;out:4 pool=box 5 1
+1520 cuts re-verified from their witnesses: True (0.0s)
+CNF: 29500 variables, 115388 clauses
+g4: UNSAT in 1446.2s
+DRAT proof: 3528069 lines -> results/satcegar_box_5_1_k28_in0123_out4_cuts.drat
+c 115388 original clauses, 1748269 lemmas checked, 1779799 deletion lines (1777666 applied)
+s VERIFIED
+drup_check exit=0
+=== 01:45:51 done

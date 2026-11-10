@@ -1,0 +1,8 @@
+# Python dependencies of the Kochen-Specker Extremal Lab (src/, scripts/, tests/).
+# Exact versions: the ones the results in results/ were produced and re-checked with
+# (Python 3.9 on Windows; the CI workflow installs the same versions on Python 3.11 / Linux).
+#
+# python-sat publishes development releases only (1.9.devN); the exact pin lets pip accept it.
+python-sat==1.9.dev21    # SAT solvers (Glucose 3/4 with DRUP proofs), RC2 MaxSAT, LBX
+ortools==9.15.6755       # CP-SAT (candidate problems of ksmaster.py, hitting sets)
+numpy==2.0.2             # enumeration of the large integer and cyclotomic pools

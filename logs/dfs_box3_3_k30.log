@@ -1,0 +1,8 @@
+21:17:44 box3(H=3): 145 rays, 546 orthogonal pairs (0.0s)
+21:17:44 box3(H=3): 50 orthogonal triples (0.0s)
+21:17:44 box3(H=3): KS core keeps 97 of 145 rays
+21:17:44 box3(H=3)/core: 97 rays, 282 orthogonal pairs, 50 bases (d=3)
+21:17:44 box3(H=3)/core: 50 bases in 8 orbits under the symmetry group
+21:17:44 [     0.0s] root branch 1/3: basis 3 (orbit 3), nodes so far 1
+21:17:46 [     1.6s] root branch 2/3: basis 6 (orbit 4), nodes so far 11127
+21:17:46 [     1.6s] EXHAUSTED: no KS set with at most 30 rays in box3(H=3)/core (11128 nodes, 52780 SAT calls)

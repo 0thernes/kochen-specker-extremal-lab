@@ -1,0 +1,21 @@
+B(3,2): 49 rays, 26 bases; core 49 rays, 26 bases
+B(3,3): 145 rays, 50 bases; core 97 rays, 50 bases
+B(3,4): 289 rays, 110 bases; core 205 rays, 110 bases
+B(3,5): 577 rays, 266 bases; core 421 rays, 266 bases
+B(3,6): 865 rays, 382 bases; core 625 rays, 382 bases
+B(3,8): 2017 rays, 778 bases; core 1249 rays, 778 bases
+B(3,10): 3745 rays, 1414 bases; core 2185 rays, 1408 bases
+U(3,2): 13 rays, 4 bases; core 0 rays; contains a KS set: False
+U(3,3): 21 rays, 4 bases; core 0 rays; contains a KS set: False
+U(3,4): 31 rays, 7 bases; core 0 rays; contains a KS set: False
+U(3,5): 43 rays, 1 bases; core 0 rays; contains a KS set: False
+U(3,6): 57 rays, 22 bases; core 57 rays; contains a KS set: True
+U(3,7): 73 rays, 1 bases; core 0 rays; contains a KS set: False
+U(3,8): 91 rays, 13 bases; core 0 rays; contains a KS set: False
+U(3,9): 111 rays, 28 bases; core 0 rays; contains a KS set: False
+U(3,10): 133 rays, 16 bases; core 0 rays; contains a KS set: False
+U(3,11): 157 rays, 1 bases; core 0 rays; contains a KS set: False
+U(3,12): 183 rays, 67 bases; core 183 rays; contains a KS set: True
+B(4,1): 40 rays, 32 bases; core 40 rays, 32 bases
+B(5,1): 121 rays, 136 bases; core 105 rays, 136 bases
+wrote results/pool_facts.json

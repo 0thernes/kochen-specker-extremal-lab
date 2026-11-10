@@ -1,0 +1,392 @@
+{
+  "verifier": "verify_cert.mjs 1.0.0",
+  "node": "v25.8.2",
+  "certificates": [
+    {
+      "file": "cert_box3_H2_k30.json",
+      "sha256": "40737e825fcfd72d2d94547c8c4a543d4b51631a4197dedb42e35e208160d29f",
+      "bytes": 18222,
+      "d": 3,
+      "k": 30,
+      "rays": 49,
+      "orthogonal_pairs": 138,
+      "bases": 26,
+      "nodes": 255,
+      "nodes_visited": 255,
+      "nodes_accepted_by_rule0": 0,
+      "max_depth": 16,
+      "checks": {
+        "rays": true,
+        "adj": true,
+        "bases": true,
+        "tree": true
+      },
+      "claim": "every set of at most 30 rays of this 49-ray pool (d=3) is colorable",
+      "verdict": "PASS",
+      "error": null
+    },
+    {
+      "file": "cert_box4_H1_k17.json",
+      "sha256": "6b955e6cbefaf4cea9878d942cb3629c2f80f7a1504860ad6cd147f1ebe3e0a4",
+      "bytes": 22776,
+      "d": 4,
+      "k": 17,
+      "rays": 40,
+      "orthogonal_pairs": 220,
+      "bases": 32,
+      "nodes": 509,
+      "nodes_visited": 509,
+      "nodes_accepted_by_rule0": 22,
+      "max_depth": 6,
+      "checks": {
+        "rays": true,
+        "adj": true,
+        "bases": true,
+        "tree": true
+      },
+      "claim": "every set of at most 17 rays of this 40-ray pool (d=4) is colorable",
+      "verdict": "PASS",
+      "error": null
+    },
+    {
+      "file": "cert_box3_H3_k30.json",
+      "sha256": "97a56e1a5c34676fa1d480352dd629f1bbce8614de71aa123263bb479189b048",
+      "bytes": 1338891,
+      "d": 3,
+      "k": 30,
+      "rays": 97,
+      "orthogonal_pairs": 282,
+      "bases": 50,
+      "nodes": 11247,
+      "nodes_visited": 11247,
+      "nodes_accepted_by_rule0": 0,
+      "max_depth": 16,
+      "checks": {
+        "rays": true,
+        "adj": true,
+        "bases": true,
+        "tree": true
+      },
+      "claim": "every set of at most 30 rays of this 97-ray pool (d=3) is colorable",
+      "verdict": "PASS",
+      "error": null
+    }
+  ],
+  "ks": {
+    "file": "ks31_box3_H2.json",
+    "sha256": "10031b3bdc4b2db3778ef3b0028d89f04f9b5d87edb582d09c5c0590ca6a7736",
+    "bytes": 363,
+    "d": 3,
+    "rays": 31,
+    "orthogonal_pairs": 71,
+    "bases": 17,
+    "colorable": false,
+    "search_nodes": 58,
+    "cross_check": "agrees (ray-order search, 5459 nodes)",
+    "critical": true,
+    "removals_colorable": 31,
+    "removals_not_colorable": [],
+    "verdict": "KS set (not colorable), critical",
+    "error": null
+  },
+  "negative_tests": [
+    {
+      "test": "delete one child (first child of the root)",
+      "rejected": true,
+      "reference_checked": true,
+      "reason": "rule 2 fails at node at path [] (|S|=0, |F|=0): basis #2 {0,15,25} contains no ray of I, |S u b| = 3 <= k = 30, no basis of F lies inside S u b, and it is not a child basis"
+    },
+    {
+      "test": "delete one child (last child of the deepest internal node)",
+      "rejected": true,
+      "reference_checked": true,
+      "reason": "rule 2 fails at node at path [0,0,0,0,0,0,0,0,1,1,0,0,0,0,0] (|S|=29, |F|=2): basis #20 {14,21,29} contains no ray of I, |S u b| = 30 <= k = 30, no basis of F lies inside S u b, and it is not a child basis"
+    },
+    {
+      "test": "change one ray index inside the root I (to a ray orthogonal to another ray of I)",
+      "rejected": true,
+      "reference_checked": true,
+      "reason": "rule 1 fails at node at path [] (|S|=0, |F|=0): rays 0 and 3 of I are orthogonal"
+    },
+    {
+      "test": "change one ray index inside some I so that I stays pairwise non-orthogonal (first such node in preorder)",
+      "rejected": true,
+      "reference_checked": true,
+      "reason": "rule 2 fails at node at path [0,0,0] (|S|=9, |F|=0): basis #5 {2,4,20} contains no ray of I, |S u b| = 9 <= k = 30, no basis of F lies inside S u b, and it is not a child basis"
+    },
+    {
+      "test": "raise k by one (30 -> 31)",
+      "rejected": true,
+      "reference_checked": true,
+      "reason": "rule 2 fails at node at path [0,0,0,0,0,0,0,0,0,0,0,0,0] (|S|=28, |F|=0): basis #14 {8,39,47} contains no ray of I, |S u b| = 31 <= k = 31, no basis of F lies inside S u b, and it is not a child basis"
+    },
+    {
+      "test": "drop one basis from the list (the last one)",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "basis {32,34,42} exists in the pool but is missing from \"bases\""
+    },
+    {
+      "test": "drop one basis from the list (the first one)",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "basis {0,3,20} exists in the pool but is missing from \"bases\""
+    },
+    {
+      "test": "raise k by one in the 40-ray d=4 certificate (17 -> 18)",
+      "rejected": true,
+      "reference_checked": true,
+      "reason": "rule 2 fails at node at path [0,0,0,0,0,0] (|S|=17, |F|=0): basis #27 {11,21,25,33} contains no ray of I, |S u b| = 18 <= k = 18, no basis of F lies inside S u b, and it is not a child basis"
+    },
+    {
+      "test": "raise k by one in the 97-ray certificate (30 -> 31)",
+      "rejected": true,
+      "reference_checked": true,
+      "reason": "rule 2 fails at node at path [0,0,0,0,0,0,0,0,0,0,0,0] (|S|=28, |F|=0): basis #9 {2,10,34} contains no ray of I, |S u b| = 31 <= k = 31, no basis of F lies inside S u b, and it is not a child basis"
+    },
+    {
+      "test": "remove one neighbour from adj",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "adj[0] omits ray 44, but rays 0 and 44 are orthogonal"
+    },
+    {
+      "test": "add a false neighbour to adj",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "adj[0] lists ray 1, but rays 0 and 1 are not orthogonal"
+    },
+    {
+      "test": "change one ray coordinate (ray 0 -> [3,0,1])",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "adj[0] lists ray 10, but rays 0 and 10 are not orthogonal"
+    },
+    {
+      "test": "make two rays proportional (ray 1 = -2 * ray 0)",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "rays 0 and 1 are proportional"
+    },
+    {
+      "test": "zero ray",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "ray 5 is the zero vector"
+    },
+    {
+      "test": "non-integer ray coordinate",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "ray 5 coordinate 0 is not a safe integer"
+    },
+    {
+      "test": "append a bogus basis (three non-orthogonal rays)",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "bases[26]: rays 0 and 1 are not orthogonal"
+    },
+    {
+      "test": "duplicate a basis in the list",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "bases[26] duplicates bases[0]"
+    },
+    {
+      "test": "replace the whole tree by an empty leaf",
+      "rejected": true,
+      "reference_checked": true,
+      "reason": "rule 2 fails at node at path [] (|S|=0, |F|=0): basis #0 {0,3,20} contains no ray of I, |S u b| = 3 <= k = 30, no basis of F lies inside S u b, and it is not a child basis"
+    },
+    {
+      "test": "empty the root I",
+      "rejected": true,
+      "reference_checked": true,
+      "reason": "rule 2 fails at node at path [] (|S|=0, |F|=0): basis #0 {0,3,20} contains no ray of I, |S u b| = 3 <= k = 30, no basis of F lies inside S u b, and it is not a child basis"
+    },
+    {
+      "test": "child basis index out of range",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "tree node #1: child basis index 26 is invalid"
+    },
+    {
+      "test": "ray index out of range inside an I",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "tree node #1: I contains an invalid ray index 49"
+    },
+    {
+      "test": "k given as a string",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "\"k\" must be a non-negative integer, got \"30\""
+    },
+    {
+      "test": "wrong dimension d",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "ray 0 is not a vector of length 4"
+    },
+    {
+      "test": "missing \"tree\" key",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "missing key \"tree\""
+    },
+    {
+      "test": "malformed node (children not a list)",
+      "rejected": true,
+      "reference_checked": false,
+      "reason": "tree node #2: children is not a list"
+    }
+  ],
+  "sweeps": [
+    {
+      "sweep": "delete one child, every position (49-ray cert)",
+      "mode": "tree",
+      "mutants": 254,
+      "rejected": 254,
+      "accepted": 0,
+      "accepted_examples": [],
+      "reference_checked": 254,
+      "reference_disagreements": 0,
+      "ms": 718
+    },
+    {
+      "sweep": "remove all children of one internal node, every internal node (49-ray cert)",
+      "mode": "tree",
+      "mutants": 176,
+      "rejected": 176,
+      "accepted": 0,
+      "accepted_examples": [],
+      "reference_checked": 176,
+      "reference_disagreements": 0,
+      "ms": 409
+    },
+    {
+      "sweep": "swap two adjacent children, every position (49-ray cert)",
+      "mode": "tree",
+      "mutants": 78,
+      "rejected": 42,
+      "accepted": 36,
+      "accepted_examples": [
+        "node 13 children 0<->1",
+        "node 20 children 0<->1",
+        "node 27 children 0<->1",
+        "node 28 children 0<->1",
+        "node 38 children 0<->1"
+      ],
+      "reference_checked": 78,
+      "reference_disagreements": 0,
+      "ms": 314
+    },
+    {
+      "sweep": "change one ray index in an I to a ray outside that I, every position x 3 replacements (49-ray cert; --full = all replacements)",
+      "mode": "tree",
+      "mutants": 10245,
+      "rejected": 10203,
+      "accepted": 42,
+      "accepted_examples": [
+        "node 14 I[8] 28->47",
+        "node 16 I[9] 34->12",
+        "node 17 I[7] 27->39",
+        "node 21 I[12] 28->46",
+        "node 22 I[12] 28->39"
+      ],
+      "reference_checked": 1062,
+      "reference_disagreements": 0,
+      "ms": 6509
+    },
+    {
+      "sweep": "drop one basis from the list, every basis (49-ray cert)",
+      "mode": "all",
+      "mutants": 26,
+      "rejected": 26,
+      "accepted": 0,
+      "accepted_examples": [],
+      "reference_checked": 0,
+      "reference_disagreements": 0,
+      "ms": 6
+    },
+    {
+      "sweep": "flip one adj entry, every ordered pair (49-ray cert)",
+      "mode": "all",
+      "mutants": 2352,
+      "rejected": 2352,
+      "accepted": 0,
+      "accepted_examples": [],
+      "reference_checked": 0,
+      "reference_disagreements": 0,
+      "ms": 366
+    },
+    {
+      "sweep": "delete one child, every position (40-ray d=4 cert)",
+      "mode": "tree",
+      "mutants": 508,
+      "rejected": 508,
+      "accepted": 0,
+      "accepted_examples": [],
+      "reference_checked": 508,
+      "reference_disagreements": 0,
+      "ms": 2537
+    },
+    {
+      "sweep": "drop one basis from the list, every basis (40-ray d=4 cert)",
+      "mode": "all",
+      "mutants": 32,
+      "rejected": 32,
+      "accepted": 0,
+      "accepted_examples": [],
+      "reference_checked": 0,
+      "reference_disagreements": 0,
+      "ms": 13
+    }
+  ],
+  "cross_checks": [
+    {
+      "check": "known KS-18 (d=4) is not colorable and is critical; brute force over 2^18 assignments agrees",
+      "ok": true,
+      "detail": "pairs=63 bases=9 colorable=false critical=true brute=false"
+    },
+    {
+      "check": "ks31_box3_H2.json is a 31-ray subset of the pool of cert_box3_H2_k30.json and is not colorable there (so k=30 is the largest certifiable k)",
+      "ok": true,
+      "detail": "embedded=true colorable=false"
+    },
+    {
+      "check": "ks31_box3_H2.json is a 31-ray subset of the pool of cert_box3_H3_k30.json and is not colorable there (so k=30 is the largest certifiable k)",
+      "ok": true,
+      "detail": "embedded=true colorable=false"
+    },
+    {
+      "check": "known KS-18 is an 18-ray subset of the pool of cert_box4_H1_k17.json and is not colorable there (so k=17 is the largest certifiable k)",
+      "ok": true,
+      "detail": "embedded=true colorable=false"
+    },
+    {
+      "check": "backtracking = ray-order search = brute force on random subsets (12..21 rays)",
+      "ok": true,
+      "detail": "140/140 agree, 20 of them non-colorable"
+    },
+    {
+      "check": "random 30-ray subsets of the pool of cert_box3_H2_k30.json are colorable",
+      "ok": true,
+      "detail": "300/300"
+    },
+    {
+      "check": "random 17-ray subsets of the pool of cert_box4_H1_k17.json are colorable",
+      "ok": true,
+      "detail": "300/300"
+    },
+    {
+      "check": "random 30-ray subsets of the pool of cert_box3_H3_k30.json are colorable",
+      "ok": true,
+      "detail": "300/300"
+    }
+  ],
+  "failures": [],
+  "verdict": "PASS",
+  "checks": 56,
+  "mode": "default"
+}

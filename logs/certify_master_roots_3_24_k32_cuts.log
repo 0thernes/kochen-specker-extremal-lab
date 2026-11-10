@@ -1,0 +1,12 @@
+=== 00:00:03 certify master_roots_3_24_k32_cuts k=32 case=- pool=roots 3 24
+12307 cuts re-verified from their witnesses: True (1.0s)
+CNF: 34372 variables, 141027 clauses
+Traceback (most recent call last):
+  File "K:\src\ks_cnf.py", line 220, in <module>
+    r = s.solve()
+  File "<home>\AppData\Local\Programs\Python\Python39\lib\site-packages\pysat\solvers.py", line 1082, in solve
+    return self.solver.solve(assumptions)
+  File "<home>\AppData\Local\Programs\Python\Python39\lib\site-packages\pysat\solvers.py", line 5827, in solve
+    self.status = pysolvers.glucose41_solve(self.glucose, assumptions,
+MemoryError: Solver ran out of addressable memory (int32 allocator limit exceeded)
+ENCODE/SOLVE FAILED

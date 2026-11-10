@@ -1,0 +1,40 @@
+{
+ "algorithm": "SHA-256",
+ "files": {
+  "cert_box3_H2_k30.json": {
+   "sha256": "40737e825fcfd72d2d94547c8c4a543d4b51631a4197dedb42e35e208160d29f",
+   "bytes": 18222,
+   "source": "results/cert_box3_H2_k30.json"
+  },
+  "cert_box4_H1_k17.json": {
+   "sha256": "6b955e6cbefaf4cea9878d942cb3629c2f80f7a1504860ad6cd147f1ebe3e0a4",
+   "bytes": 22776,
+   "source": "results/cert_box4_H1_k17.json"
+  },
+  "ks18_box4_H1.json": {
+   "sha256": "76be2c005030f36257940c5c497db7adeb4a20a0ff7fe17333bc8f64e2399559",
+   "bytes": 463,
+   "source": "scripts/build_site_data.py: mask ksSet = 0x2aac0aaaad of lean/KS/Box4H1.lean (same ray order as cert_box4_H1_k17.json)"
+  },
+  "ks31_box3_H2.json": {
+   "sha256": "10031b3bdc4b2db3778ef3b0028d89f04f9b5d87edb582d09c5c0590ca6a7736",
+   "bytes": 363,
+   "source": "results/ks31_box3_H2.json"
+  },
+  "results.json": {
+   "sha256": "0f7af5ffa09731489728c8c75311d6776700d91b82cc72d6777eb6c205c6e367",
+   "bytes": 4562,
+   "source": "scripts/build_site_data.py (hand-maintained list)"
+  },
+  "stack_demo.json": {
+   "sha256": "54e3c05d5431c0afcec7fc1b489b80922ea514c783dffe651965f09813e7196c",
+   "bytes": 14003,
+   "source": "results/stack_demo.json"
+  },
+  "verify_summary.json": {
+   "sha256": "716f46d8b676cde8edf12a1c05cef9d782b38e986f462298f87137f65f01d4c2",
+   "bytes": 12738,
+   "source": "results/verify_summary.json"
+  }
+ }
+}

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kochen-Specker Extremal Lab</title>
+<meta name="description" content="Exact minimum sizes of Kochen-Specker sets inside finite pools of rays, with certificates that can be re-checked in the browser. The general minimum-size problem remains open.">
+<meta name="author" content="Alexander S. Donahue (0thernes LLC)">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://0thernes.github.io/kochen-specker-extremal-lab/">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="modulepreload" href="assets/verify.js">
+<link rel="modulepreload" href="assets/viewer.js">
+<script type="module" src="assets/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Kochen-Specker Extremal Lab</h1>
+    <p class="question">How few rays can a Kochen-Specker set have, if the rays must come from a given finite pool?</p>
+    <p class="lede">This lab computes that number exactly for several pools and certifies the answers. The general question, with any rays allowed, stays open: nothing here settles it.</p>
+    <nav aria-label="On this page">
+      <a href="#what">The idea</a>
+      <a href="#results">Results</a>
+      <a href="#explorer">Explore the 31 rays</a>
+      <a href="#verify">Verify in your browser</a>
+      <a href="#links">Paper and sources</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="what" class="wrap prose" aria-labelledby="what-h">
+  <h2 id="what-h">What a Kochen-Specker set is</h2>
+  <p>Take a finite set of directions in space (rays: lines through the origin) and try to label each one 1 or 0 so that two perpendicular rays are never both 1, and every three mutually perpendicular rays in the set include a 1. A <strong>Kochen-Specker (KS) set</strong> is a set of rays for which no such labelling exists. Kochen and Specker showed in 1967 that such sets exist; in quantum theory this means that the answers to yes/no measurements along the rays cannot all be fixed in advance, independently of which perpendicular rays each one is measured together with.</p>
+  <p class="small">Terms used below: a <em>basis</em> is a set of d mutually perpendicular rays in dimension d (three rays in ordinary space). Rule 1: two perpendicular rays are never both 1. Rule 2: every basis inside the set contains a 1. A set with a labelling that obeys both rules is called <em>colourable</em>.</p>
+
+  <h3>The open problem</h3>
+  <p>How small can a KS set be? In three dimensions nobody knows. The smallest one known has <strong>31</strong> rays (Conway and Kochen), and it has been proved that at least <strong>24</strong> rays are needed. Whether the true minimum is 24, 31 or something in between is an open problem.</p>
+
+  <h3>What this lab did, and what it did not do</h3>
+  <div class="twocol">
+    <div class="card no">
+      <h4>It did not</h4>
+      <ul>
+        <li>find a KS set smaller than any published one, in any dimension;</li>
+        <li>solve the open problem above, or narrow the range 24 to 31;</li>
+        <li>say anything about rays outside the pools it examined.</li>
+      </ul>
+    </div>
+    <div class="card yes">
+      <h4>It did</h4>
+      <ul>
+        <li>fix a finite <em>pool</em> of candidate rays, for example the 49 directions whose coordinates are whole numbers between −2 and 2;</li>
+        <li>determine the exact size of the smallest KS set that uses only rays from that pool (for those 49 rays: 31);</li>
+        <li>certify the answers: two of them are theorems checked by the Lean 4 proof assistant, and several have certificates that independent programs re-check, including this page.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="results" class="wrap" aria-labelledby="results-h">
+  <h2 id="results-h">Results</h2>
+  <p class="prose">Each row is one pool. “Minimum KS set” is the smallest number of pool rays that form a KS set. The status words say how strongly each number is established; rows marked <em>provisional</em> are not final. The register of record is <code>results/RESULTS.md</code> in the repository. Several of these values were reported before by others without proof (31 for whole-number coordinates up to 2, 3 and 4; 33 for sixth roots of unity; 29 as the smallest set generated from the coordinates 0, +1, −1 in dimension five); what is new here is mainly the proof that nothing smaller exists, in a form that can be re-checked. The paper, Section 1.3, gives the credits.</p>
+  <div id="results-table" class="results" aria-busy="true">
+    <p class="loading">Loading the results table…</p>
+  </div>
+  <noscript><p class="notice">The table is loaded by JavaScript from <code>data/results.json</code>. Without JavaScript, read <a href="https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/results/RESULTS.md">results/RESULTS.md</a> in the repository.</p></noscript>
+  <div class="twocol under">
+    <div>
+      <h3>Status words</h3>
+      <dl id="legend" class="legend"></dl>
+    </div>
+    <div>
+      <h3>Not achieved</h3>
+      <ul id="not-achieved" class="plain"></ul>
+    </div>
+  </div>
+</section>
+
+<section id="explorer" class="wrap" aria-labelledby="explorer-h">
+  <h2 id="explorer-h">Explore the 31-ray set</h2>
+  <p class="prose">These are the 31 rays of a smallest KS set inside the 49-ray pool; it is a set of the Conway-Kochen type. Each ray is drawn as a line through the centre of a sphere, with a dot at both ends. Drag to rotate. The set contains <span id="x-pairs">…</span> perpendicular pairs and <span id="x-bases">…</span> bases.</p>
+
+  <div class="explorer">
+    <div class="stage">
+      <canvas id="sphere" tabindex="0" role="img" aria-label="Sphere with the 31 rays drawn as lines through its centre. Drag, or use the arrow keys, to rotate. The ray buttons below the picture select rays without a pointer."></canvas>
+      <div class="stage-tools">
+        <button type="button" id="btn-reset">Reset view</button>
+        <button type="button" id="btn-spin" aria-pressed="false">Spin</button>
+        <span class="hint">Drag to rotate · arrow keys when the picture has focus</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <fieldset class="modes">
+        <legend>Mode</legend>
+        <label><input type="radio" name="mode" value="explore" checked> Look around</label>
+        <label><input type="radio" name="mode" value="colour"> Attempt a colouring</label>
+      </fieldset>
+      <label class="check"><input type="checkbox" id="chk-bases"> Show the <span class="n-bases">17</span> bases as triangles</label>
+
+      <div id="status" class="status" role="status" aria-live="polite">Loading the rays…</div>
+
+      <div id="colour-tools" class="colour-tools" hidden>
+        <p class="counter">bases satisfied: <strong id="count-ok">0</strong> of <span class="n-bases">17</span></p>
+        <p id="best" class="small"></p>
+        <div class="row">
+          <button type="button" id="btn-clear">Clear</button>
+          <button type="button" id="btn-best">Show a best attempt</button>
+        </div>
+      </div>
+
+      <h3 class="mini">Bases</h3>
+      <ul id="basis-list" class="chips bases" aria-label="The bases of the set and their state"></ul>
+    </div>
+  </div>
+
+  <h3 class="mini">Rays <span class="small">(the same as clicking in the picture; works from the keyboard)</span></h3>
+  <div id="ray-list" class="chips rays" role="group" aria-label="The 31 rays"></div>
+
+  <p id="stack-note" class="prose small"></p>
+</section>
+
+<section id="verify" class="wrap" aria-labelledby="verify-h">
+  <h2 id="verify-h">Verify in your browser</h2>
+  <p class="prose">The buttons below run the real checks, here, on your device, using the data files this page loaded: exact integer arithmetic and exhaustive search in plain JavaScript, with no SAT solver and no server. The code (<a href="assets/verify.js"><code>assets/verify.js</code></a>) is a port of the repository’s independent verifier. A PASS depends on that code and on your browser being correct; the Lean theorems in the repository are the authoritative statements.</p>
+
+  <div class="integrity" aria-labelledby="integrity-h">
+    <h3 id="integrity-h">Data files</h3>
+    <p class="small">Before anything is checked, the page computes the SHA-256 of every data file and compares it with <code>data/manifest.json</code>. A file that differs is reported here, and every check that uses it reports FAIL. This catches a damaged or swapped file; it cannot catch someone who replaces a file and the manifest together, so the hashes of the certificate files are also printed in <code>verify/README.md</code> in the repository.</p>
+    <div id="integrity-summary" role="status" aria-live="polite"><p class="loading">Hashing the data files…</p></div>
+    <div id="integrity"></div>
+  </div>
+
+  <div class="runall">
+    <button type="button" id="run-all" class="primary" disabled>Run all checks</button>
+    <span id="run-summary" role="status" aria-live="polite"></span>
+  </div>
+
+  <div class="checks">
+    <article class="check-card" id="card-pool3">
+      <h3>(a) The 49-ray pool: recompute orthogonality and the bases</h3>
+      <p>Recomputes every dot product from the integer coordinates, compares the result with the file’s table of perpendicular pairs, enumerates all triples of mutually perpendicular rays and compares them with the file’s list of bases.</p>
+      <button type="button" data-check="pool3" disabled>Run check (a)</button>
+      <div class="out" id="out-pool3" role="status" aria-live="polite"></div>
+    </article>
+
+    <article class="check-card" id="card-tree3">
+      <h3>(b) The 49-ray pool: replay the certificate tree</h3>
+      <p>Replays the search-tree certificate node by node. If every node is accepted, every set of at most <span class="k3">30</span> rays of the pool is colourable, so no KS set that small exists in the pool.</p>
+      <button type="button" data-check="tree3" disabled>Run check (b)</button>
+      <div class="out" id="out-tree3" role="status" aria-live="polite"></div>
+    </article>
+
+    <article class="check-card" id="card-ks31">
+      <h3>(c) The 31-ray set: search for a colouring</h3>
+      <p>Tries, by exhaustive backtracking, to label the 31 rays so that both rules hold, then repeats the search in a different order as a cross-check, and confirms that all 31 rays belong to the 49-ray pool.</p>
+      <button type="button" data-check="ks31" disabled>Run check (c)</button>
+      <div class="out" id="out-ks31" role="status" aria-live="polite"></div>
+    </article>
+
+    <article class="check-card" id="card-cert4">
+      <h3>(d) Four dimensions, the 40-ray pool: recompute the pool and replay the certificate</h3>
+      <p>The same two steps as (a) and (b) for the pool of all rays in four dimensions with entries 0, +1, −1: orthogonality and bases are recomputed, then the certificate that every set of at most <span class="k4">17</span> rays is colourable is replayed.</p>
+      <button type="button" data-check="cert4" disabled>Run check (d), pool and tree</button>
+      <div class="out" id="out-cert4" role="status" aria-live="polite"></div>
+    </article>
+
+    <article class="check-card" id="card-ks18">
+      <h3>(d) Four dimensions, the 18-ray set: search for a colouring</h3>
+      <p>The same search as (c) for an 18-ray set inside the 40-ray pool.</p>
+      <button type="button" data-check="ks18" disabled>Run check (d), 18-ray set</button>
+      <div class="out" id="out-ks18" role="status" aria-live="polite"></div>
+    </article>
+  </div>
+
+  <div id="conclusion" class="conclusion" role="status" aria-live="polite"></div>
+  <p id="recorded" class="prose small"></p>
+</section>
+
+<section id="links" class="wrap prose" aria-labelledby="links-h">
+  <h2 id="links-h">Paper, sources and how to reproduce</h2>
+  <ul class="linklist">
+    <li><a href="paper.html">Paper (web page)</a> · <a href="ks-minimum.pdf">Paper (PDF)</a></li>
+    <li><a href="https://github.com/0thernes/kochen-specker-extremal-lab">Repository</a> (all code, certificates and logs)</li>
+    <li><a href="https://github.com/0thernes/kochen-specker-extremal-lab/tree/main/lean/KS">Lean 4 sources</a> (no Mathlib; the theorems <code>KS.Box3H2.minimum_ks_size_vectors</code> and <code>KS.Box4H1.minimum_ks_size_vectors</code>, stated for the integer vectors themselves)</li>
+    <li><a href="https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/results/RESULTS.md">Results register</a> (every number on this page should agree with it)</li>
+    <li><a href="https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/verify/README.md">Specification of the certificate checker</a> (the rule this page replays)</li>
+    <li><a href="https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/paper/PROOFS.md">The mathematics behind the certificates</a></li>
+    <li><a href="https://github.com/0thernes/kochen-specker-extremal-lab/blob/main/docs/REVIEW.md">Review before release</a> (what nine reviewing passes found and what was changed)</li>
+  </ul>
+  <h3>How to reproduce</h3>
+  <p>Clone the repository; then, from its top folder (Node 22 or newer and Lean 4):</p>
+<pre><code># the independent verifier on the two certificates checked on this page
+node verify/verify_cert.mjs results/cert_box3_H2_k30.json results/cert_box4_H1_k17.json
+
+# the 31-ray set is a KS set, and no ray can be removed
+node verify/verify_cert.mjs --ks results/ks31_box3_H2.json --require-critical
+
+# the verifier's own tests, including corrupted certificates that must be rejected
+node verify/test_verify.mjs
+
+# this page's port of the verifier, compared with the original
+node docs/assets/verify.test.mjs
+
+# the Lean theorems (checked by the Lean kernel)
+cd lean
+lake build</code></pre>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap small">
+    <p>Alexander S. Donahue, 0thernes LLC, Washington, USA · <a href="https://orcid.org/0009-0006-8168-9648">ORCID 0009-0006-8168-9648</a> · <a href="mailto:0_0@0thernes.art">0_0@0thernes.art</a></p>
+    <p>This page makes no requests to other sites, sets no cookies and does no tracking. Everything it shows is computed in your browser from the files in <code>data/</code>.</p>
+  </div>
+</footer>
+</body>
+</html>

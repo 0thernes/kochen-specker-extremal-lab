@@ -1,0 +1,4 @@
+22:32:53 === satcegar_box_5_1_k28_in012_out34: CNF 29500 vars, 113868 clauses (before cuts)
+22:33:02 [     8.0s] it 1: candidate 28 rays (1.6s) colorable; +480 cuts (total 560)
+22:33:59 [    65.8s] it 2: UNSAT (57.9s) - no critical KS set with at most 28 rays (560 cuts)
+22:33:59 SATCEGAR RESULT box(d=5,H=1)/core k=28 case=in:0,1,2;out:3,4: none after 2 iterations, 560 cuts

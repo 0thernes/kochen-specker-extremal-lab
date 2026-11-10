@@ -1,0 +1,14 @@
+$ Z:\Tools\eshkol\current\bin\eshkol-run.EXE -r ks31.esk
+(cwd K:\stack)
+--- stdout ---
+ESHKOL exact-integer re-verification (classical computation, not a formal proof)
+ESHKOL orthogonal-pairs 71
+ESHKOL bases 17
+ESHKOL ks-assignments 0
+ESHKOL search-nodes 7380
+ESHKOL relaxed-assignments 66
+ESHKOL-PASS
+
+--- stderr ---
+
+--- exit code 0, 1.4 s ---

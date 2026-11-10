@@ -1,0 +1,7 @@
+$ <home>\AppData\Local\Microsoft\WinGet\Packages\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\mingw64\bin\gcc.EXE -std=gnu11 -O1 -I ..\third_party\qgtl\include -I ..\third_party\qgtl\stub ..\third_party\qgtl\src\quantum_geometric\distributed\differential_geometry.c ks31_qgtl.c -o ks31_qgtl.exe -lm
+(cwd K:\stack)
+--- stdout ---
+
+--- stderr ---
+
+--- exit code 0, 2.6 s ---

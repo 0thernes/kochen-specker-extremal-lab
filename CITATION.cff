@@ -1,0 +1,108 @@
+cff-version: 1.2.0
+message: If you use this repository, cite the paper below and the prior work it credits (paper, Section
+  1.3 and references).
+title: 'Certified exact minima of Kochen-Specker sets inside coordinate pools: 31 and 33 rays in dimension
+  three, 18 in dimension four, 29 in dimension five'
+type: software
+authors:
+- family-names: Donahue
+  given-names: Alexander S.
+  orcid: https://orcid.org/0009-0006-8168-9648
+  alias: 0thernes
+  affiliation: 0thernes LLC, Washington, USA
+  email: 0_0@0thernes.art
+  country: US
+version: 1.0.0
+date-released: 2026-11-10
+repository-code: https://github.com/0thernes/kochen-specker-extremal-lab
+url: https://0thernes.github.io/kochen-specker-extremal-lab/
+abstract: >-
+  A Kochen-Specker (KS) set is a finite set of rays admitting no assignment of 0 and 1 that gives
+  exactly one 1 to every orthogonal basis and never 1 to two orthogonal rays. This work determines the
+  minimum size of such a set inside prescribed finite pools of rays. Every KS set must contain a basis
+  missed by any set of pairwise non-orthogonal rays, which gives a covering problem whose constraints
+  are trivial to verify; necessary conditions for critical KS sets, a symmetry normal form and a case
+  analysis make it tractable in pools of up to 651 rays. Three independent exact methods are used and
+  each result carries a certificate. Results. (1) Among rays of dimension three with integer
+  coordinates of absolute value at most 2, 3 or 4 the minimum is 31, and the minimum sets are exactly
+  the six images of one Conway-Kochen-type set under the symmetries of the cube. (2) Among rays with
+  coordinates 0 or N-th roots of unity, N = 6, 12, 18, 24, the minimum is 33, unique up to symmetry
+  for N = 6 and 12. (3) Among the 40 rays of dimension four with coordinates 0, +1, -1 the minimum is
+  18, attained only by the 16 known sets inside the 24 rays of Peres. (4) Among the 121 rays of
+  dimension five with coordinates 0, +1, -1 the minimum is 29, the size of the set of Cabello,
+  Estebaranz and Garcia-Alcaine. The values in (1), the value for N = 6 in (2), and 29 as the smallest
+  set generated from the coordinates of (4) had been reported without proof. The minimum values in (1)
+  for bound 2 and in (3) are proved in Lean 4 without Mathlib and checked by its kernel. The remaining
+  statements rest on unsatisfiability proofs checked by a separate proof checker; the status of every check is recorded in results/RESULTS.md.
+  Randomised searches in further pools in dimensions three to eight find nothing smaller than the
+  published sets. The general minimal-KS problem is not settled by any of this.
+keywords:
+- Kochen-Specker theorem
+- Kochen-Specker set
+- quantum contextuality
+- exact minimum
+- SAT solving
+- DRUP proof
+- certificate
+- Lean 4
+- formal verification
+preferred-citation:
+  type: report
+  title: 'Certified exact minima of Kochen-Specker sets inside coordinate pools: 31 and 33 rays in dimension
+    three, 18 in dimension four, 29 in dimension five'
+  authors:
+  - family-names: Donahue
+    given-names: Alexander S.
+    affiliation: 0thernes LLC, Washington, USA
+    orcid: https://orcid.org/0009-0006-8168-9648
+  year: 2026
+  month: 11
+  institution:
+    name: 0thernes LLC
+  url: https://github.com/0thernes/kochen-specker-extremal-lab
+  notes: Research preprint, version 1.0.0, 10 November 2026, not peer reviewed. The programs, proofs and
+    text were produced by an AI system (Claude, Anthropic) at the request and under the direction of
+    the author, who is responsible for the release.
+references:
+- type: generic
+  title: The algebraic landscape of Kochen-Specker sets in dimension three
+  authors:
+  - family-names: Kernaghan
+    given-names: M.
+  year: 2026
+  notes: 'arXiv:2603.16988v9. Reports, without certificates, the minimum 31 for integer coordinates up
+    to 2 and the minimum 33 for sixth roots of unity.'
+- type: generic
+  title: 'Smallest Kochen-Specker set in three dimensions: is there one with fewer than 31 vectors?'
+  authors:
+  - name: ProblemHive, post p/xfkay by the account hive-admin
+  year: 2026
+  url: https://problemhive.org/p/xfkay/thread
+  notes: Forum post with claim comments on integer coordinates up to 2, 3 and 4, October 2026.
+- type: article
+  title: Automated generation of arbitrarily many Kochen-Specker and other contextual sets in odd-dimensional
+    Hilbert spaces
+  authors:
+  - family-names: Pavičić
+    given-names: M.
+  - family-names: Megill
+    given-names: N. D.
+  journal: Physical Review A
+  volume: 106
+  start: L060203
+  year: 2022
+  notes: 'arXiv:2202.08197. Reports 29 rays as the smallest critical set generated from the coordinates
+    0, +1, -1 in dimension five, without a proof that nothing smaller exists.'
+- type: article
+  title: Parity proofs of the Kochen-Specker theorem based on the 24 rays of Peres
+  authors:
+  - family-names: Waegell
+    given-names: M.
+  - family-names: Aravind
+    given-names: P. K.
+  journal: Foundations of Physics
+  volume: 41
+  start: 1786
+  end: 1799
+  year: 2011
+  notes: 'arXiv:1103.6058. Counts the 16 Kochen-Specker sets of 18 rays inside the 24 rays of Peres.'

@@ -1,0 +1,190 @@
+{
+ "source": "results/RESULTS.md (register of record); edited by hand in scripts/build_site_data.py",
+ "open_problem": {
+  "dimension": 3,
+  "lower_bound": 24,
+  "upper_bound": 31
+ },
+ "status_legend": [
+  [
+   "Lean",
+   "the statement is proved in Lean 4 and checked by the Lean kernel"
+  ],
+  [
+   "proof-checked",
+   "an unsatisfiability proof (DRUP) from a SAT solver was checked by the small C checker verify/drup_check"
+  ],
+  [
+   "two engines",
+   "two independent solvers gave the same answer"
+  ],
+  [
+   "tree",
+   "a search-tree certificate was replayed by the independent JavaScript verifier"
+  ],
+  [
+   "one engine",
+   "one program gave the answer; no independent check yet"
+  ],
+  [
+   "in progress",
+   "not finished; the number is not yet established"
+  ],
+  [
+   "search only",
+   "randomised search; no proof that nothing smaller exists (not used in the table above)"
+  ]
+ ],
+ "rows": [
+  {
+   "id": "A1",
+   "d": 3,
+   "pool": "integer coordinates, largest entry 2",
+   "rays": 49,
+   "core": 49,
+   "bases": 26,
+   "minimum": "31",
+   "status": [
+    "Lean",
+    "tree",
+    "two engines",
+    "proof-checked"
+   ],
+   "final": true,
+   "note": "Lean theorem KS.Box3H2.minimum_ks_size; tree certificate of 255 nodes, replayable below.",
+   "in_browser": true
+  },
+  {
+   "id": "A2",
+   "d": 3,
+   "pool": "integer coordinates, largest entry 3",
+   "rays": 145,
+   "core": 97,
+   "bases": 50,
+   "minimum": "31",
+   "status": [
+    "tree",
+    "two engines",
+    "proof-checked"
+   ],
+   "final": true,
+   "note": "Tree certificate of 11 247 nodes on the 97-ray core. A Lean statement for this pool (KS.Box3H3.minimum_ks_size) has been generated; it is not counted here until its check by the Lean kernel is recorded.",
+   "in_browser": false
+  },
+  {
+   "id": "A3",
+   "d": 3,
+   "pool": "integer coordinates, largest entry 4",
+   "rays": 289,
+   "core": 205,
+   "bases": 110,
+   "minimum": "31",
+   "status": [
+    "two engines"
+   ],
+   "final": false,
+   "note": "CP-SAT and Glucose (736 s) agree; the proof check of the Glucose run is pending.",
+   "in_browser": false
+  },
+  {
+   "id": "A4",
+   "d": 3,
+   "pool": "entries 0 or 6th roots of unity",
+   "rays": 57,
+   "core": 57,
+   "bases": 22,
+   "minimum": "33",
+   "status": [
+    "one engine"
+   ],
+   "final": true,
+   "note": "Exhaustive tree search in Python (1 456 nodes); not replayed by the independent verifier.",
+   "in_browser": false
+  },
+  {
+   "id": "A5",
+   "d": 3,
+   "pool": "entries 0 or 12th roots of unity",
+   "rays": 183,
+   "core": 183,
+   "bases": 67,
+   "minimum": "33",
+   "status": [
+    "two engines",
+    "proof-checked"
+   ],
+   "final": true,
+   "note": "",
+   "in_browser": false
+  },
+  {
+   "id": "A6",
+   "d": 3,
+   "pool": "entries 0 or 18th roots of unity",
+   "rays": 381,
+   "core": null,
+   "bases": 136,
+   "minimum": "33",
+   "status": [
+    "one engine"
+   ],
+   "final": false,
+   "note": "CP-SAT only; proof check pending.",
+   "in_browser": false
+  },
+  {
+   "id": "A7",
+   "d": 3,
+   "pool": "entries 0 or 24th roots of unity",
+   "rays": 651,
+   "core": null,
+   "bases": 229,
+   "minimum": "33",
+   "status": [
+    "one engine"
+   ],
+   "final": false,
+   "note": "CP-SAT only; proof check pending.",
+   "in_browser": false
+  },
+  {
+   "id": "A8",
+   "d": 4,
+   "pool": "entries 0, +1, -1",
+   "rays": 40,
+   "core": 40,
+   "bases": 32,
+   "minimum": "18",
+   "status": [
+    "Lean",
+    "tree",
+    "two engines",
+    "proof-checked"
+   ],
+   "final": true,
+   "note": "Lean theorem KS.Box4H1.minimum_ks_size; tree certificate of 509 nodes, replayable below.",
+   "in_browser": true
+  },
+  {
+   "id": "A9",
+   "d": 5,
+   "pool": "entries 0, +1, -1",
+   "rays": 121,
+   "core": 105,
+   "bases": 136,
+   "minimum": "29 if the open cases close",
+   "status": [
+    "in progress"
+   ],
+   "final": false,
+   "note": "A 29-ray KS set exists in the pool. That no set of 28 or fewer rays is a KS set is established for one of three cases (exactly three coordinate axes: two engines, proof-checked); the four-axis and five-axis cases are not yet closed.",
+   "in_browser": false
+  }
+ ],
+ "not_achieved": [
+  "No Kochen-Specker set smaller than a published record was found in any dimension.",
+  "Integer coordinates up to 5 in dimension 3: the search did not finish (stopped after 78 minutes).",
+  "Dimension 6 with cube roots of unity (is 21 optimal there?) and the E8 pool in dimension 8 (is 34 optimal there?): not decided.",
+  "The general problem (any rays in dimension 3: between 24 and 31) is untouched by results about pools."
+ ]
+}

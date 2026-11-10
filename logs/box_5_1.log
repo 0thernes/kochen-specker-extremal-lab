@@ -1,0 +1,16 @@
+19:44:07 === run box 5 1 --seconds 240 ===
+19:44:07 box(d=5,H=1): 121 rays, 1880 orthogonal pairs, 136 bases (d=5)
+19:44:07 box(d=5,H=1): KS core keeps 105 of 121 rays
+19:44:07 box(d=5,H=1)/core: 105 rays, 1480 orthogonal pairs, 136 bases (d=5)
+19:44:07 pool built in 0.0s; symmetry generators: 9
+19:44:07 [     0.0s] first critical KS set: 44 rays, 326 orthogonal pairs, 22 bases
+19:44:07 [     0.3s] minimum correction set of the whole pool has 3 rays
+19:44:08 [     0.6s] it 1: new best KS set: 43 rays, 311 orthogonal pairs, 15 bases
+19:44:08 [     0.6s] it 1: lower 3, best 43, cut sizes [13, 11, 12, 11, 9, 14, 9], +12480 cuts (total 12490)
+19:51:53 === run box 5 1 --seconds 200 --mincuts 4 --cuts 4 ===
+19:51:53 box(d=5,H=1): 121 rays, 1880 orthogonal pairs, 136 bases (d=5)
+19:51:53 box(d=5,H=1): KS core keeps 105 of 121 rays
+19:51:53 box(d=5,H=1)/core: 105 rays, 1480 orthogonal pairs, 136 bases (d=5)
+19:51:53 pool built in 0.0s; symmetry generators: 9
+19:51:53 [     0.0s] first critical KS set: 44 rays, 326 orthogonal pairs, 22 bases
+19:51:54 [     0.3s] minimum correction set of the whole pool has 3 rays

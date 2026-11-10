@@ -1,0 +1,7 @@
+21:01:26 E8(120 rays): 120 rays, 3780 orthogonal pairs, 2025 bases (d=8)
+21:01:26 E8(120 rays): KS core keeps 120 of 120 rays
+21:01:26 pool ready in 0.0s
+21:01:27 [    0.1s] seed 2: start 50 rays
+21:01:27 [    0.1s] seed 2: new best 34 rays, 337 orthogonal pairs, 9 bases (step 2)
+21:16:26 [  900.0s] seed 2: done, 34061 steps, best 34, sizes seen [(34, 8325), (36, 4825), (38, 3032), (39, 3961), (40, 2945), (41, 1302), (42, 778), (43, 903)]
+21:16:26 HUNT RESULT E8(120 rays) seed 2: 34 rays, 337 orthogonal pairs, 9 bases critical=True

@@ -1,0 +1,2 @@
+scripts/certify.sh: line 30: syntax error near unexpected token `('
+scripts/certify.sh: line 30: `    echo "ENCODE/SOLVE FAILED (the formula is satisfiable, or an error occurred): nothing was proved"'

@@ -1,0 +1,7 @@
+21:17:46 box3(H=4): 289 rays, 1326 orthogonal pairs (0.0s)
+21:17:46 box3(H=4): 110 orthogonal triples (0.0s)
+21:17:46 box3(H=4): KS core keeps 205 of 289 rays
+21:17:46 box3(H=4)/core: 205 rays, 762 orthogonal pairs, 110 bases (d=3)
+21:17:46 box3(H=4)/core: 110 bases in 13 orbits under the symmetry group
+21:17:46 [     0.0s] root branch 1/7: basis 5 (orbit 3), nodes so far 1
+21:21:06 [   200.0s] TIMEOUT after 349606 nodes

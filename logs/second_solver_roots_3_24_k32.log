@@ -1,0 +1,3 @@
+01:09:41 [      0s] 1 formulas, solver cadical195, 1 in parallel, timeout 14400s; 0 already done
+01:15:38 [    357s] master_roots_3_24_k32_cuts.cnf: UNSAT (356.8s)
+01:15:38 [    357s] SECOND SOLVER cadical195: 1 of 1 formulas UNSAT

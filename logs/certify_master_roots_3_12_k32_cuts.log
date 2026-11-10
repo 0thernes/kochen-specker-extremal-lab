@@ -1,0 +1,9 @@
+=== 22:30:36 certify master_roots_3_12_k32_cuts k=32 case=- pool=roots 3 12
+4860 cuts re-verified from their witnesses: True (0.1s)
+CNF: 9010 variables, 38504 clauses
+g4: UNSAT in 14.3s
+DRAT proof: 95774 lines -> results/master_roots_3_12_k32_cuts.drat
+c 38504 original clauses, 39774 lemmas checked, 55999 deletion lines ignored
+s VERIFIED
+drup_check exit=0
+=== 22:31:32 done

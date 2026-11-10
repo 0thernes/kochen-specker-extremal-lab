@@ -1,0 +1,3 @@
+23:45:15 === satcegar_box_5_1_k34_in0123_out4_cubesanityk34: CNF 29941 vars, 115626 clauses (before cuts)
+23:45:23 [     7.8s] it 1: candidate 34 rays (6.0s) colorable; +480 cuts (total 560)
+23:45:23 [     8.1s] it 2: candidate 34 rays (0.0s) colorable; +960 cuts (total 1520)

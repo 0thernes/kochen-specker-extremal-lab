@@ -1,0 +1,155 @@
+[
+ {
+  "name": "KS-29 (dimension 5)",
+  "size": 29,
+  "orthogonal_pairs": 151,
+  "axes": 3,
+  "sections": [
+   {
+    "coordinate": 0,
+    "rays": 10,
+    "bases": 2,
+    "orthogonal_pairs": 19,
+    "colourings": 32,
+    "is_ks_set": false
+   },
+   {
+    "coordinate": 1,
+    "rays": 10,
+    "bases": 2,
+    "orthogonal_pairs": 20,
+    "colourings": 28,
+    "is_ks_set": false
+   },
+   {
+    "coordinate": 2,
+    "rays": 18,
+    "bases": 8,
+    "orthogonal_pairs": 62,
+    "colourings": 10,
+    "is_ks_set": false
+   },
+   {
+    "coordinate": 3,
+    "rays": 10,
+    "bases": 2,
+    "orthogonal_pairs": 20,
+    "colourings": 28,
+    "is_ks_set": false
+   },
+   {
+    "coordinate": 4,
+    "rays": 18,
+    "bases": 8,
+    "orthogonal_pairs": 62,
+    "colourings": 10,
+    "is_ks_set": false
+   }
+  ],
+  "ks_sections": []
+ },
+ {
+  "name": "KS-29 with four axes (dimension 5)",
+  "size": 29,
+  "orthogonal_pairs": 150,
+  "axes": 4,
+  "sections": [
+   {
+    "coordinate": 0,
+    "rays": 11,
+    "bases": 3,
+    "orthogonal_pairs": 24,
+    "colourings": 24,
+    "is_ks_set": false
+   },
+   {
+    "coordinate": 1,
+    "rays": 11,
+    "bases": 3,
+    "orthogonal_pairs": 24,
+    "colourings": 24,
+    "is_ks_set": false
+   },
+   {
+    "coordinate": 2,
+    "rays": 18,
+    "bases": 9,
+    "orthogonal_pairs": 63,
+    "colourings": 0,
+    "is_ks_set": true
+   },
+   {
+    "coordinate": 3,
+    "rays": 18,
+    "bases": 9,
+    "orthogonal_pairs": 63,
+    "colourings": 0,
+    "is_ks_set": true
+   },
+   {
+    "coordinate": 4,
+    "rays": 9,
+    "bases": 1,
+    "orthogonal_pairs": 18,
+    "colourings": 24,
+    "is_ks_set": false
+   }
+  ],
+  "ks_sections": [
+   2,
+   3
+  ]
+ },
+ {
+  "name": "KS-31 with five axes (dimension 5)",
+  "size": 31,
+  "orthogonal_pairs": 165,
+  "axes": 5,
+  "sections": [
+   {
+    "coordinate": 0,
+    "rays": 10,
+    "bases": 2,
+    "orthogonal_pairs": 21,
+    "colourings": 24,
+    "is_ks_set": false
+   },
+   {
+    "coordinate": 1,
+    "rays": 10,
+    "bases": 2,
+    "orthogonal_pairs": 21,
+    "colourings": 24,
+    "is_ks_set": false
+   },
+   {
+    "coordinate": 2,
+    "rays": 10,
+    "bases": 2,
+    "orthogonal_pairs": 21,
+    "colourings": 24,
+    "is_ks_set": false
+   },
+   {
+    "coordinate": 3,
+    "rays": 20,
+    "bases": 11,
+    "orthogonal_pairs": 75,
+    "colourings": 0,
+    "is_ks_set": true
+   },
+   {
+    "coordinate": 4,
+    "rays": 20,
+    "bases": 11,
+    "orthogonal_pairs": 75,
+    "colourings": 0,
+    "is_ks_set": true
+   }
+  ],
+  "ks_sections": [
+   3,
+   4
+  ]
+ }
+]

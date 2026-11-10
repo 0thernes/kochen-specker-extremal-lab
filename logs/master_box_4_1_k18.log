@@ -1,0 +1,27 @@
+22:06:55 box(d=4,H=1): 40 rays, 220 orthogonal pairs, 32 bases (d=4)
+22:06:55 box(d=4,H=1): KS core keeps 40 of 40 rays
+22:06:55 === ksmaster k=18 case=- workers=6 fix_in=[] fix_out=[]
+22:06:55 symmetry breaking on coordinate groups [[0, 1, 2, 3]]
+22:06:55 [     0.1s] a coloring of the whole pool misses 4 of 32 bases
+22:06:55 [     0.4s] it 1: candidate 8 rays (0.2s) colorable; cut misses 6 bases, +48 (total 52)
+22:06:55 [     0.6s] it 2: candidate 18 rays (0.1s) colorable; cut misses 6 bases, +32 (total 84)
+22:06:56 [     0.7s] it 3: FOUND a KS set: 18 rays, 63 orthogonal pairs, 9 bases
+22:06:56 MASTER RESULT box(d=4,H=1) k=18 case=-: found after 3 iterations, 84 cuts
+22:06:56    ray (0, 0, 0, 1)
+22:06:56    ray (0, 0, 1, 0)
+22:06:56    ray (0, 0, 1, 1)
+22:06:56    ray (0, 1, -1, 0)
+22:06:56    ray (0, 1, 0, -1)
+22:06:56    ray (0, 1, 0, 0)
+22:06:56    ray (1, -1, -1, -1)
+22:06:56    ray (1, -1, -1, 1)
+22:06:56    ray (1, -1, 0, 0)
+22:06:56    ray (1, -1, 1, -1)
+22:06:56    ray (1, 0, -1, 0)
+22:06:56    ray (1, 0, 0, -1)
+22:06:56    ray (1, 0, 0, 1)
+22:06:56    ray (1, 0, 1, 0)
+22:06:56    ray (1, 1, -1, 1)
+22:06:56    ray (1, 1, 0, 0)
+22:06:56    ray (1, 1, 1, -1)
+22:06:56    ray (1, 1, 1, 1)

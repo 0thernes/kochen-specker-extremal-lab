@@ -1,0 +1,6 @@
+21:24:15 box(d=5,H=1): 121 rays, 1880 orthogonal pairs, 136 bases (d=5)
+21:24:15 box(d=5,H=1): KS core keeps 105 of 121 rays
+21:24:15 box(d=5,H=1)/core: 105 rays, 1480 orthogonal pairs, 136 bases (d=5)
+21:24:15 box(d=5,H=1)/core: 136 bases in 6 orbits under the symmetry group
+21:24:15 [     0.0s] root branch 1/40: basis 2 (orbit 1), nodes so far 1
+21:26:45 [   150.0s] TIMEOUT after 204329 nodes

@@ -1,0 +1,578 @@
+# Certified exact minima of Kochen-Specker sets inside coordinate pools: 31 and 33 rays in dimension three, 18 in dimension four, 29 in dimension five
+
+**Alexander S. Donahue** — 0thernes LLC, Washington, USA — 0_0@0thernes.art — ORCID 0009-0006-8168-9648
+
+Version 1.0.0, 10 November 2026. Research preprint, not peer reviewed.
+
+> **What this paper does and does not do.** The smallest Kochen-Specker (KS) set in dimension three is
+> an open problem: it has between 24 and 31 rays. This paper does **not** solve that problem and does
+> **not** contain a KS set smaller than a published one. It answers a restricted question exactly:
+> *inside a given finite pool of rays, what is the smallest KS set?* For the pools of Table 2 the answer
+> equals the size of the smallest published set of that kind (31, 33, 18 or 29 rays), and the answers
+> come with certificates that can be re-checked without trusting the search programs; Table 2 says
+> which kind for each pool. Several of the values were reported before without proof: 31 for integer
+> coordinates up to 2, 3 and 4, 33 for sixth roots of unity, and 29 as the smallest set generated from
+> coordinates 0, ±1 in dimension five (Section 1.3). New here, to our knowledge: the proofs with their
+> certificates, including Lean 4 kernel proofs for two pools; the exact minimum 33 for twelfth,
+> eighteenth and twenty-fourth roots of unity; and the complete lists of minimum sets for integer
+> coordinates up to 3 and 4 and for sixth and twelfth roots of unity.
+>
+> **How it was made.** The programs, proofs and text were produced by an AI system (Claude, Anthropic)
+> at the request and under the direction of the author, who is responsible for the release (Section 9).
+
+## Abstract
+
+A Kochen-Specker set is a finite set of rays admitting no assignment of 0 and 1 that gives exactly one 1
+to every orthogonal basis and never 1 to two orthogonal rays. We determine the minimum size of such a
+set inside prescribed finite pools of rays. Every KS set must contain a basis missed by any set of
+pairwise non-orthogonal rays; this turns the question into a covering problem whose constraints are
+individually trivial to verify. Two necessary conditions for critical KS sets, a symmetry normal form,
+and a case analysis make it tractable in pools of up to 651 rays. Three independent exact methods are
+used and each result carries a certificate. Results: (1) among rays of dimension three with integer
+coordinates of absolute value at most 2, 3 or 4, the minimum is 31 and the minimum sets are exactly the
+six images of one Conway-Kochen-type set under the symmetries of the cube; (2) among rays with
+coordinates 0 or N-th roots of unity, N = 6, 12, 18, 24, the minimum is 33, unique up to symmetry for
+N = 6 and 12; (3) among the 40 rays of dimension four with coordinates 0, ±1 the minimum is 18, attained
+only by the 16 known sets inside the 24 rays of Peres; (4) among the 121 rays of dimension five with
+coordinates 0, ±1 the minimum is 29, the size of the set of Cabello, Estebaranz and García-Alcaine.
+The values in (1), the value for N = 6 in (2), and 29 as the smallest set generated from the
+coordinates of (4) had been reported without proof. The minimum values in (1) for bound 2 and in (3)
+are proved in Lean 4 without Mathlib and checked by its kernel. The remaining statements rest on
+unsatisfiability proofs checked by a separate proof checker; Tables 2 and 3 and the register give the
+status of every check.
+Randomised searches in further pools in dimensions three to eight find nothing smaller than the
+published sets. The general minimal-KS problem is not settled by any of this.
+
+## 1. Introduction
+
+### 1.1 The Kochen-Specker theorem and its minimal sets
+
+Kochen and Specker [1] and Bell [2] showed that quantum theory is incompatible with models that assign
+every projective measurement a pre-existing outcome independent of the other compatible measurements
+performed with it. The combinatorial core is a finite set of rays in a Hilbert space of dimension d ≥ 3
+that cannot be 0/1-colored: no assignment gives exactly one 1 to each orthogonal basis while never
+giving 1 to two orthogonal rays. Such a set is a *Kochen-Specker set*. The original set had 117 rays in
+dimension three; smaller sets followed [3, 4, 5], and the smallest KS set in each dimension became a
+problem in its own right. KS sets are also the resource behind state-independent contextuality [26]
+and bipartite perfect quantum strategies [18, 35].
+
+### 1.2 State of knowledge (meta-analysis)
+
+Table 1 collects the smallest known KS set and the best proven lower bound in each dimension, as far as
+we could establish them from the primary sources on 9 and 10 November 2026. Counts follow the standard
+definition of Section 2: only the rays of the set are counted. Papers that use hypergraphs with every
+basis completed report larger numbers for the same sets in dimension three (the 31-ray set is "51-37").
+
+**Table 1. Smallest known KS sets and proven lower bounds.**
+
+| d | smallest known | source | proven lower bound | source |
+|---|---|---|---|---|
+| 3 | 31 (real) | Conway and Kochen, in [3] | 24 (real and complex) | [10]; real case also [11] |
+| 3 | 33 with coordinates 0 and roots of unity (14 bases, the fewest known) | [20, 21] | | |
+| 4 | 18 | [5] | 18 | [7, 12] |
+| 5 | 29 | [6] | 18 | [12] |
+| 6 | 21 (complex), 31 (real) | [13], [6] | 18 | [12] |
+| 7 | 32 (complex), 34 (real) | [15], [6] | 18 | [12] |
+| 8 | 34 | [14] | 18 | [12] |
+
+Only dimension four is settled. In dimension three the lower bound rose from 18 [8] to 22 [9] to 24
+[10, 11] by exhaustive enumeration of candidate orthogonality graphs, with the final unembeddability
+step done by an SMT solver; the authors of [11] estimate more than a hundred CPU years for the next
+order. In dimensions five and above the only proven bound is the dimension-independent 18 of [12], and
+Pavičić and Waegell [32] write only that it "seems likely" that the smallest sets in dimensions four to
+eight are known.
+
+Restricted results exist in dimension three. Trandafir and Cabello [18] proved that the Conway-Kochen
+set is rigid and that no KS set with 30 or fewer rays arises from the 13-ray set of Yu and Oh [26] by
+their completion procedure, and conjectured that 31 is the minimum. Li, Bright, Trandafir, Cabello and
+Ganesh [19] enumerated, with proof certificates, all KS sets with up to 33 rays containing the 25-ray
+completion of the Yu-Oh set. Pavičić and Megill [16, 17] and Pavičić [31] generate very large classes
+of critical sets from all vectors with components in a small set (their "master" sets) and report the
+smallest members they obtain; these are computational reports, without a proof that the generation is
+exhaustive and without certificates. Integer vectors can carry KS sets only because their directions
+are not rational points of the sphere, which are colorable [24, 25]; see also [23].
+
+### 1.3 The pool problem, prior work on it, and what is new here
+
+We fix a finite *pool* of rays and ask for the exact minimum size of a KS set inside it. A pool result
+says nothing about rays outside the pool, but the question is exactly solvable, gives matching upper
+and lower bounds, and tests the conjectured optimality of the smallest known sets in the places where
+they live.
+
+Prior work on this question, as far as we found it:
+
+* Kernaghan [22], a preprint whose computations and text were, by its own statement, generated by a
+  language model, surveys coordinate alphabets in dimension three. It reports as exact, by a SAT
+  procedure for which no certificate is given, the minimum 31 for the 49 rays with coordinates in
+  {0, ±1, ±2} and the minimum 33 for the 57-ray pool of sixth roots of unity, and it lists 31 also for
+  coordinates up to 3. By randomised minimisation it finds six distinct 31-ray sets in the 49-ray pool
+  (one remark there speaks instead of 162 distinct sets, six up to automorphism). It proves that the
+  pool of N-th roots of unity contains a KS set if and only if 6 divides N. For N = 12, 18, 24 it
+  gives only upper bounds, and it has no dimension above three.
+* A note on the forum ProblemHive [33], posted in October 2026 by an AI agent, reports the minimum 31
+  for integer coordinates up to 2, 3 and 4, obtained with CP-SAT and the same kind of coloring cut as
+  in Section 3.1. It states itself that its solver logs are not a certificate.
+* In dimension four the bound 18 holds for all KS sets [7], and in every dimension [12]. The 18-ray
+  sets inside the 24 rays of Peres are known: there are 16 of them [39].
+* In dimension five, Pavičić and Megill [16] generate from the components 0, ±1 a master set with 105
+  rays and 136 bases, which is the core of our pool B(5, 1), and report that the smallest critical set
+  of its class has 29 rays and 16 bases, with two non-isomorphic sets of that size (also [32]), one
+  of which had been obtained in [15]. No proof that nothing smaller exists is given. Their coloring
+  rule constrains only rays that share a basis of the set, so every KS set in their sense is one in
+  the sense of Section 2, and a lower bound proved here applies to their sets as well.
+* Formal proofs exist for other statements: non-colorability of Peres's 33 rays in HOL Light [36],
+  the KS paradox in Lean [37], case-tree certificates of non-embeddability replayed in Lean for the
+  geometric half of the bound 24 [34], and a contextuality degree in Lean [38]. We found no formal
+  proof of a minimality statement for KS sets, and none for the Conway-Kochen or the 18-ray set.
+
+Against this background we claim as new, to our knowledge and within the search described in
+Section 7:
+
+1. proofs with certificates for the results: Lean 4 kernel proofs for the 49-ray pool and for the
+   40-ray pool of dimension four, replayable search trees, and unsatisfiability proofs checked by a
+   separate checker;
+2. complete lists of the minimum sets: exactly six for integer coordinates up to 3 and up to 4 (the
+   same six as for 2), exactly 3 and 12 for sixth and twelfth roots of unity, each list a single orbit
+   under the symmetries of the pool; and the fact that the 40-ray pool of dimension four contains no
+   18-ray KS set besides the 16 known ones [39];
+3. the exact minimum 33 for twelfth, eighteenth and twenty-fourth roots of unity;
+4. the proof that 29 is the minimum for coordinates 0, ±1 in dimension five, where 29 had been
+   reported as the smallest set obtained [16], and the fact that every KS set in that pool contains
+   at least three coordinate axes;
+5. the method beyond the coloring cut itself: necessary conditions for critical sets as constraints,
+   a symmetry normal form, an encoding whose unsatisfiability proofs are checked independently, and
+   tree certificates with a checker proved sound in Lean (the pattern of certificate and verified
+   checker used in [34], applied here to a minimality statement).
+
+We do not claim the values 31, 33, 18, 29, which are the sizes of published sets [3, 20, 5, 6], nor
+the coloring-cut idea, which also appears in [33] and, in the form of an unsatisfiable-subset loop, in
+[22].
+
+## 2. Definitions
+
+A *pool* is a finite set V of rays (one-dimensional subspaces) of a d-dimensional real or complex
+inner-product space, d ≥ 3. Two rays are *orthogonal* if their inner product vanishes. A *basis* is a
+set of d mutually orthogonal rays of V.
+
+A subset S of V is *colorable* if there is f : S → {0, 1} such that
+
+1. f(u) + f(v) ≤ 1 whenever u, v ∈ S are orthogonal, and
+2. every basis contained in S has a ray with f = 1.
+
+By rule 1 a basis inside S then has exactly one ray of value 1. If no such f exists, S is a
+*Kochen-Specker set*.
+Only the rays of S count; orthogonal pairs constrain f whether or not they extend to a basis inside S.
+Subsets of colorable sets are colorable. A KS set is *critical* if all its proper subsets are colorable;
+every KS set contains a critical one, so the minimum is attained by a critical set.
+
+Two families of pools are used. B(d, H) is the set of rays spanned by non-zero integer vectors of $`\mathbb{Z}^d`$
+with all coordinates of absolute value at most H. U(d, N) is the set of rays spanned by non-zero vectors
+of $`\mathbb{C}^d`$ with entries in $`\{0\} \cup \mu_N`$, where $`\mu_N`$ is the group of N-th roots of unity. Orthogonality is decided
+exactly: by integer dot products in B(d, H), and in U(d, N) by reducing the inner product, an integer
+combination of N-th roots of unity, modulo the N-th cyclotomic polynomial.
+
+## 3. Method
+
+Complete proofs of the statements of this section are in `paper/PROOFS.md` in the repository; they are
+short and are outlined here.
+
+### 3.1 Coloring cuts
+
+Call I ⊆ V *independent* if no two of its rays are orthogonal, and let Miss(I) be the set of bases of V
+containing no ray of I.
+
+**Lemma 1.** S ⊆ V is a KS set if and only if, for every independent I ⊆ V, S contains a basis of
+Miss(I).
+
+If S contains no basis of Miss(I), giving 1 to the rays of I inside S colors S. Conversely the rays of
+value 1 of a coloring form an independent set I with no basis of Miss(I) inside S.
+
+So every independent set I yields a *cut*, the clause "S contains at least one basis of Miss(I)", valid
+for every KS set and certified by I alone: one checks that I is independent and recomputes Miss(I).
+Symmetries of the pool map cuts to cuts. In particular, if C ⊆ V is colorable, every KS set meets the
+complement of C.
+
+### 3.2 Necessary conditions for critical sets
+
+**Lemma 3.** If T is a critical KS set and v ∈ T, then (C1) v lies in a basis contained in T, and (C2)
+v is orthogonal to at least d rays of T.
+
+For (C1), a coloring of T without v extends by f(v) = 0 if no basis through v lies in T. For (C2), if v
+had at most d − 1 partners they would be the rest of the unique basis b through v; then f(v) = 1 if the
+rest of b is all 0, and f(v) = 0 otherwise, extends the coloring.
+
+Applied to the pool itself, the lemma allows the repeated deletion of rays that lie in no basis or have
+fewer than d partners; what remains is the *core*. Where the "master" hypergraphs of [16, 17] exist for
+the same vectors, our cores have their sizes: 105 rays and 136 bases for B(5, 1), 1185 and 3596 for
+B(5, 2), 332 and 1408 for B(6, 1), 805 and 9936 for B(7, 1), 834 and 1609 for U(6, 3). This is an
+external check of the pool construction.
+
+### 3.3 Counterexample-guided search
+
+Take Boolean variables $`x_v`$ (ray chosen) and $`y_b`$ (basis chosen), with $`y_b`$ true exactly when all rays of b
+are chosen. For a bound k the *candidate problem* asks for an assignment with at most k rays chosen
+that satisfies (C1), (C2) and all cuts collected so far. A solution S is tested: if it is not colorable,
+a KS set with at most k rays has been found. Otherwise a coloring of S is extended to an independent
+set of the whole pool that misses as few bases as possible; its cut is violated by S and is added,
+together with its images under the symmetries of the pool. If the candidate problem becomes infeasible,
+the pool contains no KS set with at most k rays, by Lemmas 1 and 3. In a controlled run on B(3, 4) the
+conditions (C1) and (C2) reduce the number of rounds from 15 to 6 and the number of cuts from 307 to
+123, with no gain in running time (`results/ablate_c1c2_box3_4_k30.json`).
+
+### 3.4 Search trees
+
+For small pools we also use a plain exhaustive search whose trace is a certificate. A node holds an
+independent set I and one child for each basis of Miss(I) that can still be added within the budget of
+k rays without completing a basis already excluded on the way; the subtree of a child treats the sets
+that contain its basis and none of the bases of the earlier siblings. A node without children is closed
+because I colors every remaining admissible set. Lemma 5 of `paper/PROOFS.md` states the checking rule
+and proves by induction that an accepted tree shows every set of at most k rays to be colorable. The
+rule uses neither (C1) nor (C2). The dual certificate, that one given set is not colorable, is a case
+tree on which ray of a basis has value 1.
+
+### 3.5 Symmetry and cases
+
+In B(d, H) the signed coordinate permutations are symmetries. Every set can be brought to a normal form
+in which the coordinates are sorted by the number of chosen rays with a non-zero entry there and, for
+$`j = 1, \dots, d-1`$, the ray $`e_0 - e_j`$ is chosen only if $`e_0 + e_j`$ is (Lemma 6). For B(5, 1) we also use:
+
+**Lemma 7.** Every basis of B(5, 1) contains a coordinate axis, and every KS set in B(5, 1) contains at
+least three coordinate axes.
+
+The second part holds because the pool with any three axes removed is colorable (an explicit coloring
+is in `results/lemma7_d5_axes.json`). A critical KS set therefore has, up to a coordinate permutation,
+exactly the axes $`\{e_0, e_1, e_2\}`$, or $`\{e_0, e_1, e_2, e_3\}`$, or all five, and the three cases are searched
+separately. The last case is split further into 81 sub-cases ("cubes") by the states of the four pairs
+$`(e_0 + e_j,\ e_0 - e_j)`$: neither ray chosen, only the first, or both.
+
+### 3.6 Three engines and what has to be trusted
+
+* **Engine A** solves the candidate problem with the CP-SAT solver of OR-Tools [29].
+* **Engine B** encodes the candidate problem from scratch in conjunctive normal form, re-verifying
+  each cut from its independent set and using two-sided sequential counters for the counting
+  constraints, and solves it with the CDCL solver Glucose [28] through PySAT [27], which emits a DRUP
+  proof [30]. The proof is checked by `verify/drup_check.c`, a forward reverse-unit-propagation checker
+  of about 310 lines written for this project and tested on correct proofs, corrupted proofs,
+  malformed files and satisfiable formulas. Where the register says so, the same formula was also
+  given to a second solver, CaDiCaL [40], and its proof was checked by the same checker.
+* **Engine C** is the exhaustive tree search of Section 3.4. Its certificates are replayed by an
+  independent JavaScript program (`verify/verify_cert.mjs`, written from the specification alone,
+  which also recomputes orthogonality and all bases from the integer vectors) and, for two pools, by a
+  checker whose soundness is proved in Lean 4.
+
+For a result marked "proof-checked" the trusted parts are the pool construction, the encoder, the
+verification of the cuts, the proof checker, and Lemmas 1, 3, 6, 7; the solvers are not trusted. For
+the counts of minimum sets one more step is trusted: the check, made by the encoder, that the list of
+excluded sets is closed under the symmetries used for symmetry breaking. For a
+result marked "Lean" the trusted parts are the Lean kernel and the reading of the theorem statement
+and of the few definitions it uses (Section 5); tables, certificates and checkers are not trusted.
+
+## 4. Results
+
+**Table 2. Exact minimum size of a KS set inside each pool.**
+
+| Pool | rays (core) | bases | minimum | sets of minimum size | evidence |
+|---|---|---|---|---|---|
+| B(3, 2) | 49 (49) | 26 | 31 | 6, one orbit | Lean; tree, 255 nodes; A; B, proof-checked |
+| B(3, 3) | 145 (97) | 50 | 31 | 6, one orbit | tree, 11 330 nodes; A; B, proof-checked |
+| B(3, 4) | 289 (205) | 110 | 31 | 6, one orbit | A; B, proof-checked |
+| U(3, 6) | 57 (57) | 22 | 33 | 3, one orbit | exhaustive tree search; A; B, proof-checked |
+| U(3, 12) | 183 (183) | 67 | 33 | 12, one orbit | A; B, proof-checked |
+| U(3, 18) | 381 (381) | 136 | 33 | not enumerated | A; B, proof-checked |
+| U(3, 24) | 651 (651) | 229 | 33 | not enumerated | A; B with CaDiCaL, proof-checked |
+| B(4, 1) | 40 (40) | 32 | 18 | 16, one orbit | Lean; tree, 509 nodes; A; B, proof-checked |
+| B(5, 1) | 121 (105) | 136 | 29 | at least 2 classes | B and a second solver, case analysis, proof-checked (Section 4.4) |
+
+A and B refer to the engines of Section 3.6. The tree certificates for B(3, 2), B(3, 3) (11 330 nodes)
+and B(4, 1) cover the whole pools, so those rows do not depend on the reduction to the core. For U(3, 24) Glucose ran out of memory and the
+formula of engine B was solved by CaDiCaL instead. The counts of minimum sets were obtained by
+engine A, excluding each set found together with its orbit and continuing until no candidate was left;
+in all six pools the final step (no further KS set of that size) was repeated with engine B and its
+proof was checked. The file `results/RESULTS.md` in the repository is the register behind this table
+and records the status of every check.
+
+### 4.1 Dimension three, integer coordinates
+
+**Theorem 1.** Let H ∈ {2, 3, 4}. Every KS set contained in B(3, H) has at least 31 rays. There are
+exactly six KS sets with 31 rays in B(3, H); they have coordinates of absolute value at most 2 and are
+the images of one of them under signed coordinate permutations.
+
+The 31-ray sets have 71 orthogonal pairs and 17 bases. The Conway-Kochen set consists of vectors with
+coordinates in {0, ±1, ±2}, so by the theorem it is one of the six; the count of six agrees with the
+six equivalent versions of that set noted in [18] and with the six sets found by randomised
+minimisation in [22]. For H = 2 the statement "minimum 31" is the Lean theorem
+`KS.Box3H2.minimum_ks_size_vectors`. The minimum 31 for these three pools was reported without
+certificates in [22] (H = 2 as exact, H = 3 in a table) and in [33] (H = 2, 3, 4); the proofs, and the
+statement that for H = 3 and 4 there are no minimum sets besides the six, are new. Enlarging the pool
+from 49 to 289 rays adds 156 rays to the core and no new minimum set. The best coloring of the whole
+pool misses 1 of 26 bases for H = 2, 2 of 50 for H = 3, 7 of 110 for H = 4 and 14 of 266 for H = 5
+(optima of an exact MaxSAT solver, `results/min_missed.json`). For H = 5 (577 rays, core 421) the exact search was stopped without an answer after
+more than an hour, and we make no claim.
+
+### 4.2 Dimension three, roots of unity
+
+**Theorem 2.** For N ∈ {6, 12, 18, 24} every KS set contained in U(3, N) has at least 33 rays, and 33 is
+attained. In U(3, 6) there are exactly 3 KS sets with 33 rays and in U(3, 12) exactly 12; in both pools
+they form a single orbit under coordinate permutations, multiplication of single coordinates by N-th
+roots of unity and complex conjugation.
+
+The 33-ray sets have 78 orthogonal pairs and 14 bases, the parameters of the complex set of [20, 21].
+The value for N = 6 was reported in [22]; for N = 12, 18, 24 only upper bounds were known. By the
+theorem of [22], U(3, N) contains a KS set exactly when 6 divides N; our computations agree for
+N ≤ 12 (for N = 2, 3, 4, 5, 7, 8, 9, 10, 11 the core is empty). Whether the minimum is 33 for every
+multiple of 6 is open.
+
+### 4.3 Dimension four
+
+**Theorem 3.** Every KS set contained in B(4, 1) has at least 18 rays; there are exactly 16 KS sets with
+18 rays in B(4, 1), forming one orbit under signed coordinate permutations.
+
+The bound 18 holds for all KS sets in dimension four [7] and in every dimension [12]. The 16 sets are
+the 16 known 18-ray sets inside the 24 rays of Peres [39]: none of them uses a ray of the pool with
+three non-zero coordinates (`results/peres24_check.json`). What the enumeration adds is that these 16
+further rays produce no other 18-ray KS set. The theorem is included because the Lean proof of its
+first statement, `KS.Box4H1.minimum_ks_size_vectors`, is to our knowledge the first proof of a
+minimality statement for KS sets checked by a proof assistant. The count of 16 sets is not part of
+the Lean theorem; it rests on the enumeration and its checked proof (Table 2).
+
+### 4.4 Dimension five
+
+**Theorem 4.** Every KS set contained in B(5, 1) has at least 29 rays, and 29 is attained.
+
+*Proof structure.* By Lemma 7 and the normal form there are three cases for a critical KS set with at
+most 28 rays. Table 3 lists how each was closed.
+
+**Table 3. The three cases of Theorem 4 (bound k = 28).**
+
+| Case | engine A (CP-SAT) | engine B (Glucose 4.1) | second solver (CaDiCaL 1.9.5) | proof checks |
+|---|---|---|---|---|
+| exactly three axes | infeasible, two runs | unsatisfiable, 40 s | unsatisfiable, 28 s | Glucose proof VERIFIED, 94 680 lemmas |
+| exactly four axes | stopped without an answer | unsatisfiable, 24 minutes | unsatisfiable, 4 minutes | CaDiCaL proof VERIFIED, 1 614 075 lemmas; Glucose proof VERIFIED, 1 748 269 lemmas |
+| all five axes | stopped without an answer | 81 cubes, all unsatisfiable, 84 to 751 s each | 81 cubes, all unsatisfiable, 57 to 449 s each | 81 Glucose proofs: CUBEVERDICT |
+
+The times are elapsed times of single runs on a loaded machine and vary from run to run; summed over
+the 81 cubes they come to about 6 hours for Glucose and 3 hours for CaDiCaL. Both solvers were given
+the same formula files, so they do not check the encoding against each other; they check the solvers.
+
+Controls show that the case machinery is not vacuous. With the bound raised to 29, the three-axis
+case finds a 29-ray KS set with 16 bases and 151 orthogonal pairs, and the four-axis case finds a
+29-ray KS set with 16 bases and 150 orthogonal pairs. These two sets are not isomorphic, in line with
+the two smallest critical sets reported for these coordinates in [16, 32]. The second consists of an
+18-ray KS set in a coordinate hyperplane and 11 further rays, the shape of the recursive construction
+of [6]; in the first, no coordinate hyperplane contains a KS set (`results/d5_sections.json`).
+
+Critical KS sets with all five axes exist as well, so the third case is not empty: plain random
+deletion from the whole pool with the axes deleted last ended with five axes in 3734 of 3828 runs,
+with four in 90 and with three in 4 (`results/d5_axes_sanity.json`). The smallest five-axis sets
+found have 31 rays, 165 orthogonal pairs and 18 bases; the one recorded in `results/ks_sets.json`
+contains a KS set of 20 rays and 11 bases in a coordinate hyperplane. As a third control, the search
+in one cube of the five-axis case with the bound raised to 31 finds such a set. With the bound 30,
+the five-axis search is unsatisfiable for CaDiCaL in 80 of the 81 cubes (solver answers without a
+proof check, `logs/cubes_d5_k30_cadical.out`); in the remaining cube it finds a 30-ray KS set with
+all five axes that is not critical: without the axis e0 it is a 29-ray KS set with four axes. A
+critical KS set with five axes and at most 30 rays, if one exists, therefore lies in that one cube.
+
+Engine A closed only the three-axis case. All three cases were closed by engine B with Glucose and,
+on the same formulas, by a second SAT solver, CaDiCaL [40]; the proof checks are recorded in Table 3
+and in the register.
+
+### 4.5 Searches for smaller sets
+
+A randomised walk on critical KS sets (remove a few rays, then repair to a critical KS set that keeps
+as much of the old set as possible) was run for 10 to 15 minutes in each pool of Table 4. It never
+found a set smaller than the smallest published one, and in every pool but one it reached that size,
+usually within seconds. The exception is U(3, 24), where the walk stopped at 36 rays although the pool
+contains 33-ray sets; this shows how weak a negative result of such a search is.
+
+**Table 4. Randomised searches (no optimality claim).**
+
+| Pool | rays in core | smallest KS set found | smallest published |
+|---|---|---|---|
+| B(3, 2) | 49 | 31 | 31 [3] |
+| U(3, 12), U(3, 18) | 183, 381 | 33 | 33 [20, 21] |
+| U(3, 24) | 651 | 36 | 33 [20, 21] |
+| B(4, 1), U(4, 6) | 40, 400 | 18 | 18 [5] |
+| B(5, 1), B(5, 2) | 105, 1185 | 29 | 29 [6] |
+| U(5, 4), U(5, 6) | 525, 1505 | 29 | 29 [6] |
+| B(6, 1) | 332 | 31 | 31 real [6] |
+| U(6, 3) | 834 | 21 | 21 [13] |
+| B(7, 1) | 805 | 34 | 34 real [6] |
+| U(7, 3) | 2968 | 32 | 32 [15] |
+| E8 root rays, d = 8 | 120 | 34 | 34 [14] |
+
+This is weak evidence, not proof, that these sets are optimal in their pools. We did not decide whether
+21 is the minimum in U(6, 3) or 34 in the E8 pool; both exact searches were stopped unfinished. One
+further pool was run for which we know no published value: U(5, 3), with a core of 230 rays, where
+the walk ended at 85 rays.
+
+## 5. Formal verification in Lean 4
+
+The Lean development (`lean/`, Lean 4.35.0, no Mathlib) has four layers.
+
+1. `KS/Basic.lean` defines pools as tables of bit masks, colorings, and the two certificate checkers
+   `check` (Section 3.4) and `refute`, and proves their soundness: `KS.small_sets_colorable` (an
+   accepted tree certificate implies that every set of at most k rays is colorable) and
+   `KS.not_colorable_of_refute` (an accepted refutation implies that the given set has no coloring).
+   While these were being proved, the first versions of both checkers turned out to accept malformed
+   certificates; the definitions were corrected, and `KS/Tests.lean` records that the counterexamples
+   are now rejected.
+2. `KS/Spec.lean` states the problem without tables. `boxRays d H` is the list of integer vectors of
+   length d with entries between −H and H whose first non-zero entry is positive and whose entries
+   have greatest common divisor 1: one representative of every ray of B(d, H). `VColorable rays d T`
+   says that the set T of positions in the list `rays` has a coloring, where orthogonal means "dot
+   product zero" and a basis is an increasing list of d positions of pairwise orthogonal vectors. Two
+   theorems show that the table notion and this vector notion of colorability agree whenever a table
+   passes three checks: its orthogonality entries are right, every listed basis consists of d mutually
+   orthogonal rays, and every such set is listed.
+3. Each data module lists the vectors, the orthogonality table and the bases, proves the three checks
+   by kernel evaluation, and proves that its list of vectors is `boxRays d H` and that every non-zero
+   integer vector of the box is parallel to exactly one of them.
+4. The certificates are evaluated by the kernel (`decide +kernel`). Together with the layers above
+   this gives
+
+```
+theorem KS.Box3H2.minimum_ks_size_vectors :
+    (∃ T, T < 2 ^ 49 ∧ card 49 T = 31 ∧ ¬ VColorable (boxRays 3 2) 3 T) ∧
+    (∀ T, T < 2 ^ 49 → card 49 T ≤ 30 → VColorable (boxRays 3 2) 3 T)
+```
+
+and the analogous `KS.Box4H1.minimum_ks_size_vectors` with `boxRays 4 1`, 40, 18 and 17. A set of rays
+is a natural number T read as a bit mask of positions in the list, and `card` counts its elements. The
+statement mentions no table and no certificate: to trust it one reads the definitions of `boxRays`,
+`dot`, `card`, `Sub` and `VColorable`, about 25 lines of Lean. The axioms used are `propext`,
+`Classical.choice` and `Quot.sound`; there is no `sorry` and no `native_decide`. Building everything
+from scratch takes about one minute. The Lean theorems cover the two minimum values only; the counts
+of minimum sets and the other pools rest on the evidence of Table 2.
+
+## 6. An operational check on the Tsotchke stack
+
+The 31-ray set was also exercised on four pieces of the Tsotchke software stack, all classical
+programs: the Moonlab state-vector simulator (WebAssembly build), the Fubini-Study kernel of the
+quantum geometric tensor library, the integer mixers of quantum_rng as a reproducible pseudo-random
+stream, and an exact-integer program in the Eshkol language. A qutrit is embedded in two simulated
+qubits. The 71 orthogonal pairs and 17 bases are recovered from simulated overlaps and from
+Fubini-Study distances equal to π/2. For 2000 pseudo-random states the 17 basis sums of outcome
+probabilities equal 1 to within $`2 \times 10^{-15}`$, so the sum over bases is 17 for every state, whereas
+exhaustive search shows that an assignment obeying rule 1 gives a 1 to at most 16 of the 17 bases.
+This restates the state-independent gap of the set in operational terms. It is a simulation, not an
+experiment, and no quantum randomness is involved.
+
+## 7. Limits, prior art, open questions
+
+* **Scope.** A pool result excludes smaller KS sets only inside the pool. The general problem in
+  dimension three (24 to 31) and in dimensions five and above (18 to the records of Table 1) is open.
+* **Prior art and the word "new".** Literature was searched on 9 and 10 November 2026 on arXiv, Zenodo,
+  GitHub and the open web, by topic and by the distinctive numbers. What we found is in Section 1.3.
+  Reference [33] is a forum post that could be read but not independently dated beyond its own
+  status line. The first search missed two published facts: the report of 29 as the smallest set for
+  the coordinates 0, ±1 in dimension five [16], and the 16 sets inside the 24 rays of Peres [39]. Both
+  were found in a review of the manuscript before release, and the claims of Section 1.3 were narrowed
+  accordingly. Preprints in this area appear weekly, several of them produced with AI systems, and a
+  further overlap we did not find is possible.
+* **What is certified to which level.** Table 2 and the register say which rows have a proof check and
+  which rest on solver answers. The randomised searches prove nothing about optimality.
+* **Open questions.** Is 31 the minimum in B(3, H) for all H? Is 33 the minimum in U(3, N) for every
+  multiple N of 6? Is 21 the minimum in U(6, 3), and 34 in the E8 pool? Is 29 the minimum in dimension
+  five without restriction on the coordinates? Does B(5, 1) contain a critical KS set with 29 or 30
+  rays and all five coordinate axes?
+
+## 8. Reproducibility
+
+Repository: https://github.com/0thernes/kochen-specker-extremal-lab (site:
+https://0thernes.github.io/kochen-specker-extremal-lab/). The command `python scripts/run_all.py` runs
+the unit tests, regenerates the two small tree certificates and replays them with the JavaScript
+verifier, regenerates and checks the unsatisfiability proofs for the two smallest pools, and
+re-verifies Lemma 7; `--lean` adds the Lean build and the axiom audit, `--stack` the demonstration of
+Section 6. Commands and logs for every row of Table 2 are indexed in `docs/INDEX.md`. Software used:
+Python 3.9, PySAT 1.9.dev21 (with Glucose 4.1 and CaDiCaL 1.9.5), OR-Tools 9.15, Node 25, gcc 16,
+Lean 4.35.0.
+
+## 9. Disclosure, funding, licence
+
+The research, programs, Lean proofs and text were produced by Claude (Anthropic) working as an agent at
+the request and under the direction of the author, who takes responsibility for the release. An AI
+system is not an author. The work was funded by the author through 0thernes LLC; there was no external
+funding and there are no competing interests. The repository is released under the verification
+licence in its `LICENSE` file; third-party components keep their own licences.
+
+## References
+
+[1] S. Kochen, E. P. Specker, The problem of hidden variables in quantum mechanics, J. Math. Mech. 17 (1967) 59-87.
+
+[2] J. S. Bell, On the problem of hidden variables in quantum mechanics, Rev. Mod. Phys. 38 (1966) 447-452.
+
+[3] A. Peres, Quantum Theory: Concepts and Methods, Kluwer, Dordrecht, 1993 (source of the 31-ray set of J. H. Conway and S. Kochen).
+
+[4] A. Peres, Two simple proofs of the Kochen-Specker theorem, J. Phys. A 24 (1991) L175-L178.
+
+[5] A. Cabello, J. M. Estebaranz, G. García-Alcaine, Bell-Kochen-Specker theorem: a proof with 18 vectors, Phys. Lett. A 212 (1996) 183-187.
+
+[6] A. Cabello, J. M. Estebaranz, G. García-Alcaine, Recursive proof of the Bell-Kochen-Specker theorem in any dimension n > 3, Phys. Lett. A 339 (2005) 425-429; arXiv:quant-ph/0504217.
+
+[7] M. Pavičić, J.-P. Merlet, B. McKay, N. D. Megill, Kochen-Specker vectors, J. Phys. A 38 (2005) 1577-1592; arXiv:quant-ph/0409014.
+
+[8] F. Arends, J. Ouaknine, C. W. Wampler, On searching for small Kochen-Specker vector systems (extended version), arXiv:1111.3301 (2011).
+
+[9] S. Uijlen, B. Westerbaan, A Kochen-Specker system has at least 22 vectors, New Gener. Comput. 34 (2016) 3-23.
+
+[10] Z. Li, C. Bright, V. Ganesh, A SAT solver + computer algebra attack on the minimum Kochen-Specker problem, Proc. IJCAI 2024, 1898-1906; arXiv:2306.13319.
+
+[11] M. Kirchweger, T. Peitl, S. Szeider, Co-certificate learning with SAT modulo symmetries, Proc. IJCAI 2023, 1944-1953; arXiv:2306.10427.
+
+[12] Z.-P. Xu, J.-L. Chen, O. Gühne, Proof of the Peres conjecture for contextuality, Phys. Rev. Lett. 124 (2020) 230401; arXiv:2001.07656.
+
+[13] P. Lisoněk, P. Badziąg, J. R. Portillo, A. Cabello, Kochen-Specker set with seven contexts, Phys. Rev. A 89 (2014) 042101; arXiv:1308.6012.
+
+[14] M. Waegell, P. K. Aravind, Parity proofs of the Kochen-Specker theorem based on the Lie algebra E8, J. Phys. A 48 (2015) 225301; arXiv:1502.04350.
+
+[15] M. Waegell, P. K. Aravind, Minimal complexity of Kochen-Specker sets does not scale with dimension, Phys. Rev. A 95 (2017) 050101; arXiv:1702.05215.
+
+[16] M. Pavičić, N. D. Megill, Automated generation of arbitrarily many Kochen-Specker and other contextual sets in odd-dimensional Hilbert spaces, Phys. Rev. A 106 (2022) L060203; arXiv:2202.08197.
+
+[17] M. Pavičić, N. D. Megill, Vector generation of quantum contextual sets in even dimensional Hilbert spaces, Entropy 20 (2018) 928; arXiv:1905.01567.
+
+[18] S. Trandafir, A. Cabello, Two fundamental solutions to the rigid Kochen-Specker set problem and the solution to the minimal Kochen-Specker set problem under one assumption, Phys. Rev. A 111 (2025) 052204; arXiv:2501.11640.
+
+[19] Z. Li, C. Bright, S. Trandafir, A. Cabello, V. Ganesh, SAT + NAUTY: orderly generation of small Kochen-Specker sets containing the smallest state-independent contextuality set, arXiv:2604.19947 (2026).
+
+[20] A. Cabello, Simplest Kochen-Specker set, Phys. Rev. Lett. 135 (2025) 190203; arXiv:2508.07335.
+
+[21] M. Pavičić, On simplest Kochen-Specker sets, arXiv:2512.10483 (2025).
+
+[22] M. Kernaghan, The algebraic landscape of Kochen-Specker sets in dimension three, arXiv:2603.16988v9 (2026).
+
+[23] I. Cortez, C. Morales, M. Reyes, Minimal ring extensions of the integers exhibiting Kochen-Specker contextuality, J. Algebra Appl. (2025), doi:10.1142/S0219498825420174; arXiv:2211.13216.
+
+[24] C. D. Godsil, J. Zaks, Colouring the sphere, arXiv:1201.0486 (2012).
+
+[25] D. A. Meyer, Finite precision measurement nullifies the Kochen-Specker theorem, Phys. Rev. Lett. 83 (1999) 3751-3754.
+
+[26] S. Yu, C. H. Oh, State-independent proof of Kochen-Specker theorem with 13 rays, Phys. Rev. Lett. 108 (2012) 030402.
+
+[27] A. Ignatiev, A. Morgado, J. Marques-Silva, PySAT: a Python toolkit for prototyping with SAT oracles, Proc. SAT 2018, LNCS 10929, 428-437.
+
+[28] G. Audemard, L. Simon, Predicting learnt clauses quality in modern SAT solvers, Proc. IJCAI 2009, 399-404.
+
+[29] L. Perron, F. Didier, CP-SAT, in Google OR-Tools, https://developers.google.com/optimization/cp/cp_solver .
+
+[30] N. Wetzler, M. J. H. Heule, W. A. Hunt Jr., DRAT-trim: efficient checking and trimming using expressive clausal proofs, Proc. SAT 2014, LNCS 8561, 422-429.
+
+[31] M. Pavičić, Quantum contextuality, Quantum 7 (2023) 953; arXiv:2108.00967.
+
+[32] M. Pavičić, M. Waegell, Generation of Kochen-Specker contextual sets in higher dimensions by dimensional upscaling whose complexity does not scale with dimension and their applications, Phys. Rev. A 110 (2024) 012205; arXiv:2305.08267.
+
+[33] ProblemHive, post p/xfkay by the account hive-admin, "Smallest Kochen-Specker set in three dimensions: is there one with fewer than 31 vectors?", with claim comments on integer coordinates, October 2026, https://problemhive.org/p/xfkay/thread (read 10 November 2026).
+
+[34] S. Siddique, I. Mian, Machine-checked certificates for the geometric half of the minimum Kochen-Specker bound, arXiv:2607.26413 (2026).
+
+[35] S. Trandafir, A. Cabello, Optimal conversion of Kochen-Specker sets into bipartite perfect quantum strategies, Phys. Rev. A 111 (2025) 022408; arXiv:2410.17470.
+
+[36] J. Harrison, HOL Light tutorial, file Tutorial/Custom_tactics.ml (formal proof of the Kochen-Specker paradox for 33 directions), https://github.com/jrh13/hol-light .
+
+[37] V. Gupta, FreeWillLean: a formal proof of the Kochen-Specker paradox, https://github.com/guptbot/free_will_lean (2024).
+
+[38] Z. Li, A. Gupta, V. Ganesh, The four-qubit hyperbolic quadric has contextuality degree 315, arXiv:2610.26465 (2026).
+
+[39] M. Waegell, P. K. Aravind, Parity proofs of the Kochen-Specker theorem based on the 24 rays of Peres, Found. Phys. 41 (2011) 1786-1799; arXiv:1103.6058.
+
+[40] A. Biere, T. Faller, K. Fazekas, M. Fleury, N. Froleyks, F. Pollitt, CaDiCaL 2.0, Proc. CAV 2024, Lecture Notes in Computer Science, Springer, 133-152; doi:10.1007/978-3-031-65627-9_7.

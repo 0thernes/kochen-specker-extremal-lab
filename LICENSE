@@ -1,0 +1,16 @@
+Kochen-Specker Extremal Lab
+Copyright (c) 2026 0thernes LLC (Alexander S. Donahue). All rights reserved.
+
+Verification licence
+
+Permission is granted, free of charge, to any person to download, build, run and study this
+repository for the purpose of checking, reproducing or refereeing the results it reports, and to
+quote from it with attribution. Redistribution of modified versions and commercial use require the
+written permission of the copyright holder.
+
+This licence covers the files written for this project. Files under third_party/ are the work of
+their authors and are distributed under their own licences (see NOTICE and the LICENSE file in each
+third_party subdirectory).
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM ITS USE.

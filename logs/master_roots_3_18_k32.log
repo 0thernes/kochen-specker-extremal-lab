@@ -1,0 +1,12 @@
+22:13:53 root pool d=3 N=18: 381 rays, 1380 orthogonal pairs (0.1s)
+22:13:53 roots(d=3,N=18): 381 rays, 1380 orthogonal pairs, 136 bases (d=3)
+22:13:53 roots(d=3,N=18): KS core keeps 381 of 381 rays
+22:13:53 === ksmaster k=32 case=- workers=4 fix_in=[] fix_out=[]
+22:13:55 [     2.3s] a coloring of the whole pool misses 6 of 136 bases
+22:13:57 [     4.1s] it 1: candidate 29 rays (0.4s) colorable; cut misses 11 bases, +3888 (total 4374)
+22:13:59 [     6.5s] it 2: candidate 31 rays (1.4s) colorable; cut misses 11 bases, +3888 (total 8262)
+22:14:05 [    12.3s] it 3: candidate 31 rays (2.5s) colorable; cut misses 11 bases, +3888 (total 12150)
+22:14:10 [    17.3s] it 4: candidate 31 rays (3.8s) colorable; cut misses 11 bases, +1944 (total 14094)
+22:14:16 [    23.1s] it 5: candidate 30 rays (4.4s) colorable; cut misses 16 bases, +324 (total 14418)
+22:22:06 [   493.4s] it 6: INFEASIBLE (470.3s) - no critical KS set with at most 32 rays in roots(d=3,N=18) under the case constraints (14418 cuts)
+22:22:11 MASTER RESULT roots(d=3,N=18) k=32 case=-: none after 6 iterations, 14418 cuts

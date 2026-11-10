@@ -1,0 +1,16 @@
+Title:
+Certified exact minima of Kochen-Specker sets inside coordinate pools: 31 and 33 rays in dimension three, 18 in dimension four, 29 in dimension five
+
+Authors:
+Alexander S. Donahue (0thernes LLC)
+
+Primary category: quant-ph
+Cross-list: math.CO
+
+Comments:
+13 pages, 4 tables. Programs, certificates and Lean 4 sources: https://github.com/0thernes/kochen-specker-extremal-lab . The research, programs, proofs and text were produced by an AI system (Claude, Anthropic) under the direction of the author; see Section 9.
+
+MSC classes: 81P13, 05C15, 68V15
+
+Abstract (plain text; the paper's abstract shortened; under 1920 characters):
+A Kochen-Specker (KS) set is a finite set of rays admitting no assignment of 0 and 1 that gives exactly one 1 to every orthogonal basis and never 1 to two orthogonal rays. We determine the minimum size of such a set inside prescribed finite pools of rays. Every KS set must contain a basis missed by any set of pairwise non-orthogonal rays; this gives a covering problem whose constraints are trivial to verify. Necessary conditions for critical KS sets, a symmetry normal form and a case analysis make it tractable in pools of up to 651 rays. Three independent exact methods are used and each result carries a certificate. Results: (1) among rays of dimension three with integer coordinates of absolute value at most 2, 3 or 4 the minimum is 31, and the minimum sets are exactly the six images of one Conway-Kochen-type set under the symmetries of the cube; (2) among rays with coordinates 0 or N-th roots of unity, N = 6, 12, 18, 24, the minimum is 33, unique up to symmetry for N = 6 and 12; (3) among the 40 rays of dimension four with coordinates 0, +1, -1 the minimum is 18, attained only by the 16 known sets inside the 24 rays of Peres; (4) among the 121 rays of dimension five with coordinates 0, +1, -1 the minimum is 29, the size of the set of Cabello, Estebaranz and Garcia-Alcaine. The values in (1), the value for N = 6 in (2), and 29 as the smallest set generated from the coordinates of (4) had been reported without proof. The minimum values in (1) for bound 2 and in (3) are proved in Lean 4 without Mathlib and checked by its kernel; the other statements rest on unsatisfiability proofs checked by a separate proof checker; the paper and its register give the status of every check. Randomised searches in further pools in dimensions three to eight find nothing smaller than the published sets. The general minimal-KS problem is not settled by any of this.

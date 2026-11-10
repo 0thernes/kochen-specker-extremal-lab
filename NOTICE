@@ -1,0 +1,34 @@
+Third-party components vendored in this repository
+
+third_party/moonlab/        Moonlab quantum simulator, prebuilt WebAssembly engine and loader
+                            (moonlab.wasm, moonlab.js; upstream VERSION.txt 1.2.1).
+                            Copyright (c) 2024-2026 tsotchke. MIT licence (third_party/moonlab/LICENSE).
+                            https://github.com/tsotchke/moonlab
+
+third_party/quantum_rng/    quantum_rng, legacy seeded generator (src/quantum_rng/quantum_rng.c,
+                            src/quantum_rng/quantum_rng.h, src/common/secure_memory.h).
+                            Copyright (c) 2024 Tsotchke. MIT licence (third_party/quantum_rng/LICENSE).
+                            https://github.com/tsotchke/quantum_rng
+
+third_party/qgtl/           quantum_geometric_tensor (QGTL), one translation unit and its header
+                            (differential_geometry.c / .h). Copyright (c) 2024 Tsotchke. MIT licence
+                            (third_party/qgtl/LICENSE). https://github.com/tsotchke/quantum_geometric_tensor
+                            third_party/qgtl/stub/cblas.h is an empty stand-in written for this project;
+                            it is not upstream code.
+
+The files are unmodified copies (equal to upstream after Git's line-ending normalisation; the
+WebAssembly file is byte-identical); pinned commits and hashes are recorded in the PROVENANCE.md file
+of each directory. "Derived from" these projects, not endorsed by their authors.
+
+Not vendored
+
+The Lean development (lean/) uses no Mathlib and has no Lean package dependencies; it needs only the
+Lean 4 toolchain named in lean/lean-toolchain, which elan downloads.
+
+The Python programs use packages installed by pip and not copied into this repository:
+python-sat (PySAT 1.9.dev21, MIT licence), OR-Tools (Apache 2.0), NumPy and NetworkX (BSD 3-Clause).
+python-sat bundles the two SAT solvers used by this project: Glucose 4.1 (MIT licence) and
+CaDiCaL 1.9.5 (MIT licence). The exact versions used are in requirements.txt and
+results/run_all.json. Each package and each bundled solver keeps its own licence.
+
+The Eshkol compiler, Node.js and gcc are used as installed tools and are not part of this repository.

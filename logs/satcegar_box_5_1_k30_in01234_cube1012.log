@@ -1,0 +1,4 @@
+02:08:39 === satcegar_box_5_1_k30_in01234_cube1012: CNF 33941 vars, 131443 clauses (before cuts)
+02:08:42 [     1.5s] seeded cuts from 4 ray orbits and 20 pairs: +1440 (total 1520)
+02:10:34 [   115.1s] it 1: UNSAT (112.5s) - no critical KS set with at most 30 rays (1520 cuts)
+02:10:34 SATCEGAR RESULT box(d=5,H=1)/core k=30 case=in:0,1,2,3,4: none after 1 iterations, 1520 cuts

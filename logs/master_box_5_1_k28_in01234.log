@@ -1,0 +1,14 @@
+22:08:05 box(d=5,H=1): 121 rays, 1880 orthogonal pairs, 136 bases (d=5)
+22:08:05 box(d=5,H=1): KS core keeps 105 of 121 rays
+22:08:05 box(d=5,H=1)/core: 105 rays, 1480 orthogonal pairs, 136 bases (d=5)
+22:08:05 === ksmaster k=28 case=in:0,1,2,3,4 workers=6 fix_in=[72, 26, 8, 2, 0] fix_out=[]
+22:08:05 symmetry breaking on coordinate groups [[0, 1, 2, 3, 4]]
+22:08:08 [     3.0s] a coloring of the whole pool misses 24 of 136 bases
+22:08:09 [     4.5s] it 1: candidate 27 rays (0.3s) colorable; cut misses 34 bases, +960 (total 1040)
+22:08:10 [     5.3s] it 2: candidate 28 rays (0.5s) colorable; cut misses 34 bases, +480 (total 1520)
+22:27:04 box(d=5,H=1): 121 rays, 1880 orthogonal pairs, 136 bases (d=5)
+22:27:04 box(d=5,H=1): KS core keeps 105 of 121 rays
+22:27:04 box(d=5,H=1)/core: 105 rays, 1480 orthogonal pairs, 136 bases (d=5)
+22:27:04 === ksmaster k=28 case=in:0,1,2,3,4 workers=5 fix_in=[72, 26, 8, 2, 0] fix_out=[]
+22:27:04 symmetry breaking on coordinate groups [[0, 1, 2, 3, 4]]
+22:27:11 [     7.4s] seeded cuts from 4 ray orbits and 30 pairs: +2480 (total 2480)

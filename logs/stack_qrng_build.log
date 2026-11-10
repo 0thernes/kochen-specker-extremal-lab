@@ -1,0 +1,7 @@
+$ <home>\AppData\Local\Microsoft\WinGet\Packages\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\mingw64\bin\gcc.EXE -std=c11 -O2 -Wall -Wextra -o ks31_qrng.exe ks31_qrng.c
+(cwd K:\stack)
+--- stdout ---
+
+--- stderr ---
+
+--- exit code 0, 0.8 s ---

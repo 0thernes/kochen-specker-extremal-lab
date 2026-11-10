@@ -1,0 +1,25 @@
+=== 00:32:02 uniqueness enumerate_roots_3_12_k33
+[   2.5s] KS set found; orbit of 12 sets; total 12
+ENUMERATION roots(d=3,N=12) k=33: 12 KS sets, 1 orbits under the symmetry group (sizes [12]), 1 isomorphism classes of orthogonality graphs; 11.2s
+6408 cuts re-verified from their witnesses: True (0.1s)
+12 listed KS sets of size 33 excluded (each re-verified as a KS set)
+CNF: 9160 variables, 40663 clauses
+g4: UNSAT in 4.6s
+DRAT proof: 142006 lines -> results/enumerate_roots_3_12_k33_cuts.drat
+c 40663 original clauses, 56338 lemmas checked, 85667 deletion lines (85667 applied)
+s VERIFIED
+drup_check exit=0
+=== 00:32:44 done
+=== 01:36:18 uniqueness enumerate_roots_3_12_k33
+[   1.2s] KS set found; orbit of 12 sets; total 12
+ENUMERATION roots(d=3,N=12) k=33: 12 KS sets, 1 orbits under the symmetry group (sizes [12]), 1 isomorphism classes of orthogonality graphs; 4.1s
+2844 cuts re-verified from their witnesses: True (0.0s)
+case -: rays fixed in [], fixed out []; symmetry breaking off
+12 listed KS sets of size 33 excluded (each re-verified as a KS set)
+CNF: 9160 variables, 37099 clauses
+g4: UNSAT in 7.2s
+DRAT proof: 174487 lines -> results/enumerate_roots_3_12_k33_cuts.drat
+c 37099 original clauses, 79626 lemmas checked, 94860 deletion lines (94860 applied)
+s VERIFIED
+drup_check exit=0
+=== 01:37:05 done, status=0

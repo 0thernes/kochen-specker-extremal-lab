@@ -1,0 +1,3 @@
+# The page checks the SHA-256 of these files against manifest.json.
+# Never let git convert line endings here: the bytes must stay exactly as hashed.
+* -text

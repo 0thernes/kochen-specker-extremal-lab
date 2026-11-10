@@ -1,0 +1,161 @@
+;; ks31.esk -- stage 4 of the "stack" demonstration of the 31-ray KS set.
+;;
+;; Exact-integer re-verification in Eshkol (run with: eshkol-run -r ks31.esk).
+;; Everything here is plain classical integer arithmetic and exhaustive
+;; backtracking; nothing is random, nothing is quantum, and nothing runs on
+;; quantum hardware.  It is an independent recomputation, not a formal proof.
+;;
+;; The 31 rays below are the rays of results/ks31_box3_H2.json, in the same
+;; order (scripts/run_stack.py checks that this list equals the JSON file).
+;;
+;; Checks:
+;;   1. 31x31 dot-product table; number of orthogonal pairs (expected 71)
+;;   2. number of mutually orthogonal triples = bases (expected 17)
+;;   3. exhaustive backtracking over 0/1 assignments to the 31 rays under the
+;;      KS rules (a) two orthogonal rays never both get 1, (b) each of the 17
+;;      bases contains a 1: expected number of assignments = 0
+;;   4. positive control for the search: for each basis s, the number of
+;;      assignments that satisfy (a) and satisfy (b) for all bases except
+;;      possibly s; the total over s is expected to be positive (so the search
+;;      can find assignments when they exist)
+;; Prints ESHKOL-PASS on success, ESHKOL-FAIL otherwise.
+
+(define rays
+  (vector
+    (vector 0 0 1) (vector 0 1 -2) (vector 0 1 -1) (vector 0 1 0) (vector 0 1 1)
+    (vector 0 2 1) (vector 1 -2 -1) (vector 1 -2 0) (vector 1 -1 -1) (vector 1 -1 0)
+    (vector 1 -1 1) (vector 1 -1 2) (vector 1 0 -2) (vector 1 0 -1) (vector 1 0 0)
+    (vector 1 0 1) (vector 1 0 2) (vector 1 1 -2) (vector 1 1 -1) (vector 1 1 0)
+    (vector 1 1 1) (vector 1 2 0) (vector 1 2 1) (vector 2 -1 -1) (vector 2 -1 0)
+    (vector 2 -1 1) (vector 2 0 -1) (vector 2 0 1) (vector 2 1 -1) (vector 2 1 0)
+    (vector 2 1 1)))
+
+(define (dot a b)
+  (+ (* (vector-ref a 0) (vector-ref b 0))
+     (+ (* (vector-ref a 1) (vector-ref b 1))
+        (* (vector-ref a 2) (vector-ref b 2)))))
+
+;; ---- 1. dot-product table -------------------------------------------------
+(define tab (make-vector 961 0))
+(define (fill i j)
+  (cond ((= i 31) 0)
+        ((= j 31) (fill (+ i 1) 0))
+        (else
+          (vector-set! tab (+ (* i 31) j) (dot (vector-ref rays i) (vector-ref rays j)))
+          (fill i (+ j 1)))))
+(fill 0 0)
+(define (t i j) (vector-ref tab (+ (* i 31) j)))
+
+(define (pairs-j i j)
+  (cond ((= j 31) 0)
+        ((= (t i j) 0) (+ 1 (pairs-j i (+ j 1))))
+        (else (pairs-j i (+ j 1)))))
+(define (pairs-i i)
+  (if (= i 31) 0 (+ (pairs-j i (+ i 1)) (pairs-i (+ i 1)))))
+(define npairs (pairs-i 0))
+
+;; ---- 2. bases (mutually orthogonal triples i < j < k) ----------------------
+(define b1 (make-vector 64 0))
+(define b2 (make-vector 64 0))
+(define b3 (make-vector 64 0))
+(define nbv (make-vector 1 0))
+(define (rec-basis i j k)
+  (cond ((= (vector-ref nbv 0) 64) 1)
+        (else
+          (vector-set! b1 (vector-ref nbv 0) i)
+          (vector-set! b2 (vector-ref nbv 0) j)
+          (vector-set! b3 (vector-ref nbv 0) k)
+          (vector-set! nbv 0 (+ (vector-ref nbv 0) 1))
+          1)))
+(define (tri-k i j k)
+  (cond ((= k 31) 0)
+        ((and (= (t i k) 0) (= (t j k) 0)) (+ (rec-basis i j k) (tri-k i j (+ k 1))))
+        (else (tri-k i j (+ k 1)))))
+(define (tri-j i j)
+  (cond ((= j 31) 0)
+        ((= (t i j) 0) (+ (tri-k i j (+ j 1)) (tri-j i (+ j 1))))
+        (else (tri-j i (+ j 1)))))
+(define (tri-i i)
+  (if (= i 31) 0 (+ (tri-j i (+ i 1)) (tri-i (+ i 1)))))
+(define nbases (tri-i 0))
+
+;; ---- 3. exhaustive backtracking -------------------------------------------
+;; val[v] = 1 when ray v is assigned 1.  Rays are decided in index order.
+;; skip[0] = index of a basis exempt from rule (b), or -1 for none.
+(define val (make-vector 32 0))
+(define acc (make-vector 32 0))
+(define cnt (make-vector 1 0))
+(define skip (make-vector 1 -1))
+
+(define (ones b)
+  (+ (vector-ref val (vector-ref b1 b))
+     (+ (vector-ref val (vector-ref b2 b))
+        (vector-ref val (vector-ref b3 b)))))
+
+;; 1 when every non-exempt basis whose three rays are all decided (index < v)
+;; contains a 1, else 0.
+(define (bases-ok v b)
+  (cond ((= b (vector-ref nbv 0)) 1)
+        ((= b (vector-ref skip 0)) (bases-ok v (+ b 1)))
+        ((and (< (vector-ref b3 b) v) (= (ones b) 0)) 0)
+        (else (bases-ok v (+ b 1)))))
+
+;; 1 when ray v may get 1: no earlier ray u < v with value 1 is orthogonal to v.
+(define (can-one v u)
+  (cond ((= u v) 1)
+        ((and (= (vector-ref val u) 1) (= (t u v) 0)) 0)
+        (else (can-one v (+ u 1)))))
+
+;; number of complete assignments extending the current partial one
+(define (search-body v)
+  (cond ((= (bases-ok v 0) 0) 0)
+        ((= v 31) 1)
+        ((= (can-one v 0) 1)
+         (vector-set! val v 1)
+         (vector-set! acc v (search (+ v 1)))
+         (vector-set! val v 0)
+         (+ (vector-ref acc v) (search (+ v 1))))
+        (else (search (+ v 1)))))
+(define (search v)
+  (cond ((< v 0) 0)
+        (else
+          (vector-set! cnt 0 (+ (vector-ref cnt 0) 1))
+          (search-body v))))
+
+(define nsol (search 0))
+(define nnodes (vector-ref cnt 0))
+
+;; ---- 4. positive control ----------------------------------------------------
+(define racc (make-vector 64 0))
+(define (relaxed s)
+  (cond ((= s (vector-ref nbv 0)) 0)
+        (else
+          (vector-set! skip 0 s)
+          (vector-set! racc s (search 0))
+          (+ (vector-ref racc s) (relaxed (+ s 1))))))
+(define nrelaxed (relaxed 0))
+
+;; ---- report -----------------------------------------------------------------
+(display "ESHKOL exact-integer re-verification (classical computation, not a formal proof)")
+(newline)
+(display "ESHKOL orthogonal-pairs ")
+(display npairs)
+(newline)
+(display "ESHKOL bases ")
+(display nbases)
+(newline)
+(display "ESHKOL ks-assignments ")
+(display nsol)
+(newline)
+(display "ESHKOL search-nodes ")
+(display nnodes)
+(newline)
+(display "ESHKOL relaxed-assignments ")
+(display nrelaxed)
+(newline)
+(if (and (= npairs 71)
+         (and (= nbases 17)
+              (and (= nsol 0) (not (= nrelaxed 0)))))
+    (display "ESHKOL-PASS")
+    (display "ESHKOL-FAIL"))
+(newline)

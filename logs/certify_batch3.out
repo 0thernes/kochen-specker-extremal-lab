@@ -1,0 +1,12 @@
+c 20223 original clauses, 191 lemmas checked, 14470 deletion lines (14470 applied)
+s VERIFIED
+drup_check exit=0
+=== 01:10:28 done
+c 16847 original clauses, 307 lemmas checked, 3392 deletion lines (3392 applied)
+s VERIFIED
+drup_check exit=0
+=== 01:10:34 done
+c 114428 original clauses, 94680 lemmas checked, 132324 deletion lines (130366 applied)
+s VERIFIED
+drup_check exit=0
+=== 01:13:54 done

@@ -1,0 +1,4 @@
+21:52:17 E8(120 rays): 120 rays, 3780 orthogonal pairs, 2025 bases (d=8)
+21:52:17 E8(120 rays): KS core keeps 120 of 120 rays
+21:52:17 === ksmaster k=33 case=- workers=5 fix_in=[] fix_out=[]
+21:52:33 [    15.7s] a coloring of the whole pool misses 945 of 2025 bases

@@ -1,0 +1,47 @@
+[
+ {
+  "pool": "box3(H=2)/core",
+  "rays": 49,
+  "bases": 26,
+  "fewest_bases_missed": 1,
+  "independent_set_size": 16,
+  "solver": "RC2 (exact MaxSAT)",
+  "seconds": 0.4
+ },
+ {
+  "pool": "box3(H=3)/core",
+  "rays": 97,
+  "bases": 50,
+  "fewest_bases_missed": 2,
+  "independent_set_size": 34,
+  "solver": "RC2 (exact MaxSAT)",
+  "seconds": 0.0
+ },
+ {
+  "pool": "box3(H=4)/core",
+  "rays": 205,
+  "bases": 110,
+  "fewest_bases_missed": 7,
+  "independent_set_size": 60,
+  "solver": "RC2 (exact MaxSAT)",
+  "seconds": 0.4
+ },
+ {
+  "pool": "box3(H=5)/core",
+  "rays": 421,
+  "bases": 266,
+  "fewest_bases_missed": 14,
+  "independent_set_size": 133,
+  "solver": "RC2 (exact MaxSAT)",
+  "seconds": 24.9
+ },
+ {
+  "pool": "box(d=5,H=1)/core",
+  "rays": 105,
+  "bases": 136,
+  "fewest_bases_missed": 24,
+  "independent_set_size": 15,
+  "solver": "RC2 (exact MaxSAT)",
+  "seconds": 1.6
+ }
+]

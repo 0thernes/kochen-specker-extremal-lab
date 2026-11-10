@@ -1,0 +1,17 @@
+21:14:36 root pool d=5 N=3: 341 rays, 5230 orthogonal pairs (0.0s)
+21:14:36 roots(d=5,N=3): 341 rays, 5230 orthogonal pairs, 193 bases (d=5)
+21:14:36 roots(d=5,N=3): KS core keeps 230 of 341 rays
+21:14:36 roots(d=5,N=3)/core: 230 rays, 3115 orthogonal pairs, 193 bases (d=5)
+21:14:36 pool ready in 0.4s
+21:14:36 [    0.0s] seed 1: start 100 rays
+21:14:36 [    0.2s] seed 1: new best 97 rays, 785 orthogonal pairs, 29 bases (step 4)
+21:14:36 [    0.5s] seed 1: new best 95 rays, 766 orthogonal pairs, 30 bases (step 11)
+21:14:37 [    1.5s] seed 1: new best 94 rays, 730 orthogonal pairs, 30 bases (step 42)
+21:14:37 [    1.5s] seed 1: new best 93 rays, 749 orthogonal pairs, 30 bases (step 43)
+21:14:37 [    1.5s] seed 1: new best 92 rays, 674 orthogonal pairs, 30 bases (step 44)
+21:14:39 [    2.8s] seed 1: new best 90 rays, 628 orthogonal pairs, 29 bases (step 86)
+21:14:41 [    4.6s] seed 1: new best 88 rays, 626 orthogonal pairs, 28 bases (step 160)
+21:14:43 [    7.6s] seed 1: new best 87 rays, 632 orthogonal pairs, 27 bases (step 273)
+21:14:44 [    7.7s] seed 1: new best 85 rays, 606 orthogonal pairs, 27 bases (step 279)
+21:24:36 [  600.1s] seed 1: done, 5859 steps, best 85, sizes seen [(85, 1), (87, 2), (88, 6), (89, 15), (90, 13), (91, 45), (92, 23), (93, 58)]
+21:24:36 HUNT RESULT roots(d=5,N=3)/core seed 1: 85 rays, 606 orthogonal pairs, 27 bases critical=True

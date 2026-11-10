@@ -1,0 +1,24 @@
+$ K:\stack\ks31_qgtl.exe K:\results\ks31_box3_H2.json
+(cwd K:\stack)
+--- stdout ---
+[qgtl] QGTL diffgeo kernel: classical double-precision arithmetic, no quantum hardware
+[qgtl] PASS  read 31 integer rays from K:\results\ks31_box3_H2.json  (n=31)
+[qgtl] PASS  all 465 pairs of the 31 rays evaluated with diffgeo_distance
+[qgtl] PASS  distance equals pi/2 within 1e-12 exactly for the integer-orthogonal pairs  (mismatches=0, max |d - pi/2| = 0)
+[qgtl] PASS  number of orthogonal pairs is 71  (Fubini-Study=71, integer=71)
+[qgtl] PASS  distance is smaller than pi/2 for all 394 non-orthogonal pairs
+[qgtl] PASS  mutually orthogonal triples from the Fubini-Study table: 17 (expected 17)
+[qgtl] PASS  distance of each ray to itself is 0 within 1e-7
+[qgtl] minimum non-orthogonal distance = 0.321750554396642  (rays 1,2)
+[qgtl] maximum non-orthogonal distance = 1.403348247575207  (rays 6,11);  pi/2 = 1.570796326794897
+pairs_total=465
+orthogonal_pairs=71
+bases=17
+min_nonorthogonal_distance=0.32175055439664196
+max_nonorthogonal_distance=1.4033482475752073
+max_orthogonal_deviation=0
+[qgtl] STAGE PASS (0 failed checks)
+
+--- stderr ---
+
+--- exit code 0, 0.6 s ---

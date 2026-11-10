@@ -1,0 +1,5 @@
+3828 samples (axes last); critical KS sets by number of axes: {3: 4, 4: 90, 5: 3734}
+  3 axes: smallest found has 29 rays (seed 1020); 29 rays, 151 orthogonal pairs, 16 bases; critical=True
+  4 axes: smallest found has 29 rays (seed 1696); 29 rays, 150 orthogonal pairs, 16 bases; critical=True
+  5 axes: smallest found has 31 rays (seed 1542); 31 rays, 165 orthogonal pairs, 18 bases; critical=True
+wrote results/d5_axes_sanity.json

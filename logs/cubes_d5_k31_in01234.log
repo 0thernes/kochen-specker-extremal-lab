@@ -1,0 +1,3 @@
+01:23:46 === 1 cubes, k=31, case=in:0,1,2,3,4, 1 in parallel, 10800s per cube
+01:24:52 cube 2211: found in 66s (1/1 done)
+01:24:52 SUMMARY k=31 case=in:0,1,2,3,4: {'found': 1}

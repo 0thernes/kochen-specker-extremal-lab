@@ -1,0 +1,20 @@
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+
+# build products
+/lean/.lake/
+*.exe
+*.o
+*.obj
+node_modules/
+
+# large regenerable proof files: CNF formulas and DRUP proofs written by src/ks_cnf.py and
+# src/ks_satcegar.py (several gigabytes in total; see docs/TRIGGER-REGISTER.md, item T1).
+# The cut files results/*_cuts.json they are regenerated from are kept.
+/results/*.cnf
+/results/*.drat
+
+# scratch
+/results/tmp/

@@ -1,0 +1,7 @@
+21:21:44 root pool d=6 N=3: 1365 rays, 71466 orthogonal pairs (0.3s)
+21:21:44 roots(d=6,N=3): 1365 rays, 71466 orthogonal pairs, 1609 bases (d=6)
+21:21:44 roots(d=6,N=3): KS core keeps 834 of 1365 rays
+21:21:44 roots(d=6,N=3)/core: 834 rays, 28680 orthogonal pairs, 1609 bases (d=6)
+21:21:45 roots(d=6,N=3)/core: 1609 bases in 5 orbits under the symmetry group
+21:21:45 [     0.5s] root branch 1/289: basis 0 (orbit 0), nodes so far 1
+21:24:14 [   150.0s] TIMEOUT after 25207 nodes

@@ -1,0 +1,8 @@
+[   0.5s] KS set found; orbit of 3 sets; total 3
+ENUMERATION roots(d=3,N=6) k=33: 3 KS sets, 1 orbits under the symmetry group (sizes [3]), 1 isomorphism classes of orthogonality graphs; 6.6s
+[   0.9s] KS set found; orbit of 6 sets; total 6
+ENUMERATION box3(H=3)/core k=31: 6 KS sets, 1 orbits under the symmetry group (sizes [6]), 1 isomorphism classes of orthogonality graphs; 4.9s
+[   1.4s] KS set found; orbit of 12 sets; total 12
+ENUMERATION roots(d=3,N=12) k=33: 12 KS sets, 1 orbits under the symmetry group (sizes [12]), 1 isomorphism classes of orthogonality graphs; 13.0s
+[   2.1s] KS set found; orbit of 6 sets; total 6
+ENUMERATION box3(H=4)/core k=31: 6 KS sets, 1 orbits under the symmetry group (sizes [6]), 1 isomorphism classes of orthogonality graphs; 61.5s

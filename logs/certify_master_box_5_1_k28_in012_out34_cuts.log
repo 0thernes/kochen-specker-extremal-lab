@@ -1,0 +1,9 @@
+=== 01:10:35 certify master_box_5_1_k28_in012_out34_cuts k=28 case=in:0,1,2;out:3,4 pool=box 5 1
+560 cuts re-verified from their witnesses: True (0.0s)
+CNF: 29500 variables, 114428 clauses
+g4: UNSAT in 40.0s
+DRAT proof: 227005 lines -> results/master_box_5_1_k28_in012_out34_cuts.drat
+c 114428 original clauses, 94680 lemmas checked, 132324 deletion lines (130366 applied)
+s VERIFIED
+drup_check exit=0
+=== 01:13:54 done

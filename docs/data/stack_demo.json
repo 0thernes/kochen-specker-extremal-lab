@@ -1,0 +1,488 @@
+{
+  "title": "Stack demonstration of the 31-ray Kochen-Specker set",
+  "generated_utc": "2026-11-10T07:47:23Z",
+  "overall": "PASS",
+  "state_independent_gap": "quantum 17 for every state versus classical at most 16",
+  "key_numbers": {
+    "rays": 31,
+    "orthogonal_pairs": 71,
+    "bases": 17,
+    "classical_max_M": 16,
+    "admissible_assignments": 153566,
+    "assignments_attaining_M": 66,
+    "ks_assignments": 0,
+    "quantum_value_every_state": 17,
+    "n_states": 2000,
+    "max_basis_sum_deviation": 1.7763568394002505e-15,
+    "max_pair_sum": 0.9999974567600949,
+    "stream_first8": [
+      "5df9ef9ba7cdcca2",
+      "ddb5674ec90579d9",
+      "e350bb351fce2beb",
+      "20275c35a4eaee84",
+      "2f7cdc01c2c0ba7d",
+      "9c8e41616b8765d2",
+      "bb513969a806c10e",
+      "46d8abb5b7a0e256"
+    ],
+    "fs_min_nonorthogonal_distance": 0.32175055439664196,
+    "fs_max_nonorthogonal_distance": 1.4033482475752073
+  },
+  "stages": [
+    {
+      "stage": "vendor",
+      "status": "PASS",
+      "detail": "14 vendored files fingerprinted; mixer block identical to upstream lines; ks31.esk rays equal the JSON rays",
+      "seconds": 0.14,
+      "data": {
+        "sha256_third_party": {
+          "moonlab/LICENSE": "9954a6f797d6e6c5754ad75304fcafea0bee67ffaaeab78351e2c11e9eb5398c",
+          "moonlab/PROVENANCE.md": "1b0cad4f87de2e450d95a8dac814575654fdca8342a0f7d1505a702c5b7080df",
+          "moonlab/moonlab.js": "a59ca4d8ff5d015f3acccec82ddcebf7ed1acbb7a8e4d9433bb2efc7b9905673",
+          "moonlab/moonlab.wasm": "96eadbd927e77dbb6d2d6155c43f6440a8030a226b91c5b17d90ff890cfd0950",
+          "qgtl/LICENSE": "afa02f43ee4f95406248e5ec107402f133abccdeaa5baa9f5c1247a4fba9c55e",
+          "qgtl/PROVENANCE.md": "a6d144b0f1b072ca7a5db8754b243c717862eebcae215ada7c03144b0c6756f8",
+          "qgtl/src/quantum_geometric/distributed/differential_geometry.c": "0e626617064f3a65d52ac863c44c624747dde941d6cd7519e01f1d58c7a3e9ef",
+          "qgtl/include/quantum_geometric/distributed/differential_geometry.h": "1e6388bfef71a989abf0297520e113826e57f722419b92096fd8fdf4bedea9c3",
+          "qgtl/stub/cblas.h": "cf2feffa2a1915a42cd6c53af1c54d8a1b9bd7df72f379df249647d26988c816",
+          "quantum_rng/LICENSE": "afa02f43ee4f95406248e5ec107402f133abccdeaa5baa9f5c1247a4fba9c55e",
+          "quantum_rng/PROVENANCE.md": "f7cfe1c674ddbf3fc44bbb204ad18e957954067328278cf12f43226b5bcc4123",
+          "quantum_rng/src/quantum_rng/quantum_rng.c": "86dcf1c4836462f8fdfcdf63c39df0e0d52570786c471290d1ea97f250471bce",
+          "quantum_rng/src/quantum_rng/quantum_rng.h": "d755273c19fa2384384b51f2012b481506c646e0b292a01fc7ccbf00836845fa",
+          "quantum_rng/src/common/secure_memory.h": "578a182172eb19612dc1326b5d67e5abaf6679366287e0fe6ea70da47324bc11"
+        },
+        "sha256_stack": {
+          "stack/ks31_moonlab.cjs": "d95e948ed3bbd0fd0433c1b2363621a3c360c644c588eeca1886f624ef864941",
+          "stack/ks31_qgtl.c": "83f406f244674a1d9aa7c57c1c6c61445b54a817eaefcfa53c75e5f8b64f7a3c",
+          "stack/ks31_qrng.c": "7099b5cd7b9acda85ed19fcc307c5632358c7eedd3f6995bd6022b9cb28b9571",
+          "stack/ks31.esk": "270ad91944caae6af659da07dcacec7d70ef37d423184eefe36fcb38dcc7be5b"
+        },
+        "ks_json_sha256": "10031b3bdc4b2db3778ef3b0028d89f04f9b5d87edb582d09c5c0590ca6a7736",
+        "mixers_verbatim": true,
+        "esk_rays_match_json": true
+      }
+    },
+    {
+      "stage": "reference",
+      "status": "PASS",
+      "detail": "exact integers: 71 orthogonal pairs, 17 bases, classical maximum M = 16 (153566 admissible assignments, 66 attain M), KS assignments = 0",
+      "seconds": 0.93,
+      "data": {
+        "rays": 31,
+        "orthogonal_pairs": 71,
+        "bases": 17,
+        "bases_list": [
+          [
+            0,
+            3,
+            14
+          ],
+          [
+            0,
+            7,
+            29
+          ],
+          [
+            0,
+            9,
+            19
+          ],
+          [
+            0,
+            21,
+            24
+          ],
+          [
+            1,
+            5,
+            14
+          ],
+          [
+            2,
+            4,
+            14
+          ],
+          [
+            2,
+            8,
+            30
+          ],
+          [
+            2,
+            20,
+            23
+          ],
+          [
+            3,
+            12,
+            27
+          ],
+          [
+            3,
+            13,
+            15
+          ],
+          [
+            3,
+            16,
+            26
+          ],
+          [
+            4,
+            10,
+            28
+          ],
+          [
+            4,
+            18,
+            25
+          ],
+          [
+            6,
+            15,
+            18
+          ],
+          [
+            8,
+            11,
+            19
+          ],
+          [
+            9,
+            17,
+            20
+          ],
+          [
+            10,
+            13,
+            22
+          ]
+        ],
+        "classical_max": 16,
+        "admissible_assignments": 153566,
+        "assignments_attaining_max": 66,
+        "ks_assignments": 0,
+        "ks_search_nodes": 7380,
+        "relaxed_assignments": 66,
+        "min_nonorthogonal_distance": 0.3217505543966423,
+        "max_nonorthogonal_distance": 1.4033482475752073
+      }
+    },
+    {
+      "stage": "moonlab",
+      "status": "PASS",
+      "detail": "classical simulator: 71 orthogonal pairs, 17 bases; 2000 states: every basis sums to 1 (max dev 1.8e-15), pair sums <= 1; quantum 17 for every state versus classical at most 16",
+      "seconds": 0.56,
+      "data": {
+        "stage": "moonlab",
+        "ok": true,
+        "failures": 0,
+        "simulator": "Moonlab WASM (classical state-vector simulator)",
+        "glue_version": {
+          "core": "1.2.1",
+          "wasm": true
+        },
+        "rays": 31,
+        "orthogonal_pairs": 71,
+        "bases": 17,
+        "bases_list": [
+          [
+            0,
+            3,
+            14
+          ],
+          [
+            0,
+            7,
+            29
+          ],
+          [
+            0,
+            9,
+            19
+          ],
+          [
+            0,
+            21,
+            24
+          ],
+          [
+            1,
+            5,
+            14
+          ],
+          [
+            2,
+            4,
+            14
+          ],
+          [
+            2,
+            8,
+            30
+          ],
+          [
+            2,
+            20,
+            23
+          ],
+          [
+            3,
+            12,
+            27
+          ],
+          [
+            3,
+            13,
+            15
+          ],
+          [
+            3,
+            16,
+            26
+          ],
+          [
+            4,
+            10,
+            28
+          ],
+          [
+            4,
+            18,
+            25
+          ],
+          [
+            6,
+            15,
+            18
+          ],
+          [
+            8,
+            11,
+            19
+          ],
+          [
+            9,
+            17,
+            20
+          ],
+          [
+            10,
+            13,
+            22
+          ]
+        ],
+        "max_orthogonal_overlap": 0,
+        "min_nonorthogonal_overlap": 0.027777777777777783,
+        "n_states": 2000,
+        "stream_seed": 1,
+        "stream_outputs_used": 22000,
+        "rejected_draws": 0,
+        "stream_first8": [
+          "5df9ef9ba7cdcca2",
+          "ddb5674ec90579d9",
+          "e350bb351fce2beb",
+          "20275c35a4eaee84",
+          "2f7cdc01c2c0ba7d",
+          "9c8e41616b8765d2",
+          "bb513969a806c10e",
+          "46d8abb5b7a0e256"
+        ],
+        "mixer_kat": {
+          "splitmix64_1": "6b6a95bfe299a90e",
+          "hadamard_mix_1": "7590e4342b418e25",
+          "absorb_seed_le64_1": "532662e3dcf55ef7"
+        },
+        "max_pair_sum": 0.9999974567600949,
+        "max_basis_sum_deviation": 1.7763568394002505e-15,
+        "max_total_deviation": 2.842170943040401e-14,
+        "max_gate_invariance_deviation": 1.5543122344752192e-15,
+        "quantum_value": 17,
+        "classical_max": 16,
+        "classical_witness": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "search_nodes": 268,
+        "admissible_assignments": 153566,
+        "assignments_attaining_max": 66,
+        "tolerance": 1e-12
+      }
+    },
+    {
+      "stage": "qgtl",
+      "status": "PASS",
+      "detail": "Fubini-Study distance for 465 pairs: pi/2 within 1e-12 exactly for 71 orthogonal pairs, non-orthogonal distances in [0.321750554397, 1.403348247575]",
+      "seconds": 8.94,
+      "data": {
+        "pairs_total": 465,
+        "orthogonal_pairs": 71,
+        "bases": 17,
+        "min_nonorthogonal_distance": 0.32175055439664196,
+        "max_nonorthogonal_distance": 1.4033482475752073,
+        "max_orthogonal_deviation": 0.0
+      }
+    },
+    {
+      "stage": "qrng",
+      "status": "PASS",
+      "detail": "deterministic integer mixers (not quantum randomness): seed-1 known answers reproduced, stream[0..7] = 5df9ef9ba7cdcca2 ddb5674ec90579d9 e350bb351fce2beb 20275c35a4eaee84 2f7cdc01c2c0ba7d 9c8e41616b8765d2 bb513969a806c10e 46d8abb5b7a0e256",
+      "seconds": 22.62,
+      "data": {
+        "splitmix64_1": "6b6a95bfe299a90e",
+        "hadamard_mix_1": "7590e4342b418e25",
+        "absorb_seed_le64_1": "532662e3dcf55ef7",
+        "stream_seed": 1,
+        "stream_first8": [
+          "5df9ef9ba7cdcca2",
+          "ddb5674ec90579d9",
+          "e350bb351fce2beb",
+          "20275c35a4eaee84",
+          "2f7cdc01c2c0ba7d",
+          "9c8e41616b8765d2",
+          "bb513969a806c10e",
+          "46d8abb5b7a0e256"
+        ],
+        "build_warnings": 0
+      }
+    },
+    {
+      "stage": "eshkol",
+      "status": "PASS",
+      "detail": "ESHKOL-PASS: 71 orthogonal pairs, 17 bases, 0 assignments satisfy the KS rules (exhaustive backtracking, 7380 nodes); positive control finds 66 assignments",
+      "seconds": 1.35,
+      "data": {
+        "orthogonal-pairs": 71,
+        "bases": 17,
+        "ks-assignments": 0,
+        "search-nodes": 7380,
+        "relaxed-assignments": 66
+      }
+    },
+    {
+      "stage": "cross",
+      "status": "PASS",
+      "detail": "14 cross-language comparisons agree: pairs 71, bases 17, M = 16, stream values, node counts",
+      "seconds": 0.0,
+      "data": {
+        "checks": [
+          {
+            "check": "orthogonal pairs = 71 in Python, Moonlab/JS, QGTL/C, Eshkol",
+            "ok": true
+          },
+          {
+            "check": "bases = 17 in Python, Moonlab/JS, QGTL/C, Eshkol",
+            "ok": true
+          },
+          {
+            "check": "list of the 17 bases identical in Python and Moonlab/JS",
+            "ok": true
+          },
+          {
+            "check": "classical maximum M identical in Python and JS and below 17",
+            "ok": true
+          },
+          {
+            "check": "number of admissible assignments identical in Python and JS",
+            "ok": true
+          },
+          {
+            "check": "number of assignments attaining M identical in Python and JS",
+            "ok": true
+          },
+          {
+            "check": "KS assignments = 0 in Eshkol and Python (consistent with M < 17)",
+            "ok": true
+          },
+          {
+            "check": "KS search node count identical in Eshkol and Python",
+            "ok": true
+          },
+          {
+            "check": "positive-control count identical in Eshkol and Python",
+            "ok": true
+          },
+          {
+            "check": "stream first 8 outputs identical in JS (BigInt) and C",
+            "ok": true
+          },
+          {
+            "check": "stream first 5 outputs equal the recorded seed-1 known answers",
+            "ok": true
+          },
+          {
+            "check": "mixer known answers identical in JS and C",
+            "ok": true
+          },
+          {
+            "check": "QGTL min/max non-orthogonal distances agree with Python arccos within 1e-12",
+            "ok": true
+          },
+          {
+            "check": "simulator sum over the 17 bases equals 17 within tolerance for every state",
+            "ok": true
+          }
+        ]
+      }
+    }
+  ],
+  "tool_versions": {
+    "python": "3.9.13",
+    "platform": "Windows-10-10.0.29704-SP0",
+    "gcc": "gcc.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r2) 16.1.0",
+    "node": "v25.8.2",
+    "eshkol": "Eshkol Compiler v1.3.6-evolve",
+    "moonlab": "core 1.2.1 (prebuilt WASM, pinned commit cd3b234)",
+    "qgtl": "v0.777 beta, pinned commit 770994a (differential_geometry.c only)",
+    "quantum_rng": "pinned commit 1a77e77 (three integer mixers only)"
+  },
+  "inputs": {
+    "ks_set": "results/ks31_box3_H2.json",
+    "ks_set_name": "Conway-Kochen 31 (as found by exhaustive search in the 49-ray pool)"
+  },
+  "honest_labels": [
+    "Moonlab is a classical state-vector simulator (prebuilt WASM run on the CPU under Node).",
+    "The quantum_rng mixers are a deterministic 'quantum-inspired' integer mixer, not quantum randomness; the counter-mode stream built on them is this project's own construction.",
+    "QGTL is used for one double-precision kernel (Fubini-Study distance); the rest of that library is not exercised.",
+    "Nothing here is an experiment on quantum hardware.",
+    "Floating-point stages are numerical checks with tolerance 1e-12; exact statements are integer recomputations (Python, Eshkol, JavaScript); none of this is a formal proof."
+  ],
+  "logs": [
+    "stack_eshkol.log",
+    "stack_moonlab.log",
+    "stack_qgtl.log",
+    "stack_qgtl_build.log",
+    "stack_qrng.log",
+    "stack_qrng_build.log",
+    "stack_run.log"
+  ]
+}

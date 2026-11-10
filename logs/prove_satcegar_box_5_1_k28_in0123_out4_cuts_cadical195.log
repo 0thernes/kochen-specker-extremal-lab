@@ -1,0 +1,6 @@
+satcegar_box_5_1_k28_in0123_out4_cuts.cnf: 29500 variables, 115388 clauses
+cadical195: UNSAT in 213.7s
+proof: 1614539 added clauses, 1665555 deletions, 121209724 bytes of text -> satcegar_box_5_1_k28_in0123_out4_cuts.cadical195.drat (12.2s)
+c 115388 original clauses, 1614075 lemmas checked, 1665555 deletion lines (1658400 applied)
+s VERIFIED
+drup_check exit=0 (562.6s)

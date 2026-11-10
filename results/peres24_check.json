@@ -1,0 +1,189 @@
+{
+ "pool_rays": 40,
+ "rays_by_number_of_nonzero_coordinates": {
+  "1": 4,
+  "2": 12,
+  "3": 16,
+  "4": 8
+ },
+ "minimum_sets": 16,
+ "inside_peres_24": 16,
+ "sets": [
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  },
+  {
+   "rays": 18,
+   "bases": 9,
+   "is_ks": true,
+   "weights": {
+    "1": 3,
+    "2": 9,
+    "4": 6
+   },
+   "inside_peres_24": true
+  }
+ ]
+}

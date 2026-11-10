@@ -1,0 +1,592 @@
+{
+ "tool": "scripts/run_all.py",
+ "started_utc": "2026-11-10T10:53:14Z",
+ "seconds": 78.5,
+ "argv": [
+  "--lean"
+ ],
+ "environment": {
+  "platform": "Windows-10-10.0.29704-SP0",
+  "python": "3.9.13",
+  "packages": {
+   "python-sat": "1.9.dev21",
+   "ortools": "9.15.6755",
+   "numpy": "2.0.2"
+  },
+  "node": "v25.8.2",
+  "c_compiler": "gcc.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r2) 16.1.0",
+  "lake": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)",
+  "cpsat_workers": 2
+ },
+ "stages": [
+  {
+   "name": "unit",
+   "title": "unit tests (tests/test_*.py)",
+   "status": "PASS",
+   "seconds": 48.2,
+   "detail": "115 tests, 1 skipped",
+   "commands": [
+    {
+     "argv": [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_*.py"
+     ],
+     "cwd": "<repo>",
+     "exit_code": 0,
+     "seconds": 48.16,
+     "output_tail": "..............................................................................................................s....\n----------------------------------------------------------------------\nRan 115 tests in 43.320s\n\nOK (skipped=1)"
+    }
+   ],
+   "data": {
+    "tests_run": 115,
+    "tests_skipped": 1
+   }
+  },
+  {
+   "name": "js",
+   "title": "JavaScript verifier tests (verify/test_verify.mjs)",
+   "status": "PASS",
+   "seconds": 12.0,
+   "detail": "59/59 checks passed",
+   "commands": [
+    {
+     "argv": [
+      "node",
+      "<work>/js/verify/test_verify.mjs"
+     ],
+     "cwd": "<work>/js",
+     "exit_code": 0,
+     "seconds": 11.66,
+     "output_tail": "ok   sweep: remove all children of one internal node, every internal node (49-ray cert) -- 176 mutants, 176 rejected, 0 accepted; reference replay agrees on 176/176 checked\nok   sweep: swap two adjacent children, every position (49-ray cert) -- 78 mutants, 42 rejected, 36 accepted; reference replay agrees on 78/78 checked (accepted e.g. node 13 children 0<->1; node 20 children 0<->1)\nok   sweep: change one ray index in an I to a ray outside that I, every position x 3 replacements (49-ray cert; --full = all replacements) -- 10245 mutants, 10203 rejected, 42 accepted; reference replay agrees on 1062/1062 checked (accepted e.g. node 14 I[8] 28->47; node 16 I[9] 34->12)\nok   sweep: drop one basis from the list, every basis (49-ray cert) -- 26 mutants, 26 rejected, 0 accepted\nok   sweep: flip one adj entry, every ordered pair (49-ray cert) -- 2352 mutants, 2352 rejected, 0 accepted\nok   sweep: delete one child, every position (40-ray d=4 cert) -- 508 mutants, 508 rejected, 0 accepted; reference replay agrees on 508/508 checked\nok   sweep: drop one basis from the list, every basis (40-ray d=4 cert) -- 32 mutants, 32 rejected, 0 accepted\n== (b) command line exit status ==\nok   CLI: valid certificate -> exit 0 and JSON verdict PASS\nok   CLI: corrupted certificate (k+1) -> exit 1 and JSON verdict FAIL\nok   CLI: truncated JSON -> exit 1\nok   CLI: missing file -> exit 1\nok   CLI --ks: KS set -> exit 0\nok   CLI --ks: colorable set (KS-31 minus one ray) -> exit 1\n== (c) cross-checks ==\nok   known KS-18 (d=4) is not colorable and is critical; brute force over 2^18 assignments agrees -- pairs=63 bases=9 colorable=false critical=true brute=false\nok   ks31_box3_H2.json is a 31-ray subset of the pool of cert_box3_H2_k30.json and is not colorable there (so k=30 is the largest certifiable k) -- embedded=true colorable=false\nok   ks31_box3_H2.json is a 31-ray subset of the pool of cert_box3_H3_k30.json and is not colorable there (so k=30 is the largest certifiable k) -- embedded=true colorable=false\nok   known KS-18 is an 18-ray subset of the pool of cert_box4_H1_k17.json and is not colorable there (so k=17 is the largest certifiable k) -- embedded=true colorable=false\nok   backtracking = ray-order search = brute force on random subsets (12..21 rays) -- 140/140 agree, 20 of them non-colorable\nok   random 30-ray subsets of the pool of cert_box3_H2_k30.json are colorable -- 300/300\nok   random 17-ray subsets of the pool of cert_box4_H1_k17.json are colorable -- 300/300\nok   random 30-ray subsets of the pool of cert_box3_H3_k30.json are colorable -- 300/300\nok   random 30-ray subsets of the pool of cert_box3_H3full_k30.json are colorable -- 300/300\n== PASS: 59/59 checks passed; summary written to results/verify_summary.json =="
+    }
+   ],
+   "data": {
+    "verdict": "PASS",
+    "failures": [],
+    "verifier": "verify_cert.mjs 1.0.0",
+    "node": "v25.8.2"
+   }
+  },
+  {
+   "name": "lemma7",
+   "title": "Lemma 7 facts (scripts/lemma7.py)",
+   "status": "PASS",
+   "seconds": 0.8,
+   "detail": "121 rays, 136 bases, both facts hold; matches results/lemma7_d5_axes.json",
+   "commands": [
+    {
+     "argv": [
+      "python",
+      "<work>/scripts/lemma7.py"
+     ],
+     "cwd": "<work>",
+     "exit_code": 0,
+     "seconds": 0.85,
+     "output_tail": "pool: 121 rays, 136 bases; every basis contains an axis: True; pool minus e0,e1,e2 colorable: True (14 rays of value 1, 50 bases to hit)"
+    }
+   ],
+   "data": {
+    "n_rays": 121,
+    "n_bases": 136,
+    "committed_file_same_facts": true,
+    "committed_file_same_coloring": true
+   }
+  },
+  {
+   "name": "cert-gen",
+   "title": "search-tree certificates regenerated (src/gen_cert.py)",
+   "status": "PASS",
+   "seconds": 2.6,
+   "detail": "cert_box3_H2_k30.json: 255 nodes, same as committed; cert_box4_H1_k17.json: 509 nodes, same as committed",
+   "commands": [
+    {
+     "argv": [
+      "python",
+      "<work>/src/gen_cert.py",
+      "30",
+      "<work>/results/cert_box3_H2_k30.json",
+      "box3",
+      "2"
+     ],
+     "cwd": "<work>",
+     "exit_code": 0,
+     "seconds": 1.76,
+     "output_tail": "box3(H=2)/core: k=30: tree with 255 nodes in 0.1s; re-check: tree ok=True (255 nodes), pool ok=True; file 18222 bytes"
+    },
+    {
+     "argv": [
+      "python",
+      "<work>/src/gen_cert.py",
+      "17",
+      "<work>/results/cert_box4_H1_k17.json",
+      "box",
+      "4",
+      "1"
+     ],
+     "cwd": "<work>",
+     "exit_code": 0,
+     "seconds": 0.84,
+     "output_tail": "box(d=4,H=1): k=17: tree with 509 nodes in 0.2s; re-check: tree ok=True (509 nodes), pool ok=True; file 22776 bytes"
+    }
+   ],
+   "data": {
+    "certificates": [
+     {
+      "file": "cert_box3_H2_k30.json",
+      "k": 30,
+      "pool": "box3 2",
+      "nodes": 255,
+      "sha256": "40737e825fcfd72d2d94547c8c4a543d4b51631a4197dedb42e35e208160d29f",
+      "same_content_as_committed_file": true
+     },
+     {
+      "file": "cert_box4_H1_k17.json",
+      "k": 17,
+      "pool": "box 4 1",
+      "nodes": 509,
+      "sha256": "6b955e6cbefaf4cea9878d942cb3629c2f80f7a1504860ad6cd147f1ebe3e0a4",
+      "same_content_as_committed_file": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "cert-verify",
+   "title": "regenerated certificates checked by verify/verify_cert.mjs",
+   "status": "PASS",
+   "seconds": 0.4,
+   "detail": "2 certificates PASS; corrupted copy rejected",
+   "commands": [
+    {
+     "argv": [
+      "node",
+      "<repo>/verify/verify_cert.mjs",
+      "<work>/results/cert_box3_H2_k30.json",
+      "<work>/results/cert_box4_H1_k17.json",
+      "--out",
+      "<work>/results/verify_fresh.json"
+     ],
+     "cwd": "<repo>",
+     "exit_code": 0,
+     "seconds": 0.18,
+     "output_tail": "{\n  \"mode\": \"certificate\",\n  \"verifier\": \"verify_cert.mjs 1.0.0\",\n  \"file\": \"cert_box4_H1_k17.json\",\n  \"sha256\": \"6b955e6cbefaf4cea9878d942cb3629c2f80f7a1504860ad6cd147f1ebe3e0a4\",\n  \"bytes\": 22776,\n  \"d\": 4,\n  \"k\": 17,\n  \"rays\": 40,\n  \"orthogonal_pairs\": 220,\n  \"bases\": 32,\n  \"nodes\": 509,\n  \"nodes_visited\": 509,\n  \"nodes_accepted_by_rule0\": 22,\n  \"max_depth\": 6,\n  \"checks\": {\n    \"rays\": true,\n    \"adj\": true,\n    \"bases\": true,\n    \"tree\": true\n  },\n  \"claim\": \"every set of at most 17 rays of this 40-ray pool (d=4) is colorable\",\n  \"verdict\": \"PASS\",\n  \"error\": null\n}"
+    },
+    {
+     "argv": [
+      "node",
+      "<repo>/verify/verify_cert.mjs",
+      "<work>/results/corrupted_k_plus_1.json"
+     ],
+     "cwd": "<repo>",
+     "exit_code": 1,
+     "seconds": 0.16,
+     "output_tail": "{\n  \"mode\": \"certificate\",\n  \"verifier\": \"verify_cert.mjs 1.0.0\",\n  \"file\": \"corrupted_k_plus_1.json\",\n  \"sha256\": \"89e0a30bec79c0636fb6bd1ebeb50b12aa29f82da0f8e7edc12c68a5d6c70631\",\n  \"bytes\": 18222,\n  \"d\": 3,\n  \"k\": 31,\n  \"rays\": 49,\n  \"orthogonal_pairs\": 138,\n  \"bases\": 26,\n  \"nodes\": 255,\n  \"nodes_visited\": null,\n  \"nodes_accepted_by_rule0\": null,\n  \"max_depth\": null,\n  \"checks\": {\n    \"rays\": true,\n    \"adj\": true,\n    \"bases\": true,\n    \"tree\": false\n  },\n  \"claim\": null,\n  \"verdict\": \"FAIL\",\n  \"error\": \"rule 2 fails at node at path [0,0,0,0,0,0,0,0,0,0,0,0,0] (|S|=28, |F|=0): basis #14 {8,39,47} contains no ray of I, |S u b| = 31 <= k = 31, no basis of F lies inside S u b, and it is not a child basis\"\n}"
+    }
+   ],
+   "data": {
+    "negative_control": "certificate with k raised by one was rejected"
+   }
+  },
+  {
+   "name": "drup-49",
+   "title": "49-ray pool, k=30: ksmaster -> ks_cnf (g4) -> drup_check",
+   "status": "PASS",
+   "seconds": 7.4,
+   "detail": "51 cuts, CNF 5254 vars / 20223 clauses, UNSAT, proof VERIFIED (191 lemmas)",
+   "commands": [
+    {
+     "argv": [
+      "gcc",
+      "-O2",
+      "-o",
+      "<work>/verify/drup_check.exe",
+      "<repo>/verify/drup_check.c"
+     ],
+     "cwd": "<repo>",
+     "exit_code": 0,
+     "seconds": 1.61,
+     "output_tail": ""
+    },
+    {
+     "argv": [
+      "python",
+      "-u",
+      "<work>/src/ksmaster.py",
+      "30",
+      "900",
+      "2",
+      "-",
+      "box3",
+      "2"
+     ],
+     "cwd": "<work>",
+     "exit_code": 0,
+     "seconds": 4.31,
+     "output_tail": "02:54:24 box3(H=2): 49 rays, 138 orthogonal pairs (0.0s)\n02:54:24 box3(H=2): 26 orthogonal triples (0.0s)\n02:54:24 box3(H=2): KS core keeps 49 of 49 rays\n02:54:24 box3(H=2)/core: 49 rays, 138 orthogonal pairs, 26 bases (d=3)\n02:54:24 === ksmaster k=30 case=- workers=2 fix_in=[] fix_out=[]\n02:54:24 symmetry breaking on coordinate groups [[0, 1, 2]]\n02:54:24 [     0.0s] a coloring of the whole pool misses 1 of 26 bases\n02:54:24 [     0.1s] it 1: candidate 18 rays (0.0s) colorable; cut misses 2 bases, +24 (total 27)\n02:54:24 [     0.1s] it 2: candidate 28 rays (0.0s) colorable; cut misses 2 bases, +12 (total 39)\n02:54:24 [     0.1s] it 3: candidate 30 rays (0.0s) colorable; cut misses 3 bases, +12 (total 51)\n02:54:24 [     0.2s] it 4: INFEASIBLE (0.0s) - no critical KS set with at most 30 rays in box3(H=2)/core under the case constraints (51 cuts)\n02:54:24 MASTER RESULT box3(H=2)/core k=30 case=-: none after 4 iterations, 51 cuts"
+    },
+    {
+     "argv": [
+      "python",
+      "-u",
+      "<work>/src/ks_cnf.py",
+      "<work>/results/master_box3_2_k30_cuts.json",
+      "30",
+      "-",
+      "g4",
+      "box3",
+      "2"
+     ],
+     "cwd": "<work>",
+     "exit_code": 0,
+     "seconds": 1.18,
+     "output_tail": "51 cuts re-verified from their witnesses: True (0.0s)\ncase -: rays fixed in [], fixed out []; symmetry breaking on, groups [[0, 1, 2]]\nCNF: 5254 variables, 20223 clauses\ng4: UNSAT in 0.0s\nDRAT proof: 14662 lines -> <work>\\results\\master_box3_2_k30_cuts.drat"
+    },
+    {
+     "argv": [
+      "<work>/verify/drup_check.exe",
+      "<work>/results/master_box3_2_k30_cuts.cnf",
+      "<work>/results/master_box3_2_k30_cuts.drat"
+     ],
+     "cwd": "<repo>",
+     "exit_code": 0,
+     "seconds": 0.15,
+     "output_tail": "c 20223 original clauses, 191 lemmas checked, 14470 deletion lines (14470 applied)\ns VERIFIED"
+    },
+    {
+     "argv": [
+      "<work>/verify/drup_check.exe",
+      "<work>/results/master_box3_2_k30_cuts.cnf",
+      "<work>/results/master_box3_2_k30_cuts.empty.drat"
+     ],
+     "cwd": "<repo>",
+     "exit_code": 1,
+     "seconds": 0.05,
+     "output_tail": "c 20223 original clauses, 0 lemmas checked, 0 deletion lines (0 applied)\nc the empty clause was not derived\ns NOT VERIFIED"
+    }
+   ],
+   "data": {
+    "drup_check": "compiled from verify/drup_check.c for this run",
+    "drup_check_c_sha256": "e57c668961a76b8038409e238cb8e241da7ab809d92082feb5a3546f77fad6ad",
+    "engine_a": "CP-SAT: infeasible",
+    "iterations": 4,
+    "cuts": 51,
+    "variables": 5254,
+    "clauses": 20223,
+    "lemmas_checked": 191,
+    "negative_control": "empty proof rejected",
+    "cnf_sha256": "4a2546a98c3ce34a58f15aa04dd357b3217be21d65ac819f0ae3822aef658cbb"
+   }
+  },
+  {
+   "name": "drup-40",
+   "title": "40-ray pool, k=17: ksmaster -> ks_cnf (g4) -> drup_check",
+   "status": "PASS",
+   "seconds": 4.7,
+   "detail": "84 cuts, CNF 4427 vars / 16847 clauses, UNSAT, proof VERIFIED (307 lemmas)",
+   "commands": [
+    {
+     "argv": [
+      "python",
+      "-u",
+      "<work>/src/ksmaster.py",
+      "17",
+      "900",
+      "2",
+      "-",
+      "box",
+      "4",
+      "1"
+     ],
+     "cwd": "<work>",
+     "exit_code": 0,
+     "seconds": 3.12,
+     "output_tail": "02:54:28 box(d=4,H=1): 40 rays, 220 orthogonal pairs, 32 bases (d=4)\n02:54:28 box(d=4,H=1): KS core keeps 40 of 40 rays\n02:54:28 === ksmaster k=17 case=- workers=2 fix_in=[] fix_out=[]\n02:54:28 symmetry breaking on coordinate groups [[0, 1, 2, 3]]\n02:54:28 [     0.0s] a coloring of the whole pool misses 4 of 32 bases\n02:54:28 [     0.1s] it 1: candidate 12 rays (0.0s) colorable; cut misses 6 bases, +48 (total 52)\n02:54:29 [     0.2s] it 2: candidate 16 rays (0.0s) colorable; cut misses 6 bases, +32 (total 84)\n02:54:29 [     0.2s] it 3: INFEASIBLE (0.0s) - no critical KS set with at most 17 rays in box(d=4,H=1) under the case constraints (84 cuts)\n02:54:29 MASTER RESULT box(d=4,H=1) k=17 case=-: none after 3 iterations, 84 cuts"
+    },
+    {
+     "argv": [
+      "python",
+      "-u",
+      "<work>/src/ks_cnf.py",
+      "<work>/results/master_box_4_1_k17_cuts.json",
+      "17",
+      "-",
+      "g4",
+      "box",
+      "4",
+      "1"
+     ],
+     "cwd": "<work>",
+     "exit_code": 0,
+     "seconds": 0.58,
+     "output_tail": "84 cuts re-verified from their witnesses: True (0.0s)\ncase -: rays fixed in [], fixed out []; symmetry breaking on, groups [[0, 1, 2, 3]]\nCNF: 4427 variables, 16847 clauses\ng4: UNSAT in 0.0s\nDRAT proof: 3700 lines -> <work>\\results\\master_box_4_1_k17_cuts.drat"
+    },
+    {
+     "argv": [
+      "<work>/verify/drup_check.exe",
+      "<work>/results/master_box_4_1_k17_cuts.cnf",
+      "<work>/results/master_box_4_1_k17_cuts.drat"
+     ],
+     "cwd": "<repo>",
+     "exit_code": 0,
+     "seconds": 0.94,
+     "output_tail": "c 16847 original clauses, 307 lemmas checked, 3392 deletion lines (3392 applied)\ns VERIFIED"
+    },
+    {
+     "argv": [
+      "<work>/verify/drup_check.exe",
+      "<work>/results/master_box_4_1_k17_cuts.cnf",
+      "<work>/results/master_box_4_1_k17_cuts.empty.drat"
+     ],
+     "cwd": "<repo>",
+     "exit_code": 1,
+     "seconds": 0.05,
+     "output_tail": "c 16847 original clauses, 0 lemmas checked, 0 deletion lines (0 applied)\nc the empty clause was not derived\ns NOT VERIFIED"
+    }
+   ],
+   "data": {
+    "engine_a": "CP-SAT: infeasible",
+    "iterations": 3,
+    "cuts": 84,
+    "variables": 4427,
+    "clauses": 16847,
+    "lemmas_checked": 307,
+    "negative_control": "empty proof rejected",
+    "cnf_sha256": "de777de853975681e56bbde1b222987209440d22e147bbfe1758c5bcd8f25837"
+   }
+  },
+  {
+   "name": "lean",
+   "title": "Lean 4: lake build, axiom audit, source scan",
+   "status": "PASS",
+   "seconds": 2.3,
+   "detail": "26 theorems audited, axioms used: Classical.choice, Quot.sound, propext; no sorry",
+   "commands": [
+    {
+     "argv": [
+      "lake",
+      "build"
+     ],
+     "cwd": "<repo>/lean",
+     "exit_code": 0,
+     "seconds": 0.47,
+     "output_tail": "Build completed successfully (8 jobs)."
+    },
+    {
+     "argv": [
+      "lake",
+      "env",
+      "lean",
+      "KS/Audit.lean"
+     ],
+     "cwd": "<repo>/lean",
+     "exit_code": 0,
+     "seconds": 1.85,
+     "output_tail": "'KS.small_sets_colorable_root' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.not_colorable_of_refute' depends on axioms: [propext, Quot.sound]\n'KS.not_colorable_of_refute_root' depends on axioms: [propext, Quot.sound]\n'KS.vcolorable_of_colorable' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.colorable_of_vcolorable' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.cliquesListed_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.mem_boxVectors' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.mem_boxRays' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.countP_parallel_of_boxExact' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box3H2.minimum_ks_size' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box3H2.minimum_ks_size_vectors' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box3H2.rays_eq' does not depend on any axioms\n'KS.Box3H2.rays_length' does not depend on any axioms\n'KS.Box3H2.boxRays_exact' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box3H2.adj_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box3H2.bases_sound' depends on axioms: [propext]\n'KS.Box3H2.bases_complete' depends on axioms: [propext]\n'KS.Box4H1.minimum_ks_size' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box4H1.minimum_ks_size_vectors' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box4H1.rays_eq' does not depend on any axioms\n'KS.Box4H1.rays_length' does not depend on any axioms\n'KS.Box4H1.boxRays_exact' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box4H1.adj_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\n'KS.Box4H1.bases_sound' depends on axioms: [propext]\n'KS.Box4H1.bases_complete' depends on axioms: [propext]"
+    }
+   ],
+   "data": {
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "sources_scanned": [
+     "lean/KS.lean",
+     "lean/KS/Audit.lean",
+     "lean/KS/Basic.lean",
+     "lean/KS/Box3H2.lean",
+     "lean/KS/Box4H1.lean",
+     "lean/KS/Spec.lean",
+     "lean/KS/Tests.lean"
+    ],
+    "axioms": {
+     "KS.small_sets_colorable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.small_sets_colorable_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.not_colorable_of_refute": [
+      "propext",
+      "Quot.sound"
+     ],
+     "KS.not_colorable_of_refute_root": [
+      "propext",
+      "Quot.sound"
+     ],
+     "KS.vcolorable_of_colorable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.colorable_of_vcolorable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.cliquesListed_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.mem_boxVectors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.mem_boxRays": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.countP_parallel_of_boxExact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.Box3H2.minimum_ks_size": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.Box3H2.minimum_ks_size_vectors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.Box3H2.boxRays_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.Box3H2.adj_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.Box3H2.bases_sound": [
+      "propext"
+     ],
+     "KS.Box3H2.bases_complete": [
+      "propext"
+     ],
+     "KS.Box4H1.minimum_ks_size": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.Box4H1.minimum_ks_size_vectors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.Box4H1.boxRays_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.Box4H1.adj_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "KS.Box4H1.bases_sound": [
+      "propext"
+     ],
+     "KS.Box4H1.bases_complete": [
+      "propext"
+     ],
+     "KS.Box3H2.rays_eq": [],
+     "KS.Box3H2.rays_length": [],
+     "KS.Box4H1.rays_eq": [],
+     "KS.Box4H1.rays_length": []
+    }
+   }
+  }
+ ],
+ "not_run": [
+  {
+   "name": "stack",
+   "title": "stack demonstration (scripts/run_stack.py)",
+   "status": "SKIP",
+   "detail": "optional, enable with --stack"
+  }
+ ],
+ "passed": 8,
+ "failed": 0,
+ "ok": true,
+ "exit_code": 0,
+ "scratch_directory": null,
+ "inputs_sha256": {
+  "src/bench_color.py": "6db7e1c627cb4becb136265d21695b9b1d6338319c6efc88bdc121543c05ee68",
+  "src/cubes_d5.py": "baaf1ec59a65166b6e0c973479087ffee050994271d6e91f488b91c81787efd9",
+  "src/cyclo.py": "a25d1098c1f5007ad2511f3418d219014abc37ca9fa8efd68a8ff8ee93bd7070",
+  "src/exp_master.py": "43e3e0fc3cbb763282bdd7dadd6a72b27dc54895af2b993334192008056fd300",
+  "src/explore_d5.py": "be08bdf86d95f2e1ee90ae0eb2e4cbefe920d6c45b9cf008933512b0683b1d05",
+  "src/gen_cert.py": "a9996f91d9866a0f4e526dd18ab504eb007bd25be73c88a8bdd941d54ce64328",
+  "src/hunt.py": "e82ad6dc3f59379dedd09e23741d71a5c3754900e9a2fcc41c0c63f908855bb2",
+  "src/ks_cnf.py": "543e0adda0b7c46046c015e737190379d2e21e31b9683d9e3ba8f18e816cd936",
+  "src/ks_satcegar.py": "8f99a24516bad2a3db0f67fd493b9ee53db8532aeb94179f626edaabdcebbf4a",
+  "src/ksbases.py": "5b0232a60ec5fc562429d4fccf82375fbd03c8d188fc9df645ad2a091ffcb572",
+  "src/kscegar.py": "9a075a15c403d67d30585103b3a2a755bd8b1405e20a0739825916994fb8c86f",
+  "src/ksdfs.py": "678eda52ab1b11ecd13c35d43c5b2d52011549f14e5aaedf7387b5873cb3418e",
+  "src/ksengine.py": "e23ca92da9b28bcdc93341d1891c2962f192666752b81149dff73671343d429a",
+  "src/kslocal.py": "d1b055be938bfa0783c5ac684bf1082218a8981fc8288ca4a944fba23f000980",
+  "src/ksmaster.py": "c140179284941842c8cec0259a4e9d37d27435a9e10df944b8865b67f2abbf10",
+  "src/ksmin.py": "6f912bf3e9105012891273485c7d98015da3346e517a3bf84fcc2590a0808cf0",
+  "src/pools.py": "66a620050d03e935cd76c79e94f84af3b6737e57cedf739dd3b76d5723dd37ac",
+  "src/pools3d.py": "25e57caf4317858172275ed84e21b1595b88a708cc594cf7d6bd6510c62ed112",
+  "src/run3d.py": "36f81e6ae840b2c9560a8d36d54c2717aef1961f3d64ee732aff6cca2831f8a2",
+  "src/run_pool.py": "cef6c58ac4663193c6c32c9d318865afa16b58b9b2ed7204c00710c7f5648c9a",
+  "src/stats3d.py": "0dbfb74fb96a2ccebfdbbd94d35c1a5e65493ff755ffc1a05e43bcf28f9abbc5",
+  "scripts/ablate_c1c2.py": "193ec335e637d60672e565df0ba6f8970c88cf466abe77f7b54fd14fe633f9eb",
+  "scripts/axes_sanity.py": "c520dc154b10356170cb0a5cf675a10cf7a443190e87f0627a2e20f75c9478c7",
+  "scripts/build_latex.py": "464f837915ad17a8f552db8b9901cc3783a73a206ff2c1714de779f46563711a",
+  "scripts/build_paper.py": "d1a742f1ec7974256716a89d8f14e04bfdc94d11738c8cb6cdc2c9c54690e541",
+  "scripts/build_site_data.py": "1fa4faca19cee4b02c9bad3c4fda0e090d1baba4467118bc139dae9dfd472cb5",
+  "scripts/check_cubes.py": "b7b32b87accf6e07b01df77aeb8be51442a9b89821e3fb9b7df656f9fb7ffe43",
+  "scripts/check_docs.py": "90b086f11fa19c0cc0d6c63d078870c5e710f84cae7318e76a527b789aa564de",
+  "scripts/check_references.py": "23519ce38c7685651a370d7400d076a80008a7c15ad4a08855996274065f5d38",
+  "scripts/collect_sets.py": "5441b287b0c73deec1f5db3830cedae5a7ec3d5084c4b516b9c2c4810d09d788",
+  "scripts/d5_sections.py": "c5b0be9d9ee26652480995d9d718abafb972cc0961db59f7f7cb81950929a8ce",
+  "scripts/enumerate_min.py": "3843598dfe42121d274836539fbe72516fc9e7940cd073c951ebbd0567bfdac5",
+  "scripts/fix_paper_math.py": "c73fc54c218b680f463893f84f6e4bd73bfebf8e79b6edbcb01682b2b2a165f8",
+  "scripts/gen_lean.py": "f8a9196fc9efc6a628538048a554f2758e410da7171d70a8fd80ad7d98ca0382",
+  "scripts/lemma7.py": "381d90b14e41ed99651e5baa792af3297380926a0612845bb0fb3c03f08b05af",
+  "scripts/min_missed.py": "72d87e8036a5e6481e32d2557accdd5c4b6b37d7baab4bff43ceb9a5b1092e51",
+  "scripts/peres24.py": "1d260e4ed0cc8ce965b9e7a432bc8caf831e61d8f5f56c97ec004c2e5adee817",
+  "scripts/pool_facts.py": "eeaa74ab54e265a7ed5212726f0d8226d90bd760c3ba5830fc43f13c672da14d",
+  "scripts/proof_manifest.py": "c8d7b985932957d2ca8d7c67c0d931e30470149e1ec5feff89826d0cd589b8c5",
+  "scripts/prove_cnf.py": "fdb8fefc54b05fc6ccbdd7b2b31267158a2637e2fcd5984b27957e20ea8baf40",
+  "scripts/run_all.py": "9f8df68e028ab672cabd50e3818e4ecfd8857854b39cc1a8f39757698cf271cd",
+  "scripts/run_stack.py": "5a443927f24a1f0c8bb97f5e395db607bb7e9d971a1a92a85af9670ec2093fe9",
+  "scripts/scrub_logs.py": "deb378f63c2bb2d23e9bfed84433247095d85d0ae65419a9faa9d9e1268e2fac",
+  "scripts/second_solver.py": "83942739a122f26b98b337ce23ef591ea7d944c3e855a740e47027d56f6bcae7",
+  "verify/test_verify.mjs": "0f67bb3b2d6f0ac4c845ec570be3b93b70c71925749ea39f6fa34f282f7152f2",
+  "verify/verify_cert.mjs": "57ee51abe1ff67d41c705f5904959e6ebd30cbccdf7d351c576e99defaf84b60",
+  "verify/drup_check.c": "e57c668961a76b8038409e238cb8e241da7ab809d92082feb5a3546f77fad6ad",
+  "tests/_common.py": "f8edc8f6f010a36f4dfaa1727c2b7f82bb31e9a9492e391610649741d8f2bf94",
+  "tests/test_cnf.py": "c875f6b85d9061da9fb135fc37de5dafe9c3ce82a658b02f0de20bc1bcbe0fd4",
+  "tests/test_colouring.py": "6f30cc30c9174313fba89fef895afea286c2f2e34221a5ede9f187f58155448d",
+  "tests/test_cyclo.py": "d4bdff7a00ca51fc43d3c7171c095ad096850fda46d28bdbbee440be448b4698",
+  "tests/test_drup.py": "933cc477049d06c40ae6bd2328216f9ff97fdfded04377179d98d4f3448ce4b8",
+  "tests/test_pools.py": "74d83a5838eab2e4cb132cec34111232023f28b8491436dd05e27535cd1773e2",
+  "tests/test_run_all.py": "4629c18f92c4a00d1f05c81478e992f201403c1ea496499e28e476e314bbe3cd",
+  "tests/test_search.py": "4a28641d34f1c3c03ff07781eb974d696f157eb2df591613b94c8752abfbacf3",
+  "tests/test_verify_tools.py": "2658c8ddfb4d322633087763fdce19b9f3d1618ccf8aadb849f37d2a32ae76dc",
+  "lean/KS/Audit.lean": "1a71b4f34b5f06a3483810850996ba3e04ce45f336b5a24c5d3e8755c60c1495",
+  "lean/KS/Basic.lean": "9b29dae884c425b0b7b2dd5e9dbf6bfd57fca3aef096b0c90200616389350069",
+  "lean/KS/Box3H2.lean": "17b14b2eb5309b1b98038b4b60aba7f2140f9f39b32d31788b6f8123eaae4d0b",
+  "lean/KS/Box4H1.lean": "8b4196cb7508d7d28cd8b1126ef51e35982400796e71777fe40c0440cab017c5",
+  "lean/KS/Spec.lean": "7d9f4b03e2f3ac8075eaacef6a437b3d1eaad60d9014445f0a6adf481020365e",
+  "lean/KS/Tests.lean": "586a0324e2aab821791904490cc544039ef41ac4300e61c3136256eba317f3ef",
+  "lean/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+  "requirements.txt": "7994f016d9e7d4ea982c0694943f74f543c8abc6ed72420b32aeb6eb602d85f4"
+ }
+}

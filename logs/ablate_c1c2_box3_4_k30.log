@@ -1,0 +1,58 @@
+01:32:04 === box3(H=4)/core k=30: C1=on, C2=on, 4 workers, limit 600s
+01:32:06 [     2.2s] a coloring of the whole pool misses 7 of 110 bases
+01:32:06 [     2.6s] it 1: candidate 28 rays (0.1s) colorable; cut misses 7 bases, +24 (total 48)
+01:32:07 [     2.8s] it 2: candidate 26 rays (0.1s) colorable; cut misses 8 bases, +24 (total 72)
+01:32:07 [     3.0s] it 3: candidate 30 rays (0.1s) colorable; cut misses 9 bases, +24 (total 96)
+01:32:07 [     3.3s] it 4: candidate 29 rays (0.1s) colorable; cut misses 10 bases, +24 (total 120)
+01:32:07 [     3.5s] it 5: candidate 30 rays (0.1s) colorable; cut misses 8 bases, +3 (total 123)
+01:32:13 [     9.3s] it 6: INFEASIBLE (5.7s) - no critical KS set with at most 30 rays in box3(H=4)/core under the case constraints (123 cuts)
+01:32:13 ABLATION RESULT C1=True C2=True: none after 6 rounds, 123 cuts, 9.3s
+01:32:13 === box3(H=4)/core k=30: C1=on, C2=off, 4 workers, limit 600s
+01:32:14 [     1.2s] a coloring of the whole pool misses 7 of 110 bases
+01:32:15 [     1.5s] it 1: candidate 30 rays (0.0s) colorable; cut misses 7 bases, +24 (total 48)
+01:32:15 [     1.9s] it 2: candidate 21 rays (0.1s) colorable; cut misses 7 bases, +24 (total 72)
+01:32:15 [     2.3s] it 3: candidate 27 rays (0.1s) colorable; cut misses 7 bases, +24 (total 96)
+01:32:16 [     2.5s] it 4: candidate 29 rays (0.0s) colorable; cut misses 8 bases, +24 (total 120)
+01:32:16 [     2.7s] it 5: candidate 30 rays (0.0s) colorable; cut misses 8 bases, +3 (total 123)
+01:32:16 [     2.8s] it 6: candidate 30 rays (0.1s) colorable; cut misses 7 bases, +24 (total 147)
+01:32:16 [     3.0s] it 7: candidate 30 rays (0.0s) colorable; cut misses 7 bases, +24 (total 171)
+01:32:16 [     3.2s] it 8: candidate 29 rays (0.0s) colorable; cut misses 9 bases, +24 (total 195)
+01:32:17 [     3.4s] it 9: candidate 30 rays (0.1s) colorable; cut misses 10 bases, +12 (total 207)
+01:32:17 [     3.5s] it 10: candidate 29 rays (0.1s) colorable; cut misses 8 bases, +24 (total 231)
+01:32:17 [     3.7s] it 11: candidate 29 rays (0.0s) colorable; cut misses 10 bases, +24 (total 255)
+01:32:17 [     3.8s] it 12: candidate 30 rays (0.0s) colorable; cut misses 9 bases, +24 (total 279)
+01:32:17 [     3.9s] it 13: candidate 30 rays (0.0s) colorable; cut misses 9 bases, +24 (total 303)
+01:32:17 [     4.1s] it 14: candidate 30 rays (0.0s) colorable; cut misses 11 bases, +24 (total 327)
+01:32:21 [     7.4s] it 15: INFEASIBLE (3.2s) - no critical KS set with at most 30 rays in box3(H=4)/core under the case constraints (327 cuts)
+01:32:21 ABLATION RESULT C1=True C2=False: none after 15 rounds, 327 cuts, 7.4s
+01:32:21 === box3(H=4)/core k=30: C1=off, C2=on, 4 workers, limit 600s
+01:32:22 [     1.2s] a coloring of the whole pool misses 7 of 110 bases
+01:32:22 [     1.7s] it 1: candidate 23 rays (0.1s) colorable; cut misses 7 bases, +24 (total 48)
+01:32:22 [     1.9s] it 2: candidate 24 rays (0.1s) colorable; cut misses 7 bases, +24 (total 72)
+01:32:23 [     2.1s] it 3: candidate 30 rays (0.1s) colorable; cut misses 7 bases, +24 (total 96)
+01:32:23 [     2.3s] it 4: candidate 30 rays (0.1s) colorable; cut misses 8 bases, +24 (total 120)
+01:32:23 [     2.5s] it 5: candidate 30 rays (0.1s) colorable; cut misses 8 bases, +3 (total 123)
+01:32:23 [     2.7s] it 6: candidate 29 rays (0.1s) colorable; cut misses 9 bases, +24 (total 147)
+01:32:23 [     2.9s] it 7: candidate 30 rays (0.1s) colorable; cut misses 9 bases, +12 (total 159)
+01:32:24 [     3.1s] it 8: candidate 30 rays (0.1s) colorable; cut misses 10 bases, +24 (total 183)
+01:32:37 [    16.9s] it 9: INFEASIBLE (13.8s) - no critical KS set with at most 30 rays in box3(H=4)/core under the case constraints (183 cuts)
+01:32:37 ABLATION RESULT C1=False C2=True: none after 9 rounds, 183 cuts, 16.9s
+01:32:37 === box3(H=4)/core k=30: C1=off, C2=off, 4 workers, limit 600s
+01:32:39 [     1.1s] a coloring of the whole pool misses 7 of 110 bases
+01:32:39 [     1.4s] it 1: candidate 27 rays (0.0s) colorable; cut misses 7 bases, +24 (total 48)
+01:32:40 [     2.1s] it 2: candidate 22 rays (0.0s) colorable; cut misses 7 bases, +24 (total 72)
+01:32:40 [     2.6s] it 3: candidate 30 rays (0.0s) colorable; cut misses 7 bases, +24 (total 96)
+01:32:40 [     2.7s] it 4: candidate 15 rays (0.0s) colorable; cut misses 7 bases, +24 (total 120)
+01:32:41 [     3.4s] it 5: candidate 18 rays (0.0s) colorable; cut misses 8 bases, +4 (total 124)
+01:32:41 [     3.6s] it 6: candidate 30 rays (0.1s) colorable; cut misses 7 bases, +24 (total 148)
+01:32:41 [     3.9s] it 7: candidate 30 rays (0.1s) colorable; cut misses 8 bases, +3 (total 151)
+01:32:41 [     4.1s] it 8: candidate 29 rays (0.1s) colorable; cut misses 7 bases, +24 (total 175)
+01:32:42 [     4.2s] it 9: candidate 29 rays (0.0s) colorable; cut misses 8 bases, +24 (total 199)
+01:32:42 [     4.4s] it 10: candidate 30 rays (0.0s) colorable; cut misses 10 bases, +24 (total 223)
+01:32:42 [     4.5s] it 11: candidate 30 rays (0.1s) colorable; cut misses 8 bases, +24 (total 247)
+01:32:42 [     4.6s] it 12: candidate 30 rays (0.1s) colorable; cut misses 9 bases, +24 (total 271)
+01:32:42 [     4.8s] it 13: candidate 30 rays (0.1s) colorable; cut misses 9 bases, +12 (total 283)
+01:32:42 [     5.1s] it 14: candidate 30 rays (0.1s) colorable; cut misses 11 bases, +24 (total 307)
+01:32:47 [     9.2s] it 15: INFEASIBLE (4.2s) - no critical KS set with at most 30 rays in box3(H=4)/core under the case constraints (307 cuts)
+01:32:47 ABLATION RESULT C1=False C2=False: none after 15 rounds, 307 cuts, 9.2s
+01:32:47 wrote results/ablate_c1c2_box3_4_k30.json

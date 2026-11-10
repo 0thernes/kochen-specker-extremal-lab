@@ -1,0 +1,26 @@
+{
+  "_comment": "Draft metadata for a possible Zenodo deposit. Do not deposit before Zenodo support has answered publication/zenodo-inquiry.md (policy of 27 April 2026 on AI-generated content).",
+  "metadata": {
+    "title": "Certified exact minima of Kochen-Specker sets inside coordinate pools: 31 and 33 rays in dimension three, 18 in dimension four, 29 in dimension five",
+    "upload_type": "software",
+    "description": "Programs, machine-checkable certificates, Lean 4 proofs and preprint. The work determines the exact minimum size of a Kochen-Specker set inside finite pools of rays: 31 for integer coordinates of absolute value at most 2, 3 or 4 in dimension three; 33 for coordinates 0 or N-th roots of unity, N = 6, 12, 18, 24, in dimension three; 18 for coordinates 0, +1, -1 in dimension four; 29 for coordinates 0, +1, -1 in dimension five. These are the sizes of published sets: no set smaller than a published one was found, and the general minimal-set problem is not settled. Reported before by others without proof: 31 for integer coordinates up to 2, 3 and 4, 33 for sixth roots of unity, and 29 as the smallest set generated from the coordinates 0, +1, -1 in dimension five (Pavicic and Megill 2022). The 16 minimum sets of dimension four are the known sets inside the 24 rays of Peres (Waegell and Aravind 2011). New, to the author's knowledge: the proofs with certificates (Lean 4 kernel proofs of the minimum for two pools, replayable search trees, unsatisfiability proofs checked by a separate checker), the exact minimum 33 for N = 12, 18, 24, and the complete lists of minimum sets for integer coordinates up to 3 and 4 and for sixth and twelfth roots of unity. What each result rests on is recorded in results/RESULTS.md. The research, programs, proofs and text were produced by an AI system (Claude, Anthropic) at the request and under the direction of the author, who is responsible for the release. Not peer reviewed.",
+    "creators": [
+      {"name": "Donahue, Alexander S.", "affiliation": "0thernes LLC", "orcid": "0009-0006-8168-9648"}
+    ],
+    "version": "1.0.0",
+    "publication_date": "2026-11-10",
+    "access_right": "open",
+    "license": "other-closed",
+    "keywords": ["Kochen-Specker theorem", "quantum contextuality", "minimal Kochen-Specker set", "SAT", "DRAT", "Lean 4", "formal verification"],
+    "related_identifiers": [
+      {"relation": "isSupplementTo", "identifier": "https://github.com/0thernes/kochen-specker-extremal-lab", "scheme": "url"}
+    ],
+    "references": [
+      "M. Kernaghan, The algebraic landscape of Kochen-Specker sets in dimension three, arXiv:2603.16988v9 (2026).",
+      "M. Pavicic, N. D. Megill, Automated generation of arbitrarily many Kochen-Specker and other contextual sets in odd-dimensional Hilbert spaces, Phys. Rev. A 106 (2022) L060203; arXiv:2202.08197.",
+      "M. Waegell, P. K. Aravind, Parity proofs of the Kochen-Specker theorem based on the 24 rays of Peres, Found. Phys. 41 (2011) 1786-1799; arXiv:1103.6058.",
+      "ProblemHive, post p/xfkay, Smallest Kochen-Specker set in three dimensions: is there one with fewer than 31 vectors?, October 2026, https://problemhive.org/p/xfkay/thread ."
+    ],
+    "notes": "Licence: the 'verification licence' in the repository's LICENSE file (not an open-source licence); choose the matching option in the Zenodo form."
+  }
+}

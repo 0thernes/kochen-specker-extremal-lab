@@ -1,0 +1,29 @@
+$ C:\Program Files\nodejs\node.EXE ks31_moonlab.cjs
+(cwd K:\stack)
+--- stdout ---
+[moonlab] Moonlab is a CLASSICAL state-vector simulator (WASM on CPU); no quantum hardware is involved.
+[moonlab] PASS  31 integer rays in R^3 loaded  (n=31)
+[moonlab] PASS  simulator state dimension is 4 (two qubits)
+[moonlab] PASS  all 31 prepared ray states are unit vectors with zero |11> amplitude
+[moonlab] PASS  pairs with |<u|v>|^2 < 1e-12 are exactly the integer-orthogonal pairs  (465 pairs, mismatches=0, max orthogonal overlap=0.00e+0, min non-orthogonal overlap=0.027778)
+[moonlab] PASS  number of orthogonal pairs is 71  (simulator=71, integer=71)
+[moonlab] PASS  number of mutually orthogonal triples (bases) is 17  (found 17)
+[moonlab] PASS  JS BigInt counter-mode stream reproduces the 5 seed-1 outputs of the C test  (5df9ef9ba7cdcca2 ddb5674ec90579d9 e350bb351fce2beb 20275c35a4eaee84 2f7cdc01c2c0ba7d)
+[moonlab] stream first 8 outputs (seed 1): 5df9ef9ba7cdcca2 ddb5674ec90579d9 e350bb351fce2beb 20275c35a4eaee84 2f7cdc01c2c0ba7d 9c8e41616b8765d2 bb513969a806c10e 46d8abb5b7a0e256
+[moonlab] PASS  mixer known answers splitmix64(1), hadamard_mix(1)  (6b6a95bfe299a90e 7590e4342b418e25)
+[moonlab] 2000 pseudo-random qutrit states (seed 1, 22000 stream outputs used, 0 draws rejected)
+[moonlab] PASS  gated and un-gated probabilities agree within 1e-12 (simulated gates are unitary)  (max |p_gated - p_plain| = 1.55e-15, max |norm^2 - 1| after gates = 2.22e-15)
+[moonlab] PASS  p_u + p_v <= 1 + 1e-12 for every orthogonal pair and every state  (2000 x 71 sums, max = 0.999997456760095)
+[moonlab] PASS  sum of p over each of the 17 bases equals 1 within 1e-12 for every state  (2000 x 17 sums, max deviation = 1.78e-15)
+[moonlab] PASS  sum over all 17 bases equals 17 for every state  (max deviation = 2.84e-14)
+[moonlab] PASS  classical maximum M (bases with exactly one 1, orthogonal rays never both 1) is below 17  (M = 16, search nodes = 268, witness re-checked)
+[moonlab] PASS  unpruned enumeration of all admissible assignments gives the same maximum  (153566 admissible assignments, maximum 16 attained by 66 of them)
+[moonlab] classical optimum witness (rays assigned 1): 0 1 2 10 11 12 15 16 17
+[moonlab] STATE-INDEPENDENT GAP: quantum 17 for every state versus classical at most 16
+[moonlab] ("quantum 17" = sum over the 17 bases of Born probabilities, evaluated numerically on a classical simulator)
+RESULT_JSON {"stage":"moonlab","ok":true,"failures":0,"simulator":"Moonlab WASM (classical state-vector simulator)","glue_version":{"core":"1.2.1","wasm":true},"rays":31,"orthogonal_pairs":71,"bases":17,"bases_list":[[0,3,14],[0,7,29],[0,9,19],[0,21,24],[1,5,14],[2,4,14],[2,8,30],[2,20,23],[3,12,27],[3,13,15],[3,16,26],[4,10,28],[4,18,25],[6,15,18],[8,11,19],[9,17,20],[10,13,22]],"max_orthogonal_overlap":0,"min_nonorthogonal_overlap":0.027777777777777783,"n_states":2000,"stream_seed":1,"stream_outputs_used":22000,"rejected_draws":0,"stream_first8":["5df9ef9ba7cdcca2","ddb5674ec90579d9","e350bb351fce2beb","20275c35a4eaee84","2f7cdc01c2c0ba7d","9c8e41616b8765d2","bb513969a806c10e","46d8abb5b7a0e256"],"mixer_kat":{"splitmix64_1":"6b6a95bfe299a90e","hadamard_mix_1":"7590e4342b418e25","absorb_seed_le64_1":"532662e3dcf55ef7"},"max_pair_sum":0.9999974567600949,"max_basis_sum_deviation":1.7763568394002505e-15,"max_total_deviation":2.842170943040401e-14,"max_gate_invariance_deviation":1.5543122344752192e-15,"quantum_value":17,"classical_max":16,"classical_witness":[1,1,1,0,0,0,0,0,0,0,1,1,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0],"search_nodes":268,"admissible_assignments":153566,"assignments_attaining_max":66,"tolerance":1e-12}
+[moonlab] STAGE PASS (0 failed checks)
+
+--- stderr ---
+
+--- exit code 0, 0.6 s ---

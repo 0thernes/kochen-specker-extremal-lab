@@ -1,0 +1,11 @@
+01:10:23 box(d=5,H=1): 121 rays, 1880 orthogonal pairs, 136 bases (d=5)
+01:10:23 box(d=5,H=1): KS core keeps 105 of 121 rays
+01:10:23 box(d=5,H=1)/core: 105 rays, 1480 orthogonal pairs, 136 bases (d=5)
+01:10:23 pool ready in 0.0s
+01:10:23 [    0.0s] seed 1: start 44 rays
+01:10:23 [    0.0s] seed 1: new best 39 rays, 276 orthogonal pairs, 18 bases (step 1)
+01:10:23 [    0.0s] seed 1: new best 38 rays, 265 orthogonal pairs, 18 bases (step 4)
+01:10:23 [    0.2s] seed 1: new best 35 rays, 222 orthogonal pairs, 16 bases (step 18)
+01:10:23 [    0.3s] seed 1: new best 29 rays, 151 orthogonal pairs, 16 bases (step 50)
+01:20:23 [  600.0s] seed 1: done, 29487 steps, best 29, sizes seen [(29, 2667), (30, 2087), (31, 890), (32, 75), (34, 3342), (35, 6055), (36, 3442), (37, 912)]
+01:20:23 HUNT RESULT box(d=5,H=1)/core seed 1: 29 rays, 151 orthogonal pairs, 16 bases critical=True

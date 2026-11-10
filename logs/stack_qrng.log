@@ -1,0 +1,14 @@
+$ K:\stack\ks31_qrng.exe
+(cwd K:\stack)
+--- stdout ---
+[qrng] deterministic "quantum-inspired" integer mixers (NOT quantum randomness)
+splitmix64_1=6b6a95bfe299a90e
+hadamard_mix_1=7590e4342b418e25
+absorb_seed_le64_1=532662e3dcf55ef7
+stream_seed=1
+stream_first8=5df9ef9ba7cdcca2 ddb5674ec90579d9 e350bb351fce2beb 20275c35a4eaee84 2f7cdc01c2c0ba7d 9c8e41616b8765d2 bb513969a806c10e 46d8abb5b7a0e256
+[qrng] PASS  known-answer self-check (mixers and first five stream outputs, seed 1)
+
+--- stderr ---
+
+--- exit code 0, 0.2 s ---

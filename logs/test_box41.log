@@ -1,0 +1,29 @@
+19:44:01 === run box 4 1 --tag test_box41 ===
+19:44:01 box(d=4,H=1): 40 rays, 220 orthogonal pairs, 32 bases (d=4)
+19:44:01 box(d=4,H=1): KS core keeps 40 of 40 rays
+19:44:01 pool built in 0.0s; symmetry generators: 7
+19:44:01 [     0.0s] first critical KS set: 20 rays, 75 orthogonal pairs, 11 bases
+19:44:01 [     0.0s] minimum correction set of the whole pool has 2 rays
+19:44:01 [     0.0s] it 1: lower 4, best 20, cut sizes [3, 4, 3, 4, 3, 3, 4, 4], +768 cuts (total 792)
+19:44:01 [     0.0s] it 2: new best KS set: 18 rays, 63 orthogonal pairs, 9 bases
+19:44:01 [     0.0s] it 2: lower 17, best 18, cut sizes [3, 3], +192 cuts (total 984)
+19:44:01 [     0.0s] it 3: lower bound 18 meets best KS set; optimal
+19:44:01 RESULT box(d=4,H=1): status=optimal lower=18 best=18 (18 rays, 63 orthogonal pairs, 9 bases) cuts=984 time=0.0s
+19:44:01    ray (0, 0, 0, 1)
+19:44:01    ray (0, 0, 1, 0)
+19:44:01    ray (0, 0, 1, 1)
+19:44:01    ray (0, 1, -1, 0)
+19:44:01    ray (0, 1, 0, -1)
+19:44:01    ray (0, 1, 0, 1)
+19:44:01    ray (0, 1, 1, 0)
+19:44:01    ray (1, -1, -1, 1)
+19:44:01    ray (1, -1, 0, 0)
+19:44:01    ray (1, -1, 1, -1)
+19:44:01    ray (1, -1, 1, 1)
+19:44:01    ray (1, 0, -1, 0)
+19:44:01    ray (1, 0, 0, -1)
+19:44:01    ray (1, 0, 0, 0)
+19:44:01    ray (1, 1, -1, 1)
+19:44:01    ray (1, 1, 0, 0)
+19:44:01    ray (1, 1, 1, -1)
+19:44:01    ray (1, 1, 1, 1)

@@ -1,0 +1,8 @@
+21:14:36 root pool d=4 N=6: 400 rays, 6864 orthogonal pairs (0.0s)
+21:14:36 roots(d=4,N=6): 400 rays, 6864 orthogonal pairs, 1012 bases (d=4)
+21:14:36 roots(d=4,N=6): KS core keeps 400 of 400 rays
+21:14:36 pool ready in 0.5s
+21:14:36 [    0.0s] seed 1: start 70 rays
+21:14:36 [    0.0s] seed 1: new best 18 rays, 63 orthogonal pairs, 9 bases (step 1)
+21:24:36 [  600.0s] seed 1: done, 45648 steps, best 18, sizes seen [(18, 6186), (20, 4078), (21, 7577), (22, 979), (24, 14), (25, 3), (28, 23), (33, 2)]
+21:24:36 HUNT RESULT roots(d=4,N=6) seed 1: 18 rays, 63 orthogonal pairs, 9 bases critical=True

@@ -1,0 +1,756 @@
+{
+ "solver": "cadical195",
+ "formulas": 83,
+ "unsat": 83,
+ "sat": 0,
+ "other": 0,
+ "records": [
+  {
+   "file": "master_box_5_1_k28_in012_out34_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 29500,
+   "clauses": 114428,
+   "result": "UNSAT",
+   "seconds": 27.9,
+   "sha256": "8fd18b742e8fbd8df970b390e425a6a2a6a393b549d5cf6bc4f68a33bba8a359"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0000_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 448.8,
+   "sha256": "a0d7fe4e06bd3618228b71c181fce86a2dc60e62e15ec2f3cbd0a223d65e8fd3"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0001_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 189.0,
+   "sha256": "b9269f56f10d057f7d46fd854361d263d2974ff5acaf6a3784df7791cb5e8477"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0002_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 360.8,
+   "sha256": "fd143a2a7041984f3c1b152463bd0e381c47bb74a3426ec69cdaa2d6b0781a05"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0010_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 194.2,
+   "sha256": "d15718d183f91ba0dde6cec3f5230e11c75f68930a9632710a78e24b93c2671c"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0011_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 172.6,
+   "sha256": "606df7464934f06f5ec7674e99211d6a15052fe5655df97c915ae42ac0e2832b"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0012_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 156.5,
+   "sha256": "2e1dffc2bdaf4a11fb84f2a658e60a7fe9d1433b6660a45f5aa529abc8aa156b"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0020_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 217.7,
+   "sha256": "5b9f361ba7bb2313ab8a2d67f0abc57bc3d6d4efd05fedfdc668f23770560026"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0021_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 149.1,
+   "sha256": "86c7fe8c1db3ee1af6e8621d84735f71ade6288797991f4f2dd382b030f057c7"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0022_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 132.9,
+   "sha256": "5fcb4a6250c5c3c3dfdfbd907ff472c070765f8fc64e6cbba8b5f9df162bfb75"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0100_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 208.9,
+   "sha256": "f71b3228d841b81d98c93d6cf44c300df774ea22180d9689b72405d2150dde57"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0101_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 150.9,
+   "sha256": "2640699dc6d0046f811416d8c7bcd82dec4f9ccc7fc889a8b83a0030a2bd1591"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0102_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 152.9,
+   "sha256": "ba127283f65c1522322efbe48f22d405e0b1431eb4672228a3cf864ec9cf611e"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0110_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 133321,
+   "result": "UNSAT",
+   "seconds": 187.0,
+   "sha256": "454372ab52b4fbd5845dc912785429cd904839afdb723662c7d6fe1979e8d351"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0111_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 98.8,
+   "sha256": "c4c8f9dce37412617955f8e45ff7e85a1cf56f25c4731c655771dd727f99d9c1"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0112_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 157.9,
+   "sha256": "f4c8614f6a9c026fcdbb06da93390fc817fc2163499fb43174b3e5c4cccafea9"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0120_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 128.4,
+   "sha256": "667b44369ae0c082140298896c9e567bb326a8ade47d8658ad38bcb480bd1f65"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0121_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 126.5,
+   "sha256": "5b4239ff172812ecf5d9af69c8e61d573c79000e5aa3bf2e3dcca66dc469732d"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0122_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 133321,
+   "result": "UNSAT",
+   "seconds": 80.2,
+   "sha256": "e17eb5b904c9802150baba72e777e245e7d56a30ca35ddd99a5d8ff8760d5844"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0200_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 211.6,
+   "sha256": "7c91e10d3c2480376e4078c72c44190500bb010ed986b9ee4f9d765f892e48c3"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0201_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 133321,
+   "result": "UNSAT",
+   "seconds": 186.1,
+   "sha256": "a276582b3af1cdf7a8d75d803a168342ecc84bfff55965a4f6c66a2beea017d4"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0202_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 157.6,
+   "sha256": "bc8a58baab93e6fc11654c6df845549374f0c1223fc6ca75feff71a38d055318"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0210_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 169.5,
+   "sha256": "4ac11a548b239d0b399084de829d8b4cecb745a71e44373d58dc0b248b066550"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0211_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 111.8,
+   "sha256": "cda34fd5acfa4cf2cd488d32948f9c08ae77a314fdd2fc8dddbeedd67ea98bfc"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0212_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 121.1,
+   "sha256": "b12aa52a396c01ff0bd3628dffc1b2505023df6d118e28c2aa117a5e3bcde645"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0220_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 159.2,
+   "sha256": "923701afd20ed72796a5bfcff7e39796cfe2392d6b12df28e8b91ebc548cb367"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0221_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 96.5,
+   "sha256": "98ed922c59c479e89f016c0721a12befaeb6907d5f6d9a048891549576fab274"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube0222_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 133321,
+   "result": "UNSAT",
+   "seconds": 67.0,
+   "sha256": "33ab9b914bd0ecdf792e0024d87c0e3ceb3d70a543faae561da6af9ef53605b5"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1000_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 133321,
+   "result": "UNSAT",
+   "seconds": 87.8,
+   "sha256": "0e58cbaaf902103991dc2d389199f62ac3f058b70e53948d811ec59b0d411c5a"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1001_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 99.1,
+   "sha256": "e5a8018c39dfc34710aa3ebe176d2502d19cd523ae8a310f1a62eb3459c0159d"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1002_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 69.7,
+   "sha256": "02fd101748fe0fe8480aeef8fbd6dc2468469c749e423755abcbed0ca7ea2dbb"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1010_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 133321,
+   "result": "UNSAT",
+   "seconds": 104.4,
+   "sha256": "61f73ad085f4140920d35a1b79afa8b2f2713c8712e698844d4371077c220067"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1011_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 107.2,
+   "sha256": "bf7e35f39cfbcc8768de6331a1ea9c9238cdc66541f2e4f190813fba721618d9"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1012_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 69.6,
+   "sha256": "103ded962458e53746d2ae6ff67cecf9bb3dc46c534cfcf7286ef9646737fd2f"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1020_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 75.2,
+   "sha256": "bcb10f0830a0f3c8a59e719937ef76a130301bb7b0379847cd53432aa8156362"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1021_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 64.0,
+   "sha256": "8b6623f507b800f7a2f729b996994a3726114c251ae23b7676dd2640eaa2b9b7"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1022_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 75.4,
+   "sha256": "628e0f4ffc4917c7ed0c8702767ab09c0297b290d188b8c658e13118fcbbb5b7"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1100_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 81.8,
+   "sha256": "af3204f85cf1d99185fde39bcbf78b744e588db5a49d1c303939f2ed96f7ca8c"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1101_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 66.4,
+   "sha256": "295c7251fca3e92f9b5d859c9ec0c5d140e9932174c535e8da31af5fedf25bc9"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1102_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 90.7,
+   "sha256": "a77cb4661e44020ba96ec5b8e0e64ad077873f12a0bfe0b014cc8f230ae7a219"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1110_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 75.9,
+   "sha256": "2309b64bdf6384cb91e7d4407252b65089b787e5a116fd6c483f1ce77e8288c1"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1111_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 85.7,
+   "sha256": "3d5c88ef22c75fe160592948f2283daef93c94d8cff3d94d9725464e433bd92c"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1112_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 65.0,
+   "sha256": "aeea2526772b78de52a6681c160ed3e85cd6f52f723c3c450bba5b38cbbf947b"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1120_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 64.1,
+   "sha256": "e8de4109f3507049548e49a075fccbc07c8f81eba885c309824860d14c9d49a6"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1121_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 56.5,
+   "sha256": "554e7527af803749a8fa2f3b23f5e66a0e722bddba827be89571505de2c5de9c"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1122_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 133321,
+   "result": "UNSAT",
+   "seconds": 57.2,
+   "sha256": "b11d89a4f8906eb43315f8c9210d00f35ae945e012fbf4a201210e0a877e62c6"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1200_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 78.9,
+   "sha256": "412f77fe8a45f266608a7066706da32d6850aa69372180e5f0e2026219ff4af4"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1201_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 87.6,
+   "sha256": "12e4817d1bdf9a848373c41f87b7b0cca19ed2257939049528c58c2d0fc32086"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1202_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 108.5,
+   "sha256": "c39d7b3d281fc1b1e717272d10c7d744aaefabbfa8b542f10e0d59f07b672e04"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1210_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 91.1,
+   "sha256": "8775e0bc0194280e3c80233dae2845a8459560cc8ec55ffe56ed5864892abeb1"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1211_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 81.0,
+   "sha256": "8c17a680c8ea23d2af538194aac1e630a6f62f16c3e373eb2eb5267090be0e9a"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1212_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 133321,
+   "result": "UNSAT",
+   "seconds": 86.3,
+   "sha256": "12a578c9d2ac46b01f26b1a32e1b43670bb3059f3c21ad3f5bcc0005e59a79ed"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1220_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 72.6,
+   "sha256": "7fd392f1bfa226112c92f7222736a4787517eacabb9cef3ee33c44bf0a43bd61"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1221_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 72.3,
+   "sha256": "19add0ad8c9f41980227f38d35bd453731914350d77bfc86998644ff2cd01f81"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube1222_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 58.1,
+   "sha256": "c45d9210bbceca9173d7a767e4721b265f484a9ffc1b91295add7967e5f863d6"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2000_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 197.4,
+   "sha256": "ff5d6416fbf5cb15fa672cc386810cbf792348977d33e10d72605f253c2074ae"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2001_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 140.5,
+   "sha256": "e34f91ed42ee4b1d6dcd73e1cb68f42bbf9603a17dd6697f1f334792c3a09214"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2002_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 146.0,
+   "sha256": "ce96b3349d962669abe9b582dd1eab6889730b7cec4754f092e3e3d4fce0cda5"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2010_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 181.9,
+   "sha256": "b80503d320c29dbb6679ceee208795c2c7b5beac205575512f19bb3862bce3a0"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2011_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 124.1,
+   "sha256": "10b5e64ab7b3d28def3b365b192ea54912ea6fceb5dc5f3f71d4924daa0488c8"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2012_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 126.4,
+   "sha256": "aa65d3eca05ce79f8c95592f10d1bf6fcadae1fc037fb36a9f80013d8826b2bb"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2020_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 141.0,
+   "sha256": "f1f0e8bf7518318aa36777c5a815f86e0db11106968f233ee7a799d578f9d5db"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2021_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 126.7,
+   "sha256": "031264c36f7945703a3fa4c770bd85aa0d57748ce938a2bfc74bd457dca03f05"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2022_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 96.5,
+   "sha256": "e57105ccaf2ad625bb19fa7c5c94fbb48b686af35f1b85e35c39bf1f3edd16ff"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2100_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 144.6,
+   "sha256": "6ab8f4332d38965afad8c429b2bc0cff8518e9f8095cdc1ce5a91464a06bde63"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2101_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 107.9,
+   "sha256": "13fd500d4d15c968149bc1aebec50958e31071529a6e1d8d5df3476d8244485c"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2102_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 121.0,
+   "sha256": "f33b2c41bbe493e8286817030554cd9b2ad2593995c8e7dcaa44c026915e0022"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2110_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 170.7,
+   "sha256": "2af173b7e3fd6992f80675518053d22bd9de3494ee93102f4a979d7c2eb4597a"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2111_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 109.1,
+   "sha256": "26877450462dd8cdf00653b4d62a8d5d521b1094dadb1b0486b048a70bf6fcee"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2112_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 124.3,
+   "sha256": "01bdaa428a294a3e1a4a9baee1ce9923d9e7110cd4b83ec267b604254a4114bb"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2120_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 187.0,
+   "sha256": "b98c1a5614b58e37fd60bcb50710bdf4ebda48c7670608adaa973e6140bd7160"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2121_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 103.9,
+   "sha256": "2c81df222335f8c4d24286f81031c050e2ab7dc8c4b739f703f61d483131ad73"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2122_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 103.7,
+   "sha256": "408e7a038e3f069a8f80bbbc1c0e51a2e5c417d3852f0092feecca371dfce905"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2200_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 124.8,
+   "sha256": "1a2a4b44dbecb2e7c95d2ee5a49c59e76d3e83cf3f3558bf35a1a2116bd38ce0"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2201_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 133.5,
+   "sha256": "1e7e4a08e2379c786fa612708842e9a12bede3b61ed9a0a4a62c474fa0b7067a"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2202_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 80.2,
+   "sha256": "ca7702ed062e685dc5a05f530fb78620a1ec1d28960a991bba1fb247b29f39ac"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2210_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 133321,
+   "result": "UNSAT",
+   "seconds": 176.7,
+   "sha256": "b6b4e645af8f341ac859e9a8b4549e48acb3f9cc3083d346bc125a1ba5bff94b"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2211_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 142.6,
+   "sha256": "3c473d48c8a59911a531da0166f44b2fed61fbc35b8ae6376c9bb96f0bd2dc24"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2212_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 94.3,
+   "sha256": "58cb425d48c2731c6d61ce03aface95e9ab72151f952522fae9279d532ac8a5d"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2220_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 97.2,
+   "sha256": "ee2870cc0e924341ba8c5f0e7a90a4dd11e9eec3224072da9cfbee854386c5af"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2221_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 130.4,
+   "sha256": "b9e0c52d9e0c1d6d486f0e5aba38a251c1fa5d21ce4afdc5910bd6574a80de90"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in01234_cube2222_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 33790,
+   "clauses": 132361,
+   "result": "UNSAT",
+   "seconds": 91.2,
+   "sha256": "11f7925b239a4fa3687c82260ba3b783732204bdc911c3c7cbe76bf221259557"
+  },
+  {
+   "file": "satcegar_box_5_1_k28_in0123_out4_cuts.cnf",
+   "solver": "cadical195",
+   "variables": 29500,
+   "clauses": 115388,
+   "result": "UNSAT",
+   "seconds": 235.0,
+   "sha256": "39a41a1d6a64a6ecb87700b2a9cfb706ecff5fff7180662abc6c98d061be2aa4"
+  }
+ ]
+}
