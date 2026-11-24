@@ -5,6 +5,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: ks-ci-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   id-token: write

@@ -4,6 +4,14 @@
 
 - Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
 
+## [1.6.0] — 2026-11-24
+
+### Pass 6 TOC Deep-Dive Hardening (Zero Python Bugbear Findings, Clickable PDF ORCID/Email & CI Concurrency)
+
+- **Zero Python Bugbear (`E9,F821,F822,F823,B`) Findings:** Fixed late-binding loop-variable closures (`B023`) in `scripts/build_paper.py` (`cell(tag, k, c, aligns=aligns)`) and `tests/test_verify_tools.py` (`move(r, perm=perm)`), plus all `B007` unused loop variables in `tests/{test_cnf,test_drup,test_run_all}.py`.
+- **Clickable ORCID & Correspondence Hyperlinks in `ks-minimum.pdf`:** Added clickable `\href` links to ORCID (`0009-0006-8168-9648`) and email (`0_0@0thernes.art`) on page 1 of `publication/ks-minimum/ks-minimum.tex` and recompiled `ks-minimum.pdf` cleanly with Tectonic (synced to `docs/ks-minimum.pdf`, 0 overfull hboxes ≥ 5 pt).
+- **CI Concurrency & Web CRLF Regression Guard:** Added `concurrency:` cancellation group to `.github/workflows/ci.yml` and expanded `tests/test_repo_integrity.py` CRLF guard to cover `.js`, `.mjs`, `.css`, and `.html` files alongside `.lean`/`.py`/`.c`/`.h`.
+
 ## [1.5.0] — 2026-11-24
 
 ### Pass 5 TOC Deep-Dive Hardening (Exhaustive Lean Axiom Metaprogram, C11 Stack Sanitizers & Metadata Sync)

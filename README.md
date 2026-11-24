@@ -6,7 +6,7 @@ can be re-checked without trusting the search programs.
 [![CI](https://github.com/0thernes/kochen-specker-extremal-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/0thernes/kochen-specker-extremal-lab/actions/workflows/ci.yml)
 [![Lean 4.35.0 (Zero Mathlib)](https://img.shields.io/badge/Lean-4.35.0%20(zero%20Mathlib)-blue)](lean/README.md)
 [![License: Apache-2.0 / CC-BY-4.0](https://img.shields.io/badge/license-Apache--2.0%20%2F%20CC--BY--4.0-green)](LICENSE)
-[![Version 1.5.0](https://img.shields.io/badge/version-1.5.0-informational)](CHANGELOG.md)
+[![Version 1.6.0](https://img.shields.io/badge/version-1.6.0-informational)](CHANGELOG.md)
 
 **Paper:** [Certified exact minima of Kochen-Specker sets inside coordinate pools](paper/ks-minimum.md)
 &nbsp;·&nbsp; **Register of results:** [results/RESULTS.md](results/RESULTS.md)
@@ -17,7 +17,7 @@ can be re-checked without trusting the search programs.
 [docs/statement-fidelity.md](docs/statement-fidelity.md) · [docs/SUMMARY.md](docs/SUMMARY.md) ·
 [docs/INDEX.md](docs/INDEX.md) · [CHANGELOG.md](CHANGELOG.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, version 1.5.0, 24 November 2026. Not peer reviewed. AI-assisted under human
+Status: research preprint, version 1.6.0, 24 November 2026. Not peer reviewed. AI-assisted under human
 direction (see [LIMITATIONS.md](LIMITATIONS.md) and [LEGAL.md](LEGAL.md)).
 Author: Alexander S. Donahue, independent researcher
 ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).

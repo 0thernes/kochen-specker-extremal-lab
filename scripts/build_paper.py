@@ -184,7 +184,7 @@ def convert_tables(text):
             aligns.append("center" if left and right else "right" if right else "left" if left else "")
         aligns += [""] * (len(head) - len(aligns))
 
-        def cell(tag, k, c):
+        def cell(tag, k, c, aligns=aligns):
             style = ' style="text-align:%s"' % aligns[k] if k < len(aligns) and aligns[k] else ""
             return "<%s%s>%s</%s>" % (tag, style, inline_html(c), tag)
 

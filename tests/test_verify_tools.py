@@ -457,7 +457,7 @@ class Lemma7(unittest.TestCase):
         ones = [tuple(r) for r in self.stored["ones"]]
         for triple in itertools.combinations(range(5), 3):
             perm = list(triple) + [c for c in range(5) if c not in triple]   # coordinate j -> perm[j]
-            def move(r):
+            def move(r, perm=perm):
                 w = [0] * 5
                 for j in range(5):
                     w[perm[j]] = r[j]

@@ -114,7 +114,7 @@ class RunnerUnit(unittest.TestCase):
         self.assertNotIn("KS_FIX_OUT", r.env)
 
     def test_stage_table_matches_methods(self):
-        for name, flag, title in run_all.STAGES:
+        for name, flag, _title in run_all.STAGES:
             self.assertTrue(callable(getattr(run_all.Runner, "stage_" + name.replace("-", "_"))), name)
             self.assertIn(flag, (None, "lean", "stack"))
 

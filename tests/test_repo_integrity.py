@@ -144,7 +144,7 @@ class KSRepoIntegrityTests(unittest.TestCase):
         for p in sorted(ROOT.rglob("*")):
             if not p.is_file() or any(part in skip for part in p.parts):
                 continue
-            if p.suffix.lower() in {".lean", ".py", ".c", ".h", ".sh", ".yml", ".yaml", ".toml"}:
+            if p.suffix.lower() in {".lean", ".py", ".c", ".h", ".sh", ".yml", ".yaml", ".toml", ".js", ".mjs", ".css", ".html"}:
                 if b"\r\n" in p.read_bytes():
                     crlf.append(p.relative_to(ROOT).as_posix())
         self.assertEqual(crlf, [], f"CRLF line endings found: {crlf}")

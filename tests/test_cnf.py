@@ -361,7 +361,7 @@ class Lemma6(unittest.TestCase):
         rng = random.Random(606)
         n = self.pool.n
         identity_fails = 0
-        for t in range(400):
+        for _t in range(400):
             size = rng.randint(0, n)
             S = rng.sample(range(n), size)
             ok = False
@@ -382,7 +382,7 @@ class Lemma6(unittest.TestCase):
         perms = signed_permutations(self.pool, groups=[[0, 1], [2]])
         self.assertEqual(len(perms), 16)
         rng = random.Random(607)
-        for t in range(200):
+        for _t in range(200):
             S = rng.sample(range(self.pool.n), rng.randint(0, self.pool.n))
             self.assertTrue(any(not normal_form_violations(self.pool, [g[v] for v in S], groups)
                                 for g in perms))
@@ -396,7 +396,7 @@ class Lemma6(unittest.TestCase):
 
         rng = random.Random(608)
         failures = 0
-        for t in range(200):
+        for _t in range(200):
             S = rng.sample(range(self.pool.n), rng.randint(0, 6))
             if not any(strict(self.pool, [g[v] for v in S]) for g in self.perms):
                 failures += 1

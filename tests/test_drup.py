@@ -64,7 +64,7 @@ def main():
     # random 3-SAT instances that are satisfiable must never be 'verified' with random lemmas
     rng = random.Random(7)
     bad = 0
-    for t in range(200):
+    for _t in range(200):
         nv = 8
         model = [rng.choice((1, -1)) for _ in range(nv)]
         cls = []
