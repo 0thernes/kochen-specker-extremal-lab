@@ -493,8 +493,8 @@ Lean 4.35.0.
 The research, programs, Lean proofs and text were produced by Claude (Anthropic) working as an agent at
 the request and under the direction of the author, who takes responsibility for the release. An AI
 system is not an author. The work was self-funded by the author as an independent researcher; there was no external
-funding and there are no competing interests. The repository is released under the verification
-licence in its `LICENSE` file; third-party components keep their own licences.
+funding and there are no competing interests. Code is released under Apache-2.0 (`LICENSE`) and this manuscript and documentation are released under
+CC-BY-4.0 (`LICENSE-DOCS`); third-party components keep their own licences.
 
 ## References
 

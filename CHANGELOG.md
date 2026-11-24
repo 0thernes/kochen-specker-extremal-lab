@@ -4,6 +4,13 @@
 
 - Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
 
+## [1.3.0] - 2026-11-24
+
+### Fixed & Added
+- Replaced residual pre-Apache `verification licence` sentence inside `publication/ks-minimum/ks-minimum.tex`, `paper/ks-minimum.md`, and `docs/paper.html`, added `\hypersetup` PDF Author/Title metadata, updated the manuscript version banner to `v1.3.0` (`CC-BY-4.0`), and recompiled `ks-minimum.pdf` cleanly via Tectonic (synced to `docs/ks-minimum.pdf`).
+- Added automated `tests/test_repo_integrity.py` enforcing version consistency, Apache-2.0/CC-BY-4.0 hygiene, zero broken `docs/` HTML links, and zero forbidden Lean tokens across all proof modules.
+- Verified all 24 arXiv IDs and 2 DOIs in `ks-minimum.tex` live online (0 failures).
+
 ## [1.2.0] - 2026-11-24
 
 ### Fixed
