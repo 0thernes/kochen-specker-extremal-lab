@@ -4,6 +4,15 @@
 
 - Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
 
+## [1.5.0] — 2026-11-24
+
+### Pass 5 TOC Deep-Dive Hardening (Exhaustive Lean Axiom Metaprogram, C11 Stack Sanitizers & Metadata Sync)
+
+- **Exhaustive `Lean.collectAxioms` Namespace Audit (`lean/KS/Audit.lean`):** Expanded `KS/Audit.lean` from 26 manual `#print axioms` lines to **30 explicit `#print axioms`** (adding all 4 `KS.ComparatorTarget.*` targets) PLUS an exhaustive `Lean.collectAxioms` metaprogram auditing **every single theorem in the `KS` namespace**, enforced in `.github/workflows/ci.yml` via the `ALL_KS_THEOREMS_AXIOM_AUDIT_PASS:` sentinel.
+- **Expanded C11 ASan/UBSan Coverage:** Fixed error-path cleanup in `stack/ks31_qgtl.c` and expanded `.github/workflows/ci.yml` to compile and run both `stack/ks31_qgtl.c` and `stack/ks31_qrng.c` under `-Wall -Wextra -fsanitize=address,undefined` alongside `verify/drup_check.c`.
+- **Bracket-Path Safety (`glob.escape`):** Fixed unescaped `glob.glob(os.path.join(ROOT, ...))` calls in `tests/_common.py` and `scripts/run_all.py` so checkouts inside directories containing literal brackets (`[...]`) run all 123 unit tests cleanly.
+- **SHA-256 Manifests & Version Metadata Sync:** Added `data/MANIFEST.sha256` and `docs/data/manifest.json` SHA-256 verification plus `README.md`/`zenodo-metadata.json` version checks to `tests/test_repo_integrity.py`; scrubbed residual `0thernes LLC`/`other-closed`/`verification licence` fields from `publication/zenodo-metadata.json`; updated `README.md`, `AGENTS.md`, `llms-full.txt`, `LEGAL.md`, `LIMITATIONS.md`, `docs/paper.html`, `paper/ks-minimum.md`, `publication/orcid-work.bib`, and `publication/ks-minimum/ks-minimum.tex/.pdf` to `v1.5.0`.
+
 ## [1.4.0] — 2026-11-24
 
 ### Pass 4 TOC Deep-Dive Hardening (CI, Release PDF, Citations, Links, & Security)

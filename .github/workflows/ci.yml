@@ -40,6 +40,16 @@ jobs:
           printf "p cnf 2 4\n1 2 0\n1 -2 0\n-1 2 0\n-1 -2 0\n" > /tmp/san_test.cnf
           printf "1 0\n0\n" > /tmp/san_test.drup
           ./verify/drup_check_san /tmp/san_test.cnf /tmp/san_test.drup | grep -q "s VERIFIED"
+          gcc -O1 -g -std=gnu11 -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer \
+            -Ithird_party/qgtl/include -Ithird_party/qgtl/stub \
+            third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c \
+            stack/ks31_qgtl.c -lm -o /tmp/ks31_qgtl_san
+          /tmp/ks31_qgtl_san results/ks31_box3_H2.json | grep -q "STAGE PASS"
+          gcc -O1 -g -std=gnu11 -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer \
+            -Ithird_party/quantum_rng/src/quantum_rng \
+            third_party/quantum_rng/src/quantum_rng/quantum_rng.c \
+            stack/ks31_qrng.c -lm -o /tmp/ks31_qrng_san
+          /tmp/ks31_qrng_san 20261110 | grep -q "STAGE PASS"
           python scripts/run_all.py
           bash scripts/audit-repo.sh .
       - name: Secret scan (gitleaks, report-only)
@@ -91,10 +101,13 @@ jobs:
                       sys.exit(1)
               elif no_re.match(line):
                   checked += 1
-          if checked < 20:
-              print(f"Expected >= 20 audited declarations, got {checked}", file=sys.stderr)
+          if checked < 30:
+              print(f"Expected >= 30 audited declarations, got {checked}", file=sys.stderr)
               sys.exit(1)
-          print(f"PASS: {checked} KS Lean declarations strictly within {sorted(allowed)}.")
+          if "ALL_KS_THEOREMS_AXIOM_AUDIT_PASS:" not in log_text:
+              print("Missing ALL_KS_THEOREMS_AXIOM_AUDIT_PASS sentinel in KS/Audit.lean output", file=sys.stderr)
+              sys.exit(1)
+          print(f"PASS: {checked} explicit KS Lean declarations + exhaustive namespace audit strictly within {sorted(allowed)}.")
 
           # 2. Nested-comment & string-aware forbidden-token scan
           def strip_lean(src: str) -> str:

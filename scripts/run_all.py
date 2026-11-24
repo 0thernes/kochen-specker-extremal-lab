@@ -167,7 +167,7 @@ class Runner:
             os.makedirs(os.path.join(self.work, sub))
         for pattern, sub in (("src/*.py", "src"), ("scripts/*.py", "scripts"),
                              ("verify/*.mjs", "verify"), ("verify/*.c", "verify")):
-            for path in sorted(glob.glob(os.path.join(ROOT, pattern))):
+            for path in sorted(glob.glob(os.path.join(glob.escape(ROOT), pattern))):
                 shutil.copy2(path, os.path.join(self.work, sub, os.path.basename(path)))
         return self.work
 
@@ -224,10 +224,10 @@ class Runner:
         jsbox = os.path.join(self.sandbox(), "js")
         os.makedirs(os.path.join(jsbox, "verify"))
         os.makedirs(os.path.join(jsbox, "results"))
-        for path in glob.glob(os.path.join(ROOT, "verify", "*.mjs")):
+        for path in glob.glob(os.path.join(glob.escape(ROOT), "verify", "*.mjs")):
             shutil.copy2(path, os.path.join(jsbox, "verify", os.path.basename(path)))
         for pattern in ("cert_*.json", "ks31_box3_H2.json"):
-            for path in glob.glob(os.path.join(ROOT, "results", pattern)):
+            for path in glob.glob(os.path.join(glob.escape(ROOT), "results", pattern)):
                 shutil.copy2(path, os.path.join(jsbox, "results", os.path.basename(path)))
         code, out = self.cmd([node, os.path.join(jsbox, "verify", "test_verify.mjs")], cwd=jsbox,
                              timeout=1800)
@@ -389,7 +389,7 @@ class Runner:
             self.current["data"]["toolchain"] = f.read().strip()
         # 1. no sorry / native_decide in the sources
         hits = []
-        sources = sorted(glob.glob(os.path.join(lean_dir, "KS", "*.lean")) + [os.path.join(lean_dir, "KS.lean")])
+        sources = sorted(glob.glob(os.path.join(glob.escape(lean_dir), "KS", "*.lean")) + [os.path.join(lean_dir, "KS.lean")])
         for path in sources:
             with open(path, encoding="utf-8") as f:
                 for no, line in enumerate(f, 1):
@@ -558,7 +558,7 @@ def main(argv=None):
     inputs = {}
     for pattern in ("src/*.py", "scripts/*.py", "verify/*.mjs", "verify/*.c", "tests/*.py",
                     "lean/KS/*.lean", "lean/lean-toolchain", "requirements.txt"):
-        for path in sorted(glob.glob(os.path.join(ROOT, pattern))):
+        for path in sorted(glob.glob(os.path.join(glob.escape(ROOT), pattern))):
             inputs[os.path.relpath(path, ROOT).replace("\\", "/")] = sha256_file(path)
     report = {
         "tool": "scripts/run_all.py",

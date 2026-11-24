@@ -87,7 +87,12 @@ int main(int argc, char** argv) {
         ComplexDouble v[3];
         for (int k = 0; k < 3; k++) { v[k].real = rays[i][k] / nrm; v[k].imag = 0.0; }
         pt[i] = diffgeo_point_create(e, v, 3);
-        if (!pt[i]) { printf("[qgtl] FAIL  diffgeo_point_create(%d)\n", i); return 1; }
+        if (!pt[i]) {
+            printf("[qgtl] FAIL  diffgeo_point_create(%d)\n", i);
+            for (int j = 0; j < i; j++) diffgeo_point_destroy(pt[j]);
+            diffgeo_engine_destroy(e);
+            return 1;
+        }
     }
 
     int pairs = 0, orth_int = 0, orth_fs = 0, mismatch = 0, not_smaller = 0, self_bad = 0;

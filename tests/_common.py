@@ -285,10 +285,10 @@ def make_sandbox(prefix="ks_sandbox_", with_results=()):
         os.makedirs(os.path.join(box, sub))
     for pattern, sub in (("src/*.py", "src"), ("scripts/*.py", "scripts"), ("verify/*.mjs", "verify"),
                          ("verify/*.c", "verify"), ("tests/test_drup.py", "tests")):
-        for path in glob.glob(os.path.join(ROOT, pattern)):
+        for path in glob.glob(os.path.join(glob.escape(ROOT), pattern)):
             shutil.copy2(path, os.path.join(box, sub, os.path.basename(path)))
     for pattern in with_results:
-        for path in glob.glob(os.path.join(RESULTS, pattern)):
+        for path in glob.glob(os.path.join(glob.escape(RESULTS), pattern)):
             shutil.copy2(path, os.path.join(box, "results", os.path.basename(path)))
     return box
 

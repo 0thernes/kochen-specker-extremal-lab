@@ -1,6 +1,8 @@
 """Repository-wide integrity, version sync, license, doc link, CRLF, and Lean hygiene checks."""
 from __future__ import annotations
 
+import hashlib
+import json
 import os
 import re
 import unittest
@@ -81,6 +83,11 @@ class KSRepoIntegrityTests(unittest.TestCase):
         self.assertRegex(formal, re.compile(rf'^version:\s*"{re.escape(version)}"$', re.M))
         lakefile = (ROOT / "lean" / "lakefile.toml").read_text(encoding="utf-8")
         self.assertRegex(lakefile, re.compile(rf'^version\s*=\s*"{re.escape(version)}"$', re.M))
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn(f"Version {version}", readme)
+        self.assertIn(f"version {version}", readme)
+        zenodo = json.loads((ROOT / "publication" / "zenodo-metadata.json").read_text(encoding="utf-8"))
+        self.assertEqual(zenodo["metadata"]["version"], version)
 
     def test_open_dual_license_and_independent_affiliation(self) -> None:
         lic = (ROOT / "LICENSE").read_text(encoding="utf-8")
@@ -94,6 +101,7 @@ class KSRepoIntegrityTests(unittest.TestCase):
             "docs/index.html", "docs/paper.html", "docs/SUMMARY.md",
             "paper/ks-minimum.md", "publication/ks-minimum/ks-minimum.tex",
             "publication/orcid-work.bib", "publication/arxiv-metadata.txt",
+            "publication/zenodo-metadata.json",
         ]
         hits = [r for r in active if (ROOT / r).is_file() and pat.search((ROOT / r).read_text(encoding="utf-8"))]
         self.assertEqual(hits, [], f"Legacy LLC or verification-licence string found: {hits}")
@@ -152,6 +160,29 @@ class KSRepoIntegrityTests(unittest.TestCase):
                 if forbidden.search(line):
                     hits.append(f"{lf.relative_to(ROOT)}:{lineno}: {line.strip()}")
         self.assertEqual(hits, [], f"Forbidden Lean tokens: {hits}")
+
+    def test_data_manifest_and_docs_manifest_sha256(self) -> None:
+        manifest = ROOT / "data" / "MANIFEST.sha256"
+        self.assertTrue(manifest.is_file())
+        count = 0
+        for line in manifest.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            expected, rel = line.split(None, 1)
+            target = ROOT / rel.strip().lstrip("*")
+            self.assertTrue(target.is_file(), f"Missing manifest file: {rel}")
+            self.assertEqual(hashlib.sha256(target.read_bytes()).hexdigest(), expected.lower(), f"Hash mismatch: {rel}")
+            count += 1
+        self.assertGreaterEqual(count, 8)
+
+        docs_manifest = json.loads((ROOT / "docs" / "data" / "manifest.json").read_text(encoding="utf-8"))
+        for fname, info in docs_manifest["files"].items():
+            target = ROOT / "docs" / "data" / fname
+            self.assertTrue(target.is_file(), f"Missing docs/data/{fname}")
+            raw = target.read_bytes()
+            self.assertEqual(len(raw), info["bytes"], f"Byte-length mismatch: docs/data/{fname}")
+            self.assertEqual(hashlib.sha256(raw).hexdigest(), info["sha256"].lower(), f"Hash mismatch: docs/data/{fname}")
 
 
 if __name__ == "__main__":
