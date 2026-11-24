@@ -5,7 +5,7 @@ title = "kochen-specker-extremal-lab gitleaks config"
 [extend]
 useDefault = true
 
-[[allowlists]]
+[allowlist]
 description = "SHA-256 hex digest of scripts/scan_large_tokens.py in results/run_all.json triggers generic-api-key because the filename contains 'tokens'."
 regexTarget = "line"
 paths = ['''^results/run_all\.json$''']

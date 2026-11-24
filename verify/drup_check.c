@@ -265,6 +265,26 @@ static int read_clause(FILE *f, int **buf, int *cap, int allow_d, int *is_del) {
     }
 }
 
+static void cleanup_all(void) {
+    if (clauses) {
+        for (long i = 0; i < nclauses; i++) free(clauses[i].lits);
+        free(clauses);
+    }
+    if (watch) {
+        for (int i = 1; i <= nvars; i++) {
+            free(watch[2 * i]);
+            free(watch[2 * i + 1]);
+        }
+        free(watch);
+    }
+    free(wsize);
+    free(wcap);
+    free(val);
+    free(mark);
+    free(trail);
+    free(bucket);
+}
+
 int main(int argc, char **argv) {
     if (argc != 3) { fprintf(stderr, "usage: drup_check formula.cnf proof.drat\n"); return 2; }
     FILE *f = fopen(argv[1], "r");
@@ -278,12 +298,14 @@ int main(int argc, char **argv) {
     while ((n = read_clause(f, &buf, &cap, 0, &is_del)) >= 0) { add_clause(buf, n); norig++; }
     fclose(f);
     /* the formula must be the file its header describes: a truncated or altered file is refused */
-    if (header_clauses < 0) bad_input("no \"p cnf\" line");
-    if (norig != header_clauses || max_var_seen > header_vars)
+    if (header_clauses < 0) { free(buf); cleanup_all(); bad_input("no \"p cnf\" line"); }
+    if (norig != header_clauses || max_var_seen > header_vars) {
+        free(buf); cleanup_all();
         bad_input("the clauses do not match the \"p cnf\" line (truncated or altered file)");
+    }
     if (!top_conflict && propagate()) top_conflict = 1;
     f = fopen(argv[2], "r");
-    if (!f) { perror(argv[2]); return 2; }
+    if (!f) { perror(argv[2]); free(buf); cleanup_all(); return 2; }
     cur_file = argv[2];
     int derived_empty = top_conflict;
     while (!derived_empty && (n = read_clause(f, &buf, &cap, 1, &is_del)) != -1) {
@@ -300,12 +322,15 @@ int main(int argc, char **argv) {
         backtrack(pos);
         if (!ok) {
             printf("c lemma %ld is not implied by unit propagation\ns NOT VERIFIED\n", nlemma);
+            fclose(f); free(buf); cleanup_all();
             return 1;
         }
         add_clause(buf, n);
         if (top_conflict) derived_empty = 1;
     }
     fclose(f);
+    free(buf);
+    cleanup_all();
     printf("c %ld original clauses, %ld lemmas checked, %ld deletion lines (%ld applied)\n",
            norig, nlemma, ndel, ndel_found);
     if (derived_empty) { printf("s VERIFIED\n"); return 0; }
