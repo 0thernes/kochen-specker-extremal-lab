@@ -31,7 +31,7 @@ import time
 
 from ortools.sat.python import cp_model
 
-from ksengine import bits, mask, popcount
+from ksengine import bits, mask
 
 
 class Master:
@@ -224,7 +224,6 @@ class Master:
         if pairs:
             import random
             rng = random.Random(5)
-            seen = set()
             cand = [(v, w) for v in reps for w in range(self.n)
                     if w != v and not (self.pool.adj[v] >> w) & 1]
             rng.shuffle(cand)

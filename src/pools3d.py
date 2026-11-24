@@ -13,7 +13,7 @@ from math import gcd
 
 import numpy as np
 
-from ksengine import Pool, Symmetry, mask
+from ksengine import Pool, Symmetry
 
 
 def primitive3(a, b, c):

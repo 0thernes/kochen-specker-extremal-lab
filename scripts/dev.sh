@@ -11,6 +11,9 @@ case "$cmd" in
     ;;
   test)
     "$PY" -m unittest discover -s tests -v
+    if command -v node >/dev/null 2>&1; then
+      node --test docs/assets/verify.test.mjs
+    fi
     ;;
   verify-lean)
     (cd lean && lake build KS Solution)
@@ -19,7 +22,19 @@ case "$cmd" in
     ;;
   sanitizers)
     mkdir -p build/san
-    gcc -O1 -g -std=c11 -Wall -Wextra -fsanitize=address,undefined verify/drup_check.c -o build/san/drup_check_san
+    gcc -O1 -g -std=c11 -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer verify/drup_check.c -o build/san/drup_check_san
+    printf "p cnf 2 4\n1 2 0\n1 -2 0\n-1 2 0\n-1 -2 0\n" > build/san/test.cnf
+    printf "1 0\n0\n" > build/san/test.drup
+    ./build/san/drup_check_san build/san/test.cnf build/san/test.drup | grep -q "s VERIFIED"
+    gcc -O1 -g -std=gnu11 -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer \
+      -Ithird_party/qgtl/include -Ithird_party/qgtl/stub \
+      third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c \
+      stack/ks31_qgtl.c -lm -o build/san/ks31_qgtl_san
+    ./build/san/ks31_qgtl_san results/ks31_box3_H2.json | grep -q "STAGE PASS"
+    gcc -O1 -g -std=c11 -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer \
+      stack/ks31_qrng.c -o build/san/ks31_qrng_san
+    ./build/san/ks31_qrng_san | grep -q "\[qrng\] PASS"
+    echo "All 3 KS C11 ASan/UBSan checks passed."
     ;;
   reproduce)
     "$PY" -m unittest discover -s tests -v

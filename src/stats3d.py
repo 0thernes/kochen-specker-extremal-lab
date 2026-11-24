@@ -1,4 +1,4 @@
-import sys, os, time, collections
+import sys, os, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pools3d
 from ksengine import popcount

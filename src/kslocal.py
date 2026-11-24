@@ -11,7 +11,6 @@ import math
 import random
 import time
 
-from ksengine import mask, bits
 
 
 def shrink_random(pool, S, rng, protect=()):

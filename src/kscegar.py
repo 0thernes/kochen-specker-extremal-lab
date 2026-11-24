@@ -24,7 +24,7 @@ import time
 from pysat.card import ITotalizer
 from pysat.solvers import Solver
 
-from ksengine import bits, mask, popcount
+from ksengine import bits, mask
 
 
 class Cegar:
@@ -108,7 +108,6 @@ class Cegar:
         if ones is None:
             return None
         best = None
-        Sm = mask(S)
         for t in range(tries):
             I = set(ones)
             blocked = 0

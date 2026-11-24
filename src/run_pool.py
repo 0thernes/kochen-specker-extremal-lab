@@ -22,7 +22,6 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def main(argv):
-    args = [a for a in argv if not a.startswith("--")]
     opts = {}
     it = iter(argv)
     for a in it:

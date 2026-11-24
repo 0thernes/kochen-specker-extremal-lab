@@ -6,7 +6,7 @@ can be re-checked without trusting the search programs.
 [![CI](https://github.com/0thernes/kochen-specker-extremal-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/0thernes/kochen-specker-extremal-lab/actions/workflows/ci.yml)
 [![Lean 4.35.0 (Zero Mathlib)](https://img.shields.io/badge/Lean-4.35.0%20(zero%20Mathlib)-blue)](lean/README.md)
 [![License: Apache-2.0 / CC-BY-4.0](https://img.shields.io/badge/license-Apache--2.0%20%2F%20CC--BY--4.0-green)](LICENSE)
-[![Version 1.6.0](https://img.shields.io/badge/version-1.6.0-informational)](CHANGELOG.md)
+[![Version 1.7.0](https://img.shields.io/badge/version-1.7.0-informational)](CHANGELOG.md)
 
 **Paper:** [Certified exact minima of Kochen-Specker sets inside coordinate pools](paper/ks-minimum.md)
 &nbsp;·&nbsp; **Register of results:** [results/RESULTS.md](results/RESULTS.md)
@@ -17,7 +17,7 @@ can be re-checked without trusting the search programs.
 [docs/statement-fidelity.md](docs/statement-fidelity.md) · [docs/SUMMARY.md](docs/SUMMARY.md) ·
 [docs/INDEX.md](docs/INDEX.md) · [CHANGELOG.md](CHANGELOG.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, version 1.6.0, 24 November 2026. Not peer reviewed. AI-assisted under human
+Status: research preprint, version 1.7.0, 24 November 2026. Not peer reviewed. AI-assisted under human
 direction (see [LIMITATIONS.md](LIMITATIONS.md) and [LEGAL.md](LEGAL.md)).
 Author: Alexander S. Donahue, independent researcher
 ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
@@ -179,7 +179,7 @@ PASS  cert-gen         0.6s  cert_box3_H2_k30.json: 255 nodes, same as committed
 PASS  cert-verify      0.1s  2 certificates PASS; corrupted copy rejected
 PASS  drup-49          2.2s  63 cuts, CNF 5254 vars / 20235 clauses, UNSAT, proof VERIFIED (183 lemmas)
 PASS  drup-40          1.5s  84 cuts, CNF 4427 vars / 16847 clauses, UNSAT, proof VERIFIED (307 lemmas)
-PASS  lean            20.3s  26 theorems audited, axioms used: Classical.choice, Quot.sound, propext; no sorry
+PASS  lean            20.3s  30 explicit + exhaustive KS audit, axioms used: Classical.choice, Quot.sound, propext; no sorry
 ```
 
 followed by a `SUMMARY:` line and `exit code 0` (this run used `--lean`; the `lean` stage is
@@ -218,7 +218,8 @@ lake env lean KS/Audit.lean
 Plain `lake build` checks every module: the definitions and checkers (`KS/Basic.lean`), the statement
 in terms of integer vectors (`KS/Spec.lean`), the two data modules and the regression tests
 (`KS/Tests.lean`). It succeeds only if the Lean kernel accepts every proof. The second command prints
-the axioms of 26 theorems. Every line shows at most `propext`, `Classical.choice` and `Quot.sound`,
+the axioms of 30 explicit headline declarations and runs an exhaustive `Lean.collectAxioms` metaprogram
+checking all 149 theorems in the `KS` namespace (`ALL_KS_THEOREMS_AXIOM_AUDIT_PASS`). Every line shows at most `propext`, `Classical.choice` and `Quot.sound`,
 the three standard axioms of Lean; some lines show fewer or none. The two lines for the two main
 theorems are
 

@@ -419,10 +419,12 @@ class Runner:
                 problems.append(f"{name} depends on {', '.join(extra)}")
         if re.search(r"\bsorry", out):
             problems.append("the audit output mentions sorry")
+        if "ALL_KS_THEOREMS_AXIOM_AUDIT_PASS:" not in out:
+            problems.append("missing ALL_KS_THEOREMS_AXIOM_AUDIT_PASS exhaustive audit sentinel")
         if problems:
             raise Failure("; ".join(problems))
         used = sorted({a for name in wanted for a in audit[name]})
-        return f"{len(wanted)} theorems audited, axioms used: {', '.join(used) if used else 'none'}; no sorry"
+        return f"{len(wanted)} explicit + exhaustive KS audit, axioms used: {', '.join(used) if used else 'none'}; no sorry"
 
     def stage_stack(self):
         # run_stack.py runs in place: it rewrites results/stack_demo.json and logs/stack_*.log

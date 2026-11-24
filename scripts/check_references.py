@@ -21,8 +21,10 @@ UA = "ks-extremal-lab-reference-check/1.0 (https://github.com/0thernes/kochen-sp
 
 
 def get(url, timeout=30):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
+    if not url.startswith(("https://", "http://")):
+        raise ValueError(f"Unsupported URL scheme: {url!r}")
+    req = urllib.request.Request(url, headers={"User-Agent": UA})  # noqa: S310
+    with urllib.request.urlopen(req, timeout=timeout) as r:  # noqa: S310
         return r.read().decode("utf-8", "replace")
 
 

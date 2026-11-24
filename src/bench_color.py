@@ -2,7 +2,7 @@
 import sys, os, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pools3d
-from ksengine import bits, mask
+from ksengine import bits
 from pysat.formula import WCNF
 from pysat.examples.rc2 import RC2, RC2Stratified
 

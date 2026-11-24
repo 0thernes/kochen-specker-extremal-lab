@@ -7,7 +7,6 @@ ks_cnf.py + drup_check can certify the final formula independently.
 """
 from __future__ import annotations
 
-import json
 import os
 import sys
 import time

@@ -28,7 +28,6 @@ from pysat.solvers import Solver  # noqa: E402
 import ks_cnf  # noqa: E402
 import ksmaster  # noqa: E402
 import pools  # noqa: E402
-from ksengine import bits  # noqa: E402
 
 
 def counter_errors(nvars, clauses, inputs, out, spec=lambda count, j: count >= j):

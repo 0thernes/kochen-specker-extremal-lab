@@ -1,8 +1,8 @@
 """Exploration of the {0,+1,-1}^5 pool: correction-set structure and timings."""
-import sys, os, time, itertools, random
+import sys, os, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pools
-from ksengine import Pool, Symmetry, HittingSets, mask, bits, popcount
+from ksengine import HittingSets, bits
 from ortools.sat.python import cp_model
 
 

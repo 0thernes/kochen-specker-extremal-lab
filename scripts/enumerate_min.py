@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.join(ROOT, "src"))
 from ortools.sat.python import cp_model
 
 from ksdfs import build
-from ksengine import bits, mask
+from ksengine import bits
 from ksmaster import Master
 
 

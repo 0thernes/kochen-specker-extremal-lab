@@ -34,7 +34,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.setrecursionlimit(100000)
 
 from ksdfs import KSDfs, build
-from ksengine import bits, mask, popcount
+from ksengine import bits, popcount
 
 
 class CertDfs(KSDfs):
@@ -140,7 +140,6 @@ def check_pool(cert):
            for i in range(n)]
     if adj != [sorted(a) for a in cert["adj"]]:
         return False
-    import itertools
     aset = [set(a) for a in adj]
     bases = []
 

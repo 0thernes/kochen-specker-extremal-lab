@@ -1,9 +1,8 @@
 """Experiment: how hard is the d=5 candidate problem for different solvers / encodings?"""
-import sys, os, time, random, threading
+import sys, os, time, threading
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pools
 from kscegar import Cegar
-from ksengine import mask, bits, popcount
 from pysat.solvers import Solver
 from pysat.card import CardEnc, EncType
 
@@ -49,13 +48,13 @@ for rnd in range(rounds):
         for sname in ("g4", "cd15", "mcb"):
             try:
                 s = Solver(name=sname, bootstrap_with=clauses + card.clauses)
-            except Exception as e:
+            except Exception:
                 results[(enc_name, sname)] = "n/a"
                 continue
             t = time.time()
             try:
                 r = run_with_timeout(s, [], limit)
-            except Exception as e:
+            except Exception:
                 r = "err"
             dt = time.time() - t
             results[(enc_name, sname)] = (r, round(dt, 1))

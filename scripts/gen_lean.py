@@ -30,7 +30,7 @@ sys.setrecursionlimit(100000)
 import pools
 from gen_cert import CertDfs, check as check_tree
 from ksdfs import KSDfs
-from ksengine import bits, mask, popcount
+from ksengine import bits, mask
 
 
 def emit_cert(node):
@@ -368,9 +368,9 @@ def main():
     L.append(f"{len(pool.bases)} bases).  Proved here by kernel evaluation of the checkers of KS/Basic.lean:")
     L.append(f"  * a set of {kmin} rays that is not colourable (a Kochen-Specker set);")
     L.append(f"  * every set of at most {kmin-1} rays is colourable.")
-    L.append(f"The last four theorems restate this for the vectors themselves: `rays` is the pool")
+    L.append("The last four theorems restate this for the vectors themselves: `rays` is the pool")
     L.append(f"`boxRays {d} {H}` of KS/Spec.lean, which lists every ray of the box exactly once, and")
-    L.append(f"colourability is `VColorable` (dot products only).")
+    L.append("colourability is `VColorable` (dot products only).")
     L.append("Do not edit by hand.")
     L.append("-/")
     L.append("import KS.Spec")
@@ -425,7 +425,7 @@ def main():
     L.append("  not_colorable_of_refute_root pool ksSet _ refu_ok")
     L.append("")
     L.append(f"/-- The minimum size of a Kochen-Specker set inside the pool is exactly {kmin}. -/")
-    L.append(f"theorem minimum_ks_size :")
+    L.append("theorem minimum_ks_size :")
     L.append(f"    (∃ T, T < 2 ^ {n} ∧ card {n} T = {kmin} ∧ ¬ Colorable pool T) ∧")
     L.append(f"    (∀ T, T < 2 ^ {n} → card {n} T ≤ {kmin-1} → Colorable pool T) :=")
     L.append("  ⟨⟨ksSet, ksSet_lt, ksSet_card, ksSet_not_colorable⟩, small_sets_colorable⟩")
@@ -442,15 +442,15 @@ def main():
     L.append(f"/-- Every ray of Z^{d} with a representative of max-norm at most {H} is listed exactly once:")
     L.append(f"each non-zero integer vector of length {d} with entries in -{H}..{H} is parallel to exactly one")
     L.append(f"vector of `boxRays {d} {H}`. -/")
-    L.append(f"theorem boxRays_exact :")
+    L.append("theorem boxRays_exact :")
     L.append(f"    ∀ v : List Int, v.length = {d} → (∀ a, a ∈ v → -{H} ≤ a ∧ a ≤ {H}) → (∃ a, a ∈ v ∧ a ≠ 0) →")
     L.append(f"      (boxRays {d} {H}).countP (fun u => parallel u v) = 1 :=")
     L.append(f"  countP_parallel_of_boxExact (d := {d}) (H := {H}) (by decide +kernel)")
     L.append("")
     L.append(f"/-- The minimum size of a Kochen-Specker set inside B({d},{H}) is exactly {kmin}, stated with the")
     L.append(f"vectors only.  A set of rays is the bit mask `T` of their positions in `boxRays {d} {H}`;")
-    L.append(f"`VColorable` speaks about dot products of the listed vectors and nothing else. -/")
-    L.append(f"theorem minimum_ks_size_vectors :")
+    L.append("`VColorable` speaks about dot products of the listed vectors and nothing else. -/")
+    L.append("theorem minimum_ks_size_vectors :")
     L.append(f"    (∃ T, T < 2 ^ {n} ∧ card {n} T = {kmin} ∧ ¬ VColorable (boxRays {d} {H}) {d} T) ∧")
     L.append(f"    (∀ T, T < 2 ^ {n} → card {n} T ≤ {kmin-1} → VColorable (boxRays {d} {H}) {d} T) := by")
     L.append("  rw [← rays_eq]")

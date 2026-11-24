@@ -4,6 +4,14 @@
 
 - Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
 
+## [1.7.0] — 2026-11-24
+
+### Pass 7 TOC Deep-Dive Hardening (Zero `ruff E9,F,B,S`, Exhaustive `run_all` Lean Sentinel, Dev Sanitizers & Live Pages QA)
+
+- **Zero `ruff E9,F,B,S` Security/Quality Findings:** Added explicit `https://`/`http://` URL scheme validation (`S310`) in `scripts/check_references.py` and removed all 33 unused imports/variables and extraneous f-strings (`F401`/`F541`/`F841`) across `src/`, `scripts/`, and `tests/`.
+- **Exhaustive Lean Sentinel in `run_all.py` & Fresh `README.md` Counts:** Updated `scripts/run_all.py` `stage_lean` to require the `ALL_KS_THEOREMS_AXIOM_AUDIT_PASS:` exhaustive 149-theorem KS namespace sentinel alongside all 30 explicit `#print axioms` checks, and synced `README.md` (`26` → `30 explicit + exhaustive 149-theorem KS audit`).
+- **Local Dev Parity & Interactive Paper Polish:** Upgraded `scripts/dev.sh` and `justfile` so `test` runs Node certificate verifier tests and `sanitizers` compiles & executes all 3 C11 ASan/UBSan engines (`drup_check_san`, `ks31_qgtl_san`, `ks31_qrng_san`); made ORCID and email clickable links in `docs/paper.html`; verified live GitHub Pages (`docs/index.html` & `docs/paper.html`) in browser QA.
+
 ## [1.6.0] — 2026-11-24
 
 ### Pass 6 TOC Deep-Dive Hardening (Zero Python Bugbear Findings, Clickable PDF ORCID/Email & CI Concurrency)

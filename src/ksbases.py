@@ -23,7 +23,7 @@ import time
 
 from ortools.sat.python import cp_model
 
-from ksengine import bits, mask, popcount
+from ksengine import bits, mask
 
 
 class BaseCuts:
@@ -48,7 +48,6 @@ class BaseCuts:
         """Independent set I hitting every basis inside S and missing as few
         bases overall as possible.  Returns (I, missed basis indices) or None
         when S is not colorable."""
-        pool = self.pool
         Sm = mask(S)
         m = cp_model.CpModel()
         c = [m.NewBoolVar(f"c{v}") for v in range(self.n)]

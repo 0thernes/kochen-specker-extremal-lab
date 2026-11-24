@@ -14,8 +14,7 @@ lint:
     python3 -m ruff check src/ scripts/ tests/ || true
 
 sanitizers:
-    mkdir -p build/san
-    gcc -O1 -g -std=c11 -Wall -Wextra -fsanitize=address,undefined verify/drup_check.c -o build/san/drup_check_san
+    bash scripts/dev.sh sanitizers
 
 verify-lean:
     bash scripts/dev.sh verify-lean
