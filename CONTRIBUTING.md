@@ -41,8 +41,4 @@ under human direction (see `LEGAL.md`).
 
 ## Licence
 
-The repository is released under the verification licence in `LICENSE`. It allows downloading,
-building, running and studying the material in order to check it. It does not allow redistribution of
-modified versions without written permission, so please do not publish forks that present changed
-results under this project's name. By sending a patch you agree that it may be included under the same
-licence.
+Code is released under **Apache-2.0** (`LICENSE`), and manuscripts/documentation are released under **CC-BY-4.0** (`LICENSE-DOCS`). By sending a patch you agree that it may be included under the same licences.

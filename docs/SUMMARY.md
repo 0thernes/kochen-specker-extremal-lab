@@ -2,7 +2,7 @@
 
 Kochen-Specker Extremal Lab, version 1.0.0, 10 November 2026. Research preprint, not peer reviewed.
 Produced by an AI system (Claude, Anthropic) at the request and under the direction of Alexander S.
-Donahue, 0thernes LLC, who is responsible for the release.
+Donahue (independent researcher), who is responsible for the release.
 
 ## The question
 

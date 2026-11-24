@@ -4,6 +4,14 @@
 
 - Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
 
+## [1.2.0] - 2026-11-24
+
+### Fixed
+- Fixed Linux case-sensitivity failure on `A44` (`docs/GLOSSARY.md` -> `docs/glossary.md`).
+- Removed remaining legacy `0thernes LLC` and pre-Apache `verification licence` prose across `README.md`, `CONTRIBUTING.md`, `docs/`, `paper/`, and `publication/`, and recompiled `ks-minimum.pdf` via Tectonic.
+- Added surgical `.gitleaks.toml` allowlist for the SHA-256 hex digest of `scripts/scan_large_tokens.py` inside `results/run_all.json` (0 false-positive secret warnings).
+- Honestly documented `A24` in `repo.yaml` as `partial` due to the two intentionally preserved historical 8-12 MB JSON cut certificates in `results/`.
+
 ## [1.1.0] - 2026-11-24
 
 ### Added

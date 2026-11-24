@@ -439,19 +439,13 @@ Deferred work, each item with the condition that would trigger it, is listed in
 
 ## 9. Licence, citation, AI disclosure, contact
 
-**Licence.** Copyright © 2026 0thernes LLC (Alexander S. Donahue). The repository is released under
-the verification licence in [LICENSE](LICENSE): anyone may download, build, run and study it to check,
-reproduce or referee the results, and quote from it with attribution; redistribution of modified
-versions and commercial use need written permission. Third-party components keep their MIT licences
-([NOTICE](NOTICE), [third_party/README.md](third_party/README.md)). Plain-language notes are in
-[LEGAL.md](LEGAL.md).
+**Licence.** Code is released under **Apache-2.0** ([LICENSE](LICENSE)); manuscripts and documentation are released under **CC-BY-4.0** ([LICENSE-DOCS](LICENSE-DOCS)). Third-party components keep their MIT licences ([NOTICE](NOTICE), [third_party/README.md](third_party/README.md)). Plain-language notes are in [LEGAL.md](LEGAL.md).
 
 **Citation.** See [CITATION.cff](CITATION.cff). Please also cite the prior work credited in section 5.
 
 **AI disclosure.** The research, programs, Lean proofs and text were produced by an AI system, Claude
 (Anthropic), working as an agent at the request and under the direction of the author, who is
-responsible for the release. An AI system is not an author. The work was funded by the author through
-0thernes LLC; there was no external funding and there are no competing interests.
+responsible for the release. An AI system is not an author. The work was self-funded by the author as an independent researcher; there was no external funding and there are no competing interests.
 
 **Contact and corrections.** If you find an error in a statement, a proof or a count, or know of
 earlier work that already contains one of the results, please open an issue on

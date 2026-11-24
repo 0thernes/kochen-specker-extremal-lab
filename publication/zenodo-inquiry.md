@@ -33,4 +33,4 @@ prefer. If it is not, I will not deposit it.
 Repository: https://github.com/0thernes/kochen-specker-extremal-lab
 
 Thank you,
-Alexander S. Donahue, 0thernes LLC (Zenodo account registered to 0_0@0thernes.art)
+Alexander S. Donahue (independent researcher) (Zenodo account registered to 0_0@0thernes.art)

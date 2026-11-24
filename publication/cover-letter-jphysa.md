@@ -50,5 +50,5 @@ Suggested referees and any exclusions: (to be completed by the author).
 Yours sincerely,
 
 Alexander S. Donahue
-0thernes LLC, Washington, USA
+Independent researcher, Spokane, WA, USA
 0_0@0thernes.art

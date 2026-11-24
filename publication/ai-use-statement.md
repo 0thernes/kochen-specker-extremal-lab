@@ -3,7 +3,7 @@
 Title: Certified exact minima of Kochen-Specker sets inside coordinate pools: 31 and 33 rays in
 dimension three, 18 in dimension four, 29 in dimension five
 
-Author: Alexander S. Donahue, 0thernes LLC, Washington, USA (ORCID 0009-0006-8168-9648)
+Author: Alexander S. Donahue, Independent researcher, Spokane, WA, USA (ORCID 0009-0006-8168-9648)
 
 1. The research plan, the programs, the computations, the Lean 4 proofs and the text of the manuscript
    were produced by an AI system, Claude (Anthropic), working as a software agent at the request and

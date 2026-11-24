@@ -47,7 +47,7 @@ items:
   A21: {status: done}
   A22: {status: done}
   A23: {status: done}
-  A24: {status: done}
+  A24: {status: partial, note: "Zero secrets, build artifacts, or .env committed; two historical JSON cut-certificate files (8.24 MB and 12.30 MB) are intentionally retained in results/ for offline proof replay."}
   A25: {status: done}
   A26: {status: done}
   A27: {status: done}
