@@ -1,6 +1,7 @@
 """Repository-wide integrity, version sync, license, doc link, CRLF, and Lean hygiene checks."""
 from __future__ import annotations
 
+import os
 import re
 import unittest
 from pathlib import Path
@@ -53,11 +54,13 @@ def strip_lean_comments(src: str) -> str:
 def path_exists_case_exact(root: Path, target: Path) -> bool:
     if not target.exists():
         return False
+    norm_target = Path(os.path.normpath(str(target)))
+    norm_root = Path(os.path.normpath(str(root)))
     try:
-        rel_parts = target.resolve().relative_to(root.resolve()).parts
+        rel_parts = norm_target.relative_to(norm_root).parts
     except ValueError:
         return True
-    cur = root.resolve()
+    cur = norm_root
     for part in rel_parts:
         names = {entry.name for entry in cur.iterdir()}
         if part not in names:
@@ -106,7 +109,7 @@ class KSRepoIntegrityTests(unittest.TestCase):
                 clean = href.split("#", 1)[0].split("?", 1)[0]
                 if not clean:
                     continue
-                if not path_exists_case_exact(ROOT, (hf.parent / clean).resolve()):
+                if not path_exists_case_exact(ROOT, hf.parent / clean):
                     broken_html.append((hf.relative_to(docs).as_posix(), attr, href))
         self.assertEqual(broken_html, [], f"Broken local links in docs/: {broken_html}")
 
@@ -121,7 +124,7 @@ class KSRepoIntegrityTests(unittest.TestCase):
                 target = m.group(1)
                 if target.startswith(("http://", "https://", "mailto:", "data:", "javascript:")):
                     continue
-                if not path_exists_case_exact(ROOT, (md.parent / target).resolve()):
+                if not path_exists_case_exact(ROOT, md.parent / target):
                     broken_md.append((md.relative_to(ROOT).as_posix(), target))
         self.assertEqual(broken_md, [], f"Broken/wrong-case Markdown links: {broken_md}")
         for rel in ("docs/INDEX.md", "docs/SUMMARY.md"):

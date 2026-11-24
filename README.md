@@ -77,7 +77,7 @@ differs from it, the register is right.
 
 Pools: B(d, H) = rays of Zᵈ with a representative whose coordinates have absolute value at most H.
 U(d, N) = rays of Cᵈ whose entries are 0 or N-th roots of unity. "Core" is the part of the pool that
-can belong to a smallest Kochen-Specker set (see the [glossary](docs/GLOSSARY.md)).
+can belong to a smallest Kochen-Specker set (see the [glossary](docs/glossary.md)).
 
 | # | Pool | rays (core) | bases | minimum | KS sets of minimum size | evidence |
 |---|---|---|---|---|---|---|
