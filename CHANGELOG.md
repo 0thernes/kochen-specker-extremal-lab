@@ -4,6 +4,14 @@
 
 - Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
 
+## [1.4.0] — 2026-11-24
+
+### Pass 4 TOC Deep-Dive Hardening (CI, Release PDF, Citations, Links, & Security)
+
+- **GitHub Release PDF Asset & Workflow Hardening:** Added `publication/ks-minimum/ks-minimum.pdf` directly to `.github/workflows/release.yml` release assets + SHA256SUMS + SLSA provenance; added explicit `timeout-minutes:` to `pages.yml` and `release.yml`; added runtime execution of ASan/UBSan-instrumented `verify/drup_check_san`, `set -o pipefail`, live Lean axiom-allowlist parsing of `results/lean-audit-ci.log`, comment-aware nested Lean forbidden-token scanning, and cross-platform `node --test docs/assets/verify.test.mjs` to `ci.yml`.
+- **Manuscript, BibTeX & Link Polish:** Fixed remaining `3.73 pt` table-header overfull hbox (`0` overfull hboxes ≥ 1 pt) and aligned exact literature titles `[15]`, `[20]`, `[40]` against live arXiv/Crossref metadata (`26/26` citations semantically verified); synced `publication/orcid-work.bib`, `lean/lakefile.toml`, `VERSION`, `CITATION.cff`, and `formalization.yaml` to `1.4.0`; fixed all 6 uppercase `GLOSSARY.md` references in `docs/INDEX.md` and `docs/SUMMARY.md`.
+- **Tooling & Security Hygiene:** Fixed `.NET CurrentDirectory` bug in `scripts/Audit-Repo.ps1`, replaced deprecated `datetime.datetime.utcnow()` in `scripts/run_stack.py`, fixed `.gitleaks.toml` with `regexTarget = "line"`, and expanded `tests/test_repo_integrity.py` with case-exact Markdown link, `lakefile.toml` version, CRLF, and nested-comment Lean hygiene gates.
+
 ## [1.3.0] - 2026-11-24
 
 ### Fixed & Added

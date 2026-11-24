@@ -7,5 +7,6 @@ useDefault = true
 
 [[allowlists]]
 description = "SHA-256 hex digest of scripts/scan_large_tokens.py in results/run_all.json triggers generic-api-key because the filename contains 'tokens'."
+regexTarget = "line"
 paths = ['''^results/run_all\.json$''']
 regexes = ['''"scripts/scan_large_tokens\.py":\s*"[0-9a-f]{64}"''']

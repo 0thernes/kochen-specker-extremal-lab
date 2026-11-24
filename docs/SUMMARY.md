@@ -135,6 +135,6 @@ cd lean && lake build && lake env lean KS/Audit.lean
 ```
 
 What each command should print is described in the [README](../README.md), section 3. Where each claim
-is proved, tested and logged: [INDEX.md](INDEX.md). The terms: [GLOSSARY.md](GLOSSARY.md). What was
+is proved, tested and logged: [INDEX.md](INDEX.md). The terms: [glossary.md](glossary.md). What was
 run and what failed: [REPORT.md](REPORT.md). What the review found: [REVIEW.md](REVIEW.md). The full
 text: [the paper](../paper/ks-minimum.md).

@@ -525,7 +525,7 @@ def main():
 
     doc = {
         "title": "Stack demonstration of the 31-ray Kochen-Specker set",
-        "generated_utc": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "overall": "PASS" if all_ok else "FAIL",
         "state_independent_gap": gap,
         "key_numbers": key,

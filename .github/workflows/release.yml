@@ -14,13 +14,15 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - name: Generate SHA256SUMS for release artifacts
         run: |
           mkdir -p release-dist
-          cp paper/ks-minimum.md paper/PROOFS.md results/RESULTS.md release-dist/
+          cp publication/ks-minimum/ks-minimum.pdf paper/ks-minimum.md paper/PROOFS.md results/RESULTS.md release-dist/
           (cd release-dist && sha256sum * > SHA256SUMS)
+          cat release-dist/SHA256SUMS
       - name: SLSA provenance attestation
         uses: actions/attest-build-provenance@v2
         with:
@@ -32,5 +34,5 @@ jobs:
         run: |
           gh release create "${GITHUB_REF_NAME}" release-dist/* \
             --title "Kochen-Specker Extremal Lab ${GITHUB_REF_NAME}" \
-            --notes "Release ${GITHUB_REF_NAME} with Apache-2.0/CC-BY-4.0 dual licensing, 6-kernel Lean comparator, SHA256SUMS, and SLSA attestations." \
+            --notes "Release ${GITHUB_REF_NAME} with frozen PDF, Apache-2.0/CC-BY-4.0 dual licensing, 6-kernel Lean comparator, SHA256SUMS, and SLSA attestations." \
             || gh release upload "${GITHUB_REF_NAME}" release-dist/* --clobber

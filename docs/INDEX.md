@@ -2,7 +2,7 @@
 
 Kochen-Specker Extremal Lab, version 1.0.0. The claims are those of the register
 [results/RESULTS.md](../results/RESULTS.md), in its numbering. The status words are the register's;
-where this page and the register differ, the register is right. Terms: [GLOSSARY.md](GLOSSARY.md).
+where this page and the register differ, the register is right. Terms: [glossary.md](glossary.md).
 Overview: [SUMMARY.md](SUMMARY.md). What was run and what failed: [REPORT.md](REPORT.md). What the
 review before release found: [REVIEW.md](REVIEW.md).
 
@@ -14,7 +14,7 @@ review before release found: [REVIEW.md](REVIEW.md).
 | [paper/ks-minimum.md](../paper/ks-minimum.md) | the paper |
 | [paper/PROOFS.md](../paper/PROOFS.md) | Lemmas 1 to 7 with their proofs |
 | [results/RESULTS.md](../results/RESULTS.md) | the register: every result and its status |
-| [SUMMARY.md](SUMMARY.md), [GLOSSARY.md](GLOSSARY.md) | plain-language summary; terms |
+| [SUMMARY.md](SUMMARY.md), [glossary.md](glossary.md) | plain-language summary; terms |
 | [REPORT.md](REPORT.md) | verification report: runs, versions, timings, failures, trust base |
 | [REVIEW.md](REVIEW.md) | the review before release: findings and what was changed |
 | [TRIGGER-REGISTER.md](TRIGGER-REGISTER.md) | deferred items and the conditions that trigger them |
