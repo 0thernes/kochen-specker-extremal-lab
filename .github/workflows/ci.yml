@@ -68,7 +68,9 @@ jobs:
           fi
       - name: 6-kernel lake comparator --paranoid
         working-directory: lean
-        run: lake comparator --config comparator.json --paranoid
+        run: |
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+          lake comparator --config comparator.json --paranoid
       - name: SLSA provenance attestation for Lean audit
         uses: actions/attest-build-provenance@v2
         continue-on-error: true
