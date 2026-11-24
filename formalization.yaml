@@ -1,0 +1,45 @@
+title: "Certified exact minima of Kochen-Specker sets inside coordinate pools"
+repository: "https://github.com/0thernes/kochen-specker-extremal-lab"
+version: "1.1.0"
+date: "2026-11-24"
+license:
+  code: "Apache-2.0"
+  documentation_and_papers: "CC-BY-4.0"
+authors:
+  - name: "Alexander S. Donahue"
+    orcid: "0009-0006-8168-9648"
+    affiliation: "Independent researcher"
+    credit_roles:
+      - "Conceptualization"
+      - "Methodology"
+      - "Project administration"
+      - "Resources"
+      - "Supervision"
+      - "Validation"
+lean_toolchain: "leanprover/lean4:v4.35.0"
+mathlib_dependencies: none
+lake_package_dir: "lean"
+challenge_module: "Challenge"
+solution_module: "Solution"
+comparator_config: "lean/comparator.json"
+axiom_audit_file: "lean/KS/Audit.lean"
+permitted_axioms:
+  - "propext"
+  - "Classical.choice"
+  - "Quot.sound"
+kernels_configured:
+  - "Lean 4.35.0 official C++ kernel"
+  - "leanchecker-paranoid (v4.35.0)"
+  - "lean4lean (v4.35.0)"
+  - "nanoda (0.4.19)"
+  - "con-leche (v4.35.0)"
+  - "con-ron (v4.35.0)"
+automation:
+  origin: "AI-assisted formalization, SAT/DRUP certification, and manuscript drafting under human direction"
+  models_used:
+    - "Anthropic Claude: core KS formalization, SAT/DRUP tooling, and v1.0.0 preprint"
+    - "Google Gemini / Antigravity: v1.1.0 Challenge/Solution 6-kernel comparator, non-vacuity targets, open licensing, and Build Standard v1.1.0 upgrade"
+  human_line_by_line_review_recorded: false
+  statement_fidelity_table: "docs/statement-fidelity.md"
+review_status: "Research preprint; NOT externally peer reviewed; NOT yet submitted to Palomar Registry, arXiv, or Zenodo."
+limitations: "Pool-restricted exact minima only; does NOT settle the general minimal Kochen-Specker open problem (24..31 in 3D). Pools beyond B(3,2) and B(4,1) rely on DRUP certificates outside the Lean kernel."

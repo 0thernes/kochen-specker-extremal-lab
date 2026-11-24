@@ -1,0 +1,116 @@
+# yaml-language-server: $schema=./repo-standard.schema.json
+standard: "1.1.0"
+name: "kochen-specker-extremal-lab"
+description: "Certified exact minimum sizes of Kochen-Specker sets inside finite coordinate ray pools (31, 33, 18, 29), with zero-Mathlib Lean 4.35.0 proofs (6-kernel comparator) and SAT/DRUP certificates."
+owner: "Alexander S. Donahue (0thernes)"
+year: "2026"
+project_type: research
+stack: [lean, python, c-cpp]
+flags:
+  public: true
+  package: false
+  visual: false
+  ui: false
+  native: true
+  ai: false
+  personal_data: false
+  service: false
+  deployed: false
+  api: false
+  perf: false
+  concurrent: false
+  numeric: false
+  experimental: true
+  ml: false
+  formal: true
+items:
+  A01: {status: done}
+  A02: {status: done}
+  A03: {status: done}
+  A04: {status: done}
+  A05: {status: n/a, note: "CLI/proof repository without a visual UI"}
+  A06: {status: done}
+  A07: {status: done}
+  A08: {status: done}
+  A09: {status: done}
+  A10: {status: done}
+  A11: {status: done}
+  A12: {status: done}
+  A13: {status: done}
+  A14: {status: done}
+  A15: {status: done}
+  A16: {status: done}
+  A17: {status: done}
+  A18: {status: done}
+  A19: {status: done}
+  A20: {status: done}
+  A21: {status: done}
+  A22: {status: done}
+  A23: {status: done}
+  A24: {status: done}
+  A25: {status: done}
+  A26: {status: done}
+  A27: {status: done}
+  A28: {status: n/a, note: "Research repository, not an installable package"}
+  A29: {status: done}
+  A30: {status: done}
+  A31: {status: done}
+  A32: {status: done}
+  A33: {status: done}
+  A34: {status: n/a, note: "Not a long-running service"}
+  A35: {status: done}
+  A36: {status: n/a, note: "Static Pages only"}
+  A37: {status: n/a, note: "No speed or performance claims"}
+  A38: {status: n/a, note: "No user interface"}
+  A39: {status: done}
+  A40: {status: n/a, note: "Code neither calls nor ships an AI model"}
+  A41: {status: n/a, note: "Not a library or public API"}
+  A42: {status: done}
+  A43: {status: n/a, note: "Not an installable library"}
+  A44: {status: done}
+  A45: {status: n/a, note: "Collects zero personal data"}
+  B01: {status: done}
+  B02: {status: done}
+  B03: {status: done}
+  B04: {status: done}
+  B05: {status: done}
+  B06: {status: done}
+  B07: {status: done}
+  B08: {status: done}
+  B09: {status: n/a, note: "No external API"}
+  B10: {status: done}
+  B11: {status: done}
+  B12: {status: done}
+  B13: {status: done}
+  B14: {status: done}
+  B15: {status: done}
+  B16: {status: done}
+  B17: {status: done}
+  B18: {status: done}
+  B19: {status: n/a, note: "Single-threaded deterministic verifiers"}
+  B20: {status: n/a, note: "Pure integer and Gaussian-integer arithmetic; zero floats"}
+  B21: {status: n/a, note: "Not a networked service"}
+  B22: {status: done}
+  B23: {status: n/a, note: "Deductive Lean 4 + SAT/DRUP certification"}
+  B24: {status: done}
+  B25: {status: n/a, note: "C DRUP checker verified with ASan/UBSan and cross-checked with Lean"}
+  B26: {status: n/a, note: "No speed claims"}
+  B27: {status: n/a, note: "No speed claims"}
+  B28: {status: n/a, note: "Deterministic exact proofs, not stochastic trials"}
+  B29: {status: n/a, note: "Exact integer minima, not statistical tests"}
+  B30: {status: n/a, note: "Exact integer minima, not confidence intervals"}
+  B31: {status: n/a, note: "No statistical multiple comparisons"}
+  B32: {status: n/a, note: "Deductive formal proof & SAT certification"}
+  B33: {status: n/a, note: "No ML models"}
+  B34: {status: n/a, note: "No generative AI code"}
+  B35: {status: done}
+  B36: {status: done}
+  B37: {status: done}
+  B38: {status: done}
+  B39: {status: done}
+  B40: {status: done}
+  B41: {status: done}
+  B42: {status: done}
+  B43: {status: done}
+  B44: {status: done}
+  B45: {status: done}

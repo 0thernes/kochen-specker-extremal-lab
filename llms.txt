@@ -1,0 +1,13 @@
+# Kochen-Specker Extremal Lab
+
+> Zero-Mathlib Lean 4.35.0 proofs (6-kernel `lake comparator --paranoid`) and SAT/DRUP certificates establishing exact minimum Kochen-Specker set sizes inside nine finite coordinate ray pools (31, 33 in 3D; 18 in 4D; 29 in 5D).
+
+## Key Files
+
+- [README.md](README.md): Overview, pool results table, and verbatim `#print axioms`
+- [AGENTS.md](AGENTS.md): Canonical instructions for coding agents
+- [CLAIMS.md](CLAIMS.md): Tagged claims ledger with falsifiers
+- [LIMITATIONS.md](LIMITATIONS.md): Scope boundaries (pool-restricted; no general KS record broken) and AI/CRediT statement
+- [REPLICATION.md](REPLICATION.md): Clean-clone reproduction protocol
+- [docs/statement-fidelity.md](docs/statement-fidelity.md): Line-by-line statement fidelity mapping
+- [formalization.yaml](formalization.yaml): Palomar-compatible metadata

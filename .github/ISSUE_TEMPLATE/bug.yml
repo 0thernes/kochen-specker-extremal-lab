@@ -1,0 +1,48 @@
+name: Bug or finding
+description: Something is wrong. Classify it as exactly one finding class.
+labels: ["triage"]
+body:
+  - type: dropdown
+    id: finding_class
+    attributes:
+      label: Finding class
+      description: Pick exactly one. Definitions are in docs/glossary.md.
+      options:
+        - "bug: code does something different from its spec or intent"
+        - "error: a wrong number, claim, doc, config, version, build or command"
+        - "issue: something required is missing or incomplete"
+        - "problem: an external obstacle (network, account, toolchain) blocks progress"
+        - "dilemma: a trade-off between valid options; the owner decides"
+        - "conflict: two requirements or rules contradict each other"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Exact steps to reproduce
+      placeholder: "1. git checkout v0.1.0\n2. just setup\n3. ..."
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: OS and runtime versions (for example python --version, node -v, rustc -V, go version, ruby -v, java -version, gcc --version, dotnet --version).
+      render: text
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or output
+      render: text

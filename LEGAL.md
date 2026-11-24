@@ -1,26 +1,19 @@
 # Licence, authorship and publication notes
 
-Kochen-Specker Extremal Lab, version 1.0.0, 10 November 2026.
-Alexander S. Donahue, 0thernes LLC, Washington, USA. Contact: 0_0@0thernes.art.
+Kochen-Specker Extremal Lab, version 1.1.0, 24 November 2026.
+Alexander S. Donahue (independent researcher). Contact: 0_0@0thernes.art.
 ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648).
 
-This page explains the repository's notices in plain language. **[LICENSE](LICENSE) governs the files
-written for this project; [NOTICE](NOTICE) identifies the third-party components and their terms.**
-This page does not change either and grants no additional rights.
+This page explains the repository's notices in plain language. **[LICENSE](LICENSE) (Apache-2.0) governs
+all source code; [LICENSE-DOCS](LICENSE-DOCS) (CC-BY-4.0) governs manuscripts, figures and documentation;
+[NOTICE](NOTICE) identifies third-party components and their MIT terms.**
 
 ## Copyright and licence
 
-The copyright notice names **0thernes LLC (Alexander S. Donahue)**. The repository is released under a
-custom **verification licence**. It permits anyone, free of charge, to download, build, run and study
-the repository in order to check, reproduce or referee the results it reports, and to quote from it
-with attribution. Redistribution of modified versions and commercial use require the written permission
-of the copyright holder.
-
-The repository is public under those terms. It is not offered under an unrestricted open-source
-licence. If the paper is later deposited in an archive under a different licence, that licence applies
-to the deposited copy only and has to be stated there; it does not silently change the terms of the
-programs or of the third-party material. The work is provided as is, under the warranty and liability
-provisions of [LICENSE](LICENSE).
+Copyright © 2026 **Alexander S. Donahue**. As of version 1.1.0 (2026-11-24), this repository is
+openly dual-licensed under **Apache-2.0** for code (`lean/`, `src/`, `verify/`, `scripts/`, `tests/`,
+`.github/`) and **CC-BY-4.0** for manuscripts, figures, and documentation (`paper/`, `docs/`, `README.md`),
+superseding the earlier v1.0.0 verification-only licence. No corporate entity or LLC affiliation is claimed.
 
 ## Third-party components
 
@@ -58,8 +51,8 @@ the author actually did and cannot be inferred from this repository.
 
 ## Funding and interests
 
-The work was funded by the author through 0thernes LLC. There was no external funding and there are
-no competing interests. No university, laboratory, charitable or tax-exempt status is asserted.
+This work is self-funded independent research by Alexander S. Donahue. There was no external funding
+and there are no competing interests. No university, laboratory, LLC, or institutional affiliation is asserted.
 
 ## Prior work and priority
 

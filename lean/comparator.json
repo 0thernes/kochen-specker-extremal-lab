@@ -1,0 +1,15 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "KS.ComparatorTarget.target_box3h2_minimum_31",
+    "KS.ComparatorTarget.target_box4h1_minimum_18",
+    "KS.ComparatorTarget.target_box3h2_nonvacuous_30",
+    "KS.ComparatorTarget.target_box4h1_nonvacuous_17"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

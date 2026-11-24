@@ -1,0 +1,17 @@
+name: Question
+description: Ask how something works.
+labels: ["question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true
+  - type: checkboxes
+    id: faq
+    attributes:
+      label: Checks
+      options:
+        - label: I checked docs/faq.md and the README.
+          required: true

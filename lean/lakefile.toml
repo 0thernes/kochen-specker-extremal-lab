@@ -1,15 +1,17 @@
 name = "KSExtremal"
-version = "0.1.0"
-defaultTargets = ["KS"]
+version = "1.1.0"
+defaultTargets = ["KS", "Solution"]
 
 [leanOptions]
 autoImplicit = false
 relaxedAutoImplicit = false
 
-# Plain `lake build` builds the root module KS.lean and everything it imports:
-# KS.Basic, KS.Spec, KS.Box3H2, KS.Box4H1 and KS.Tests.
-# KS/Audit.lean is a script, not a module of the library; run it after the
-# build with `lake env lean KS/Audit.lean`.
 [[lean_lib]]
 name = "KS"
 roots = ["KS"]
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"

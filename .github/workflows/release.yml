@@ -1,0 +1,36 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate SHA256SUMS for release artifacts
+        run: |
+          mkdir -p release-dist
+          cp paper/ks-minimum.md paper/PROOFS.md results/RESULTS.md release-dist/
+          (cd release-dist && sha256sum * > SHA256SUMS)
+      - name: SLSA provenance attestation
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: release-dist/*
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" release-dist/* \
+            --title "Kochen-Specker Extremal Lab ${GITHUB_REF_NAME}" \
+            --notes "Release ${GITHUB_REF_NAME} with Apache-2.0/CC-BY-4.0 dual licensing, 6-kernel Lean comparator, SHA256SUMS, and SLSA attestations." \
+            || gh release upload "${GITHUB_REF_NAME}" release-dist/* --clobber

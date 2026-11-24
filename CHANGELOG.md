@@ -1,5 +1,20 @@
 # Changelog
 
+## [Unreleased]
+
+- Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
+
+## [1.1.0] - 2026-11-24
+
+### Added
+- Isolated `lean/Challenge.lean`, sorry-free `lean/Solution.lean`, `lean/comparator.json`, and explicit non-vacuity targets (`30`-ray subset of `B(3,2)`, `17`-ray subset of `B(4,1)`), verified across six Lean 4.35.0 kernels via `lake comparator --paranoid`.
+- Build Standard for LLMs v1.1.0 & Defensible Playbook v1.1 infrastructure (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursor/rules/build-standard.mdc`, `llms.txt`, `CLAIMS.md`, `LIMITATIONS.md`, `REPLICATION.md`, `ROADMAP.md`, `SUPPORT.md`, `repo.yaml`, `formalization.yaml`, `justfile`, `scripts/Audit-Repo.ps1`, `docs/statement-fidelity.md`, `docs/adr/0001-zero-mathlib-trust-base.md`, `.github/workflows/release.yml` with `SHA256SUMS` + SLSA attestations, C11 ASan/UBSan & cross-platform CI).
+
+### Changed
+- Re-licensed code under **Apache-2.0** (`LICENSE`) and manuscripts/docs under **CC-BY-4.0** (`LICENSE-DOCS`).
+- Standardized author attribution to `Alexander S. Donahue (independent researcher, ORCID 0009-0006-8168-9648)` with CRediT disclosure, removing unformed LLC references.
+- Cross-linked sibling consolidated multiqubit Pauli repository `0thernes/pauli-contextuality-lab` while preserving this repository's minimal zero-Mathlib trust base.
+
 ## After 1.0.0 (not released)
 
 * The release and its archiving are recorded: `docs/REPORT.md`, section 8, and

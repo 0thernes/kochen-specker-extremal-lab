@@ -3,20 +3,33 @@
 Exact minimum sizes of Kochen-Specker sets inside finite pools of rays, each with a certificate that
 can be re-checked without trusting the search programs.
 
+[![CI](https://github.com/0thernes/kochen-specker-extremal-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/0thernes/kochen-specker-extremal-lab/actions/workflows/ci.yml)
+[![Lean 4.35.0 (Zero Mathlib)](https://img.shields.io/badge/Lean-4.35.0%20(zero%20Mathlib)-blue)](lean/README.md)
+[![License: Apache-2.0 / CC-BY-4.0](https://img.shields.io/badge/license-Apache--2.0%20%2F%20CC--BY--4.0-green)](LICENSE)
+[![Version 1.1.0](https://img.shields.io/badge/version-1.1.0-informational)](CHANGELOG.md)
+
 **Paper:** [Certified exact minima of Kochen-Specker sets inside coordinate pools](paper/ks-minimum.md)
 &nbsp;·&nbsp; **Register of results:** [results/RESULTS.md](results/RESULTS.md)
 &nbsp;·&nbsp; **Proofs of the lemmas:** [paper/PROOFS.md](paper/PROOFS.md)
+&nbsp;·&nbsp; **Sibling Pauli monorepo:** [0thernes/pauli-contextuality-lab](https://github.com/0thernes/pauli-contextuality-lab)
 
-**Start here:** [docs/SUMMARY.md](docs/SUMMARY.md) (one page, plain language) ·
-[docs/INDEX.md](docs/INDEX.md) (every claim with its evidence file, command and log) ·
-[docs/GLOSSARY.md](docs/GLOSSARY.md) · [docs/REPORT.md](docs/REPORT.md) (what was run, what failed) ·
-[docs/REVIEW.md](docs/REVIEW.md) (what the review before release found and what was changed) ·
-[CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
+**Start here:** [CLAIMS.md](CLAIMS.md) · [LIMITATIONS.md](LIMITATIONS.md) · [REPLICATION.md](REPLICATION.md) ·
+[docs/statement-fidelity.md](docs/statement-fidelity.md) · [docs/SUMMARY.md](docs/SUMMARY.md) ·
+[docs/INDEX.md](docs/INDEX.md) · [CHANGELOG.md](CHANGELOG.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, version 1.0.0, 10 November 2026. Not peer reviewed. Produced by an AI system
-under human direction (see [the disclosure](#9-licence-citation-ai-disclosure-contact)).
-Author: Alexander S. Donahue, 0thernes LLC, Washington, USA
+Status: research preprint, version 1.1.0, 24 November 2026. Not peer reviewed. AI-assisted under human
+direction (see [LIMITATIONS.md](LIMITATIONS.md) and [LEGAL.md](LEGAL.md)).
+Author: Alexander S. Donahue, independent researcher
 ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
+
+## Quickstart & Usage
+
+```bash
+git clone https://github.com/0thernes/kochen-specker-extremal-lab.git
+cd kochen-specker-extremal-lab
+cd lean && lake build KS Solution && lake env lean KS/Audit.lean && lake comparator --config comparator.json --paranoid
+cd .. && python -m unittest discover -s tests -v
+```
 
 ## 1. In plain language
 

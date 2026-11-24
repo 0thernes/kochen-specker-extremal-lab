@@ -18,3 +18,9 @@ node_modules/
 
 # scratch
 /results/tmp/
+
+build/
+
+.pytest_cache/
+
+.hypothesis/

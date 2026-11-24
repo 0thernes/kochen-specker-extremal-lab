@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <rect width="1280" height="640" fill="#0b1020"/>
+  <rect x="0" y="0" width="1280" height="8" fill="#38bdf8"/>
+  <g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" fill="#f8fafc">
+    <text x="72" y="120" font-size="22" font-weight="600" fill="#38bdf8" letter-spacing="2">ZERO-MATHLIB LEAN 4.35.0 · 6-KERNEL COMPARATOR · SAT/DRUP CERTIFICATES</text>
+    <text x="72" y="198" font-size="56" font-weight="800">Kochen-Specker Extremal Lab</text>
+    <text x="72" y="252" font-size="26" fill="#cbd5e1">Certified exact minima inside nine finite coordinate ray pools (31, 33, 18, 29)</text>
+    <text x="72" y="340" font-size="22" fill="#34d399">B(3,2) = 31 rays · B(4,1) = 18 rays (6 Lean 4.35.0 kernels, 0 Mathlib, 0 sorry)</text>
+    <text x="72" y="388" font-size="20" fill="#94a3b8">Pool-restricted exact minima · No general open-problem record claimed · Research preprint v1.1.0</text>
+    <text x="72" y="556" font-size="18" fill="#94a3b8">Alexander S. Donahue (independent researcher) · ORCID 0009-0006-8168-9648 · Apache-2.0 + CC-BY-4.0</text>
+  </g>
+</svg>
