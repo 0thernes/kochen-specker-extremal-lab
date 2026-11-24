@@ -45,11 +45,9 @@ jobs:
             third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c \
             stack/ks31_qgtl.c -lm -o /tmp/ks31_qgtl_san
           /tmp/ks31_qgtl_san results/ks31_box3_H2.json | grep -q "STAGE PASS"
-          gcc -O1 -g -std=gnu11 -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer \
-            -Ithird_party/quantum_rng/src/quantum_rng \
-            third_party/quantum_rng/src/quantum_rng/quantum_rng.c \
-            stack/ks31_qrng.c -lm -o /tmp/ks31_qrng_san
-          /tmp/ks31_qrng_san 20261110 | grep -q "STAGE PASS"
+          gcc -O1 -g -std=c11 -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer \
+            stack/ks31_qrng.c -o /tmp/ks31_qrng_san
+          /tmp/ks31_qrng_san | grep -q "\[qrng\] PASS"
           python scripts/run_all.py
           bash scripts/audit-repo.sh .
       - name: Secret scan (gitleaks, report-only)
