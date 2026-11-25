@@ -210,7 +210,8 @@ def embed_images(body, src_dir):
             print("warning: image not found, left as a link:", ref)
             return m.group(0)
         mime = mimetypes.guess_type(path)[0] or "application/octet-stream"
-        data = base64.b64encode(open(path, "rb").read()).decode()
+        with open(path, "rb") as fh:
+            data = base64.b64encode(fh.read()).decode()
         return 'src="data:%s;base64,%s"' % (mime, data)
     return re.sub(r'src="([^"]+)"', emb, body)
 
@@ -223,7 +224,8 @@ def plain(text):
 
 
 def build(src_path):
-    src = open(src_path, encoding="utf-8").read()
+    with open(src_path, encoding="utf-8") as fh:
+        src = fh.read()
     m = re.search(r"^# (.+)$", src, flags=re.M)
     title = plain(m.group(1)) if m else TITLE_FALLBACK
     text, store = protect_math(src)
@@ -283,7 +285,8 @@ def main():
         f.write(page)
     nojekyll = os.path.join(DOCS, ".nojekyll")
     if not os.path.exists(nojekyll):
-        open(nojekyll, "w").close()
+        with open(nojekyll, "w", encoding="utf-8"):
+            pass
     print("title:", title)
     print("wrote", OUT_HTML, "(%d bytes)" % len(page.encode("utf-8")))
     browser = find_browser()

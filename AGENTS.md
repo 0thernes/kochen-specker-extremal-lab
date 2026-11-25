@@ -11,7 +11,7 @@ Full standard: `docs/build-standard.md` (Build Standard for LLMs v1.1.0, 90 item
 - **Author:** Alexander S. Donahue (independent researcher, ORCID `0009-0006-8168-9648`, `0_0@0thernes.art`)
 - **Licenses:** `Apache-2.0` (`LICENSE`, all code) + `CC-BY-4.0` (`LICENSE-DOCS`, papers & docs)
 - **Sibling Repository:** Multiqubit Pauli contextuality work lives separately in [`0thernes/pauli-contextuality-lab`](https://github.com/0thernes/pauli-contextuality-lab) so this repository keeps its minimal zero-Mathlib trust base.
-- **Status:** Research preprint `v1.7.0`; NOT externally peer reviewed; AI-assisted under human direction; no general open-problem record is broken.
+- **Status:** Research preprint `v1.8.0`; NOT externally peer reviewed; AI-assisted under human direction; no general open-problem record is broken.
 
 ## Commands
 

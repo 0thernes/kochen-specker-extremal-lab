@@ -171,7 +171,8 @@ def main():
     args = ap.parse_args()
     if not args.pandoc:
         ap.error("supply --pandoc (and --tectonic to compile)")
-    text = open(SRC, encoding="utf-8").read()
+    with open(SRC, encoding="utf-8") as fh:
+        text = fh.read()
     title, subtitle, byline, note, abstract, body = split_source(text)
     os.makedirs(OUT, exist_ok=True)
     figdir = os.path.join(ROOT, "paper", "figures")
@@ -202,7 +203,8 @@ def main():
            fit_tables(pandoc(args.pandoc, prepare(body))), "%send{document}" % BS, ""]
     out = "\n".join(doc)
     tex_path = os.path.join(OUT, "ks-minimum.tex")
-    open(tex_path, "w", encoding="utf-8", newline="\n").write(out)
+    with open(tex_path, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(out)
     record = {"source": "paper/ks-minimum.md",
               "source_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
               "tex_sha256": hashlib.sha256(out.encode("utf-8")).hexdigest(),
@@ -213,13 +215,15 @@ def main():
         run = subprocess.run([args.tectonic, "--untrusted", "--keep-logs", "ks-minimum.tex"], cwd=OUT,
                              capture_output=True, text=True, encoding="utf-8", errors="replace")
         log = run.stdout + run.stderr
-        open(os.path.join(OUT, "tectonic-output.log"), "w", encoding="utf-8", newline="\n").write(log)
+        with open(os.path.join(OUT, "tectonic-output.log"), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(log)
         if run.returncode != 0:
             print(log[-3000:])
             sys.exit("tectonic failed")
         pdf = os.path.join(OUT, "ks-minimum.pdf")
         record["tectonic"] = subprocess.check_output([args.tectonic, "--version"], text=True).strip()
-        record["pdf_sha256"] = hashlib.sha256(open(pdf, "rb").read()).hexdigest()
+        with open(pdf, "rb") as fh:
+            record["pdf_sha256"] = hashlib.sha256(fh.read()).hexdigest()
         record["pdf_bytes"] = os.path.getsize(pdf)
         over = sorted(set(re.findall(r"Overfull \\hbox \(([0-9.]+)pt too wide\)", log)), key=float)
         missing = sorted(set(re.findall(r'could not represent character "(.)"', log)))
@@ -234,7 +238,8 @@ def main():
                ("ks-minimum.tex", out.encode("utf-8"))]
     used = sorted(set(re.findall(r"includegraphics(?:\[[^\]]*\])?\{(figures/[^}]+)\}", out)))
     for f in used:
-        members.append((f, open(os.path.join(OUT, f), "rb").read()))
+        with open(os.path.join(OUT, f), "rb") as fh:
+            members.append((f, fh.read()))
     zpath = os.path.join(OUT, "arxiv-source.zip")
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
         for name, data in members:
@@ -242,10 +247,13 @@ def main():
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
             z.writestr(info, data)
+    with open(zpath, "rb") as fh:
+        z_sha = hashlib.sha256(fh.read()).hexdigest()
     record["arxiv_source_zip"] = {"files": [n for n, _ in members], "bytes": os.path.getsize(zpath),
-                                  "sha256": hashlib.sha256(open(zpath, "rb").read()).hexdigest()}
+                                  "sha256": z_sha}
     print("wrote", zpath, record["arxiv_source_zip"]["bytes"], "bytes:", ", ".join(n for n, _ in members))
-    json.dump(record, open(os.path.join(OUT, "build-record.json"), "w"), indent=1)
+    with open(os.path.join(OUT, "build-record.json"), "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(record, fh, indent=1)
 
 
 if __name__ == "__main__":

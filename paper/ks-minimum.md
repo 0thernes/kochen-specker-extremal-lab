@@ -2,7 +2,7 @@
 
 **Alexander S. Donahue** — Independent researcher, Spokane, WA, USA — 0_0@0thernes.art — ORCID 0009-0006-8168-9648
 
-Version 1.7.0 (originally v1.0.0, 10 November 2026; updated 24 November 2026). Research preprint, not peer reviewed. CC-BY-4.0.
+Version 1.8.0 (originally v1.0.0, 10 November 2026; updated 24 November 2026). Research preprint, not peer reviewed. CC-BY-4.0.
 
 > **What this paper does and does not do.** The smallest Kochen-Specker (KS) set in dimension three is
 > an open problem: it has between 24 and 31 rays. This paper does **not** solve that problem and does

@@ -4,6 +4,13 @@
 
 - Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
 
+## [1.8.0] — 2026-11-24
+
+### 200-Pass Elite TOC Hardening (Resource-Hygiene `SIM115` Fixes, `RUF005`, Full 200-Pass Audit Record)
+
+- **Context-Manager File-Handle Safety (`SIM115`) & `RUF005` Hygiene:** Replaced all unclosed raw `open(...)` file handles with explicit `with open(...)` context managers across `scripts/build_latex.py`, `scripts/build_paper.py`, and `scripts/ablate_c1c2.py`, and simplified list concatenation (`[kind, *args]`) in `scripts/ablate_c1c2.py`.
+- **200-Pass Forensic Audit & Verification (`docs/reviews/2026-11-24-200-pass-elite-hardening-audit.md`):** Verified all 14 zero-Mathlib `.lean` modules (30 explicit + 149 exhaustive KS theorems, 4/4 6-kernel comparator parity), `node verify/test_verify.mjs` (`59/59`), all 3 C11 ASan/UBSan engines (`0` warnings), 40/40 citation bijection in `ks-minimum.tex`, MathJax CDN SRI in `docs/paper.html`, and recompiled `ks-minimum.pdf` cleanly with Tectonic (`0` overfull hboxes ≥ 5 pt).
+
 ## [1.7.0] — 2026-11-24
 
 ### Pass 7 TOC Deep-Dive Hardening (Zero `ruff E9,F,B,S`, Exhaustive `run_all` Lean Sentinel, Dev Sanitizers & Live Pages QA)

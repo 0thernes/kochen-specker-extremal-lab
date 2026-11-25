@@ -29,34 +29,34 @@ def main():
     workers = int(sys.argv[3])
     kind = sys.argv[4]
     args = sys.argv[5:]
-    tag = "ablate_c1c2_" + "_".join([kind] + args) + f"_k{k}"
-    logf = open(os.path.join(ROOT, "logs", tag + ".log"), "a", encoding="utf-8")
+    tag = "ablate_c1c2_" + "_".join([kind, *args]) + f"_k{k}"
+    with open(os.path.join(ROOT, "logs", tag + ".log"), "a", encoding="utf-8") as logf:
 
-    def log(msg):
-        line = f"{time.strftime('%H:%M:%S')} {msg}"
-        print(line, flush=True)
-        logf.write(line + "\n")
-        logf.flush()
+        def log(msg):
+            line = f"{time.strftime('%H:%M:%S')} {msg}"
+            print(line, flush=True)
+            logf.write(line + "\n")
+            logf.flush()
 
-    out = []
-    for use_c1, use_c2 in ((True, True), (True, False), (False, True), (False, False)):
-        pool, sym = build(kind, args, log=lambda *a: None)
-        log(f"=== {pool.name} k={k}: C1={'on' if use_c1 else 'off'}, C2={'on' if use_c2 else 'off'}, "
-            f"{workers} workers, limit {seconds:.0f}s")
-        ms = Master(pool, k, sym=sym, log=log, workers=workers, use_c1=use_c1, use_c2=use_c2)
-        if kind in ("box", "box3"):
-            ms.symbreak = box_symmetry_breaking(pool, [list(range(pool.d))])
-        t0 = time.time()
-        res = ms.run(max_seconds=seconds, cand_time=seconds)
-        dt = time.time() - t0
-        rec = {"C1": use_c1, "C2": use_c2, "status": res["status"], "rounds": res.get("iterations"),
-               "cuts": len(ms.cuts), "seconds": round(dt, 1)}
-        out.append(rec)
-        log(f"ABLATION RESULT C1={use_c1} C2={use_c2}: {res['status']} after {res.get('iterations')} rounds, "
-            f"{len(ms.cuts)} cuts, {dt:.1f}s")
-    with open(os.path.join(ROOT, "results", tag + ".json"), "w") as f:
-        json.dump({"pool": pool.name, "k": k, "workers": workers, "limit_seconds": seconds, "runs": out}, f, indent=1)
-    log("wrote results/" + tag + ".json")
+        out = []
+        for use_c1, use_c2 in ((True, True), (True, False), (False, True), (False, False)):
+            pool, sym = build(kind, args, log=lambda *a: None)
+            log(f"=== {pool.name} k={k}: C1={'on' if use_c1 else 'off'}, C2={'on' if use_c2 else 'off'}, "
+                f"{workers} workers, limit {seconds:.0f}s")
+            ms = Master(pool, k, sym=sym, log=log, workers=workers, use_c1=use_c1, use_c2=use_c2)
+            if kind in ("box", "box3"):
+                ms.symbreak = box_symmetry_breaking(pool, [list(range(pool.d))])
+            t0 = time.time()
+            res = ms.run(max_seconds=seconds, cand_time=seconds)
+            dt = time.time() - t0
+            rec = {"C1": use_c1, "C2": use_c2, "status": res["status"], "rounds": res.get("iterations"),
+                   "cuts": len(ms.cuts), "seconds": round(dt, 1)}
+            out.append(rec)
+            log(f"ABLATION RESULT C1={use_c1} C2={use_c2}: {res['status']} after {res.get('iterations')} rounds, "
+                f"{len(ms.cuts)} cuts, {dt:.1f}s")
+        with open(os.path.join(ROOT, "results", tag + ".json"), "w", encoding="utf-8") as f:
+            json.dump({"pool": pool.name, "k": k, "workers": workers, "limit_seconds": seconds, "runs": out}, f, indent=1)
+        log("wrote results/" + tag + ".json")
 
 
 if __name__ == "__main__":

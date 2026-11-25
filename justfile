@@ -13,6 +13,7 @@ test:
 lint:
     python3 -m ruff check src/ scripts/ tests/ || true
 
+# Compile & run all 3 C11 engines (drup_check, ks31_qgtl, ks31_qrng) under -fsanitize=address,undefined
 sanitizers:
     bash scripts/dev.sh sanitizers
 

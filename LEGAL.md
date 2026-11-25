@@ -1,6 +1,6 @@
 # Licence, authorship and publication notes
 
-Kochen-Specker Extremal Lab, version 1.7.0, 24 November 2026.
+Kochen-Specker Extremal Lab, version 1.8.0, 24 November 2026.
 Alexander S. Donahue (independent researcher). Contact: 0_0@0thernes.art.
 ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648).
 
