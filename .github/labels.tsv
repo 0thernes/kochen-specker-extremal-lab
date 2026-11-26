@@ -1,10 +1,14 @@
 # name	color	description  (created by scripts/new-repo.sh --publish; gh label create)
-bug	d73a4a	Defect in program logic: code does something different from its spec or intent
+bug	d73a4a	Code does something different from its spec or intent (a defect in program logic)
 error	e99695	Wrong number, claim, doc, config, version, build or command
-issue	fbca04	Something required is missing or incomplete; nothing present is wrong
+issue	fbca04	Works and is not wrong, but is unclear, inconsistent, fragile or hard to maintain
 problem	c5def5	External obstacle (network, account, toolchain) blocks progress
+concern	f9d0c4	Risk that has not caused harm yet (security, cost, legal, reliability)
 dilemma	d4c5f9	Trade-off between valid options; the owner decides
 conflict	b60205	Two requirements or rules contradict each other
+gap	fef2c0	Something required or expected is missing; nothing present is wrong
+hole	e4e669	Missing check or safeguard, so a defect could pass unnoticed
+blindspot	bfd4f2	A user, platform, failure mode or assumption nobody has examined yet
 triage	ededed	Needs classification
 question	0075ca	Question about usage or design
 replication	0e8a16	Replication report (successful or not)

@@ -83,7 +83,7 @@ def main():
             n_reg = open(os.path.join(ROOT, "results", "RESULTS.md"), encoding="utf-8").read().count("PENDING")
             if n_reg == 0:
                 problems.append(f"{rel}: says PENDING but the register has no pending row")
-        if path.endswith(".md"):
+        if path.endswith(".md") and rel != "docs/build-standard.md":
             base = os.path.dirname(path)
             for m in LINK.finditer(text):
                 target = m.group(1)

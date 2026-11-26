@@ -387,17 +387,53 @@ class Runner:
         lean_dir = os.path.join(ROOT, "lean")
         with open(os.path.join(lean_dir, "lean-toolchain")) as f:
             self.current["data"]["toolchain"] = f.read().strip()
-        # 1. no sorry / native_decide in the sources
+        # 1. no sorry / admit / native_decide / unsafe / custom axiom in the sources (comment/string-aware)
         hits = []
-        sources = sorted(glob.glob(os.path.join(glob.escape(lean_dir), "KS", "*.lean")) + [os.path.join(lean_dir, "KS.lean")])
+        sources = sorted(
+            glob.glob(os.path.join(glob.escape(lean_dir), "KS", "*.lean"))
+            + [os.path.join(lean_dir, "KS.lean"), os.path.join(lean_dir, "Solution.lean")]
+        )
+        forb = re.compile(
+            r"\b(sorry|admit|native_decide|unsafe)\b|"
+            r"^\s*(?:(?:private|protected|noncomputable|scoped|local)\s+)*axiom\b|"
+            r"implemented_by|@\[extern"
+        )
         for path in sources:
             with open(path, encoding="utf-8") as f:
-                for no, line in enumerate(f, 1):
-                    if re.search(r"\b(sorry|native_decide)\b", line):
-                        hits.append(f"{os.path.relpath(path, ROOT)}:{no}")
+                raw = f.read()
+            out_chars, i, n_len, depth, in_str = [], 0, len(raw), 0, False
+            while i < n_len:
+                if depth > 0:
+                    if raw[i:i + 2] == "/-":
+                        depth += 1; i += 2
+                    elif raw[i:i + 2] == "-/":
+                        depth -= 1; i += 2
+                    else:
+                        if raw[i] == "\n": out_chars.append("\n")
+                        i += 1
+                elif in_str:
+                    if raw[i] == "\\" and i + 1 < n_len:
+                        i += 2
+                    elif raw[i] == '"':
+                        in_str = False; i += 1
+                    else:
+                        if raw[i] == "\n": out_chars.append("\n")
+                        i += 1
+                else:
+                    if raw[i:i + 2] == "/-":
+                        depth = 1; i += 2
+                    elif raw[i:i + 2] == "--":
+                        while i < n_len and raw[i] != "\n": i += 1
+                    elif raw[i] == '"':
+                        in_str = True; i += 1
+                    else:
+                        out_chars.append(raw[i]); i += 1
+            for no, line in enumerate("".join(out_chars).splitlines(), 1):
+                if forb.search(line):
+                    hits.append(f"{os.path.relpath(path, ROOT)}:{no}")
         self.current["data"]["sources_scanned"] = [os.path.relpath(p, ROOT).replace("\\", "/") for p in sources]
         if hits:
-            raise Failure("sorry / native_decide found in: " + ", ".join(hits[:10]))
+            raise Failure("forbidden Lean token found in: " + ", ".join(hits[:10]))
         # 2. build
         # plain `lake build` checks KS.lean and all it imports: Basic, Spec, Box3H2, Box4H1, Tests
         self.cmd([lake, "build"], cwd=lean_dir, timeout=4 * 3600)

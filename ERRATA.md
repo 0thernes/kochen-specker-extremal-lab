@@ -1,0 +1,29 @@
+# Errata, Versioning Policy, and Withdrawal Plan (`ERRATA.md`)
+
+This ledger records substantive mathematical, formalization, bibliographic, and metadata corrections across all releases of `kochen-specker-extremal-lab` (Defensible Independent AI Research Playbook v1.3, Checklist #39 & H28).
+
+## 1. Versioning and DOI Policy
+
+- **Single version source:** The canonical version lives in `VERSION` (SemVer `MAJOR.MINOR.PATCH`) and is synchronized across `CHANGELOG.md`, `CITATION.cff`, `formalization.yaml`, `lean/lakefile.toml`, `README.md`, `publication/zenodo-metadata.json`, `publication/orcid-work.bib`, and `paper/ks-minimum.md` / `publication/ks-minimum/ks-minimum.tex` via `tests/test_repo_integrity.py`.
+- **Preprint revision convention:** Each tagged GitHub release (`vX.Y.Z`) freezes `ks-minimum.pdf`, `ks-minimum.md`, `PROOFS.md`, `RESULTS.md`, `ERRATA.md`, `SHA256SUMS`, and `git archive` source bundles. If deposited to Zenodo or HAL, **cite the version-specific DOI** when referencing exact proof files, line numbers, or artifact hashes, and the **concept/all-versions DOI** only when citing the ongoing repository generically.
+- **No fabricated identifiers:** No external DOI or arXiv identifier is asserted prior to an actual deposit.
+
+## 2. Recorded Corrections Log
+
+| Release | Date | Affected Artifact(s) | Class | Summary of Correction |
+|---|---|---|---|---|
+| **v1.9.0** | 2026-11-25 | `repo.yaml`, `docs/glossary.md`, `.github/workflows/*`, `scripts/{build_latex,run_all,check_docs,check_references,dev.sh}`, `paper/ks-minimum.md`, `publication/ks-minimum/ks-minimum.tex`, `tests/test_repo_integrity.py` | `error` / `gap` / `hole` | Fixed JSON Schema violation in `repo.yaml` (`stack: [lean, python, c-cpp]` → `[python, c-cpp, node, other]`, `standard: "1.2.0"`); replaced self-referential 3-line `docs/glossary.md` stub with full domain + 10-finding-class glossary; upgraded to Build Standard v1.2.0 (10 finding classes synced live on GitHub, Actions v7/v6/v5/v4, SHA-256-verified `gitleaks v8.30.1` + `osv-scanner v2.7.1`, `continue-on-error: true` on release attestations) and Playbook v1.3 (`ERRATA.md`, `docs/mega-atlas-cross-reference.md`, `leanchecker --fresh Solution`, adversarial false-variant Lean tests, H46 hardened `axiom` lexer, Crossref retraction checks, explicit CRediT & Errata text in manuscript Section 9); fixed `scripts/build_latex.py` so regenerating `ks-minimum.tex` preserves `\hypersetup`, clickable ORCID/email, and `0.00 pt` overfull hboxes (eliminating the `3.73 pt` Table 2 overfull); fixed `scripts/run_all.py` to scan `Solution.lean` with comment-aware H46 lexer; fixed `scripts/check_docs.py` false positive on `docs/build-standard.md`. Clarified historical `v1.8.0` review-log nomenclature under Playbook v1.3 H48 so current audits report strictly literal check cycles. |
+| **v1.4.0** | 2026-11-24 | `verify/drup_check.c`, `publication/ks-minimum/ks-minimum.tex`, `docs/{INDEX,SUMMARY}.md` | `bug` / `issue` | Fixed 256-byte LeakSanitizer leak in `verify/drup_check.c`, aligned literature titles `[15]`, `[20]`, `[40]` against live arXiv/Crossref metadata, and fixed 6 case-sensitive `GLOSSARY.md` links. |
+| **v1.2.0** | 2026-11-24 | `README.md`, `CONTRIBUTING.md`, `publication/ks-minimum/ks-minimum.tex`, `docs/glossary.md` | `error` / `concern` | Fixed Linux case-sensitivity on `docs/glossary.md` and scrubbed remaining legacy `0thernes LLC` and pre-Apache `verification licence` text after the `v1.1.0` Apache-2.0 / CC-BY-4.0 re-licensing. |
+| **v1.0.0 (pre-release review)** | 2026-11-10 | `paper/ks-minimum.md`, `results/RESULTS.md`, `lean/KS/Basic.lean`, `docs/REVIEW.md` | `error` / `bug` | Withdrew an incorrect draft remark claiming five-axis critical KS sets in $B(5,1)$ might not exist (the initial sampler was biased; `results/d5_axes_sanity.json` exhibits 3,734 five-axis critical sets); credited two previously missed prior reports (Pavičić & Megill 2022 in 5D, Waegell & Aravind 2011 for the 16 Peres 4D sets) and narrowed novelty claims; corrected early Lean certificate checker bugs caught during soundness proofs and recorded counterexamples in `lean/KS/Tests.lean`. |
+
+## 3. Correction & Withdrawal Plan
+
+If a mathematical error, statement-fidelity mismatch between the paper and `lean/KS/Spec.lean`, soundness flaw in `verify/drup_check.c` or `verify/verify_cert.mjs`, or undisclosed prior art is discovered:
+
+1. **Report intake:** Open a GitHub issue (tagged `error`, `bug`, or `hole`) or email `0_0@0thernes.art` with the exact commit/version, pool/theorem, and counterexample (a list of rays suffices).
+2. **Triage & reproduction (target: within 72 hours):** Reproduce the discrepancy, classify it under the 10-class Build Standard v1.2.0 taxonomy, and record an explicit entry in this `ERRATA.md`, `CLAIMS.md`, and `results/RESULTS.md`.
+3. **Correction release (non-fatal errors):** Publish a new SemVer release (`vX.Y.(Z+1)`) updating the register, proofs, code, and manuscript without force-pushing or rewriting tagged history.
+4. **Formal withdrawal (fatal theorem failure):** If a headline pool minimum fails due to an unrepairable error:
+   - Immediately add a prominent `[WITHDRAWN]` banner to `README.md`, `CLAIMS.md`, `results/RESULTS.md`, the manuscript PDF/HTML/TeX, and this `ERRATA.md` documenting the exact failure and crediting the discoverer.
+   - Publish a superseding withdrawal version on GitHub Releases and any external preprint server where deposited, never silently deleting prior versions.

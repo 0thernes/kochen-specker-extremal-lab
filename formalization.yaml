@@ -1,7 +1,7 @@
 title: "Certified exact minima of Kochen-Specker sets inside coordinate pools"
 repository: "https://github.com/0thernes/kochen-specker-extremal-lab"
-version: "1.8.0"
-date: "2026-11-24"
+version: "1.9.0"
+date: "2026-11-25"
 license:
   code: "Apache-2.0"
   documentation_and_papers: "CC-BY-4.0"

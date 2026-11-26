@@ -39,6 +39,10 @@ They are welcome under the same rule as any other report: the claim must be repr
 report contains. Say which system produced it. This repository was itself produced by an AI system
 under human direction (see `LEGAL.md`).
 
+## Finding Classes (Build Standard v1.2.0)
+
+Please tag issues using the 10-class finding taxonomy defined in `.github/labels.tsv` and `docs/glossary.md`: `bug`, `error`, `issue`, `problem`, `concern`, `dilemma`, `conflict`, `gap`, `hole`, `blindspot`. Substantive corrections and the formal withdrawal policy are recorded in [`ERRATA.md`](ERRATA.md).
+
 ## Licence
 
 Code is released under **Apache-2.0** (`LICENSE`), and manuscripts/documentation are released under **CC-BY-4.0** (`LICENSE-DOCS`). By sending a patch you agree that it may be included under the same licences.

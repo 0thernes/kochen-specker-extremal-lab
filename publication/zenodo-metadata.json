@@ -7,8 +7,8 @@
     "creators": [
       {"name": "Donahue, Alexander S.", "affiliation": "Independent researcher, Spokane, WA, USA", "orcid": "0009-0006-8168-9648"}
     ],
-    "version": "1.8.0",
-    "publication_date": "2026-11-24",
+    "version": "1.9.0",
+    "publication_date": "2026-11-25",
     "access_right": "open",
     "license": "apache-2.0",
     "keywords": ["Kochen-Specker theorem", "quantum contextuality", "minimal Kochen-Specker set", "SAT", "DRAT", "Lean 4", "formal verification"],

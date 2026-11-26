@@ -4,6 +4,21 @@
 
 - Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
 
+## [1.9.0] — 2026-11-25
+
+### Build Standard v1.2.0, Playbook v1.3, Zero-Overflow PDF (`0.00 pt`), `leanchecker --fresh` & Mega-Atlas Cross-Reference
+
+- **Build Standard v1.2.0 Upgrade (`10` Finding Classes & Schema Validity):**
+  - Fixed JSON Schema violation in `repo.yaml` (`stack: [lean, python, c-cpp]` → `[python, c-cpp, node, other]`, `standard: "1.2.0"`) and added permanent Draft 2020-12 schema + 10-class regression checks in `tests/test_repo_integrity.py`.
+  - Upgraded verbatim Build Standard v1.2.0 scaffolding (`scripts/Audit-Repo.ps1`, `scripts/audit-repo.sh`, `scripts/audit-checks.tsv`, `repo-standard.schema.json`, `docs/build-standard.md`, `.github/labels.tsv` synced live on GitHub, `.github/ISSUE_TEMPLATE/bug.yml`), replaced the 3-line self-referential `docs/glossary.md` stub with a complete domain + 10-finding-class glossary, and updated `AGENTS.md`, `CONTRIBUTING.md`, and `justfile`.
+  - Upgraded all 3 GitHub Actions workflows (`ci.yml`, `pages.yml`, `release.yml`) to `actions/checkout@v7`, `setup-python@v7`, `setup-node@v7`, `upload-artifact@v7`, `configure-pages@v6`, `upload-pages-artifact@v5`, `deploy-pages@v5`, `attest-build-provenance@v4` (with `continue-on-error: true`), weekly schedule, Build Standard audit artifact upload, **SHA-256-verified** `gitleaks v8.30.1` + `osv-scanner v2.7.1`, and `git archive` release bundles + automated CHANGELOG release notes.
+- **Defensible Independent AI Research Playbook v1.3 Upgrade:**
+  - Added [`ERRATA.md`](ERRATA.md) (version-vs-concept DOI policy, honest corrections ledger, formal withdrawal plan) and [`docs/mega-atlas-cross-reference.md`](docs/mega-atlas-cross-reference.md) (`0 / 1,900` Mega-Atlas grand problems completely solved; bounded `QM-011` coordinate-pool subcases certified).
+  - Added independent **`lake env leanchecker --fresh Solution`** replay (Playbook v1.3 H04), **3 adversarial false-variant Lean rejection tests** (Checklist #12), and the hardened H46 `(private|protected|noncomputable|scoped|local)* axiom` lexer across `.github/workflows/ci.yml`, `scripts/dev.sh`, `scripts/run_all.py` (which now also scans `Solution.lean`), and `tests/test_repo_integrity.py`.
+  - Added Crossref retraction-status checking (`retracted` flag via `update-to` / `is-retracted`) in `scripts/check_references.py` and fixed `scripts/check_docs.py` false positive on `docs/build-standard.md`.
+- **Manuscript & `0.00 pt` Overfull Hbox Polish (`paper/ks-minimum.md`, `scripts/build_latex.py`, `publication/ks-minimum/ks-minimum.{tex,pdf}`):**
+  - Added explicit **CRediT author contributions** and **Errata & versioning** (`ERRATA.md`) to Section 9; fixed `scripts/build_latex.py` so regenerating `ks-minimum.tex` preserves `\hypersetup`, clickable ORCID/email `\href` links, and Table 2 column widths; recompiled `ks-minimum.pdf` via Tectonic with **literal `0` overfull hboxes (`0.00 pt` max)** (eliminating the `3.73 pt` Table 2 overflow) and synced `docs/ks-minimum.pdf` & `docs/paper.html`; logged the literal 3-cycle audit in `docs/reviews/2026-11-25-v190-v12-v13-hardening-audit.md`.
+
 ## [1.8.0] — 2026-11-24
 
 ### 200-Pass Elite TOC Hardening (Resource-Hygiene `SIM115` Fixes, `RUF005`, Full 200-Pass Audit Record)

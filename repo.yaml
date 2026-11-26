@@ -1,11 +1,11 @@
 # yaml-language-server: $schema=./repo-standard.schema.json
-standard: "1.1.0"
+standard: "1.2.0"
 name: "kochen-specker-extremal-lab"
 description: "Certified exact minimum sizes of Kochen-Specker sets inside finite coordinate ray pools (31, 33, 18, 29), with zero-Mathlib Lean 4.35.0 proofs (6-kernel comparator) and SAT/DRUP certificates."
 owner: "Alexander S. Donahue (0thernes)"
 year: "2026"
 project_type: research
-stack: [lean, python, c-cpp]
+stack: [python, c-cpp, node, other]
 flags:
   public: true
   package: false

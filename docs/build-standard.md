@@ -2,7 +2,7 @@
 
 _Universal repo fundamentals and a verification ladder for one-person, AI-native builders_
 
-Version 1.1.0 · 2026-11-22 · Owner: Alex Donahue (0thernes) · License: CC BY 4.0
+Version 1.2.0 · 2026-11-24 · Owner: Alex Donahue (0thernes) · License: CC BY 4.0
 
 ## Contents
 
@@ -30,27 +30,31 @@ Never fabricate. Every number, claim, badge and screenshot must come from a real
 
 These override every item below. Nothing here may be weakened by a tool default.
 
-- **R1. Nothing may gate, block or slow a commit or push.** No branch protection, no required status checks, no commit or tag signing requirements, no git hooks (pre-commit, pre-push, commit-msg), no push protection, no merge queues.
+- **R1. Nothing may gate, block or slow a commit or push.** No branch protection, no required status checks, no commit or tag signing requirements, no git hooks (pre-commit, pre-push, commit-msg), no push protection, no merge queues, and no coverage, lint, SAST (such as CodeQL) or SBOM requirement that fails or blocks anything; those tools may only report.
 - **R2. Commit and push straight to main.** No pull requests and no feature branches. Fixes for failing checks are follow-up commits to main.
 - **R3. CI is informational.** CI reports results on every push. A red CI run is a finding to fix, never a barrier.
 - **R4. Banned tools and files.** No Dependabot or Renovate auto-PRs, no PR templates, no CodeRabbit, no Copilot review or .github/copilot-instructions.md, no FUNDING file unless the owner asks.
 - **R5. One-person lean, not corporate.** Prefer one file over a framework, one command over a checklist, plain text over portals. Add process only if it directly helps the owner build or prove the work.
 - **R6. Never fabricate.** Every claim, number, badge, screenshot and test result must come from a real run of the current code. Unverified means labeled unverified.
-- **R7. Classify every finding.** Each finding is exactly one of: bug, error, issue, problem, dilemma, conflict (definitions below).
+- **R7. Classify every finding.** Each finding is exactly one of: bug, error, issue, problem, concern, dilemma, conflict, gap, hole, blindspot (definitions below).
 - **R8. Precedence when rules collide.** Owner's explicit instruction, then these hard rules, then this standard's items, then ecosystem conventions.
 
 ## Finding classes
 
-Classify every finding as exactly one of these six.
+Classify every finding as exactly one of these ten.
 
 | Class | Definition | What to do | Example |
 |---|---|---|---|
 | bug | A defect in program logic: the code runs but does something different from its specification or intent. | Fix the code and add a regression test (B07). | A sort returns items out of order for duplicate keys. |
 | error | A wrong artifact or failed execution outside program logic: an incorrect number, claim, doc, config, version, build or command. | Correct the artifact and re-verify against evidence. | README says 100x faster; the benchmark measures 20x. |
-| issue | A gap: something this standard or the task requires is missing or incomplete, but nothing present is wrong. | Add the missing item and its evidence. | No SECURITY.md; no test for the CSV export path. |
+| issue | A weakness in something that exists: it works and is not wrong, but it is unclear, inconsistent, fragile or hard to maintain. | Improve it and note why in the commit or changelog. | Two docs describe the same setup step differently; a 400-line function nobody can follow. |
 | problem | An external obstacle that blocks progress and is not caused by the project's own code or artifacts. | Work around it or report it with what is needed to unblock. | Expired GitHub token; network blocks a tunnel; toolchain unavailable on the runner. |
+| concern | A risk that has not caused harm yet: something that could fail, mislead, cost money or create security or legal exposure later. | Record the risk, its likelihood and impact, and a mitigation or a reason to accept it. | An API key has no spending cap; a core dependency has a single maintainer. |
 | dilemma | A trade-off between two or more valid options where the right choice depends on the owner's priorities. | Present the options with consequences and a recommendation; the owner decides. | Ship the native extension for speed or stay pure-scripting for portability. |
 | conflict | Two requirements, sources or rules contradict each other, so satisfying one violates the other. | Resolve with the precedence rule (R8) or escalate to the owner. | A tool's default setup adds a pre-commit hook, but R1 bans hooks. |
+| gap | Something required or expected is missing: a file, feature, doc or item this standard or the task calls for does not exist yet, but nothing present is wrong. | Add the missing piece and its evidence. | No SECURITY.md; the README promises a CSV export that does not exist. |
+| hole | A missing check or safeguard: a path that nothing verifies or protects, so a defect could get through unnoticed. | Add the test, check or validation, then show it catches a planted fault. | No test covers the CSV export path; user input reaches a shell command unvalidated. |
+| blindspot | Something outside current attention: a user, platform, failure mode or assumption nobody has examined, so what is wrong there is unknown. | Examine it on purpose (test, review or measurement) and file what you find under the other classes. | Never run on Windows; nobody checked behavior on a full disk; benchmarks use English text only. |
 
 ## Order of operations
 
@@ -60,7 +64,7 @@ Classify every finding as exactly one of these six.
 4. Then do remaining core items, then recommended, then advanced, ordered by effort (S before M before L).
 5. For each item, run its 'done when' check and save its evidence artifact in the repo.
 6. Commit small, meaningful commits straight to main and push after each working step. Never open a PR or feature branch.
-7. Report results: items done, items not applicable (with reason), items not done, and every finding classified as exactly one of the six classes.
+7. Report results: items done, items not applicable (with reason), items not done, and every finding classified as exactly one of the ten finding classes.
 
 ## Minimum core set
 
@@ -96,7 +100,7 @@ One canonical source (AGENTS.md plus this standard); every other file only point
 | CLAUDE.md | Claude Code (also OpenCode fallback when a directory has no AGENTS.md) | Thin pointer containing the line @AGENTS.md. Claude Code expands @path imports (relative to the file, up to 4 hops). If both files exist without the import, Claude Code reads only CLAUDE.md, so the import is required. | https://code.claude.com/docs/en/memory |
 | GEMINI.md | Gemini CLI; also read by Antigravity | Thin pointer containing the line @./AGENTS.md (Gemini CLI memory import). Alternative: set context.fileName to ["AGENTS.md"] in .gemini/settings.json and omit GEMINI.md. Antigravity reads both AGENTS.md and GEMINI.md as always-on rules, so GEMINI.md must stay a pointer to avoid duplicated rules. | https://geminicli.com/docs/cli/gemini-md/ ; https://antigravity.google/docs/rules/ |
 | .cursor/rules/build-standard.mdc | Cursor and Grok Bot | Project rules must use the .mdc extension (plain .md there is ignored) with YAML frontmatter; alwaysApply: true loads it in every session. Cursor also reads AGENTS.md natively, so the rule only points to AGENTS.md and the full standard. | https://cursor.com/docs/rules |
-| llms.txt | Retrieval by any LLM or web agent | llmstxt.org format: H1 title (required), blockquote summary, optional text, then H2 sections of [name](url): note links to Markdown files. | https://llmstxt.org |
+| llms.txt | Retrieval by any LLM or web agent | llmstxt.org format: H1 title (required), blockquote summary, optional text, then H2 sections of `[name](url): note` links to Markdown files. | https://llmstxt.org |
 | llms-full.txt | Bulk ingestion by any LLM | Not part of the llmstxt.org spec; a widely used convention (popularized by Mintlify) for one file with the full content. Here it is generated from AGENTS.md plus the full standard and must never be hand-edited. | https://www.mintlify.com/docs/ai/llmstxt |
 | build-standard-prompt.md | Chat models with no repo access: GPT, Claude, Gemini, Grok | Paste-ready condensed standard (about 2 to 4k tokens): hard rules, finding classes, order of operations and all 90 item names with tier and scope. | Generated in this pack |
 
@@ -138,7 +142,7 @@ Not wanted:
 | [ ] A27 Pages demo or docs site (advanced) | [ ] B27 Performance tracking over time, report-only (advanced) |
 | [ ] A28 Package manifest (recommended) | [ ] B28 Controls and multiple seeds (core) |
 | [ ] A29 ROADMAP.md (recommended) | [ ] B29 Significance testing (core) |
-| [ ] A30 Labels including the six finding classes (recommended) | [ ] B30 Effect sizes and confidence intervals (core) |
+| [ ] A30 Labels for the finding classes (recommended) | [ ] B30 Effect sizes and confidence intervals (core) |
 | [ ] A31 Task runner with one-word commands (core) | [ ] B31 Multiple-comparison correction (recommended) |
 | [ ] A32 Agent entry points: AGENTS.md canonical, plus CLAUDE.md, GEMINI.md, Cursor rules, llms.txt (core) | [ ] B32 Pre-registration of hypotheses (advanced) |
 | [ ] A33 Environment and configuration documented (core) | [ ] B33 ML evaluation on held-out data (core) |
@@ -473,12 +477,12 @@ What every repository should contain, whatever the language or stack.
 - **Effort:** S
 - **Applies when:** public repos
 - **Why it matters:** Structured issue forms collect versions, reproduction steps and the finding class up front, so reports are actionable by a human or an LLM.
-- **How to do it:** Add issue forms for bug, feature and question. Include a required dropdown for the finding class (bug, error, issue, problem, dilemma, conflict), environment fields and reproduction steps. Add config.yml linking to Discussions and SECURITY.md. Do not add PR templates.
+- **How to do it:** Add issue forms for bug, feature and question. Include a required dropdown for the finding class (bug, error, issue, problem, concern, dilemma, conflict, gap, hole, blindspot), environment fields and reproduction steps. Add config.yml linking to Discussions and SECURITY.md. Do not add PR templates.
 - **Examples:**
   - GitHub: .github/ISSUE_TEMPLATE/bug.yml, feature.yml, config.yml
   - GitLab: .gitlab/issue_templates/*.md
   - All stacks: ask for runtime version (python --version, node -v, rustc -V, go version, ruby -v, gcc --version, java -version)
-- **Done when:** Issue forms render on the new-issue page and include the six-class finding dropdown; no pull_request_template exists.
+- **Done when:** Issue forms render on the new-issue page and include the finding-class dropdown with all ten classes; no pull_request_template exists.
 - **Evidence:** .github/ISSUE_TEMPLATE/*
 
 ### A19 · About description and topics
@@ -655,19 +659,19 @@ What every repository should contain, whatever the language or stack.
 - **Done when:** ROADMAP.md exists with Now, Next, Later and Not planned sections and was updated within the last release cycle.
 - **Evidence:** ROADMAP.md
 
-### A30 · Labels including the six finding classes
+### A30 · Labels for the finding classes
 
 - **Category:** Community
 - **Tier:** recommended
 - **Effort:** S
 - **Applies when:** repos that use an issue tracker
-- **Why it matters:** Consistent labels make triage instant. Using the six finding classes as labels makes every report land in exactly one bucket.
-- **How to do it:** Create labels: bug, error, issue, problem, dilemma, conflict (one per finding class, with the definitions as descriptions), plus a small set of area and priority labels. Delete unused defaults.
+- **Why it matters:** Consistent labels make triage instant. Using the ten finding classes as labels makes every report land in exactly one bucket.
+- **How to do it:** Create labels: bug, error, issue, problem, concern, dilemma, conflict, gap, hole, blindspot (one per finding class, with the definitions as descriptions), plus a small set of area and priority labels. Delete unused defaults.
 - **Examples:**
-  - GitHub CLI: gh label create dilemma --description 'Trade-off between valid options; owner decides' --color FBCA04
+  - GitHub CLI: gh label create dilemma --description 'Trade-off between valid options; the owner decides' --color D4C5F9
   - GitLab: project labels via API
   - All stacks: same label set across every repo
-- **Done when:** gh label list shows all six finding-class labels with their definitions.
+- **Done when:** gh label list shows all ten finding-class labels with their definitions.
 - **Evidence:** Label list output
 
 ### A31 · Task runner with one-word commands
@@ -696,7 +700,7 @@ What every repository should contain, whatever the language or stack.
 - **Effort:** S
 - **Applies when:** always
 - **Why it matters:** Every coding agent looks for its own file first. One canonical AGENTS.md plus thin pointer files means OpenCode, Codex, Claude Code, Gemini CLI, Antigravity, Cursor, Grok Build and Grok Bot all start from the same rules and commands, and the files can never drift apart.
-- **How to do it:** Write AGENTS.md at the root as the single source of truth: purpose, layout map, setup, test and verify commands, conventions, the hard rules (direct to main, nothing gates a push), the six finding classes, and known traps; keep it under 32 KiB and link the full standard at docs/build-standard.md. Add thin pointers that contain no rules of their own: CLAUDE.md with the line @AGENTS.md, GEMINI.md with the line @./AGENTS.md, and .cursor/rules/build-standard.mdc with alwaysApply true pointing at AGENTS.md. Add llms.txt (llmstxt.org format: H1, blockquote summary, H2 link lists) and llms-full.txt (AGENTS.md plus the full standard concatenated, generated by a script, never hand-edited). Do not add .github/copilot-instructions.md.
+- **How to do it:** Write AGENTS.md at the root as the single source of truth: purpose, layout map, setup, test and verify commands, conventions, the hard rules (direct to main, nothing gates a push), the ten finding classes, and known traps; keep it under 32 KiB and link the full standard at docs/build-standard.md. Add thin pointers that contain no rules of their own: CLAUDE.md with the line @AGENTS.md, GEMINI.md with the line @./AGENTS.md, and .cursor/rules/build-standard.mdc with alwaysApply true pointing at AGENTS.md. Add llms.txt (llmstxt.org format: H1, blockquote summary, H2 link lists) and llms-full.txt (AGENTS.md plus the full standard concatenated, generated by a script, never hand-edited). Do not add .github/copilot-instructions.md.
 - **Examples:**
   - Codex, OpenCode, Grok Build, Antigravity, Cursor: read AGENTS.md natively
   - Claude Code: CLAUDE.md containing @AGENTS.md (import syntax)
@@ -915,7 +919,7 @@ What every repository should contain, whatever the language or stack.
 - **Effort:** S
 - **Applies when:** projects with users beyond the author or with domain-specific terms
 - **Why it matters:** The FAQ answers the questions everyone asks once, including the skeptical ones; the glossary defines the project's vocabulary so humans and LLMs use terms consistently.
-- **How to do it:** Keep docs/faq.md with real questions from issues, chats and LLM sessions, each answered with a link to evidence or docs, including 'why not use X' and 'what is this not'. Keep docs/glossary.md with each project-specific term, a one-sentence definition and where it appears in code, including the six finding classes and any metaphors versus literal terms.
+- **How to do it:** Keep docs/faq.md with real questions from issues, chats and LLM sessions, each answered with a link to evidence or docs, including 'why not use X' and 'what is this not'. Keep docs/glossary.md with each project-specific term, a one-sentence definition and where it appears in code, including the ten finding classes and any metaphors versus literal terms.
 - **Examples:**
   - All stacks: docs/faq.md linked from README and SUPPORT.md
   - All stacks: docs/glossary.md alphabetized, linked from README and AGENTS.md
@@ -1563,7 +1567,7 @@ How to show the work is real, correct and reproducible, from cheapest to stronge
 - **Effort:** S
 - **Applies when:** always; SBOM only for distributed binaries or when a downstream user asks
 - **Why it matters:** Known-vulnerable dependencies, leaked secrets and obvious injection patterns are cheap to find, and an SBOM lists exactly what ships. Under this standard scanners inform and never block pushes.
-- **How to do it:** Run a dependency vulnerability scan, a secret scan of history and a basic SAST pass via the task runner and scheduled or informational CI, and triage findings with the six finding classes. Optionally generate a CycloneDX or SPDX SBOM at release time and attach it to the release.
+- **How to do it:** Run a dependency vulnerability scan, a secret scan of history and a basic SAST pass via the task runner and scheduled or informational CI, and triage findings with the ten finding classes. Optionally generate a CycloneDX or SPDX SBOM at release time and attach it to the release.
 - **Examples:**
   - Python: pip-audit, bandit, cyclonedx-py
   - JS/TS: npm audit or pnpm audit; npm sbom --sbom-format cyclonedx
@@ -1618,7 +1622,7 @@ How to show the work is real, correct and reproducible, from cheapest to stronge
 - **Effort:** S
 - **Applies when:** released artifacts and published results
 - **Why it matters:** Proves which commit and which CI run produced an artifact, so nobody has to trust that the binary or result came from the code shown.
-- **How to do it:** Build releases in CI and generate signed provenance attestations for artifacts (this signs artifacts after the push; it does not require signed commits and never gates pushes). Document how to verify.
+- **How to do it:** Build releases in CI and generate signed provenance attestations for artifacts (this signs artifacts after the push; it does not require signed commits and never gates pushes). GitHub artifact attestations need a public repo (private repos need GitHub Enterprise Cloud), so let the step fail softly elsewhere. Document how to verify.
 - **Examples:**
   - GitHub: actions/attest-build-provenance, verify with gh attestation verify
   - SLSA: slsa-github-generator
@@ -1728,7 +1732,7 @@ How to show the work is real, correct and reproducible, from cheapest to stronge
 - **Effort:** S
 - **Applies when:** always; deeper for security, AI and public claims
 - **Why it matters:** Authors miss their own blind spots. An adversarial review tries to break the claims, the code and the security, and records what it found.
-- **How to do it:** Ask a reviewer (a person or a separate LLM session instructed to attack, not to praise) to try to refute each claim, find bugs and attack inputs. Record findings classified as bug, error, issue, problem, dilemma or conflict, and their resolution, in docs/reviews/. Reviews never gate commits or pushes.
+- **How to do it:** Ask a reviewer (a person or a separate LLM session instructed to attack, not to praise) to try to refute each claim, find bugs and attack inputs. Record findings classified as bug, error, issue, problem, concern, dilemma, conflict, gap, hole or blindspot, and their resolution, in docs/reviews/. Reviews never gate commits or pushes.
 - **Examples:**
   - Any stack: docs/reviews/2026-11-22-redteam.md with classified findings
   - AI projects: prompt-injection and jailbreak attempts against the feature

@@ -150,7 +150,11 @@ class KSRepoIntegrityTests(unittest.TestCase):
         self.assertEqual(crlf, [], f"CRLF line endings found: {crlf}")
 
     def test_no_forbidden_lean_tokens(self) -> None:
-        forbidden = re.compile(r"\b(sorry|admit|native_decide|unsafe)\b|^\s*(?:private\s+|protected\s+)?axiom\b|implemented_by|@\[extern")
+        forbidden = re.compile(
+            r"\b(sorry|admit|native_decide|unsafe)\b|"
+            r"^\s*(?:(?:private|protected|noncomputable|scoped|local)\s+)*axiom\b|"
+            r"implemented_by|@\[extern"
+        )
         hits: list[str] = []
         for lf in sorted((ROOT / "lean").rglob("*.lean")):
             if ".lake" in lf.parts or lf.name == "Challenge.lean":
@@ -160,6 +164,69 @@ class KSRepoIntegrityTests(unittest.TestCase):
                 if forbidden.search(line):
                     hits.append(f"{lf.relative_to(ROOT)}:{lineno}: {line.strip()}")
         self.assertEqual(hits, [], f"Forbidden Lean tokens: {hits}")
+
+    def test_build_standard_v12_manifest_and_ten_finding_classes(self) -> None:
+        schema = json.loads((ROOT / "repo-standard.schema.json").read_text(encoding="utf-8"))
+        self.assertEqual(schema["$id"], "urn:0thernes:build-standard:repo-manifest-schema:1.2.0")
+        try:
+            import yaml
+            manifest = yaml.safe_load((ROOT / "repo.yaml").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["standard"], "1.2.0")
+            allowed_stacks = set(schema["properties"]["stack"]["items"]["enum"])
+            for entry in manifest["stack"]:
+                self.assertIn(entry, allowed_stacks, f"Invalid stack value in repo.yaml: {entry!r}")
+            try:
+                import jsonschema
+                jsonschema.validate(instance=manifest, schema=schema)
+            except ImportError:
+                pass
+        except ImportError:
+            self.assertIn('standard: "1.2.0"', (ROOT / "repo.yaml").read_text(encoding="utf-8"))
+
+        ten_classes = [
+            "bug", "error", "issue", "problem", "concern",
+            "dilemma", "conflict", "gap", "hole", "blindspot",
+        ]
+        labels_txt = (ROOT / ".github" / "labels.tsv").read_text(encoding="utf-8")
+        bug_form_txt = (ROOT / ".github" / "ISSUE_TEMPLATE" / "bug.yml").read_text(encoding="utf-8")
+        glossary_txt = (ROOT / "docs" / "glossary.md").read_text(encoding="utf-8")
+        for cls in ten_classes:
+            self.assertRegex(labels_txt, re.compile(rf"^{cls}\t", re.M), f"Missing label '{cls}' in .github/labels.tsv")
+            self.assertIn(f'"{cls}:', bug_form_txt, f"Missing finding class '{cls}' in .github/ISSUE_TEMPLATE/bug.yml")
+            self.assertIn(f"**{cls}**", glossary_txt, f"Missing finding class '{cls}' in docs/glossary.md")
+
+    def test_playbook_v13_errata_mega_atlas_palomar_and_cdn_sri(self) -> None:
+        errata = (ROOT / "ERRATA.md").read_text(encoding="utf-8")
+        self.assertIn("Withdrawal Plan", errata)
+        self.assertIn("version-specific DOI", errata)
+        mega = (ROOT / "docs" / "mega-atlas-cross-reference.md").read_text(encoding="utf-8")
+        self.assertIn("0 / 1,900", mega)
+        self.assertIn("QM-011", mega)
+
+        # Palomar size caps & symlink guard (Playbook v1.3 H14)
+        ch = ROOT / "lean" / "Challenge.lean"
+        self.assertLessEqual(len(ch.read_text(encoding="utf-8").splitlines()), 1000)
+        self.assertLessEqual(ch.stat().st_size, 102400)
+        for lf in (ROOT / "lean").rglob("*.lean"):
+            if ".lake" in lf.parts:
+                continue
+            self.assertFalse(lf.is_symlink(), f"Lean file must not be a symlink: {lf}")
+            self.assertLessEqual(len(lf.read_text(encoding="utf-8").splitlines()), 10000)
+
+        # Verify all external CDN <script> tags carry sha384 SRI and crossorigin
+        skip = {".git", ".lake", ".venv", "node_modules", "third_party", "build"}
+        cdn_re = re.compile(r"<script[^>]+src=[\"'](https?://[^\"']*(?:cdn\.|jsdelivr|cdnjs|unpkg)[^\"']*)[\"'][^>]*>", re.I)
+        missing_sri: list[str] = []
+        for ext in ("*.html", "*.py", "*.js", "*.mjs"):
+            for fp in sorted(ROOT.rglob(ext)):
+                if any(part in skip for part in fp.parts):
+                    continue
+                txt = fp.read_text(encoding="utf-8", errors="ignore")
+                for m in cdn_re.finditer(txt):
+                    tag = m.group(0)
+                    if 'integrity="sha384-' not in tag or 'crossorigin="anonymous"' not in tag:
+                        missing_sri.append(f"{fp.relative_to(ROOT).as_posix()}: {m.group(1)}")
+        self.assertEqual(missing_sri, [], f"External CDN <script> missing sha384 SRI or crossorigin: {missing_sri}")
 
     def test_data_manifest_and_docs_manifest_sha256(self) -> None:
         manifest = ROOT / "data" / "MANIFEST.sha256"

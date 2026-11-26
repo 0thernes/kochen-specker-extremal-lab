@@ -18,6 +18,7 @@ case "$cmd" in
   verify-lean)
     (cd lean && lake build KS Solution)
     (cd lean && lake env lean KS/Audit.lean)
+    (cd lean && lake env leanchecker --fresh Solution)
     (cd lean && lake comparator --config comparator.json --paranoid)
     ;;
   sanitizers)

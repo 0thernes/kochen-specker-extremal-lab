@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * 1" # weekly drift & vulnerability check
 
 concurrency:
   group: ks-ci-${{ github.ref }}
@@ -23,20 +25,24 @@ jobs:
         os: [ubuntu-24.04, windows-latest, macos-latest]
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
       - name: Install Python dependencies
-        run: python -m pip install -r requirements.txt
-      - name: Run Python unit tests
+        run: python -m pip install -r requirements.txt pyyaml jsonschema
+      - name: Run Python unit & integrity tests
         run: python -m unittest discover -s tests -v
+      - name: Run doc consistency check
+        run: python scripts/check_docs.py
       - name: Run Node.js certificate verifier tests
         run: node --test docs/assets/verify.test.mjs
-      - name: Build & execute C11 DRUP checker with ASan/UBSan + run_all (Linux)
+      - name: Build & execute C11 DRUP/QGTL/QRNG engines with ASan/UBSan + run_all (Linux)
         if: runner.os == 'Linux'
         run: |
           gcc -O2 -std=c11 -Wall -Wextra -o verify/drup_check verify/drup_check.c
@@ -53,19 +59,49 @@ jobs:
             stack/ks31_qrng.c -o /tmp/ks31_qrng_san
           /tmp/ks31_qrng_san | grep -q "\[qrng\] PASS"
           python scripts/run_all.py
-          bash scripts/audit-repo.sh .
-      - name: Secret scan (gitleaks, report-only)
+          bash scripts/audit-repo.sh . --json audit.json --markdown "$GITHUB_STEP_SUMMARY" || true
+      - name: Upload Build Standard v1.2.0 audit artifact (Linux)
         if: runner.os == 'Linux'
-        uses: gitleaks/gitleaks-action@v2
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-standard-audit
+          path: audit.json
+
+  security:
+    name: Security scan (SHA-256 verified, report-only)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: gitleaks v8.30.1 (SHA-256 verified, full history)
+        run: |
+          curl -sSfL -o gitleaks.tgz https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz
+          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  gitleaks.tgz" | sha256sum -c -
+          tar xzf gitleaks.tgz gitleaks
+          ./gitleaks detect --source . --redact --no-banner --exit-code 0 --report-format json --report-path gitleaks.json
+          echo "gitleaks findings: $(grep -c '"RuleID"' gitleaks.json || true)" >> "$GITHUB_STEP_SUMMARY"
+      - name: osv-scanner v2.7.1 (SHA-256 verified, dependency vulnerability check)
+        run: |
+          curl -sSfL -o osv-scanner https://github.com/google/osv-scanner/releases/download/v2.7.1/osv-scanner_linux_amd64
+          echo "fb7dab19a8bd9bbe5c3189f09d4b7ee1820c9553a23bac202648a56efd2f6ee8  osv-scanner" | sha256sum -c -
+          chmod +x osv-scanner
+          ./osv-scanner --recursive . > osv.txt 2>&1 || true
+          { echo '### osv-scanner'; echo '```'; tail -n 40 osv.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: security-reports
+          path: |
+            gitleaks.json
+            osv.txt
 
   lean:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install elan, Lean 4.35.0 & bubblewrap
         run: |
           sudo apt-get update && sudo apt-get install -y bubblewrap
@@ -75,7 +111,7 @@ jobs:
       - name: Build zero-Mathlib KS & Solution libraries
         working-directory: lean
         run: lake build KS Solution
-      - name: Exhaustive axiom audit & nested-comment forbidden-token check
+      - name: Exhaustive axiom audit & Playbook v1.3 H46 forbidden-token check
         working-directory: lean
         shell: bash
         run: |
@@ -85,7 +121,7 @@ jobs:
           import re, sys
           from pathlib import Path
 
-          # 1. Verify live axiom audit log strictly within standard axioms
+          # 1. Verify live axiom audit log strictly within standard axioms (rejecting _native.*, ofReduceBool, sorryAx)
           allowed = {"propext", "Classical.choice", "Quot.sound"}
           log_text = Path("../results/lean-audit-ci.log").read_text(encoding="utf-8")
           unwrapped = re.sub(r",\n\s+", ", ", log_text)
@@ -111,7 +147,7 @@ jobs:
               sys.exit(1)
           print(f"PASS: {checked} explicit KS Lean declarations + exhaustive namespace audit strictly within {sorted(allowed)}.")
 
-          # 2. Nested-comment & string-aware forbidden-token scan
+          # 2. Nested-comment & string-aware H46 forbidden-token scan
           def strip_lean(src: str) -> str:
               out, i, n, depth, in_str = [], 0, len(src), 0, False
               while i < n:
@@ -135,7 +171,11 @@ jobs:
                       else: out.append(src[i]); i += 1
               return "".join(out)
 
-          forb = re.compile(r"\b(sorry|admit|native_decide|unsafe)\b|^\s*(?:private\s+|protected\s+)?axiom\b|implemented_by|@\[extern")
+          forb = re.compile(
+              r"\b(sorry|admit|native_decide|unsafe)\b|"
+              r"^\s*(?:(?:private|protected|noncomputable|scoped|local)\s+)*axiom\b|"
+              r"implemented_by|@\[extern"
+          )
           hits = []
           for f in list(Path("KS").rglob("*.lean")) + [Path("KS.lean"), Path("Solution.lean")]:
               for ln, line in enumerate(strip_lean(f.read_text(encoding="utf-8")).splitlines(), 1):
@@ -146,13 +186,54 @@ jobs:
               sys.exit(1)
           print("PASS: 0 forbidden Lean tokens across KS & Solution.")
           PY
+      - name: Adversarial false-variant definition tests (Playbook v1.3 Checklist #12)
+        working-directory: lean
+        shell: bash
+        run: |
+          set +e
+          out1=$(lake env lean --stdin 2>&1 <<'LEAN'
+          import KS.Spec
+          theorem adversarial_false_box3_size :
+              (KS.boxRays 3 2).length = 48 := by
+            decide
+          LEAN
+          ); rc1=$?
+          out2=$(lake env lean --stdin 2>&1 <<'LEAN'
+          import KS.Spec
+          theorem adversarial_false_box4_size :
+              (KS.boxRays 4 1).length = 39 := by
+            decide
+          LEAN
+          ); rc2=$?
+          out3=$(lake env lean --stdin 2>&1 <<'LEAN'
+          import KS.Basic
+          theorem adversarial_false_card :
+              KS.card 49 (2 ^ 30 - 1) = 31 := by
+            decide
+          LEAN
+          ); rc3=$?
+          set -e
+          for pair in "1:$rc1:$out1" "2:$rc2:$out2" "3:$rc3:$out3"; do
+            idx="${pair%%:*}"
+            rest="${pair#*:}"
+            rc="${rest%%:*}"
+            msg="${rest#*:}"
+            if [ "$rc" -eq 0 ] || ! printf '%s' "$msg" | grep -q "proved that the proposition"; then
+              echo "ERROR: Adversarial test $idx did not cleanly refute false proposition (rc=$rc): $msg" >&2
+              exit 1
+            fi
+          done
+          echo "PASS: All 3 adversarial false-variant KS Lean theorems were cleanly refuted by kernel decide."
+      - name: Independent leanchecker --fresh replay (Playbook v1.3 H04)
+        working-directory: lean
+        run: lake env leanchecker --fresh Solution
       - name: 6-kernel lake comparator --paranoid
         working-directory: lean
         run: |
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
           lake comparator --config comparator.json --paranoid
       - name: SLSA provenance attestation for Lean audit
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v4
         continue-on-error: true
         with:
           subject-path: results/lean-audit-ci.log

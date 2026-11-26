@@ -1,4 +1,4 @@
-# Task runner for kochen-specker-extremal-lab (Build Standard v1.1.0)
+# Task runner for kochen-specker-extremal-lab (Build Standard v1.2.0)
 set shell := ["bash", "-euo", "pipefail", "-c"]
 
 default:

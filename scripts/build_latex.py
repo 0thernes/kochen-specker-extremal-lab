@@ -94,13 +94,18 @@ def fit_tables(tex):
         weight = [max(w, 4) ** 0.72 for w in width]
         total = sum(weight)
         frac = [w / total for w in weight]
-        # a column must hold its longest unbreakable \texttt{...} word (about 5.1pt per character of 452pt)
+        # ensure each column fits its header word(s) as well as its longest unbreakable \texttt{...} word
         need = [0.0] * ncol
-        for r in rows:
+        for r_idx, r in enumerate(rows):
             cells = r.split(" & ")
             if len(cells) != ncol:
                 continue
             for i, c in enumerate(cells):
+                if r_idx == 0:
+                    hdr_words = [w for w in re.split(r"\s+", re.sub(r"\\[A-Za-z]+", "", c).strip()) if w]
+                    if hdr_words:
+                        longest_hdr = max(len(w) for w in hdr_words)
+                        need[i] = max(need[i], min(0.35, (5.8 * longest_hdr + 6) / 452.0))
                 for word in re.findall(r"\\texttt\{([^{}]*)\}", c):
                     longest = max(len(x) for x in word.replace(BS + "_", "_").split(" "))
                     need[i] = max(need[i], min(0.55, (5.1 * longest + 14) / 452.0))
@@ -187,11 +192,16 @@ def main():
     name, _, affiliation = who.strip().rstrip(".").partition(",")
     tex = lambda s: pandoc(args.pandoc, s).strip()
     author = "%s%s%s %s%s%s " % (tex(name), BS, BS, tex(affiliation.strip()), BS, BS)
-    if orcid.strip():
-        author += "ORCID %s%s%s " % (tex(orcid.strip().rstrip(".")), BS, BS)
-    author += "%stexttt{%s}" % (BS, mail.strip().replace("_", BS + "_"))
+    orcid_clean = orcid.strip().rstrip(".")
+    if orcid_clean:
+        author += "%shref{https://orcid.org/%s}{ORCID %s}%s%s " % (BS, orcid_clean, tex(orcid_clean), BS, BS)
+    mail_clean = mail.strip()
+    author += "%shref{mailto:%s}{%stexttt{%s}}" % (BS, mail_clean, BS, mail_clean.replace("_", BS + "_"))
     status = " ".join(tex(b) for b in byline[1:])
+    hypersetup = "%shypersetup{pdftitle={%s},pdfauthor={%s}}" % (BS, tex(title), tex(name))
     doc = [PREAMBLE,
+           hypersetup,
+           "",
            ("%stitle{%s%s%s[0.7em]%slarge %s}" % (BS, tex(title), BS, BS, BS, tex(subtitle))) if subtitle
            else ("%stitle{%s}" % (BS, tex(title))),
            "%sauthor{%s}" % (BS, author),

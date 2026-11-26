@@ -16,17 +16,43 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - name: Generate SHA256SUMS for release artifacts
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Check version consistency
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          file="$(tr -d '[:space:]' < VERSION 2>/dev/null || true)"
+          [ "$file" = "$tag" ] || echo "::warning::VERSION ($file) does not match tag ($tag)"
+          grep -Eq "^## \[$tag\]" CHANGELOG.md || echo "::warning::CHANGELOG.md has no section for $tag"
+      - name: Collect release artifacts and generate SHA256SUMS
         run: |
           mkdir -p release-dist
           cp publication/ks-minimum/ks-minimum.pdf paper/ks-minimum.md paper/PROOFS.md results/RESULTS.md release-dist/
-          (cd release-dist && sha256sum * > SHA256SUMS)
+          if [ -f ERRATA.md ]; then cp ERRATA.md release-dist/; fi
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            name="${GITHUB_REPOSITORY#*/}"
+            git archive --format=tar.gz --prefix="$name-${GITHUB_REF_NAME}/" -o "release-dist/$name-${GITHUB_REF_NAME}-source.tar.gz" "${GITHUB_REF_NAME}"
+            git archive --format=zip --prefix="$name-${GITHUB_REF_NAME}/" -o "release-dist/$name-${GITHUB_REF_NAME}-source.zip" "${GITHUB_REF_NAME}"
+          fi
+          (cd release-dist && find . -maxdepth 1 -type f ! -name SHA256SUMS -printf '%f\n' | sort | xargs sha256sum > ../SHA256SUMS && mv ../SHA256SUMS SHA256SUMS)
           cat release-dist/SHA256SUMS
       - name: SLSA provenance attestation
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v4
+        continue-on-error: true
         with:
           subject-path: release-dist/*
+      - name: Extract release notes from CHANGELOG.md
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          awk -v v="$tag" '$0 ~ "^## \\[" v "\\]" {f=1; next} f && /^## \[/ {exit} f' CHANGELOG.md > notes.md
+          [ -s notes.md ] || echo "Release ${GITHUB_REF_NAME} with frozen PDF, Apache-2.0/CC-BY-4.0 dual licensing, 6-kernel Lean comparator, SHA256SUMS, and SLSA attestations." > notes.md
+          {
+            echo
+            echo "Verify checksums: \`sha256sum -c SHA256SUMS\` and (on public repos) \`gh attestation verify <file> --repo ${GITHUB_REPOSITORY}\`."
+          } >> notes.md
       - name: Publish GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
         env:
@@ -34,5 +60,6 @@ jobs:
         run: |
           gh release create "${GITHUB_REF_NAME}" release-dist/* \
             --title "Kochen-Specker Extremal Lab ${GITHUB_REF_NAME}" \
-            --notes "Release ${GITHUB_REF_NAME} with frozen PDF, Apache-2.0/CC-BY-4.0 dual licensing, 6-kernel Lean comparator, SHA256SUMS, and SLSA attestations." \
+            --notes-file notes.md \
+            --verify-tag \
             || gh release upload "${GITHUB_REF_NAME}" release-dist/* --clobber

@@ -37,10 +37,16 @@ def crossref(text):
     it = items[0]
     authors = ", ".join(a.get("family", "") for a in it.get("author", [])[:6])
     year = (it.get("issued", {}).get("date-parts") or [[None]])[0][0]
+    updates = it.get("update-to") or []
+    retracted = any(
+        "retract" in str(u.get("type", "")).lower() or "retract" in str(u.get("label", "")).lower()
+        for u in updates
+        if isinstance(u, dict)
+    ) or bool(it.get("is-retracted"))
     return {"title": (it.get("title") or [""])[0], "authors": authors, "year": year,
             "container": (it.get("container-title") or [""])[0], "volume": it.get("volume"),
             "page": it.get("page") or it.get("article-number"), "doi": it.get("DOI"),
-            "score": it.get("score")}
+            "score": it.get("score"), "retracted": retracted}
 
 
 def arxiv(num):
