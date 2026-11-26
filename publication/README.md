@@ -6,8 +6,8 @@ steps are left to the author on purpose.
 
 | Venue | What is ready | What only the author can do |
 |---|---|---|
-| GitHub release and Pages | done on 10 November 2026: [release v1.0.0](https://github.com/0thernes/kochen-specker-extremal-lab/releases/tag/v1.0.0) with the PDF and the arXiv bundle, and the site under `docs/` at https://0thernes.github.io/kochen-specker-extremal-lab/ (section 8 of `docs/REPORT.md`) | — |
-| Software Heritage | done on 10 November 2026: save request 2636249, visit complete, snapshot `swh:1:snp:fdc362b2aca1a4a3c32cda671d8033bcaea0901f` with the tag v1.0.0 (section 8 of `docs/REPORT.md`) | — |
+| GitHub release and Pages | done (`v1.0.0`–`v2.0.0`): [latest release](https://github.com/0thernes/kochen-specker-extremal-lab/releases) with `0.00 pt` PDF, `ERRATA.md`, `SHA256SUMS`, SLSA/Rekor attestations, and `git archive` source bundles; site under `docs/` at https://0thernes.github.io/kochen-specker-extremal-lab/ | — |
+| Software Heritage & Timestamps | done: permanent snapshots `swh:1:snp:fdc362b2aca1a4a3c32cda671d8033bcaea0901f` (`v1.0.0`) and `swh:1:snp:6df0f79e042201d9490512cc8dda65471db9fafb` (`v1.9.0`), plus DigiCert RFC 3161 TSA & 3-calendar Bitcoin OpenTimestamps (`data/MANIFEST.sha256.{tsr,ots}`) | — |
 | Internet Archive | done on 10 November 2026 for the site, the paper page, the PDF, and the register and paper source at the tag (raw files); the save service refused the github.com pages (section 8 of `docs/REPORT.md`) | — |
 | Google Scholar | `docs/paper.html` carries the `citation_*` meta tags and links the PDF | nothing to submit; indexing is automatic and can take weeks |
 | arXiv | `ks-minimum/arxiv-source.zip` (TeX source and `00README.json`), `ks-minimum/ks-minimum.pdf`, abstract in `arxiv-metadata.txt` | log in, obtain endorsement for the category if asked, upload, confirm the authorship and licence statements, press Submit |

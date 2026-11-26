@@ -7,16 +7,17 @@ command -v "$PY" >/dev/null 2>&1 || PY="python"
 cmd="${1:-help}"
 case "$cmd" in
   build)
-    (cd lean && lake build KS Solution)
+    (cd lean && lake build --wfail KS Solution)
     ;;
   test)
     "$PY" -m unittest discover -s tests -v
+    "$PY" scripts/stamp_timestamps.py --verify
     if command -v node >/dev/null 2>&1; then
       node --test docs/assets/verify.test.mjs
     fi
     ;;
   verify-lean)
-    (cd lean && lake build KS Solution)
+    (cd lean && lake build --wfail KS Solution)
     (cd lean && lake env lean KS/Audit.lean)
     (cd lean && lake env leanchecker --fresh Solution)
     (cd lean && lake comparator --config comparator.json --paranoid)

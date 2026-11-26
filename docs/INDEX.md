@@ -1,6 +1,6 @@
 # Index: where each claim is proved, regenerated and logged
 
-Kochen-Specker Extremal Lab, version 1.0.0. The claims are those of the register
+Kochen-Specker Extremal Lab, version 2.0.0 (originally v1.0.0). The claims are those of the register
 [results/RESULTS.md](../results/RESULTS.md), in its numbering. The status words are the register's;
 where this page and the register differ, the register is right. Terms: [glossary.md](glossary.md).
 Overview: [SUMMARY.md](SUMMARY.md). What was run and what failed: [REPORT.md](REPORT.md). What the

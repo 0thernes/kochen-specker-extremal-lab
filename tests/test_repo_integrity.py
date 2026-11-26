@@ -228,6 +228,17 @@ class KSRepoIntegrityTests(unittest.TestCase):
                         missing_sri.append(f"{fp.relative_to(ROOT).as_posix()}: {m.group(1)}")
         self.assertEqual(missing_sri, [], f"External CDN <script> missing sha384 SRI or crossorigin: {missing_sri}")
 
+    def test_rfc3161_opentimestamps_and_lrat_script(self) -> None:
+        import importlib.util
+
+        self.assertTrue((ROOT / "scripts" / "verify_lrat.sh").is_file())
+        self.assertTrue((ROOT / "docs" / "submission-packet.md").is_file())
+        spec = importlib.util.spec_from_file_location("stamp_timestamps", ROOT / "scripts" / "stamp_timestamps.py")
+        assert spec is not None and spec.loader is not None
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        self.assertEqual(mod.verify_timestamps(), 0, "RFC 3161 TSA or OpenTimestamps proof failed verification")
+
     def test_data_manifest_and_docs_manifest_sha256(self) -> None:
         manifest = ROOT / "data" / "MANIFEST.sha256"
         self.assertTrue(manifest.is_file())

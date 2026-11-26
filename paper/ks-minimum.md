@@ -2,7 +2,7 @@
 
 **Alexander S. Donahue** — Independent researcher, Spokane, WA, USA — 0_0@0thernes.art — ORCID 0009-0006-8168-9648
 
-Version 1.9.0 (originally v1.0.0, 10 November 2026; updated 25 November 2026). Research preprint, not peer reviewed. CC-BY-4.0.
+Version 2.0.0 (originally v1.0.0, 10 November 2026; updated 26 November 2026). Research preprint, not peer reviewed. CC-BY-4.0.
 
 > **What this paper does and does not do.** The smallest Kochen-Specker (KS) set in dimension three is
 > an open problem: it has between 24 and 31 rays. This paper does **not** solve that problem and does
@@ -492,7 +492,7 @@ Lean 4.35.0.
 
 **CRediT author contributions.** Alexander S. Donahue: Conceptualization; Methodology; Project administration; Resources (self-funded); Supervision; Validation direction and publication decisions.
 
-**AI disclosure.** The research, programs, Lean proofs and text were produced by Claude (Anthropic) working as an agent at the request and under the direction of the author, with subsequent v1.1.0–v1.9.0 6-kernel comparator, `leanchecker --fresh`, exhaustive Lean axiom-audit, C11 sanitizer, and Build Standard v1.2.0 / Playbook v1.3 hardening performed with Google Gemini / Antigravity under the author's direction; the author takes full responsibility for the release. An AI system is not an author.
+**AI disclosure.** The research, programs, Lean proofs and text were produced by Claude (Anthropic) working as an agent at the request and under the direction of the author, with subsequent v1.1.0–v2.0.0 6-kernel comparator, `leanchecker --fresh`, exhaustive Lean axiom-audit, C11 sanitizer, and Build Standard v1.2.0 / Playbook v1.3 hardening performed with Google Gemini / Antigravity under the author's direction; the author takes full responsibility for the release. An AI system is not an author.
 
 **Funding, competing interests, errata, and licence.** The work was self-funded by the author as an independent researcher; there was no external funding and there are no competing interests. Corrections across versions and the formal withdrawal plan are recorded in `ERRATA.md` at the repository root. Code is released under Apache-2.0 (`LICENSE`) and this manuscript and documentation are released under CC-BY-4.0 (`LICENSE-DOCS`); third-party components keep their own licences.
 

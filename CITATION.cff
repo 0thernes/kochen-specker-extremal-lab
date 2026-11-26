@@ -2,11 +2,15 @@ cff-version: 1.2.0
 title: "Kochen-Specker Extremal Lab: Certified Exact Minima of Kochen-Specker Sets Inside Coordinate Pools"
 message: "If you use this software, Lean 4 proofs, or preprint, please cite this repository. Note that this is an unreviewed research preprint produced with AI assistance under human direction; no general open-problem record is claimed."
 type: software
-version: "1.9.0"
-date-released: "2026-11-25"
+version: "2.0.0"
+date-released: "2026-11-26"
 license: Apache-2.0
 repository-code: "https://github.com/0thernes/kochen-specker-extremal-lab"
 url: "https://0thernes.github.io/kochen-specker-extremal-lab/"
+identifiers:
+  - type: swh
+    value: "swh:1:snp:6df0f79e042201d9490512cc8dda65471db9fafb"
+    description: "Software Heritage permanent archival snapshot (v1.9.0)"
 authors:
   - family-names: Donahue
     given-names: Alexander S.

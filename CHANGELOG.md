@@ -4,6 +4,14 @@
 
 - Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
 
+## [2.0.0] — 2026-11-26
+
+### Trigger T2 (`drat-trim` → LRAT → `lrat-check`), DigiCert RFC 3161 + Bitcoin OTS Timestamps, Zero-Warning `--wfail` Lean & Submission Dossier
+
+- **Independent Second Proof Checker — Trigger T2 (`scripts/verify_lrat.sh`, `.github/workflows/ci.yml`):** Added automated Linux CI verification downloading pinned, SHA-256-verified upstream `marijnheule/drat-trim` (`2e3b2dc`), cross-checking regenerated UNSAT proofs for `B(3,2)` (`k=30`), `B(4,1)` (`k=17`), and `B(3,3)` (`k=30`) through THREE independent checkers (`verify/drup_check`, `drat-trim`, and `lrat-check` on emitted LRAT proofs) plus a truncated-LRAT negative control.
+- **Cryptographic Timestamping & Permanent Archival Identifiers (Playbook v1.3 #26 / Trigger T8):** Sealed `data/MANIFEST.sha256` with both a live **DigiCert RFC 3161 TSA** token (`data/MANIFEST.sha256.tsr`, OpenSSL X.509 verified in Linux CI) and a **3-calendar Bitcoin OpenTimestamps** proof (`data/MANIFEST.sha256.ots`) via `scripts/stamp_timestamps.py` (enforced across 3 OSes in CI and `tests/test_repo_integrity.py`); embedded permanent Software Heritage snapshot `swh:1:snp:6df0f79e042201d9490512cc8dda65471db9fafb` in `CITATION.cff`, `formalization.yaml`, `publication/README.md`, and `docs/threat-model.md`.
+- **Zero-Warning Lean Enforcement, Clean-Clone Replication & Ready-to-Review Submission Packet:** Upgraded Lean builds to `lake build --wfail KS Solution` (`0` warnings) in `ci.yml` and `scripts/dev.sh`; fixed stale `v1.0.0` headers in `docs/INDEX.md` and `publication/README.md`; recorded automated clean-clone replication in `REPLICATION.md`; added `docs/submission-packet.md` (draft Palomar payload, specialist correspondence notes, and human line-by-line fidelity checklist); recompiled `ks-minimum.pdf` (`0.00 pt` overfull hbox) and updated `docs/ks-minimum.pdf`, `docs/paper.html`, and `arxiv-source.zip`.
+
 ## [1.9.0] — 2026-11-25
 
 ### Build Standard v1.2.0, Playbook v1.3, Zero-Overflow PDF (`0.00 pt`), `leanchecker --fresh` & Mega-Atlas Cross-Reference
