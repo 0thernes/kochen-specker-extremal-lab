@@ -45,4 +45,4 @@ automation:
   human_line_by_line_review_recorded: false
   statement_fidelity_table: "docs/statement-fidelity.md"
 review_status: "Research preprint; NOT externally peer reviewed; NOT yet submitted to Palomar Registry, arXiv, or Zenodo."
-limitations: "Pool-restricted exact minima only; does NOT settle the general minimal Kochen-Specker open problem (24..31 in 3D). Pools beyond B(3,2) and B(4,1) rely on DRUP certificates outside the Lean kernel."
+limitations: "Pool-restricted exact minima only; does NOT settle the general minimal Kochen-Specker open problem (24..31 in 3D). Lean proves only B(3,2) = 31 and B(4,1) = 18. The other seven pools rely on DRUP certificates checked outside the Lean kernel by the project's own checker (drat-trim/LRAT cross-check in CI for B(3,3) only). kernels_configured lists the official Lean kernel twice (default and paranoid mode) plus four external checkers. Kernaghan arXiv:2603.16988v10 (23 Nov 2026) independently proves 31 for B(3,2) and 33 for the sixth-roots pool in Lean, after this repository's v1.0.0 (10 Nov 2026)."

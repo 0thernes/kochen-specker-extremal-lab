@@ -25,8 +25,13 @@ keywords:
   - lean4
   - formal-verification
 abstract: >-
-  Certified exact minimum sizes of Kochen-Specker sets inside nine finite coordinate ray pools
-  (31 and 33 rays in dimension 3, 18 in dimension 4, 29 in dimension 5), including zero-Mathlib
-  Lean 4.35.0 proofs for B(3,2) = 31 and B(4,1) = 18 verified by six independent Lean kernels
-  via lake comparator --paranoid, alongside independent SAT/DRUP certificates. Research preprint;
-  not externally peer reviewed; AI-assisted under human direction.
+  Exact minimum sizes of Kochen-Specker sets inside nine finite coordinate ray pools
+  (31 and 33 rays in dimension 3, 18 in dimension 4, 29 in dimension 5). Zero-Mathlib Lean 4.35.0
+  kernel proofs cover B(3,2) = 31 and B(4,1) = 18 only; they are accepted by the official Lean
+  kernel (default and paranoid mode) and by lean4lean, nanoda, con-leche and con-ron. The other
+  seven values rest on SAT/DRUP unsatisfiability proofs checked by the project's own checker
+  (cross-checked by drat-trim/LRAT for B(3,3)), a CNF encoder and paper lemmas. The general
+  minimum problem is not affected. The values 31 (B(3,2), B(3,3)) and 33 (sixth roots of unity)
+  were reported earlier by Kernaghan (arXiv:2603.16988), whose version 10 (23 November 2026) also
+  proves 31 and 33 for two pools in Lean. Research preprint; not externally peer reviewed;
+  AI-assisted under human direction.

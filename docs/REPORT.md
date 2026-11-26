@@ -47,7 +47,7 @@ been checked, 52.1 seconds in total, 8 stages passed, none failed, exit code 0. 
 | `cert-verify` | PASS | 0.1 | both regenerated certificates accepted by `verify_cert.mjs`; a copy with k raised by one rejected |
 | `drup-49` | PASS | 2.2 | B(3, 2), k = 30: engine A infeasible after 5 iterations, 63 cuts; formula of 5 254 variables and 20 235 clauses unsatisfiable; proof VERIFIED, 183 lemmas; empty proof rejected |
 | `drup-40` | PASS | 1.5 | B(4, 1), k = 17: engine A infeasible after 3 iterations, 84 cuts; 4 427 variables, 16 847 clauses; proof VERIFIED, 307 lemmas; empty proof rejected |
-| `lean` | PASS | 20.3 | sources scanned for `sorry` and `native_decide` (none); `lake build` (all modules); axiom audit of the 26 theorems named in `lean/KS/Audit.lean`: only `propext`, `Classical.choice`, `Quot.sound` |
+| `lean` | PASS | 20.3 | sources scanned for `sorry` and `native_decide` (none); `lake build` (all modules); axiom audit of the 30 declarations named in `lean/KS/Audit.lean`: only `propext`, `Classical.choice`, `Quot.sound` |
 
 Three remarks. The `drup-49` stage finds its cuts afresh; in this run they gave 63 cuts, a formula of
 20 235 clauses and a proof of 183 lemmas, while the register's run for row A1 gave 20 223 clauses and

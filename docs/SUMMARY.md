@@ -63,8 +63,9 @@ Known and proved before:
 
 * 18 is the minimum for all Kochen-Specker sets, in dimension four and in every dimension, not only
   inside a pool;
-* the 16 sets of 18 rays: they are the 16 known sets inside a classical family of 24 rays due to Peres
-  (Waegell and Aravind 2011).
+* the 16 sets of 18 rays: they are the 16 parity proofs with 18 rays and 9 bases inside a classical
+  family of 24 rays due to Peres (Waegell and Aravind 2011); that the pool has no other 18-ray set is
+  this lab's enumeration.
 
 New here, as far as a search of the literature on 9 and 10 November 2026 could tell:
 
@@ -73,12 +74,18 @@ New here, as far as a search of the literature on 9 and 10 November 2026 could t
   the minimum, where 29 had been reported as the smallest set found;
 * the value 33 for 12th, 18th and 24th roots of unity (only upper bounds were known);
 * the complete lists of smallest sets for whole-number coordinates up to 3 and 4 and for sixth and
-  twelfth roots of unity, and the fact that the 40-ray pool of dimension four contains no set of 18
+  twelfth roots of unity (the count 3 for sixth roots was later also given by Kernaghan, see
+  below), and the fact that the 40-ray pool of dimension four contains no set of 18
   rays besides the 16 known ones.
 
 The first literature search of this project missed two of the earlier reports (the one for dimension
 five and the 16 sets). A review before release found them, and the claims were narrowed; the record
 is in [REVIEW.md](REVIEW.md).
+
+Later parallel work: on 23 November 2026, after this lab's first release (10 November 2026), version
+10 of Kernaghan's preprint (arXiv:2603.16988v10) independently certified 31 for whole-number
+coordinates up to 2 and up to 3 and 33 for sixth roots of unity (with exactly 3 smallest sets), and
+proved the minima for coordinates up to 2 and for sixth roots of unity in Lean.
 
 ## Why "there is nothing smaller" can be checked
 
@@ -92,8 +99,10 @@ not depend on trusting the search:
   The statement is written directly for the whole-number vectors of the pool, so a reader has to
   trust the Lean kernel and about 25 lines of definitions, and nothing else. Lean covers these two
   minimum values only, not the lists of smallest sets.
-* **Proof-checked.** A solver's claim "impossible" comes with a long proof file, and a separate small
-  program checks that file step by step. The lists of smallest sets ("exactly 6", "exactly 16" and so
+* **Proof-checked.** A solver's claim "impossible" comes with a long proof file, and a small program
+  written for this project checks that file step by step. For three pools (49 and 145 rays in
+  dimension three, 40 rays in dimension four) the proofs are also checked by the third-party tools
+  drat-trim and lrat-check; for the other pools the project's own checker is the only one. The lists of smallest sets ("exactly 6", "exactly 16" and so
   on) are confirmed in this way for all six pools.
 * **Second solver.** The same formula is given to a second, different solver (CaDiCaL next to
   Glucose). Agreement checks the solvers against each other; it does not check that the formula was
