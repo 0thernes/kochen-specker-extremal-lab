@@ -469,4 +469,43 @@ def cliquesListed (P : Pool) : Nat → Nat → Nat → Nat → Bool
 
 def basesComplete (P : Pool) (d : Nat) : Bool := cliquesListed P d 0 (2 ^ P.n - 1) 0
 
+/-- Direct Boolean checker that `c` is a valid Kochen–Specker 0/1 colouring of `T` in pool `P`. -/
+def isColoringBool (P : Pool) (T c : Nat) : Bool :=
+  subMask c T && indep P c &&
+  P.bases.all (fun b => !subMask b T || (b &&& c != 0))
+
+/-- Soundness of `isColoringBool`: any concrete 0/1 colouring mask accepted by `isColoringBool`
+satisfies `IsColoring P T c` independently of the universal tree certificate `check`. -/
+theorem isColoring_of_isColoringBool (P : Pool) (T c : Nat) (hT : T < 2 ^ P.n)
+    (h : isColoringBool P T c = true) : IsColoring P T c := by
+  simp only [isColoringBool, Bool.and_eq_true] at h
+  obtain ⟨⟨hsub, hind⟩, hbas⟩ := h
+  have hcT : Sub c T := sub_of_subMask hsub
+  refine ⟨hcT, ?_, ?_⟩
+  · intro i j hi hj
+    have hin : i < P.n := lt_of_testBit hT (hcT i hi)
+    unfold indep at hind
+    rw [List.all_eq_true] at hind
+    have hi' := hind i (List.mem_range.mpr hin)
+    rw [hi, Bool.not_true, Bool.false_or, beq_iff_eq] at hi'
+    have hbit : (P.adjOf i &&& c).testBit j = false := by rw [hi']; exact Nat.zero_testBit j
+    rw [Nat.testBit_and, hj, Bool.and_true] at hbit
+    exact hbit
+  · intro b hb hbT
+    rw [List.all_eq_true] at hbas
+    have hb' := hbas b hb
+    have hsm : subMask b T = true := by
+      unfold subMask
+      rw [beq_iff_eq]
+      apply Nat.eq_of_testBit_eq
+      intro i
+      rw [Nat.testBit_and]
+      cases hbi : b.testBit i with
+      | false => rfl
+      | true => rw [hbT i hbi]; rfl
+    rw [hsm, Bool.not_true, Bool.false_or, bne_iff_ne] at hb'
+    obtain ⟨i, hi⟩ := exists_testBit_of_ne_zero hb'
+    rw [Nat.testBit_and, Bool.and_eq_true] at hi
+    exact ⟨i, hi.1, hi.2⟩
+
 end KS

@@ -1,4 +1,6 @@
 """Property-based (Hypothesis) and parser-fuzzing (atheris-compatible) checks for KS Lab."""
+from __future__ import annotations
+
 import json
 import math
 import random

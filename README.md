@@ -6,7 +6,7 @@ can be re-checked without trusting the search programs.
 [![CI](https://github.com/0thernes/kochen-specker-extremal-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/0thernes/kochen-specker-extremal-lab/actions/workflows/ci.yml)
 [![Lean 4.35.0 (Zero Mathlib)](https://img.shields.io/badge/Lean-4.35.0%20(zero%20Mathlib)-blue)](lean/README.md)
 [![License: Apache-2.0 / CC-BY-4.0](https://img.shields.io/badge/license-Apache--2.0%20%2F%20CC--BY--4.0-green)](LICENSE)
-[![Version 2.1.0](https://img.shields.io/badge/version-2.1.0-informational)](CHANGELOG.md)
+[![Version 2.2.0](https://img.shields.io/badge/version-2.2.0-informational)](CHANGELOG.md)
 
 **Paper:** [Certified exact minima of Kochen-Specker sets inside coordinate pools](paper/ks-minimum.md)
 &nbsp;·&nbsp; **Register of results:** [results/RESULTS.md](results/RESULTS.md)
@@ -17,7 +17,7 @@ can be re-checked without trusting the search programs.
 [docs/statement-fidelity.md](docs/statement-fidelity.md) · [docs/SUMMARY.md](docs/SUMMARY.md) ·
 [docs/INDEX.md](docs/INDEX.md) · [CHANGELOG.md](CHANGELOG.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, version 2.1.0, 26 November 2026. Not peer reviewed. AI-assisted under human
+Status: research preprint, version 2.2.0, 26 November 2026. Not peer reviewed. AI-assisted under human
 direction (see [LIMITATIONS.md](LIMITATIONS.md) and [LEGAL.md](LEGAL.md)).
 Author: Alexander S. Donahue, independent researcher
 ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
@@ -64,7 +64,7 @@ That 18 is the minimum in dimension four is a published theorem, and the 16 sets
 pool were known. What the lab adds is a proof that nothing smaller exists inside each pool, in a
 form that others can check. Two of the minimum values (31 for coordinates up to 2, and 18 in
 dimension four) are theorems checked by the Lean 4 kernel. The other seven rest on unsatisfiability
-proofs checked by the project's own proof checker (for B(3, 3), alongside B(3, 2) and B(4, 1), also by the third-party tools
+proofs checked by the project's own proof checker (for B(3, 3), U(3, 6) [minimum + uniqueness = 3], and U(3, 12), alongside B(3, 2) and B(4, 1) — five pools / six UNSAT proofs in total — also by the third-party tools
 drat-trim, lrat-check and HOL4-verified cake_lpr), on the program that writes the formulas, and on lemmas proved on paper.
 Also new, as far as a literature search could tell: the exact minimum 33 for twelfth, eighteenth
 and twenty-fourth roots of unity, and the complete lists of the smallest sets for whole-number
@@ -223,8 +223,8 @@ lake env lean KS/Audit.lean
 Plain `lake build` checks every module: the definitions and checkers (`KS/Basic.lean`), the statement
 in terms of integer vectors (`KS/Spec.lean`), the two data modules and the regression tests
 (`KS/Tests.lean`). It succeeds only if the Lean kernel accepts every proof. The second command prints
-the axioms of 30 explicit headline declarations and runs a `Lean.collectAxioms` metaprogram over
-all 116 theorem constants in the `KS` namespace under Lean 4.35 `module` mode, of which 62 are theorems written by hand and the
+the axioms of 35 explicit headline declarations and runs a `Lean.collectAxioms` metaprogram over
+all 122 theorem constants in the `KS` namespace under Lean 4.35 `module` mode, of which 67 are theorems written by hand and the
 rest are generated automatically (`ALL_KS_THEOREMS_AXIOM_AUDIT_PASS`). Every line shows at most `propext`, `Classical.choice` and `Quot.sound`,
 the three standard axioms of Lean; some lines show fewer or none. The two lines for the two main
 theorems are
@@ -366,7 +366,7 @@ the overlap with Kernaghan's version 10 noted where it applies):
 1. proofs with certificates for the results: Lean 4 kernel proofs for the 49-ray pool and for the
    40-ray pool of dimension four (released 10 November 2026; an independent Lean proof for the 49-ray
    pool appeared in Kernaghan's version 10 on 23 November 2026), replayable search trees, and
-   unsatisfiability proofs checked by the project's own checker (for three pools also by drat-trim,
+   unsatisfiability proofs checked by the project's own checker (for five pools / six UNSAT proofs also by drat-trim,
    lrat-check and HOL4-verified cake_lpr), at the level recorded for each row in the register;
 2. complete lists of the minimum sets: exactly six for integer coordinates up to 3 and up to 4 (the
    same six as for 2), exactly 3 and 12 for sixth and twelfth roots of unity (the count 3 for sixth
@@ -435,14 +435,11 @@ The demonstration `python scripts/run_all.py --stack` additionally uses the Eshk
   recorded in the register. The register and
   [docs/INDEX.md](docs/INDEX.md) give the level for every row and the status of every proof check.
 * **What CI re-checks.** Continuous integration checks the unsatisfiability proofs with the
-  third-party tools drat-trim, lrat-check and HOL4-verified cake_lpr for B(3, 2), B(4, 1) and B(3, 3) only. For B(3, 4),
-  U(3, 6), U(3, 12), U(3, 18), U(3, 24) and B(5, 1) the only proof checker is the project's own
-  `verify/drup_check.c`, and the proof files are not kept in git; re-checking them means
+  third-party tools drat-trim, lrat-check and HOL4-verified cake_lpr for **five pools / six UNSAT proofs**: B(3, 2), B(4, 1), B(3, 3), U(3, 6) (minimum + exact uniqueness of 3 sets), and U(3, 12). For the four remaining larger pools — B(3, 4),
+  U(3, 18), U(3, 24) and B(5, 1) — the only proof checker is the project's own
+  `verify/drup_check.c`, and the large proof files are not kept in git; re-checking them means
   regenerating them with the commands in [docs/INDEX.md](docs/INDEX.md).
-* **The three negative Lean checks in CI are sanity checks.** They confirm that `decide` fails on
-  three false facts (pool sizes 48 and 39, and a wrong bit count). They are not refutations of
-  variants of the theorems. The 30-ray and 17-ray "non-vacuity" targets of `lean/Solution.lean` are
-  one-line corollaries of the main theorems; the 17 rays used contain no basis.
+* **Lean negative tests and non-vacuity targets.** As of `v2.2.0`, `lean/Solution.lean` and `lean/Challenge.lean` include 6 comparator targets: the two main minimality theorems, two independent basis-bearing explicit 0/1 colouring witnesses (`target_box3h2_nonvacuous_30` with 13 complete 3-bases and `target_box4h1_nonvacuous_17` with 7 complete 4-bases, proved via `KS.isColoring_of_isColoringBool` without appealing to the main theorems), and two kernel-proved refutations of perturbed headline bounds (`target_box3h2_refute_30`, `target_box4h1_refute_17`), alongside `refute_box3h2_all_31_colorable` and `refute_box4h1_all_18_colorable`. The three additional closed-fact CI checks remain simple negative sanity checks (`decide` failure on pool sizes 48/39 and a wrong bit count).
 * **Stopped runs.** B(3, 5): the exact search did not finish; it was stopped by hand after more than
   an hour, and no claim is made. U(3, 30): stopped unfinished. Whether 21 is the minimum in U(6, 3)
   and 34 in the pool of E8 root rays was not decided. The Lean check for B(3, 3) was stopped after 49
@@ -477,9 +474,7 @@ Deferred work, each item with the condition that would trigger it, is listed in
 
 **Citation.** See [CITATION.cff](CITATION.cff). Please also cite the prior work credited in section 5.
 
-**AI disclosure.** The research, programs, Lean proofs and text were produced by an AI system, Claude
-(Anthropic), working as an agent at the request and under the direction of the author, who is
-responsible for the release. An AI system is not an author. The work was self-funded by the author as an independent researcher; there was no external funding and there are no competing interests.
+**AI disclosure.** AI systems — Anthropic Claude (initial research plan, core KS Lean 4 proofs, SAT/DRUP tooling, v1.0.0 preprint, and 2026-11-26 statement audit) and Google Gemini / Antigravity (Challenge/Solution comparator bridge, Palomar Lean 4.35 `module` headers, independent `drat-trim`/LRAT/`cake_lpr` CI verification, RFC 3161 TSA + OpenTimestamps, `v2.2.0` formal K1/K2 closures, and Build Standard v1.2.0 / Playbook v1.3 hardening) — drafted code, Lean proofs, and prose under the direction and oversight of the human author, who takes full responsibility for the release. No AI system is an author. The work was self-funded by the author as an independent researcher; there was no external funding and there are no competing interests.
 
 **Contact and corrections.** If you find an error in a statement, a proof or a count, or know of
 earlier work that already contains one of the results, please open an issue on

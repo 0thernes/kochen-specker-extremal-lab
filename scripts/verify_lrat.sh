@@ -56,7 +56,7 @@ check_pool() {
   local base="$WORK/results/${label}"
   cp "$ROOT/$cuts_src" "${base}.json"
   echo "=== Verifying ${label} (k=${k}) with drup_check + drat-trim -> LRAT -> lrat-check + HOL4 cake_lpr ==="
-  (cd "$ROOT" && "$PY" src/ks_cnf.py "${base}.json" "$k" - g4 "$kind" "$@") | grep -E "cuts re-verified|CNF:|g4: UNSAT"
+  (cd "$ROOT" && "$PY" src/ks_cnf.py "${base}.json" "$k" - g4 "$kind" "$@") | grep -E "cuts re-verified|excluded|CNF:|g4: UNSAT"
   "$WORK/drup_check" "${base}.cnf" "${base}.drat" | grep -q "s VERIFIED"
   "$WORK/drat-trim" "${base}.cnf" "${base}.drat" -L "${base}.lrat" | grep -q "s VERIFIED"
   "$WORK/lrat-check" "${base}.cnf" "${base}.lrat" | grep -q "c VERIFIED"
@@ -67,6 +67,9 @@ check_pool() {
 check_pool "B3_2_k30" "results/master_box3_2_k30_cuts.json" 30 box3 2
 check_pool "B4_1_k17" "results/master_box_4_1_k17_cuts.json" 17 box 4 1
 check_pool "B3_3_k30" "results/master_box3_3_k30_cuts.json" 30 box3 3
+check_pool "U3_6_k32" "results/enumerate_roots_3_6_k33_cuts.json" 32 roots 3 6
+KS_BLOCKED="results/enumerate_roots_3_6_k33.json" check_pool "U3_6_k33_unique" "results/enumerate_roots_3_6_k33_cuts.json" 33 roots 3 6
+check_pool "U3_12_k32" "results/master_roots_3_12_k32_cuts.json" 32 roots 3 12
 
 # Negative control: truncated LRAT proof must be rejected by BOTH lrat-check AND cake_lpr
 head -n 2 "$WORK/results/B3_2_k30.lrat" > "$WORK/results/corrupted.lrat"

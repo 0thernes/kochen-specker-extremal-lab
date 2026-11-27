@@ -142,8 +142,8 @@ jobs:
                       sys.exit(1)
               elif no_re.match(line):
                   checked += 1
-          if checked < 30:
-              print(f"Expected >= 30 audited declarations, got {checked}", file=sys.stderr)
+          if checked < 35:
+              print(f"Expected >= 35 audited declarations, got {checked}", file=sys.stderr)
               sys.exit(1)
           if "ALL_KS_THEOREMS_AXIOM_AUDIT_PASS:" not in log_text:
               print("Missing ALL_KS_THEOREMS_AXIOM_AUDIT_PASS sentinel in KS/Audit.lean output", file=sys.stderr)

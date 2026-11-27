@@ -5,7 +5,9 @@
     "KS.ComparatorTarget.target_box3h2_minimum_31",
     "KS.ComparatorTarget.target_box4h1_minimum_18",
     "KS.ComparatorTarget.target_box3h2_nonvacuous_30",
-    "KS.ComparatorTarget.target_box4h1_nonvacuous_17"
+    "KS.ComparatorTarget.target_box4h1_nonvacuous_17",
+    "KS.ComparatorTarget.target_box3h2_refute_30",
+    "KS.ComparatorTarget.target_box4h1_refute_17"
   ],
   "permitted_axioms": [
     "propext",

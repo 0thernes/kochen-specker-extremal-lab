@@ -2,7 +2,16 @@
 
 ## [Unreleased]
 
-- Extend `drat-trim` -> LRAT -> formally verified `cake_lpr` replay to all 83 dimension-5 cubes and large cyclotomic pools.
+- Extend `drat-trim` -> LRAT -> formally verified `cake_lpr` replay to `B(3,4)`, `U(3,18)`, `U(3,24)`, and all 83 dimension-5 cubes.
+
+## [2.2.0] — 2026-11-26
+
+### Complete Closure of All 2026-11-26 Formal-Code Audit Errata (`K1` & `K2`), 6-Target Comparator Bridge & 5-Pool HOL4 `cake_lpr` CI Coverage
+
+- **Formal Closure of `ERRATA.md` `K1` (Independent Basis-Bearing Non-Vacuity Witnesses in Lean 4.35.0):** Added pure zero-Mathlib `KS.isColoringBool` and soundness theorem `KS.isColoring_of_isColoringBool` to `lean/KS/Basic.lean`, and strengthened Comparator Targets 3 and 4 (`target_box3h2_nonvacuous_30`, `target_box4h1_nonvacuous_17`) in `lean/Challenge.lean` and `lean/Solution.lean` so each explicitly requires a complete $d$-ray orthogonal basis inside `T` and proves `VColorable` directly from an explicit 0/1 colouring (`0x3b70c7ffc69e` / `0x183000e` with 13 complete 3-bases; `0x2aac0aaaac` / `0x8000200c` with 7 complete 4-bases) without appealing to the main universal theorems.
+- **Formal Closure of `ERRATA.md` `K2` (Kernel-Proved Refutations of Perturbed Headline Bounds):** Added Comparator Targets 5 and 6 (`target_box3h2_refute_30`, `target_box4h1_refute_17`) to `lean/Challenge.lean`, `lean/Solution.lean`, and `lean/comparator.json` (6 comparator targets total) alongside `refute_box3h2_all_31_colorable` and `refute_box4h1_all_18_colorable`, proving in the Lean kernel that neither headline bound can be lowered or negated. Updated `lean/KS/Audit.lean` (`35` explicit `#print axioms` declarations + exhaustive audit of all `122` kernel theorem constants in `KS`, `67` hand-written; zero warnings `--wfail`; `lake env leanchecker --fresh Solution`; 6-kernel `lake comparator --paranoid`).
+- **Expanded HOL4-Verified `cake_lpr` CI Coverage to 5 of 9 Pools / 6 UNSAT Proofs (`scripts/verify_lrat.sh`):** Added `U(3,6)` (`k=32`), `U(3,6)` exact uniqueness (`k=33`, 3 sets excluded via `KS_BLOCKED`), and `U(3,12)` (`k=32`) alongside `B(3,2)`, `B(4,1)`, and `B(3,3)` — all cross-verified in Linux CI via `verify/drup_check`, pinned `drat-trim` → LRAT → `lrat-check`, and HOL4-formally-verified `cake_lpr` (`s VERIFIED UNSAT`), plus truncated-LRAT negative control.
+- **Metadata & Provenance Hygiene:** Fixed lingering `arXiv:2603.16988v9` citation in `publication/zenodo-metadata.json` (`v10`, 23 November 2026); aligned AI disclosures across `README.md`, `publication/zenodo-metadata.json`, `publication/orcid-work.bib`, and `paper/ks-minimum.md`; refreshed `data/MANIFEST.sha256` and re-sealed DigiCert RFC 3161 TSA + Bitcoin OpenTimestamps; updated Software Heritage SWHID to verified `v2.1.0` snapshot `swh:1:snp:68ed4cd5af45b8fa4ed21a82f8f3dfd69ac901ae`; recompiled `ks-minimum.pdf` (`0.00 pt` overfull hbox) and recorded audit log in `docs/reviews/2026-11-26-v220-k1-k2-formal-closure-audit.md`.
 
 ## [2.1.0] — 2026-11-26
 
