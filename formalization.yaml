@@ -1,8 +1,8 @@
 title: "Certified exact minima of Kochen-Specker sets inside coordinate pools"
 repository: "https://github.com/0thernes/kochen-specker-extremal-lab"
-version: "2.2.0"
-date: "2026-11-26"
-software_heritage_snapshot: "swh:1:snp:68ed4cd5af45b8fa4ed21a82f8f3dfd69ac901ae"
+version: "2.3.0"
+date: "2026-11-27"
+software_heritage_snapshot: "swh:1:snp:4c421f5d8b6cf9d06c224ed7bfafe88bc3392f4f"
 palomar_module_headers: true
 rfc3161_timestamp: "data/MANIFEST.sha256.tsr"
 opentimestamps_proof: "data/MANIFEST.sha256.ots"
@@ -46,4 +46,4 @@ automation:
   human_line_by_line_review_recorded: false
   statement_fidelity_table: "docs/statement-fidelity.md"
 review_status: "Research preprint; NOT externally peer reviewed; NOT yet submitted to Palomar Registry, arXiv, or Zenodo."
-limitations: "Pool-restricted exact minima only; does NOT settle the general minimal Kochen-Specker open problem (24..31 in 3D). Lean proves only B(3,2) = 31 and B(4,1) = 18 (with 6 comparator targets including independent basis-bearing non-vacuity witnesses and kernel-proved false-variant refutations). The other seven pools rely on DRUP certificates checked outside the Lean kernel by the project's own checker (third-party drat-trim/LRAT/lrat-check and HOL4-verified cake_lpr cross-check in CI for B(3,3), U(3,6) minimum + uniqueness, and U(3,12) among those seven, plus B(3,2) and B(4,1) — 5 of 9 pools total). kernels_configured lists the official Lean kernel twice (default and paranoid mode) plus four external checkers. Kernaghan arXiv:2603.16988v10 (23 Nov 2026) independently proves 31 for B(3,2) and 33 for the sixth-roots pool in Lean, after this repository's v1.0.0 (10 Nov 2026)."
+limitations: "Pool-restricted exact minima only; does NOT settle the general minimal Kochen-Specker open problem (24..31 in 3D). Lean proves only B(3,2) = 31 and B(4,1) = 18 (with 7 comparator targets including independent basis-bearing non-vacuity witnesses, kernel-proved false-variant refutations, and soundness+completeness `target_isColoringBool_iff`). The other seven pools rely on DRUP certificates checked outside the Lean kernel by the project's own checker (third-party drat-trim/LRAT/lrat-check and HOL4-verified cake_lpr cross-check in CI for 11 UNSAT/uniqueness proofs across 6 of 9 pools spanning d=3,4,5: B(3,2) + uniqueness, B(4,1) + uniqueness, B(3,3) + uniqueness, U(3,6) + uniqueness, U(3,12) + uniqueness, and the 5D B(5,1) branch in:0,1,2;out:3,4 at k=28). kernels_configured lists the official Lean kernel twice (default and paranoid mode) plus four external checkers. Kernaghan arXiv:2603.16988v10 (23 Nov 2026) independently proves 31 for B(3,2) and 33 for the sixth-roots pool in Lean, after this repository's v1.0.0 (10 Nov 2026)."

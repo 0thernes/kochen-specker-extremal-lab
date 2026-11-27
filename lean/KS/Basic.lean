@@ -508,4 +508,50 @@ theorem isColoring_of_isColoringBool (P : Pool) (T c : Nat) (hT : T < 2 ^ P.n)
     rw [Nat.testBit_and, Bool.and_eq_true] at hi
     exact ⟨i, hi.1, hi.2⟩
 
+theorem subMask_of_sub {a b : Nat} (h : Sub a b) : subMask a b = true := by
+  unfold subMask
+  rw [beq_iff_eq]
+  apply Nat.eq_of_testBit_eq
+  intro i
+  rw [Nat.testBit_and]
+  cases hai : a.testBit i with
+  | false => rfl
+  | true => rw [h i hai]; rfl
+
+/-- Completeness of `isColoringBool`: every valid Kochen–Specker 0/1 colouring `IsColoring P T c`
+is accepted by the Boolean checker `isColoringBool P T c`. -/
+theorem isColoringBool_of_isColoring (P : Pool) (T c : Nat)
+    (hc : IsColoring P T c) : isColoringBool P T c = true := by
+  simp only [isColoringBool, Bool.and_eq_true]
+  refine ⟨⟨subMask_of_sub hc.1, ?_⟩, ?_⟩
+  · unfold indep
+    rw [List.all_eq_true]
+    intro i _
+    cases hci : c.testBit i with
+    | false => simp
+    | true =>
+      simp only [Bool.not_true, Bool.false_or, beq_iff_eq]
+      apply Nat.eq_of_testBit_eq
+      intro j
+      rw [Nat.testBit_and, Nat.zero_testBit]
+      cases hcj : c.testBit j with
+      | false => simp
+      | true => rw [hc.2.1 i j hci hcj]; rfl
+  · rw [List.all_eq_true]
+    intro b hb
+    cases hsm : subMask b T with
+    | false => simp
+    | true =>
+      simp only [Bool.not_true, Bool.false_or, bne_iff_ne]
+      obtain ⟨i, hbi, hci⟩ := hc.2.2 b hb (sub_of_subMask hsm)
+      intro hzero
+      have hbit : (b &&& c).testBit i = false := by rw [hzero]; exact Nat.zero_testBit i
+      rw [Nat.testBit_and, hbi, hci] at hbit
+      exact Bool.noConfusion hbit
+
+/-- Soundness and completeness of `isColoringBool` for ray sets `T < 2 ^ P.n`. -/
+theorem isColoringBool_iff (P : Pool) (T c : Nat) (hT : T < 2 ^ P.n) :
+    isColoringBool P T c = true ↔ IsColoring P T c :=
+  ⟨isColoring_of_isColoringBool P T c hT, isColoringBool_of_isColoring P T c⟩
+
 end KS

@@ -58,12 +58,15 @@ import all Solution
 
 -- Comparator Solution Bridge & kernel-proved false-variant refutations (Solution.lean)
 #print axioms KS.isColoring_of_isColoringBool
+#print axioms KS.isColoringBool_of_isColoring
+#print axioms KS.isColoringBool_iff
 #print axioms KS.ComparatorTarget.target_box3h2_minimum_31
 #print axioms KS.ComparatorTarget.target_box4h1_minimum_18
 #print axioms KS.ComparatorTarget.target_box3h2_nonvacuous_30
 #print axioms KS.ComparatorTarget.target_box4h1_nonvacuous_17
 #print axioms KS.ComparatorTarget.target_box3h2_refute_30
 #print axioms KS.ComparatorTarget.target_box4h1_refute_17
+#print axioms KS.ComparatorTarget.target_isColoringBool_iff
 #print axioms KS.ComparatorTarget.refute_box3h2_all_31_colorable
 #print axioms KS.ComparatorTarget.refute_box4h1_all_18_colorable
 
@@ -84,4 +87,4 @@ run_cmd do
       bad := bad.push s!"{name}: {forbidden}"
   if !bad.isEmpty then
     throwError s!"Disallowed axioms detected across KS theorems:\n{String.intercalate "\n" bad.toList}"
-  logInfo m!"ALL_KS_THEOREMS_AXIOM_AUDIT_PASS: checked {all.length} kernel theorem constants in KS (67 hand-written) — 0 disallowed axioms."
+  logInfo m!"ALL_KS_THEOREMS_AXIOM_AUDIT_PASS: checked {all.length} kernel theorem constants in KS (71 hand-written) — 0 disallowed axioms."

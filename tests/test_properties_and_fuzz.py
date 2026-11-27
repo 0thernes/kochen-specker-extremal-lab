@@ -142,6 +142,103 @@ class KSPropertyAndFuzzTests(unittest.TestCase):
                                 changed = True
                     self.assertEqual(not contradiction, pop <= k, f"n={n} k={k} bits={bits}")
 
+    def test_ast_source_code_mutation_killing(self) -> None:
+        """Isolated AST source-code mutation testing (Build Standard B13):
+        mutate real operators in in-memory AST copies of src/pools.py and src/ks_cnf.py
+        and assert that core invariants kill 100% of source mutants."""
+        import ast
+        import pathlib
+        import sys
+        import types
+
+        root = pathlib.Path(__file__).resolve().parents[1]
+        src_dir = str(root / "src")
+        if src_dir not in sys.path:
+            sys.path.insert(0, src_dir)
+        import ks_cnf
+        import pools
+
+        def load_mutated(path: pathlib.Path, fn_name: str, target_op: type, replacement_op: type) -> types.ModuleType:
+            tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+            mutated = False
+
+            class OpMutator(ast.NodeTransformer):
+                def visit_FunctionDef(self, node: ast.FunctionDef) -> ast.AST:
+                    nonlocal mutated
+                    if node.name != fn_name:
+                        return node
+                    return self.generic_visit(node)
+
+                def visit_Compare(self, node: ast.Compare) -> ast.AST:
+                    nonlocal mutated
+                    if not mutated:
+                        new_ops = []
+                        for op in node.ops:
+                            if not mutated and isinstance(op, target_op):
+                                new_ops.append(replacement_op())
+                                mutated = True
+                            else:
+                                new_ops.append(op)
+                        node.ops = new_ops
+                    return node
+
+                def visit_BinOp(self, node: ast.BinOp) -> ast.AST:
+                    nonlocal mutated
+                    if not mutated and isinstance(node.op, target_op):
+                        node.op = replacement_op()
+                        mutated = True
+                    return self.generic_visit(node)
+
+            # Mutate ONLY inside the target function
+            for node in ast.walk(tree):
+                if isinstance(node, ast.FunctionDef) and node.name == fn_name:
+                    OpMutator().visit(node)
+                    break
+            self.assertTrue(mutated, f"AST mutant not applied to {path.name}:{fn_name}")
+            ast.fix_missing_locations(tree)
+            mod = types.ModuleType(f"_mut_{path.stem}_{fn_name}")
+            mod.__file__ = str(path)
+            exec(compile(tree, str(path), "exec"), mod.__dict__)
+            return mod
+
+        # Baseline valid inputs
+        p_b32 = pools.box_pool(3, 2, log=lambda *_a: None)
+        self.assertEqual(p_b32.n, 49)
+        valid_cut = ([i for i, b in enumerate(p_b32.bases) if 0 not in b], [0])
+        self.assertTrue(ks_cnf.verify_cuts(p_b32, [valid_cut]))
+
+        killed = 0
+        mutants = [
+            # Mutant 1: invert orthogonality check dot(u, v) == 0 -> != 0 in pools.int_orth
+            ("pools.int_orth: == -> !=", root / "src" / "pools.py", "int_orth", ast.Eq, ast.NotEq,
+             lambda m: m.int_orth((1, 0, 0), (0, 1, 0)) is True),
+            # Mutant 2: flip canonical sign test x < 0 -> x > 0 in pools.primitive
+            ("pools.primitive: < -> >", root / "src" / "pools.py", "primitive", ast.Lt, ast.Gt,
+             lambda m: m.primitive((-2, 4, 0)) == (1, -2, 0)),
+            # Mutant 3: corrupt dot product sum(a * b) -> sum(a + b) in pools.dot
+            ("pools.dot: * -> +", root / "src" / "pools.py", "dot", ast.Mult, ast.Add,
+             lambda m: m.dot((1, 0, 0), (0, 1, 0)) == 0),
+            # Mutant 4: invert cut equality sorted(cut) != missed -> == in ks_cnf.verify_cuts
+            ("ks_cnf.verify_cuts: != -> ==", root / "src" / "ks_cnf.py", "verify_cuts", ast.NotEq, ast.Eq,
+             lambda m: m.verify_cuts(p_b32, [valid_cut]) is True),
+            # Mutant 5: weaken independence check pool.adj[v] & Im -> | in ks_cnf.verify_cuts
+            ("ks_cnf.verify_cuts: & -> |", root / "src" / "ks_cnf.py", "verify_cuts", ast.BitAnd, ast.BitOr,
+             lambda m: m.verify_cuts(p_b32, [valid_cut]) is True),
+            # Mutant 6: break closed_under generator check
+            ("ks_cnf.closed_under: In -> NotIn", root / "src" / "ks_cnf.py", "closed_under", ast.In, ast.NotIn,
+             lambda m: m.closed_under(pools.signed_perm_symmetry(p_b32), [list(range(p_b32.n))]) is True),
+        ]
+        for label, path, fn_name, old_op, new_op, invariant in mutants:
+            with self.subTest(ast_mutant=label):
+                mod = load_mutated(path, fn_name, old_op, new_op)
+                try:
+                    ok = bool(invariant(mod))
+                except Exception:
+                    ok = False
+                self.assertFalse(ok, f"AST source mutant survived: {label}")
+                killed += 1
+        self.assertEqual(killed, len(mutants))
+
 
 if __name__ == "__main__":
     unittest.main()

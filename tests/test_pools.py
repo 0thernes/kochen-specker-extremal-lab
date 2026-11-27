@@ -233,7 +233,8 @@ class Box3Builder(unittest.TestCase):
             self.assertEqual(fast.d, 3)
             self.assertEqual(set(fast.rays), set(ref.rays), f"H={H}: ray sets differ")
             self.assertEqual(len(fast.rays), len(set(fast.rays)))
-            as_vectors = lambda p: {frozenset(p.rays[v] for v in b) for b in p.bases}
+            def as_vectors(p):
+                return {frozenset(p.rays[v] for v in b) for b in p.bases}
             self.assertEqual(as_vectors(fast), as_vectors(ref), f"H={H}: bases differ")
             self.assertEqual(len(fast.bases), len(as_vectors(fast)))
             self.assertEqual(C.pool_discrepancies(fast, C.int_orth), [], f"H={H}")

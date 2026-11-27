@@ -61,4 +61,10 @@ theorem target_box4h1_refute_17 :
     ¬ (∃ T, T < 2 ^ 40 ∧ KS.card 40 T = 17 ∧ ¬ KS.VColorable (KS.boxRays 4 1) 4 T) := by
   sorry
 
+/-- Target 7 (Soundness and completeness of the direct Boolean colouring checker):
+for any finite pool `P` and ray set `T < 2 ^ P.n`, `isColoringBool P T c = true ↔ IsColoring P T c`. -/
+theorem target_isColoringBool_iff (P : KS.Pool) (T c : Nat) (hT : T < 2 ^ P.n) :
+    KS.isColoringBool P T c = true ↔ KS.IsColoring P T c := by
+  sorry
+
 end KS.ComparatorTarget

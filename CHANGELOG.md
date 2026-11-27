@@ -2,7 +2,16 @@
 
 ## [Unreleased]
 
-- Extend `drat-trim` -> LRAT -> formally verified `cake_lpr` replay to `B(3,4)`, `U(3,18)`, `U(3,24)`, and all 83 dimension-5 cubes.
+- Extend `drat-trim` -> LRAT -> formally verified `cake_lpr` replay to `B(3,4)`, `U(3,18)`, `U(3,24)`, and the remaining 82 dimension-5 branches/cubes.
+
+## [2.3.0] — 2026-11-27
+
+### 3-Cycle Deep Hardening: Boolean-Checker Completeness (`isColoringBool_iff`, 7-Target Comparator), 11-Proof / 6-Pool / 3-Dimension HOL4 `cake_lpr` CI Coverage, Live Tamper-Injection Gate & Isolated AST Source-Code Mutation Suite
+
+- **Lean 4.35.0 Soundness AND Completeness (`lean/KS/Basic.lean`, `Challenge.lean`, `Solution.lean`, `comparator.json`, `KS/Audit.lean`):** Proved `KS.subMask_of_sub`, `KS.isColoringBool_of_isColoring`, and full bidirectional equivalence **`KS.isColoringBool_iff`** (`isColoringBool P T c = true ↔ IsColoring P T c` for `T < 2 ^ P.n`), promoted as Comparator Target 7 (`target_isColoringBool_iff`). Updated `KS/Audit.lean` (`38` explicit `#print axioms` declarations + exhaustive audit of all `126` kernel theorem constants in `KS`, `71` hand-written; zero warnings `--wfail`; `lake env leanchecker --fresh Solution`; 6-kernel `lake comparator --paranoid`).
+- **Expanded HOL4-Verified `cake_lpr` CI Coverage to 11 UNSAT/Uniqueness Proofs Across 6 Pools Spanning ALL THREE Dimensions $d \in \{3,4,5\}$ (`scripts/verify_lrat.sh`):** Added exact uniqueness UNSAT proofs for `B(3,2)` (`k=31`), `B(4,1)` (`k=18`), `B(3,3)` (`k=31`), and `U(3,12)` (`k=33`) PLUS the **5-dimensional** `B(5,1)` three-axis branch `in:0,1,2;out:3,4` (`k=28`) — all 11 proofs independently cross-verified live in CI by `verify/drup_check`, pinned `drat-trim` → LRAT → `lrat-check`, and HOL4-formally-verified `cake_lpr` (`s VERIFIED UNSAT`), plus truncated-LRAT negative control.
+- **Live Tamper-Injection Negative Gate (`.github/workflows/ci.yml`) & Isolated AST Source-Code Mutation Suite (`tests/test_properties_and_fuzz.py`):** Added a live CI gate planting a temporary custom `axiom evil_tamper_axiom : False` and verifying active rejection by BOTH Lean `#print axioms` allowlist AND the H46 forbidden-token lexer; added 6/6 isolated AST source-code operator-mutation tests against in-memory AST copies of `src/pools.py` and `src/ks_cnf.py` (100% mutant kill rate); replaced `ruff E731` lambda assignments in `src/ks_cnf.py`, `src/ksmin.py`, and `tests/test_pools.py` with proper `def` functions.
+- **Fresh Provenance, Timestamp Re-Seal & `0.00 pt` PDF:** Synced verified `v2.2.0` Software Heritage snapshot `swh:1:snp:4c421f5d8b6cf9d06c224ed7bfafe88bc3392f4f` and CI/SLSA receipts across `CITATION.cff`, `formalization.yaml`, `docs/{threat-model,submission-packet,run-log}.md`, and `publication/README.md`; updated AI disclosure range `v1.1.0--v2.3.0` in `publication/ks-minimum/ks-minimum.tex`; recompiled `ks-minimum.pdf` (`0.00 pt` overfull hbox) + `arxiv-source.zip` + `docs/ks-minimum.pdf`; re-sealed `data/MANIFEST.sha256` with fresh DigiCert RFC 3161 TSA + 3-calendar Bitcoin OpenTimestamps; logged the 3-cycle audit in `docs/reviews/2026-11-27-v230-3cycle-completeness-cake-lpr-audit.md`.
 
 ## [2.2.0] — 2026-11-26
 

@@ -59,7 +59,7 @@ L1 and L2 are derived from the table versions `KS.Box3H2.minimum_ks_size` and
 data module (`adj_spec`, `bases_sound`, `bases_complete`: the orthogonality table equals "dot product
 zero" on the listed vectors and the list of bases is exactly the set of all d-cliques), and from L3
 and L4. The Lean theorems cover the two minimum values only, not the counts of minimum sets.
-`lake build --wfail KS Solution` checks every module; `lake env lean KS/Audit.lean` prints the axioms of 35 explicit declarations and exhaustively audits all 122 kernel theorem constants in `KS` (67 hand-written).
+`lake build --wfail KS Solution` checks every module; `lake env lean KS/Audit.lean` prints the axioms of 38 explicit declarations and exhaustively audits all 126 kernel theorem constants in `KS` (71 hand-written).
 
 ## C. Engine B: unsatisfiability proofs and their checks
 

@@ -190,8 +190,12 @@ def min_correction_set(pool, forced_in=(), solver="g3"):
     Returns (D, I).
     """
     n = len(pool.rays)
-    I = lambda v: v + 1
-    Dv = lambda v: n + v + 1
+
+    def I(v):
+        return v + 1
+
+    def Dv(v):
+        return n + v + 1
     w = WCNF()
     for v in range(n):
         for u in pool.adj[v]:

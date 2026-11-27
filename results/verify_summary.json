@@ -274,7 +274,7 @@
       "accepted_examples": [],
       "reference_checked": 254,
       "reference_disagreements": 0,
-      "ms": 440
+      "ms": 544
     },
     {
       "sweep": "remove all children of one internal node, every internal node (49-ray cert)",
@@ -285,7 +285,7 @@
       "accepted_examples": [],
       "reference_checked": 176,
       "reference_disagreements": 0,
-      "ms": 281
+      "ms": 290
     },
     {
       "sweep": "swap two adjacent children, every position (49-ray cert)",
@@ -302,7 +302,7 @@
       ],
       "reference_checked": 78,
       "reference_disagreements": 0,
-      "ms": 208
+      "ms": 153
     },
     {
       "sweep": "change one ray index in an I to a ray outside that I, every position x 3 replacements (49-ray cert; --full = all replacements)",
@@ -319,7 +319,7 @@
       ],
       "reference_checked": 1062,
       "reference_disagreements": 0,
-      "ms": 4971
+      "ms": 6089
     },
     {
       "sweep": "drop one basis from the list, every basis (49-ray cert)",
@@ -330,7 +330,7 @@
       "accepted_examples": [],
       "reference_checked": 0,
       "reference_disagreements": 0,
-      "ms": 4
+      "ms": 6
     },
     {
       "sweep": "flip one adj entry, every ordered pair (49-ray cert)",
@@ -341,7 +341,7 @@
       "accepted_examples": [],
       "reference_checked": 0,
       "reference_disagreements": 0,
-      "ms": 209
+      "ms": 257
     },
     {
       "sweep": "delete one child, every position (40-ray d=4 cert)",
@@ -352,7 +352,7 @@
       "accepted_examples": [],
       "reference_checked": 508,
       "reference_disagreements": 0,
-      "ms": 1878
+      "ms": 2525
     },
     {
       "sweep": "drop one basis from the list, every basis (40-ray d=4 cert)",

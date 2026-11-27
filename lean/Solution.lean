@@ -71,6 +71,10 @@ theorem target_box4h1_refute_17 :
   rintro ⟨T, hT, hcard, hnot⟩
   exact hnot (KS.Box4H1.minimum_ks_size_vectors.2 T hT (by omega))
 
+theorem target_isColoringBool_iff (P : KS.Pool) (T c : Nat) (hT : T < 2 ^ P.n) :
+    KS.isColoringBool P T c = true ↔ KS.IsColoring P T c :=
+  KS.isColoringBool_iff P T c hT
+
 /-- Additional kernel-proved false-variant refutations: raising the colourability bound to 31 (in B(3,2))
 or 18 (in B(4,1)) is false, refuted directly by the explicit KS sets. -/
 theorem refute_box3h2_all_31_colorable :

@@ -2,15 +2,15 @@ cff-version: 1.2.0
 title: "Kochen-Specker Extremal Lab: Certified Exact Minima of Kochen-Specker Sets Inside Coordinate Pools"
 message: "If you use this software, Lean 4 proofs, or preprint, please cite this repository. Note that this is an unreviewed research preprint produced with AI assistance under human direction; no general open-problem record is claimed."
 type: software
-version: "2.2.0"
-date-released: "2026-11-26"
+version: "2.3.0"
+date-released: "2026-11-27"
 license: Apache-2.0
 repository-code: "https://github.com/0thernes/kochen-specker-extremal-lab"
 url: "https://0thernes.github.io/kochen-specker-extremal-lab/"
 identifiers:
   - type: swh
-    value: "swh:1:snp:68ed4cd5af45b8fa4ed21a82f8f3dfd69ac901ae"
-    description: "Software Heritage permanent archival snapshot (v2.1.0; refreshed on release)"
+    value: "swh:1:snp:4c421f5d8b6cf9d06c224ed7bfafe88bc3392f4f"
+    description: "Software Heritage permanent archival snapshot (v2.2.0; refreshed on release)"
 authors:
   - family-names: Donahue
     given-names: Alexander S.
@@ -30,7 +30,7 @@ abstract: >-
   kernel proofs cover B(3,2) = 31 and B(4,1) = 18 only; they are accepted by the official Lean
   kernel (default and paranoid mode) and by lean4lean, nanoda, con-leche and con-ron. The other
   seven values rest on SAT/DRUP unsatisfiability proofs checked by the project's own checker
-  (cross-checked by drat-trim/LRAT/lrat-check and HOL4-verified cake_lpr for B(3,3), U(3,6) + uniqueness, and U(3,12), alongside B(3,2) and B(4,1)), a CNF encoder and paper lemmas. The general
+  (cross-checked by drat-trim/LRAT/lrat-check and HOL4-verified cake_lpr for B(3,3) + uniqueness, U(3,6) + uniqueness, U(3,12) + uniqueness, and the 5D B(5,1) branch in:0,1,2;out:3,4 (k=28), alongside B(3,2) + uniqueness and B(4,1) + uniqueness — 11 UNSAT/uniqueness proofs across 6 pools spanning d=3,4,5), a CNF encoder and paper lemmas. The general
   minimum problem is not affected. The values 31 (B(3,2), B(3,3)) and 33 (sixth roots of unity)
   were reported earlier by Kernaghan (arXiv:2603.16988), whose version 10 (23 November 2026) also
   proves 31 and 33 for two pools in Lean. Research preprint; not externally peer reviewed;

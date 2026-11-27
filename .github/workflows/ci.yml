@@ -142,8 +142,8 @@ jobs:
                       sys.exit(1)
               elif no_re.match(line):
                   checked += 1
-          if checked < 35:
-              print(f"Expected >= 35 audited declarations, got {checked}", file=sys.stderr)
+          if checked < 38:
+              print(f"Expected >= 38 audited declarations, got {checked}", file=sys.stderr)
               sys.exit(1)
           if "ALL_KS_THEOREMS_AXIOM_AUDIT_PASS:" not in log_text:
               print("Missing ALL_KS_THEOREMS_AXIOM_AUDIT_PASS sentinel in KS/Audit.lean output", file=sys.stderr)
@@ -227,6 +227,47 @@ jobs:
             fi
           done
           echo "PASS: All 3 negative Lean sanity checks (closed decidable facts) were rejected by kernel decide."
+      - name: Live tamper-injection negative gate (evil axiom / sorry / ofReduceBool rejection)
+        working-directory: lean
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import re, subprocess, sys, tempfile
+          from pathlib import Path
+
+          # 1. Plant an evil custom axiom & sorry into a temporary Lean file and verify live Lean
+          #    #print axioms reports the forbidden axiom AND our axiom allowlist rejects it.
+          with tempfile.NamedTemporaryFile("w", suffix=".lean", dir=".", delete=False, encoding="utf-8") as tf:
+              tf.write("axiom evil_tamper_axiom : False\ntheorem tampered_thm : False := evil_tamper_axiom\n#print axioms tampered_thm\n")
+              tpath = Path(tf.name)
+          try:
+              res = subprocess.run(["lake", "env", "lean", str(tpath)], capture_output=True, text=True, check=False)
+              out = res.stdout + res.stderr
+              if "evil_tamper_axiom" not in out:
+                  print(f"ERROR: Lean did not report planted custom axiom! out={out}", file=sys.stderr)
+                  sys.exit(1)
+              allowed = {"propext", "Classical.choice", "Quot.sound"}
+              m = re.search(r"'tampered_thm' depends on axioms: \[(.*)\]", out)
+              if not m:
+                  print(f"ERROR: Could not parse #print axioms output: {out}", file=sys.stderr)
+                  sys.exit(1)
+              bad = {a.strip() for a in m.group(1).split(",") if a.strip()} - allowed
+              if "evil_tamper_axiom" not in bad:
+                  print(f"ERROR: Allowlist failed to catch planted axiom: {bad}", file=sys.stderr)
+                  sys.exit(1)
+              # 2. Verify forbidden-token lexer rejects the tampered source
+              forb = re.compile(
+                  r"\b(sorry|admit|native_decide|unsafe)\b|"
+                  r"^\s*(?:(?:private|protected|noncomputable|scoped|local)\s+)*axiom\b|"
+                  r"implemented_by|@\[extern"
+              )
+              if not any(forb.search(line) for line in tpath.read_text(encoding="utf-8").splitlines()):
+                  print("ERROR: H46 forbidden-token lexer failed to catch planted custom axiom!", file=sys.stderr)
+                  sys.exit(1)
+              print("PASS: Live tamper-injection gate caught planted custom axiom via both Lean kernel #print axioms and H46 lexer.")
+          finally:
+              tpath.unlink(missing_ok=True)
+          PY
       - name: Independent leanchecker --fresh replay (Playbook v1.3 H04)
         working-directory: lean
         run: lake env leanchecker --fresh Solution

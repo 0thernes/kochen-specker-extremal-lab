@@ -97,8 +97,12 @@ class CNF:
 def encode(pool, k, cuts, fix_in=(), fix_out=(), groups=None, symbreak=True):
     n, d = pool.n, pool.d
     nb = len(pool.bases)
-    X = lambda v: v + 1
-    Y = lambda b: n + b + 1
+
+    def X(v):
+        return v + 1
+
+    def Y(b):
+        return n + b + 1
     F = CNF(n + nb)
     for b, basis in enumerate(pool.bases):
         for v in basis:
@@ -221,7 +225,8 @@ if __name__ == "__main__":
     solver_name = sys.argv[4]
     kind = sys.argv[5]
     args = sys.argv[6:]
-    quiet = lambda *a: None
+    def quiet(*_a):
+        return None
     pool, sym = build(kind, args, log=quiet)
     data = json.load(open(cuts_path))
     cw = [(c, I) for c, I in data["cuts"]]
