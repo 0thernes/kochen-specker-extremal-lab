@@ -21,7 +21,12 @@ The first malformed inputs are the historical ones: before the shape tests
 subtree was a bare `done` (or a chain of children) was accepted and "proved"
 the two false statements above.
 -/
-import KS.Spec
+
+module
+
+public import KS.Spec
+
+@[expose] public section
 
 namespace KS.Tests
 

@@ -1,8 +1,9 @@
 title: "Certified exact minima of Kochen-Specker sets inside coordinate pools"
 repository: "https://github.com/0thernes/kochen-specker-extremal-lab"
-version: "2.0.0"
+version: "2.1.0"
 date: "2026-11-26"
-software_heritage_snapshot: "swh:1:snp:6df0f79e042201d9490512cc8dda65471db9fafb"
+software_heritage_snapshot: "swh:1:snp:0f2c39bdae6bd37a98dc53f071bfa2208c1ef4e5"
+palomar_module_headers: true
 rfc3161_timestamp: "data/MANIFEST.sha256.tsr"
 opentimestamps_proof: "data/MANIFEST.sha256.ots"
 license:
@@ -38,11 +39,11 @@ kernels_configured:
   - "con-leche (v4.35.0)"
   - "con-ron (v4.35.0)"
 automation:
-  origin: "AI-assisted formalization, SAT/DRUP certification, and manuscript drafting under human direction"
+  origin: "AI agents (Anthropic Claude; Google Gemini / Antigravity) drafted code, Lean proofs, certificates, and manuscript text under human direction and oversight; human author takes sole responsibility (consistent with CITATION.cff and publication/zenodo-inquiry.md)"
   models_used:
-    - "Anthropic Claude: core KS formalization, SAT/DRUP tooling, and v1.0.0 preprint"
-    - "Google Gemini / Antigravity: v1.1.0 Challenge/Solution 6-kernel comparator, non-vacuity targets, open licensing, and Build Standard v1.1.0 upgrade"
+    - "Anthropic Claude: initial research plan, core KS Lean 4 proofs, SAT/DRUP tooling, v1.0.0 preprint, and 2026-11-26 statement audit"
+    - "Google Gemini / Antigravity: Challenge/Solution comparator bridge, Palomar Lean 4.35 module headers, independent drat-trim -> LRAT -> lrat-check + HOL4 cake_lpr verifier, RFC 3161 TSA + OpenTimestamps, open licensing, and Build Standard v1.2.0 / Playbook v1.3 upgrades"
   human_line_by_line_review_recorded: false
   statement_fidelity_table: "docs/statement-fidelity.md"
 review_status: "Research preprint; NOT externally peer reviewed; NOT yet submitted to Palomar Registry, arXiv, or Zenodo."
-limitations: "Pool-restricted exact minima only; does NOT settle the general minimal Kochen-Specker open problem (24..31 in 3D). Lean proves only B(3,2) = 31 and B(4,1) = 18. The other seven pools rely on DRUP certificates checked outside the Lean kernel by the project's own checker (drat-trim/LRAT cross-check in CI for B(3,3) only). kernels_configured lists the official Lean kernel twice (default and paranoid mode) plus four external checkers. Kernaghan arXiv:2603.16988v10 (23 Nov 2026) independently proves 31 for B(3,2) and 33 for the sixth-roots pool in Lean, after this repository's v1.0.0 (10 Nov 2026)."
+limitations: "Pool-restricted exact minima only; does NOT settle the general minimal Kochen-Specker open problem (24..31 in 3D). Lean proves only B(3,2) = 31 and B(4,1) = 18. The other seven pools rely on DRUP certificates checked outside the Lean kernel by the project's own checker (third-party drat-trim/LRAT/lrat-check and HOL4-verified cake_lpr cross-check in CI for B(3,3) only among those seven, plus B(3,2) and B(4,1)). kernels_configured lists the official Lean kernel twice (default and paranoid mode) plus four external checkers. Kernaghan arXiv:2603.16988v10 (23 Nov 2026) independently proves 31 for B(3,2) and 33 for the sixth-roots pool in Lean, after this repository's v1.0.0 (10 Nov 2026)."

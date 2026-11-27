@@ -117,7 +117,7 @@ kernel itself evaluates the Boolean check. The compiler is not trusted
 ```
 cd lean
 lake build                      # checks Basic, Spec, both data modules and Tests
-lake env lean KS/Audit.lean     # prints the axioms of 26 theorems
+lake env lean KS/Audit.lean     # prints the axioms of 30 explicit declarations + audits all KS theorem constants
 ```
 
 Measured on the development machine (Windows 11, Lean 4.35.0, other heavy jobs

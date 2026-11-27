@@ -336,7 +336,7 @@ if __name__ == "__main__":
         print("minimum KS set:", describe(core, H))
         for v in sorted(H):
             print("  ", core.rays[v])
-        sizes = {}
+        sizes: dict[int, int] = {}
         for c in corr:
             sizes[len(c)] = sizes.get(len(c), 0) + 1
         print("correction-set sizes:", dict(sorted(sizes.items())))

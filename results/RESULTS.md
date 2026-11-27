@@ -59,7 +59,7 @@ L1 and L2 are derived from the table versions `KS.Box3H2.minimum_ks_size` and
 data module (`adj_spec`, `bases_sound`, `bases_complete`: the orthogonality table equals "dot product
 zero" on the listed vectors and the list of bases is exactly the set of all d-cliques), and from L3
 and L4. The Lean theorems cover the two minimum values only, not the counts of minimum sets.
-`lake build` checks every module; `lake env lean KS/Audit.lean` prints the axioms of 26 theorems.
+`lake build --wfail KS Solution` checks every module; `lake env lean KS/Audit.lean` prints the axioms of 30 explicit declarations and exhaustively audits all theorem constants in `KS` (62 hand-written).
 
 ## C. Engine B: unsatisfiability proofs and their checks
 
@@ -234,11 +234,11 @@ exist: 105-136 for B(5, 1), 1185-3596 for B(5, 2), 332-1408 for B(6, 1), 805-993
 ## H. Prior art for the values (see paper, Section 1.3)
 
 * A1: minimum 31 reported as exact, and six 31-ray sets found by randomised minimisation, by Kernaghan
-  arXiv:2603.16988 (no certificate; one remark there speaks of 162 distinct sets, six up to
-  automorphism); six equivalent versions of the Conway-Kochen set are noted by Trandafir and Cabello
-  (2025). A2: 31 is listed in Kernaghan's Table 2. A1 to A3: minimum 31, ProblemHive thread p/xfkay,
+  arXiv:2603.16988 (v1–v9 procedure later withdrawn as unsound in v10; one remark there speaks of 162 distinct sets, six up to
+  automorphism); version 10 (23 November 2026, 13 days after our v1.0.0 of 10 November 2026) independently certifies 31 for B(3,2) and B(3,3) and proves 31 for B(3,2) in Lean with Mathlib; six equivalent versions of the Conway-Kochen set are noted by Trandafir and Cabello
+  (2025). A2: 31 is listed in Kernaghan's Table 2 (and certified in v10). A1 to A3: minimum 31, ProblemHive thread p/xfkay,
   October 2026 (CP-SAT with coloring cuts, no certificate).
-* A4: minimum 33, Kernaghan (no certificate). Existence of KS sets in U(3, N) iff 6 | N: Kernaghan,
+* A4: minimum 33, Kernaghan arXiv:2603.16988 (v1–v9 withdrawn as unsound; v10 of 23 November 2026 independently certifies 33 with exactly 3 minimum sets and proves it in Lean with Mathlib). Existence of KS sets in U(3, N) iff 6 | N: Kernaghan,
   Theorem 11. A5 to A7: only "best found" or "at most 33" there.
 * A8: 18 is the minimum for KS sets in dimension four (Pavicic et al. 2005) and in any dimension (Xu,
   Chen, Guehne 2020). The 16 sets are the 16 known 18-ray sets inside the 24 rays of Peres (Waegell

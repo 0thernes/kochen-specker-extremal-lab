@@ -40,7 +40,7 @@ for rnd in range(rounds):
         clauses.append([-(v + 1)] + [n + b + 1 for b in range(nb) if v in core.bases[b]])   # x -> some chosen basis
     for cut in cg.cuts:
         clauses.append([n + b + 1 for b in sorted(cut)])
-    results = {}
+    results: dict[tuple[str, str], object] = {}
     S = None
     for enc_name, enc in (("totalizer", EncType.totalizer), ("seqcounter", EncType.seqcounter),
                           ("kmtotalizer", EncType.kmtotalizer), ("cardnetwrk", EncType.cardnetwrk)):

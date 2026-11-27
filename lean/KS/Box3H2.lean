@@ -10,7 +10,12 @@ The last four theorems restate this for the vectors themselves: `rays` is the po
 colourability is `VColorable` (dot products only).
 Do not edit by hand.
 -/
-import KS.Spec
+
+module
+
+public import KS.Spec
+
+@[expose] public section
 
 set_option maxRecDepth 1000000
 set_option maxHeartbeats 0

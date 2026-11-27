@@ -2,7 +2,16 @@
 
 ## [Unreleased]
 
-- Re-verify non-Lean SAT/DRUP proofs via `drat-trim` -> LRAT -> formally verified `cake_lpr`.
+- Extend `drat-trim` -> LRAT -> formally verified `cake_lpr` replay to all 83 dimension-5 cubes and large cyclotomic pools.
+
+## [2.1.0] — 2026-11-26
+
+### Playbook v1.3 Closure: HOL4-Verified `cake_lpr` (Checklist #13), Palomar Lean 4.35 `module` Headers (Part D #3), Aligned AI Disclosure (`H48`), OSF Fallback (`H13`) & Zero `mypy` Errors
+
+- **HOL4-Formally-Verified `cake_lpr` in CI (Playbook v1.3 Checklist #13 / Trigger T2):** Upgraded `scripts/verify_lrat.sh` to download pinned, SHA-256-verified `tanyongkiam/cake_lpr` (`033aad53d173`, `basis_ffi.c` + `cake_lpr.S`/`cake_lpr_arm8.S`), compile `cake_lpr` with GCC, and verify `s VERIFIED UNSAT` on `B(3,2)` (`k=30`), `B(4,1)` (`k=17`), and `B(3,3)` (`k=30`) alongside `verify/drup_check`, `drat-trim`, and `lrat-check`, plus verifying that BOTH `lrat-check` and `cake_lpr` reject a truncated LRAT negative control.
+- **Palomar Registry `module` Headers Across 100% of Lean Files (Playbook v1.3 Part D #3 & Checklist #9):** Migrated all 9 zero-Mathlib `.lean` files (`KS/Basic.lean`, `KS/Spec.lean`, `KS/Box3H2.lean`, `KS/Box4H1.lean`, `KS/Tests.lean`, `KS.lean`, `KS/Audit.lean`, `Challenge.lean`, `Solution.lean`) and `scripts/gen_lean.py` to Lean 4.35 `module` + `public import` + `@[expose] public section`, passing zero-warning `lake build --wfail KS Solution`, `lake env leanexport Solution`, `lake env leanchecker --fresh Solution`, and `lake comparator --paranoid` (official Lean kernel default/paranoid plus `lean4lean`, `nanoda`, `con-leche`, `con-ron`), with a permanent regression check in `tests/test_repo_integrity.py`.
+- **2026-11-26 Statement-Audit Reconciliation & Errata Closure (`P1`–`P6`, `O1`–`O4`, `K2`, `K3`):** Preserved all claim narrowings from `9c8c016` and resolved the remaining audit items in place — updated `paper/ks-minimum.md`, `publication/ks-minimum/ks-minimum.{tex,pdf}`, `docs/{ks-minimum.pdf,paper.html}`, `results/RESULTS.md`, `LEGAL.md`, and `lean/README.md` with dated citations to Kernaghan `arXiv:2603.16988v10` (23 Nov 2026), exact Waegell–Aravind (2011) parity-proof wording, Pavičić–Waegell `{0, ±1}` qualifier, and `30` explicit audit declarations; renamed `.github/workflows/ci.yml` closed-fact checks honestly to `Negative Lean sanity checks`; updated `KS/Audit.lean` to report both total kernel theorem constants (`116` under Lean 4.35 `module` mode) and hand-written count (`62`); kept `K1` documented transparently in `ERRATA.md` and `docs/statement-fidelity.md`.
+- **Epistemic Alignment (`H48` & `H13`), Brute-Force CNF Test (`#14`), Zero `mypy` Errors & Broken GFM Table Fix:** Aligned `publication/zenodo-inquiry.md` AI disclosure with `CITATION.cff` and `formalization.yaml` (`H48`); switched DOI fallback from HAL to OSF Preprints (`H13`); fixed all 7 `mypy` errors across `src/{ksmin,exp_master,stats3d,ksmaster}.py` (`0` errors across all 47 Python files); added cross-platform small-pool brute-force + independent naive CNF encoder equivalence test in `tests/test_properties_and_fuzz.py` (`#14`); fixed unescaped vertical bars breaking GFM tables in `docs/statement-fidelity.md` (with permanent regression guard); unified Software Heritage SWHID on `v2.0.0` (`swh:1:snp:0f2c39bdae6bd37a98dc53f071bfa2208c1ef4e5`); recorded literal 3-cycle + 10-pass Playbook audit in `docs/reviews/2026-11-26-v210-3cycle-cake-lpr-module-audit.md`.
 
 ## [2.0.0] — 2026-11-26
 

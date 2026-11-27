@@ -7,8 +7,13 @@ and NONE of the certificate proof modules (`KS.Box3H2`, `KS.Box4H1`).
 Every `sorry` in this file is intentional — checked against sorry-free `Solution.lean` by:
     lake comparator --config comparator.json --paranoid
 -/
-import KS.Basic
-import KS.Spec
+
+module
+
+public import KS.Basic
+public import KS.Spec
+
+@[expose] public section
 
 namespace KS.ComparatorTarget
 

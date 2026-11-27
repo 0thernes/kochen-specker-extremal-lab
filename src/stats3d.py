@@ -13,6 +13,5 @@ for H in map(int, sys.argv[1:]):
     m = sum(deg) // 2
     dd = collections.Counter(min(d, 12) for d in deg)
     td = collections.Counter(min(t, 6) for t in tcount)
-    norms = collections.Counter()
     print(f"H={H}: core {p.n} rays, {m} edges, {len(p.bases)} triples; avg deg {2*m/p.n:.2f}; "
           f"deg hist {sorted(dd.items())}; triples-per-ray hist {sorted(td.items())}", flush=True)

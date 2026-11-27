@@ -102,7 +102,7 @@ not depend on trusting the search:
 * **Proof-checked.** A solver's claim "impossible" comes with a long proof file, and a small program
   written for this project checks that file step by step. For three pools (49 and 145 rays in
   dimension three, 40 rays in dimension four) the proofs are also checked by the third-party tools
-  drat-trim and lrat-check; for the other pools the project's own checker is the only one. The lists of smallest sets ("exactly 6", "exactly 16" and so
+  drat-trim, lrat-check and HOL4-verified cake_lpr; for the other pools the project's own checker is the only one. The lists of smallest sets ("exactly 6", "exactly 16" and so
   on) are confirmed in this way for all six pools.
 * **Second solver.** The same formula is given to a second, different solver (CaDiCaL next to
   Glucose). Agreement checks the solvers against each other; it does not check that the formula was

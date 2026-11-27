@@ -231,13 +231,71 @@ class KSRepoIntegrityTests(unittest.TestCase):
     def test_rfc3161_opentimestamps_and_lrat_script(self) -> None:
         import importlib.util
 
-        self.assertTrue((ROOT / "scripts" / "verify_lrat.sh").is_file())
+        lrat_script = ROOT / "scripts" / "verify_lrat.sh"
+        self.assertTrue(lrat_script.is_file())
+        lrat_txt = lrat_script.read_text(encoding="utf-8")
+        self.assertIn("cake_lpr", lrat_txt, "Playbook v1.3 Checklist #13: verify_lrat.sh must run HOL4-verified cake_lpr")
+        self.assertIn("s VERIFIED UNSAT", lrat_txt)
         self.assertTrue((ROOT / "docs" / "submission-packet.md").is_file())
         spec = importlib.util.spec_from_file_location("stamp_timestamps", ROOT / "scripts" / "stamp_timestamps.py")
         assert spec is not None and spec.loader is not None
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         self.assertEqual(mod.verify_timestamps(), 0, "RFC 3161 TSA or OpenTimestamps proof failed verification")
+
+        # Palomar Registry module-header compliance (Playbook v1.3 Part D #3 & Checklist #9)
+        for lf in sorted((ROOT / "lean").rglob("*.lean")):
+            if ".lake" in lf.parts or lf.name == "lakefile.lean":
+                continue
+            first_code = ""
+            in_blk = False
+            for line in lf.read_text(encoding="utf-8").splitlines():
+                s = line.strip()
+                if not s or s.startswith("--"):
+                    continue
+                if s.startswith("/-"):
+                    if "-/" not in s[2:]:
+                        in_blk = True
+                    continue
+                if in_blk:
+                    if "-/" in s:
+                        in_blk = False
+                    continue
+                first_code = s
+                break
+            self.assertEqual(first_code, "module", f"Missing Palomar `module` header in {lf.relative_to(ROOT)}")
+
+        # Guard against unescaped `|` breaking GitHub Markdown tables in active docs
+        bad_tables: list[str] = []
+        for md_rel in ("README.md", "CLAIMS.md", "LIMITATIONS.md", "ERRATA.md", "REPLICATION.md", "docs/statement-fidelity.md", "docs/mega-atlas-cross-reference.md", "docs/TRIGGER-REGISTER.md"):
+            lines = (ROOT / md_rel).read_text(encoding="utf-8").splitlines()
+            in_code = False
+            i = 0
+            while i < len(lines):
+                if lines[i].lstrip().startswith("```"):
+                    in_code = not in_code
+                    i += 1
+                    continue
+                if not in_code and i + 1 < len(lines) and "|" in lines[i] and re.match(r"^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)+\|?\s*$", lines[i + 1]):
+                    def _cols(s: str) -> int:
+                        s = re.sub(r"\\\|", "PIPE", s.strip())
+                        if s.startswith("|"):
+                            s = s[1:]
+                        if s.endswith("|"):
+                            s = s[:-1]
+                        return len(s.split("|"))
+                    exp = _cols(lines[i + 1])
+                    if _cols(lines[i]) != exp:
+                        bad_tables.append(f"{md_rel}:{i + 1}")
+                    j = i + 2
+                    while j < len(lines) and "|" in lines[j] and lines[j].strip():
+                        if _cols(lines[j]) != exp:
+                            bad_tables.append(f"{md_rel}:{j + 1}")
+                        j += 1
+                    i = j
+                else:
+                    i += 1
+        self.assertEqual(bad_tables, [], f"Broken Markdown table column counts (unescaped |): {bad_tables}")
 
     def test_data_manifest_and_docs_manifest_sha256(self) -> None:
         manifest = ROOT / "data" / "MANIFEST.sha256"

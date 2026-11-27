@@ -16,7 +16,12 @@ A specification of the results that mentions integer vectors only.
 
 No Mathlib.
 -/
-import KS.Basic
+
+module
+
+public import KS.Basic
+
+@[expose] public section
 
 namespace KS
 

@@ -10,7 +10,8 @@
    "volume": "17",
    "page": "59-87",
    "doi": "10.1512/iumj.1968.17.17004",
-   "score": 87.299164
+   "score": 85.92307,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -26,7 +27,8 @@
    "volume": "38",
    "page": "447-452",
    "doi": "10.1103/revmodphys.38.447",
-   "score": 86.68592
+   "score": 85.92185,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -34,18 +36,8 @@
  {
   "n": 3,
   "reference": "A. Peres, Quantum Theory: Concepts and Methods, Kluwer, Dordrecht, 1993 (source of the 31-ray set of J. H. Conway and S. Kochen).",
-  "crossref": {
-   "title": "Quantum Theory: Concepts and Methods",
-   "authors": "",
-   "year": 2002,
-   "container": "",
-   "volume": null,
-   "page": null,
-   "doi": "10.1007/0-306-47120-5",
-   "score": 41.63723
-  },
-  "title_overlap": 1.0,
-  "verdict": "match"
+  "error": "<HTTPError 429: 'Too Many Requests'>",
+  "verdict": "CHECK BY HAND"
  },
  {
   "n": 4,
@@ -58,7 +50,8 @@
    "volume": "24",
    "page": "L175-L178",
    "doi": "10.1088/0305-4470/24/4/003",
-   "score": 104.16503
+   "score": 102.361046,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -74,7 +67,8 @@
    "volume": "212",
    "page": "183-187",
    "doi": "10.1016/0375-9601(96)00134-x",
-   "score": 128.07628
+   "score": 126.51485,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -94,7 +88,8 @@
    "volume": "339",
    "page": "425-429",
    "doi": "10.1016/j.physleta.2005.03.067",
-   "score": 138.02557
+   "score": 136.03937,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -114,7 +109,8 @@
    "volume": "38",
    "page": "1577-1592",
    "doi": "10.1088/0305-4470/38/7/013",
-   "score": 104.47972
+   "score": 103.236916,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -134,7 +130,8 @@
    "volume": null,
    "page": "23-34",
    "doi": "10.1007/978-3-642-25870-1_4",
-   "score": 84.31944
+   "score": 82.74157,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -150,7 +147,8 @@
    "volume": "34",
    "page": "3-23",
    "doi": "10.1007/s00354-016-0202-5",
-   "score": 123.87662
+   "score": 121.79226,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -170,7 +168,8 @@
    "volume": null,
    "page": "1898-1906",
    "doi": "10.24963/ijcai.2024/210",
-   "score": 115.98934
+   "score": 113.791855,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -190,7 +189,8 @@
    "volume": null,
    "page": "1944-1953",
    "doi": "10.24963/ijcai.2023/216",
-   "score": 112.263016
+   "score": 110.99237,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -210,7 +210,8 @@
    "volume": "124",
    "page": "230401",
    "doi": "10.1103/physrevlett.124.230401",
-   "score": 87.11802
+   "score": 86.358955,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -230,7 +231,8 @@
    "volume": "89",
    "page": "042101",
    "doi": "10.1103/physreva.89.042101",
-   "score": 103.08648
+   "score": 102.15208,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -250,7 +252,8 @@
    "volume": "48",
    "page": "225301",
    "doi": "10.1088/1751-8113/48/22/225301",
-   "score": 119.19969
+   "score": 117.36657,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -270,7 +273,8 @@
    "volume": "95",
    "page": "050101",
    "doi": "10.1103/physreva.95.050101",
-   "score": 110.30984
+   "score": 109.06768,
+   "retracted": false
   },
   "title_overlap": 0.89,
   "verdict": "match"
@@ -290,7 +294,8 @@
    "volume": "106",
    "page": "L060203",
    "doi": "10.1103/physreva.106.l060203",
-   "score": 145.39175
+   "score": 142.95807,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -310,7 +315,8 @@
    "volume": "20",
    "page": "928",
    "doi": "10.3390/e20120928",
-   "score": 127.20192
+   "score": 126.03528,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -330,7 +336,8 @@
    "volume": "111",
    "page": "052204",
    "doi": "10.1103/physreva.111.052204",
-   "score": 181.051
+   "score": 178.3202,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -350,14 +357,15 @@
    "volume": null,
    "page": null,
    "doi": "10.21203/rs.3.rs-2279231/v2",
-   "score": 62.746834
+   "score": 62.080307,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
  },
  {
   "n": 20,
-  "reference": "A. Cabello, The simplest Kochen-Specker set, Phys. Rev. Lett. 135 (2025) 190203; arXiv:2508.07335.",
+  "reference": "A. Cabello, Simplest Kochen-Specker set, Phys. Rev. Lett. 135 (2025) 190203; arXiv:2508.07335.",
   "arxiv": {
    "title": "The simplest Kochen-Specker set",
    "authors": "Cabello"
@@ -370,7 +378,8 @@
    "volume": "135",
    "page": "190203",
    "doi": "10.1103/fx9d-488z",
-   "score": 87.70367
+   "score": 86.91994,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -390,27 +399,29 @@
    "volume": "9",
    "page": "6765",
    "doi": "10.1038/s41598-019-43009-9",
-   "score": 47.11221
+   "score": 46.426582,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
  },
  {
   "n": 22,
-  "reference": "M. Kernaghan, The algebraic landscape of Kochen-Specker sets in dimension three, arXiv:2603.16988v9 (2026).",
+  "reference": "M. Kernaghan, The algebraic landscape of Kochen-Specker sets in dimension three, arXiv:2603.16988v10 (23 November 2026).",
   "arxiv": {
    "title": "The Algebraic Landscape of Kochen-Specker Sets in Dimension Three",
    "authors": "Kernaghan"
   },
   "crossref": {
-   "title": "Maximal non-Kochen-Specker sets and a lower bound on the size of Kochen-Specker sets",
-   "authors": "Williams, Constantin",
-   "year": 2025,
-   "container": "Physical Review A",
-   "volume": "111",
-   "page": "012223",
-   "doi": "10.1103/physreva.111.012223",
-   "score": 41.465298
+   "title": "Exact Bit-Flip Noise Thresholds of Complete-Graph Kochen-Specker Sets",
+   "authors": "Postanovsky",
+   "year": 2026,
+   "container": "",
+   "volume": null,
+   "page": null,
+   "doi": "10.2139/ssrn.7683959",
+   "score": 42.202892,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -430,7 +441,8 @@
    "volume": null,
    "page": "2542017",
    "doi": "10.1142/s0219498825420174",
-   "score": 123.0262
+   "score": 121.34226,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -450,7 +462,8 @@
    "volume": "113",
    "page": "39-52",
    "doi": "10.1016/j.jcta.2005.01.010",
-   "score": 25.519432
+   "score": 25.21011,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -466,7 +479,8 @@
    "volume": "83",
    "page": "3751-3754",
    "doi": "10.1103/physrevlett.83.3751",
-   "score": 122.11424
+   "score": 121.16207,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -482,7 +496,8 @@
    "volume": "108",
    "page": "030402",
    "doi": "10.1103/physrevlett.108.030402",
-   "score": 102.15469
+   "score": 101.54061,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -498,7 +513,8 @@
    "volume": null,
    "page": "428-437",
    "doi": "10.1007/978-3-319-94144-8_26",
-   "score": 106.43502
+   "score": 103.68422,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -514,7 +530,8 @@
    "volume": null,
    "page": "197-205",
    "doi": "10.1007/978-3-319-09284-3_15",
-   "score": 41.921173
+   "score": 41.3226,
+   "retracted": false
   },
   "title_overlap": 0.17,
   "verdict": "CHECK BY HAND"
@@ -535,7 +552,8 @@
    "volume": null,
    "page": "422-429",
    "doi": "10.1007/978-3-319-09284-3_31",
-   "score": 110.601265
+   "score": 108.076775,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -555,7 +573,8 @@
    "volume": "7",
    "page": "953",
    "doi": "10.22331/q-2023-03-17-953",
-   "score": 51.893036
+   "score": 51.676037,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -575,7 +594,8 @@
    "volume": "110",
    "page": "012205",
    "doi": "10.1103/physreva.110.012205",
-   "score": 144.23387
+   "score": 142.33275,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -600,7 +620,8 @@
    "volume": "111",
    "page": "012223",
    "doi": "10.1103/physreva.111.012223",
-   "score": 38.621685
+   "score": 37.921726,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
@@ -620,14 +641,15 @@
    "volume": "111",
    "page": "022408",
    "doi": "10.1103/physreva.111.022408",
-   "score": 117.60786
+   "score": 116.332466,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"
  },
  {
   "n": 36,
-  "reference": "J. Harrison, HOL Light tutorial, file Tutorial/Custom_tactics.ml (theorems KOCHEN_SPECKER_LEMMA and KOCHEN_SPECKER_PARADOX), https://github.com/jrh13/hol-light .",
+  "reference": "J. Harrison, HOL Light tutorial, file Tutorial/Custom_tactics.ml (formal proof of the Kochen-Specker paradox for 33 directions), https://github.com/jrh13/hol-light .",
   "verdict": "CHECK BY HAND"
  },
  {
@@ -650,7 +672,46 @@
    "volume": "45",
    "page": "295304",
    "doi": "10.1088/1751-8113/45/29/295304",
-   "score": 32.10733
+   "score": 31.433857,
+   "retracted": false
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 39,
+  "reference": "M. Waegell, P. K. Aravind, Parity proofs of the Kochen-Specker theorem based on the 24 rays of Peres, Found. Phys. 41 (2011) 1786-1799; arXiv:1103.6058.",
+  "arxiv": {
+   "title": "Parity proofs of the Kochen-Specker theorem based on the 24 rays of Peres",
+   "authors": "Waegell, Aravind"
+  },
+  "crossref": {
+   "title": "Parity Proofs of the Kochen-Specker Theorem Based on the 24 Rays of Peres",
+   "authors": "Waegell, Aravind",
+   "year": 2011,
+   "container": "Foundations of Physics",
+   "volume": "41",
+   "page": "1786-1799",
+   "doi": "10.1007/s10701-011-9578-8",
+   "score": 132.5471,
+   "retracted": false
+  },
+  "title_overlap": 1.0,
+  "verdict": "match"
+ },
+ {
+  "n": 40,
+  "reference": "A. Biere, T. Faller, K. Fazekas, M. Fleury, N. Froleyks, F. Pollitt, CaDiCaL 2.0, Proc. CAV 2024, Lecture Notes in Computer Science, Springer, 133-152; doi:10.1007/978-3-031-65627-9_7.",
+  "crossref": {
+   "title": "CaDiCaL 2.0",
+   "authors": "Biere, Faller, Fazekas, Fleury, Froleyks, Pollitt",
+   "year": 2024,
+   "container": "Lecture Notes in Computer Science",
+   "volume": null,
+   "page": "133-152",
+   "doi": "10.1007/978-3-031-65627-9_7",
+   "score": 107.752975,
+   "retracted": false
   },
   "title_overlap": 1.0,
   "verdict": "match"

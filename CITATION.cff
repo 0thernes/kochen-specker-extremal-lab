@@ -2,15 +2,15 @@ cff-version: 1.2.0
 title: "Kochen-Specker Extremal Lab: Certified Exact Minima of Kochen-Specker Sets Inside Coordinate Pools"
 message: "If you use this software, Lean 4 proofs, or preprint, please cite this repository. Note that this is an unreviewed research preprint produced with AI assistance under human direction; no general open-problem record is claimed."
 type: software
-version: "2.0.0"
+version: "2.1.0"
 date-released: "2026-11-26"
 license: Apache-2.0
 repository-code: "https://github.com/0thernes/kochen-specker-extremal-lab"
 url: "https://0thernes.github.io/kochen-specker-extremal-lab/"
 identifiers:
   - type: swh
-    value: "swh:1:snp:6df0f79e042201d9490512cc8dda65471db9fafb"
-    description: "Software Heritage permanent archival snapshot (v1.9.0)"
+    value: "swh:1:snp:0f2c39bdae6bd37a98dc53f071bfa2208c1ef4e5"
+    description: "Software Heritage permanent archival snapshot (v2.0.0; refreshed on release)"
 authors:
   - family-names: Donahue
     given-names: Alexander S.
@@ -30,7 +30,7 @@ abstract: >-
   kernel proofs cover B(3,2) = 31 and B(4,1) = 18 only; they are accepted by the official Lean
   kernel (default and paranoid mode) and by lean4lean, nanoda, con-leche and con-ron. The other
   seven values rest on SAT/DRUP unsatisfiability proofs checked by the project's own checker
-  (cross-checked by drat-trim/LRAT for B(3,3)), a CNF encoder and paper lemmas. The general
+  (cross-checked by drat-trim/LRAT/lrat-check and HOL4-verified cake_lpr for B(3,3)), a CNF encoder and paper lemmas. The general
   minimum problem is not affected. The values 31 (B(3,2), B(3,3)) and 33 (sixth roots of unity)
   were reported earlier by Kernaghan (arXiv:2603.16988), whose version 10 (23 November 2026) also
   proves 31 and 33 for two pools in Lean. Research preprint; not externally peer reviewed;

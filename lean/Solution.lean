@@ -1,8 +1,13 @@
 /-
 Kochen-Specker Extremal Lab — Sorry-Free Solution Module Matched Against `Challenge`.
 -/
-import KS.Box3H2
-import KS.Box4H1
+
+module
+
+public import KS.Box3H2
+public import KS.Box4H1
+
+@[expose] public section
 
 namespace KS.ComparatorTarget
 

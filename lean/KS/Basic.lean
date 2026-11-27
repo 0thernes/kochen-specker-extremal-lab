@@ -13,6 +13,10 @@ No Mathlib.  Sets of rays are bit masks: ray `i` belongs to the set `m`
 exactly when `m.testBit i = true`.
 -/
 
+module
+
+@[expose] public section
+
 namespace KS
 
 /-- The orthogonality structure of a finite pool of rays.

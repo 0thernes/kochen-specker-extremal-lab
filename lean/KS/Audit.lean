@@ -9,9 +9,18 @@ at most the three standard axioms of Lean (propext, Classical.choice, Quot.sound
 no `sorryAx`, no `Lean.ofReduceBool` (the axiom behind evaluation by compiled
 code), and no custom axiom of this project.
 -/
-import Lean
-import KS
-import Solution
+
+module
+
+meta import Lean
+public import KS
+public import Solution
+import all KS.Basic
+import all KS.Spec
+import all KS.Box3H2
+import all KS.Box4H1
+import all KS.Tests
+import all Solution
 
 -- the two checkers are sound (KS/Basic.lean)
 #print axioms KS.small_sets_colorable
@@ -70,4 +79,4 @@ run_cmd do
       bad := bad.push s!"{name}: {forbidden}"
   if !bad.isEmpty then
     throwError s!"Disallowed axioms detected across KS theorems:\n{String.intercalate "\n" bad.toList}"
-  logInfo m!"ALL_KS_THEOREMS_AXIOM_AUDIT_PASS: checked {all.length} theorems in KS — 0 disallowed axioms."
+  logInfo m!"ALL_KS_THEOREMS_AXIOM_AUDIT_PASS: checked {all.length} kernel theorem constants in KS (62 hand-written) — 0 disallowed axioms."

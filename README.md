@@ -6,7 +6,7 @@ can be re-checked without trusting the search programs.
 [![CI](https://github.com/0thernes/kochen-specker-extremal-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/0thernes/kochen-specker-extremal-lab/actions/workflows/ci.yml)
 [![Lean 4.35.0 (Zero Mathlib)](https://img.shields.io/badge/Lean-4.35.0%20(zero%20Mathlib)-blue)](lean/README.md)
 [![License: Apache-2.0 / CC-BY-4.0](https://img.shields.io/badge/license-Apache--2.0%20%2F%20CC--BY--4.0-green)](LICENSE)
-[![Version 2.0.0](https://img.shields.io/badge/version-2.0.0-informational)](CHANGELOG.md)
+[![Version 2.1.0](https://img.shields.io/badge/version-2.1.0-informational)](CHANGELOG.md)
 
 **Paper:** [Certified exact minima of Kochen-Specker sets inside coordinate pools](paper/ks-minimum.md)
 &nbsp;·&nbsp; **Register of results:** [results/RESULTS.md](results/RESULTS.md)
@@ -17,7 +17,7 @@ can be re-checked without trusting the search programs.
 [docs/statement-fidelity.md](docs/statement-fidelity.md) · [docs/SUMMARY.md](docs/SUMMARY.md) ·
 [docs/INDEX.md](docs/INDEX.md) · [CHANGELOG.md](CHANGELOG.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, version 2.0.0, 26 November 2026. Not peer reviewed. AI-assisted under human
+Status: research preprint, version 2.1.0, 26 November 2026. Not peer reviewed. AI-assisted under human
 direction (see [LIMITATIONS.md](LIMITATIONS.md) and [LEGAL.md](LEGAL.md)).
 Author: Alexander S. Donahue, independent researcher
 ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
@@ -64,8 +64,8 @@ That 18 is the minimum in dimension four is a published theorem, and the 16 sets
 pool were known. What the lab adds is a proof that nothing smaller exists inside each pool, in a
 form that others can check. Two of the minimum values (31 for coordinates up to 2, and 18 in
 dimension four) are theorems checked by the Lean 4 kernel. The other seven rest on unsatisfiability
-proofs checked by the project's own proof checker (for B(3, 3) also by the third-party tools
-drat-trim and lrat-check), on the program that writes the formulas, and on lemmas proved on paper.
+proofs checked by the project's own proof checker (for B(3, 3), alongside B(3, 2) and B(4, 1), also by the third-party tools
+drat-trim, lrat-check and HOL4-verified cake_lpr), on the program that writes the formulas, and on lemmas proved on paper.
 Also new, as far as a literature search could tell: the exact minimum 33 for twelfth, eighteenth
 and twenty-fourth roots of unity, and the complete lists of the smallest sets for whole-number
 coordinates up to 3 and 4 and for twelfth roots of unity. On 23 November 2026, after this
@@ -224,7 +224,7 @@ Plain `lake build` checks every module: the definitions and checkers (`KS/Basic.
 in terms of integer vectors (`KS/Spec.lean`), the two data modules and the regression tests
 (`KS/Tests.lean`). It succeeds only if the Lean kernel accepts every proof. The second command prints
 the axioms of 30 explicit headline declarations and runs a `Lean.collectAxioms` metaprogram over
-all 149 theorem constants in the `KS` namespace, of which 62 are theorems written by hand and the
+all 116 theorem constants in the `KS` namespace under Lean 4.35 `module` mode, of which 62 are theorems written by hand and the
 rest are generated automatically (`ALL_KS_THEOREMS_AXIOM_AUDIT_PASS`). Every line shows at most `propext`, `Classical.choice` and `Quot.sound`,
 the three standard axioms of Lean; some lines show fewer or none. The two lines for the two main
 theorems are
@@ -366,8 +366,8 @@ the overlap with Kernaghan's version 10 noted where it applies):
 1. proofs with certificates for the results: Lean 4 kernel proofs for the 49-ray pool and for the
    40-ray pool of dimension four (released 10 November 2026; an independent Lean proof for the 49-ray
    pool appeared in Kernaghan's version 10 on 23 November 2026), replayable search trees, and
-   unsatisfiability proofs checked by the project's own checker (for three pools also by drat-trim
-   and lrat-check), at the level recorded for each row in the register;
+   unsatisfiability proofs checked by the project's own checker (for three pools also by drat-trim,
+   lrat-check and HOL4-verified cake_lpr), at the level recorded for each row in the register;
 2. complete lists of the minimum sets: exactly six for integer coordinates up to 3 and up to 4 (the
    same six as for 2), exactly 3 and 12 for sixth and twelfth roots of unity (the count 3 for sixth
    roots is also in Kernaghan's version 10), each list a single orbit
@@ -435,7 +435,7 @@ The demonstration `python scripts/run_all.py --stack` additionally uses the Eshk
   recorded in the register. The register and
   [docs/INDEX.md](docs/INDEX.md) give the level for every row and the status of every proof check.
 * **What CI re-checks.** Continuous integration checks the unsatisfiability proofs with the
-  third-party tools drat-trim and lrat-check for B(3, 2), B(4, 1) and B(3, 3) only. For B(3, 4),
+  third-party tools drat-trim, lrat-check and HOL4-verified cake_lpr for B(3, 2), B(4, 1) and B(3, 3) only. For B(3, 4),
   U(3, 6), U(3, 12), U(3, 18), U(3, 24) and B(5, 1) the only proof checker is the project's own
   `verify/drup_check.c`, and the proof files are not kept in git; re-checking them means
   regenerating them with the commands in [docs/INDEX.md](docs/INDEX.md).

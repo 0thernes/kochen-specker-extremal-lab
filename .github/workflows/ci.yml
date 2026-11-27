@@ -189,28 +189,28 @@ jobs:
               sys.exit(1)
           print("PASS: 0 forbidden Lean tokens across KS & Solution.")
           PY
-      - name: Adversarial false-variant definition tests (Playbook v1.3 Checklist #12)
+      - name: Negative Lean sanity checks (closed decidable facts)
         working-directory: lean
         shell: bash
         run: |
           set +e
           out1=$(lake env lean --stdin 2>&1 <<'LEAN'
           import KS.Spec
-          theorem adversarial_false_box3_size :
+          theorem sanity_false_box3_size :
               (KS.boxRays 3 2).length = 48 := by
             decide
           LEAN
           ); rc1=$?
           out2=$(lake env lean --stdin 2>&1 <<'LEAN'
           import KS.Spec
-          theorem adversarial_false_box4_size :
+          theorem sanity_false_box4_size :
               (KS.boxRays 4 1).length = 39 := by
             decide
           LEAN
           ); rc2=$?
           out3=$(lake env lean --stdin 2>&1 <<'LEAN'
           import KS.Basic
-          theorem adversarial_false_card :
+          theorem sanity_false_card :
               KS.card 49 (2 ^ 30 - 1) = 31 := by
             decide
           LEAN
@@ -222,11 +222,11 @@ jobs:
             rc="${rest%%:*}"
             msg="${rest#*:}"
             if [ "$rc" -eq 0 ] || ! printf '%s' "$msg" | grep -q "proved that the proposition"; then
-              echo "ERROR: Adversarial test $idx did not cleanly refute false proposition (rc=$rc): $msg" >&2
+              echo "ERROR: Sanity check $idx did not reject false closed fact (rc=$rc): $msg" >&2
               exit 1
             fi
           done
-          echo "PASS: All 3 adversarial false-variant KS Lean theorems were cleanly refuted by kernel decide."
+          echo "PASS: All 3 negative Lean sanity checks (closed decidable facts) were rejected by kernel decide."
       - name: Independent leanchecker --fresh replay (Playbook v1.3 H04)
         working-directory: lean
         run: lake env leanchecker --fresh Solution

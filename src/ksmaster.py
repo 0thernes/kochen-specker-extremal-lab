@@ -344,7 +344,8 @@ if __name__ == "__main__":
         logf.flush()
 
     core, sym = build(kind, args, log)
-    fix_in, fix_out = [], []
+    fix_in: list[int] = []
+    fix_out: list[int] = []
     if case != "-":
         d = core.d
         axis = {}
@@ -375,7 +376,8 @@ if __name__ == "__main__":
         if case == "-":
             groups = [list(range(d))]
         else:
-            ins, outs = [], []
+            ins: list[int] = []
+            outs: list[int] = []
             for part in case.split(";"):
                 nm, vals = part.split(":")
                 (ins if nm == "in" else outs).extend(int(c) for c in vals.split(",") if c != "")

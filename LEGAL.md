@@ -1,6 +1,6 @@
 # Licence, authorship and publication notes
 
-Kochen-Specker Extremal Lab, version 2.0.0, 24 November 2026.
+Kochen-Specker Extremal Lab, version 2.1.0, 24 November 2026.
 Alexander S. Donahue (independent researcher). Contact: 0_0@0thernes.art.
 ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648).
 
@@ -63,10 +63,10 @@ Not claimed here:
 * the values 31, 33, 18 and 29, which are the sizes of published sets (Conway and Kochen; Cabello and
   Pavičić; Cabello, Estebaranz and García-Alcaine);
 * the minimum 31 for the 49 rays with integer coordinates up to 2 and the minimum 33 for sixth roots
-  of unity, both reported as exact, without a certificate, by Kernaghan (arXiv:2603.16988), who also
+  of unity, reported in versions 1–9 of Kernaghan (arXiv:2603.16988; procedure later withdrawn as unsound in v10), who also
   lists 31 for coordinates up to 3, finds six distinct 31-ray sets in the 49-ray pool by randomised
   minimisation, and proves that the pool of N-th roots of unity contains a Kochen-Specker set if and
-  only if 6 divides N;
+  only if 6 divides N; version 10 (23 November 2026, after our v1.0.0 of 10 November 2026) independently certifies 31 for the 49-ray and 145-ray pools and 33 (with 3 minimum sets) for sixth roots of unity and proves 31 (49-ray pool) and 33 (sixth roots) in Lean with Mathlib;
 * the minimum 31 for integer coordinates up to 2, 3 and 4, reported in October 2026 in a note on the
   forum ProblemHive (post p/xfkay), obtained with CP-SAT and coloring cuts, which states itself that
   its solver logs are not a certificate;

@@ -29,10 +29,20 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from pysat.solvers import Solver
+try:
+    from ksengine import bits, mask
+except ImportError:
+    def bits(x: int):
+        while x:
+            lsb = x & -x
+            yield lsb.bit_length() - 1
+            x ^= lsb
 
-from ksdfs import build
-from ksengine import bits, mask
+    def mask(it) -> int:
+        m = 0
+        for v in it:
+            m |= 1 << v
+        return m
 
 
 class CNF:
@@ -202,6 +212,9 @@ def closed_under(sym, sets):
 
 
 if __name__ == "__main__":
+    from pysat.solvers import Solver
+    from ksdfs import build
+
     cuts_path = sys.argv[1]
     k = int(sys.argv[2])
     case = sys.argv[3]

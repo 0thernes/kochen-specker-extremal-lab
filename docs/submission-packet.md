@@ -5,7 +5,7 @@
 ## 1. Palomar Registry Draft Payload (`formalization.yaml`)
 
 - **Repository:** `https://github.com/0thernes/kochen-specker-extremal-lab`
-- **Lean toolchain:** `leanprover/lean4:v4.35.0` (**zero Mathlib**)
+- **Lean toolchain & Palomar compliance:** `leanprover/lean4:v4.35.0` (**zero Mathlib**; all 9 `.lean` files carry Lean 4.35 `module` headers, ≤ 10,000 lines, zero `.lean` symlinks; `Challenge.lean` ≤ 1,000 lines / 100 KiB)
 - **Challenge / Solution / Config:** `lean/Challenge.lean`, `lean/Solution.lean`, `lean/comparator.json`
 - **Comparator command (official Lean kernel default and paranoid, plus lean4lean, nanoda, con-leche, con-ron):** `cd lean && lake build --wfail KS Solution && lake env lean KS/Audit.lean && lake env leanchecker --fresh Solution && lake comparator --config comparator.json --paranoid`
 - **4 targets accepted by these checkers (targets 3 and 4 are one-line corollaries of targets 1 and 2; the 17 rays of target 4 contain no basis):**
@@ -13,7 +13,9 @@
   2. `KS.ComparatorTarget.target_box4h1_minimum_18`
   3. `KS.ComparatorTarget.target_box3h2_nonvacuous_30`
   4. `KS.ComparatorTarget.target_box4h1_nonvacuous_17`
-- **Permanent Software Heritage snapshot:** `swh:1:snp:6df0f79e042201d9490512cc8dda65471db9fafb` (`v1.9.0`; updated snapshot recorded in `0thernes-research-archive` after `v2.0.0`)
+- **Permanent Software Heritage snapshot:** `swh:1:snp:0f2c39bdae6bd37a98dc53f071bfa2208c1ef4e5` (`v2.0.0`; refreshed via Save Code Now on each release)
+- **DOI fallback note (Playbook v1.3 H13):** Wait for Zenodo's reply to `publication/zenodo-inquiry.md`; if Zenodo declines, deposit via **OSF Preprints** (moderated, DOI on acceptance). Do not deposit to HAL until a formal affiliation exists.
+- **Export-control self-screen (Playbook v1.3 #37):** Pure mathematical foundations / combinatorics (`15 CFR 734.8` published fundamental research); no controlled cryptographic, defense, or dual-use implementation. Consult counsel if any doubt arises prior to commercial use.
 
 ## 2. Human Line-by-Line Statement Fidelity Sign-Off Checklist (Playbook v1.3)
 
@@ -29,4 +31,4 @@ Before flipping `human_line_by_line_review_recorded: false` → `true` in `forma
 
 - **Adán Cabello / Stefan Trandafir** (University of Seville) — share certified exact pool minima for $B(3,2..4)=31$, $U(3,N)=33$ for $N = 6, 12, 18, 24$ (matching Cabello 2025 14-basis complex set), and zero-Mathlib Lean 4 proofs for $B(3,2)$ and $B(4,1)$.
 - **Mladen Pavičić / Mordecai Waegell** — share independent proof-checked confirmation of 29 in $B(5,1)$ (crediting Pavičić & Megill 2022) and exact uniqueness of the 16 Peres sets inside $B(4,1)$ (crediting Waegell & Aravind 2011).
-- **Zhengyu Li / Curtis Bright / Vijay Ganesh / Stefan Szeider** — share the `drat-trim` → LRAT → `lrat-check` cross-check (three pools) + Lean 4 certificate pipeline for coordinate-pool KS minimality.
+- **Zhengyu Li / Curtis Bright / Vijay Ganesh / Stefan Szeider** — share the `drat-trim` → LRAT → `lrat-check` + HOL4-formally-verified `cake_lpr` cross-check (three pools) + zero-Mathlib Lean 4 certificate pipeline for coordinate-pool KS minimality.
