@@ -1,0 +1,39 @@
+{
+  "title": "Certified exact minima of Kochen-Specker sets inside coordinate pools: 31 and 33 rays in dimension three, 18 in dimension four, 29 in dimension five",
+  "description": "Certifies exact minimum Kochen-Specker set sizes inside finite coordinate pools: 31 in 3D integer pools (|c|<=2,3,4), 33 in 3D N-th roots of unity (N=6,12,18,24), 18 in 4D {0,+1,-1}, and 29 in 5D {0,+1,-1}, with zero-Mathlib Lean 4 kernel proofs for the |c|<=2 pool (31) and the 4D pool (18) (including bidirectional KS.isColoringBool_iff soundness/completeness, strengthened explicit-basis + 0/1-colouring non-vacuity, and kernel-proved false-variant refutations); the other seven values rest on SAT unsatisfiability proofs checked by verify/drup_check (cross-checked in Linux CI by pinned drat-trim -> LRAT -> lrat-check and HOL4-formally-verified cake_lpr across 11 UNSAT/uniqueness proofs spanning 6 of 9 pools and ALL 3 dimensions d in {3,4,5}: B(3,2) k=30 & k=31 uniq, B(4,1) k=17 & k=18 uniq, B(3,3) k=30 & k=31 uniq, U(3,6) k=32 & k=33 uniq, U(3,12) k=32 & k=33 uniq, and 5D B(5,1) branch in:0,1,2;out:3,4 k=28), a CNF encoder, and paper lemmas.",
+  "upload_type": "software",
+  "license": "apache-2.0",
+  "creators": [
+    {
+      "name": "Donahue, Alexander Stephen",
+      "affiliation": "Independent Researcher, Spokane, WA, USA",
+      "orcid": "0009-0006-8168-9648"
+    }
+  ],
+  "keywords": [
+    "Quantum Foundations",
+    "Combinatorial Optimization",
+    "Lean 4",
+    "formal verification",
+    "Palomar Registry",
+    "open research"
+  ],
+  "notes": "Code and Lean 4.35.0 proofs are licensed under Apache-2.0; manuscripts and figures are licensed under CC-BY-4.0. Independent research preprint (v2.3.0); not externally peer-reviewed. AI tools (Antigravity / Google DeepMind) assisted under human direction and audit. Software Heritage snapshot: swh:1:snp:4c421f5d8b6cf9d06c224ed7bfafe88bc3392f4f.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/0thernes/kochen-specker-extremal-lab",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://0thernes.github.io/kochen-specker-extremal-lab/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://archive.softwareheritage.org/swh:1:snp:4c421f5d8b6cf9d06c224ed7bfafe88bc3392f4f",
+      "relation": "isIdenticalTo",
+      "scheme": "url"
+    }
+  ]
+}
