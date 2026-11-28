@@ -35,5 +35,7 @@
       "relation": "isIdenticalTo",
       "scheme": "url"
     }
-  ]
+  ],
+  "version": "2.3.0",
+  "publication_date": "2026-11-27"
 }
