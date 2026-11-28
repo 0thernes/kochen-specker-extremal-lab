@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# SPDX-License-Identifier: Apache-2.0
+version: "v0.4"
+
+project:
+  name: "Certified Exact Minima of Kochen-Specker Sets Inside Coordinate Pools (31/33 in R^3, 18 in R^4, 29 in R^5)"
+  description: >-
+    Zero-Mathlib Lean 4.35.0 formalization and independent SAT/DRUP/LRAT/HOL4-cake_lpr
+    certification of exact minimal Kochen-Specker sets inside standard integer coordinate pools:
+    31 and 33 rays in R^3 (Conway-Kochen / Peres pools), 18 rays in R^4 (Cabello-Estebaranz-Garcia-Alcaine),
+    and 29 rays in R^5 (Cabello-Portillo-Solis-Svozil), with isolated Challenge/Solution Palomar
+    comparator targets and strictly standard axioms [propext, Classical.choice, Quot.sound].
+  authors:
+    - "Alexander Stephen Donahue"
+  responsible_maintainers:
+    - "Alexander Stephen Donahue"
+  license: "Apache-2.0"
+  release_version: "2.3.0"
+  orcid: "0009-0006-8168-9648"
+
+classification:
+  arxiv:
+    - "quant-ph"
+    - "math.CO"
+    - "cs.LO"
+  msc2020:
+    - "81P13"
+    - "05C15"
+    - "03B35"
+
+sources:
+  - title: "Certified exact minima of Kochen-Specker sets inside coordinate pools: 31 and 33 rays in dimension three, 18 in dimension four, 29 in dimension five"
+    authors:
+      - "Alexander Stephen Donahue"
+    id: "https://github.com/0thernes/kochen-specker-extremal-lab"
+    type: "original-proof"
+    relationship: "other"
+    author_endorsement: "participated"
+    note: "Original Lean 4.35.0 formalization and preprint (v2.3.0; SWHID swh:1:snp:4c421f5d8b6cf9d06c224ed7bfafe88bc3392f4f)."
+  - title: "The Problem of Hidden Variables in Quantum Mechanics"
+    authors:
+      - "Simon Kochen"
+      - "Ernst P. Specker"
+    id: "https://doi.org/10.1512/iumj.1968.17.17004"
+    type: "article"
+    relationship: "background"
+    author_endorsement: "n/a"
+
+automation:
+  methods:
+    - method: "manual"
+      notes: "Alexander Stephen Donahue directed problem scoping, audited statement fidelity, and verified all machine-checked certificates."
+    - method: "agent"
+      models:
+        - "Claude"
+        - "Gemini"
+      framework: "Antigravity"
+      notes: "Assisted with zero-Mathlib Lean 4.35.0 proofs, Challenge/Solution comparator bridge, and SAT/LRAT/cake_lpr verification tooling under human oversight."
+
+review:
+  status: "self-assessed"
+  notes: "Not externally peer-reviewed. Machine-checked in zero-Mathlib Lean 4.35.0 across 6 independent proof kernels plus independent drat-trim/LRAT/HOL4 cake_lpr replay."

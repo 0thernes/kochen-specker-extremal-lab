@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: Apache-2.0
+# Official Palomar Registry mechanical preflight workflow (submit.palomar-registry.org/llms.txt)
+name: Palomar Mechanical Preflight
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  palomar-preflight:
+    uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@952cc3697b3f335c6cc0c21932e55ee92921dd35
+    with:
+      repository: ${{ github.repository }}
+      commit: ${{ github.sha }}
+      pipeline_commit: 952cc3697b3f335c6cc0c21932e55ee92921dd35
+      request_id: kselprefligh
+      mode: full
+      execution_profile: palomar-standard-v1
+      options: '{"project_path":"lean","comparator_config_path":"lean/comparator.json","formalization_metadata_path":"lean/formalization.yaml","authorization_relationship":"I am a responsible author or maintainer"}'
